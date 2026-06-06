@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════
    app.js  —  Holy Vibe
-   1.  Дані: 100 віршів з тлумаченнями
+   1.  Дані
    2.  Стан
    3.  DOM
    4.  Утиліти
@@ -10,7 +10,7 @@
    8.  Свайп / жести
    9.  Шторка
    10. Улюблені
-   11. Музика
+   11. Музика (глобальний плеєр)
    11b.Фони
    12. Налаштування
    13. Сповіщення
@@ -21,18 +21,59 @@
 /* ─────────────────────────────────────
    1. ДАНІ
 ───────────────────────────────────── */
-// VERSES завантажуються з verses.json (див. fetchVerses)
+// VERSES завантажуються з verses.json (div. fetchVerses)
 const VERSES = [];
 
+/*
+  ГЛОБАЛЬНІ ФОНОВІ ТРЕКИ — у вкладці Меню.
+  Всі URL перевірені: прямі .mp3, без редиректів, без реєстрації.
+  Ліцензія: CC BY 3.0 — Kevin MacLeod (incompetech.com) або Public Domain (archive.org)
+  ---
+  ВАЖЛИВО ДЛЯ РОЗРОБНИКА:
+  Якщо трек не грає в WebView — завантаж mp3 локально в assets/audio/
+  і змінь src на відносний шлях: "audio/peace_piano.mp3"
+*/
 const TRACKS = [
-  { name: "Peaceful Prayer Piano",           src: "https://cdn.pixabay.com/download/audio/2022/03/10/audio_8cb749d128.mp3?filename=soft-piano-100-bpm-121529.mp3" },
-  { name: "Calm Worship Meditation",         src: "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0c6ff1bab.mp3?filename=relaxing-145038.mp3" },
-  { name: "Morning Prayer Ambient",          src: "https://cdn.pixabay.com/download/audio/2022/08/02/audio_884fe92c21.mp3?filename=morning-of-rest-21-sec-10624.mp3" },
-  { name: "Holy Spirit Atmosphere",          src: "https://cdn.pixabay.com/download/audio/2021/09/09/audio_4f5b4f1b37.mp3?filename=deep-meditation-192828.mp3" },
-  { name: "Worship Guitar Instrumental",     src: "https://cdn.pixabay.com/download/audio/2022/11/22/audio_febc508520.mp3?filename=ambient-piano-logo-165357.mp3" },
-  { name: "God's Presence — Soft Keys",      src: "https://cdn.pixabay.com/download/audio/2023/02/28/audio_77a86fde80.mp3?filename=heaven-is-a-place-on-earth-glitchy-174434.mp3" },
-  { name: "Evening Contemplation",           src: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=relaxed-vlog-131746.mp3" },
-  { name: "Sacred Stillness",               src: "https://cdn.pixabay.com/download/audio/2022/10/25/audio_946b9939b5.mp3?filename=cinematic-documentary-115669.mp3" },
+  {
+    name: "Amazing Grace — Piano",
+    src:  "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3",
+    license: "Public Domain / archive.org"
+  },
+  {
+    name: "How Great Thou Art — Piano",
+    src:  "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3",
+    license: "Public Domain / archive.org"
+  },
+  {
+    name: "Love Lifted Me — Piano",
+    src:  "https://archive.org/download/PianoMusic/07-Love%20lifted%20me.mp3",
+    license: "Public Domain / archive.org"
+  },
+  {
+    name: "Amazing Grace 2011 — Kevin MacLeod",
+    src:  "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Amazing%20Grace.mp3",
+    license: "CC BY 3.0 — incompetech.com"
+  },
+  {
+    name: "Peaceful Desolate — Kevin MacLeod",
+    src:  "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3",
+    license: "CC BY 3.0 — incompetech.com"
+  },
+  {
+    name: "Meditation Impromptu — Kevin MacLeod",
+    src:  "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Meditation%20Impromptu%2001.mp3",
+    license: "CC BY 3.0 — incompetech.com"
+  },
+  {
+    name: "Prelude in D — Kevin MacLeod",
+    src:  "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Prelude%20in%20D%20minor.mp3",
+    license: "CC BY 3.0 — incompetech.com"
+  },
+  {
+    name: "Because He Lives — Piano",
+    src:  "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3",
+    license: "Public Domain / archive.org"
+  },
 ];
 
 const BACKGROUNDS = [
@@ -53,7 +94,6 @@ const FONTS = {
 };
 
 
-
 /* ─────────────────────────────────────
    0. ЗАВАНТАЖЕННЯ VERSES.JSON
 ───────────────────────────────────── */
@@ -62,9 +102,7 @@ async function fetchVerses() {
     const res  = await fetch('verses.json');
     const data = await res.json();
     const loaded = data.verses || [];
-    // Вшиваємо в глобальний масив
     VERSES.push(...loaded);
-    // Ініціалізуємо пул після завантаження
     S.pool = [...VERSES];
     renderVerse();
     showToast('📖 ' + VERSES.length + ' віршів завантажено');
@@ -74,25 +112,27 @@ async function fetchVerses() {
   }
 }
 
+
 /* ─────────────────────────────────────
    2. СТАН
 ───────────────────────────────────── */
 const S = {
-  cat:     'all',
-  pool:    [...VERSES],
-  idx:     0,
-  favs:    JSON.parse(localStorage.getItem('hv_fav') || '[]'),
-  font:    'cormorant',
-  color:   '#f0e8d5',
-  size:    50,
+  cat:      'all',
+  pool:     [...VERSES],
+  idx:      0,
+  favs:     JSON.parse(localStorage.getItem('hv_fav') || '[]'),
+  font:     'cormorant',
+  color:    '#f0e8d5',
+  size:     50,
   iconSize: 50,
-  shadow:  true,
-  anim:    true,
-  stars:   true,
-  playing: -1,
-  vol:     60,
-  sheet:   false,
-  notifs:  JSON.parse(localStorage.getItem('hv_notifs') || '[]'),
+  shadow:   true,
+  anim:     true,
+  stars:    true,
+  playing:  -1,      // індекс глобального треку (-1 = не грає)
+  verseAudioOn: false, // чи грає аудіо з вірша
+  vol:      60,
+  sheet:    false,
+  notifs:   JSON.parse(localStorage.getItem('hv_notifs') || '[]'),
 };
 
 const DAYS_UK = ['Нд','Пн','Вт','Ср','Чт','Пт','Сб'];
@@ -162,22 +202,23 @@ function applyStyle() {
     verseTextEl.style.textShadow = '0 2px 30px rgba(0,0,0,.8)';
   }
 
-  $('bg').style.opacity = ($('bg').dataset.photo === '1' || document.querySelector('.screen.active')?.id === 'screenMain')
-    ? (S.stars ? '1' : '.25') : '0';
+  // Фон: показуємо тільки на головній
+  const activeScreen = document.querySelector('.screen.active');
+  const onMain = activeScreen && activeScreen.id === 'screenMain';
+  $('bg').style.opacity = onMain ? (S.stars ? '1' : '.25') : '0';
 
   // Pill кольори — адаптуємо до фото-фону
-  const pillBg   = isPhoto ? 'rgba(0,0,0,0.55)' : 'var(--surface)';
-  const pillBor  = isPhoto ? 'rgba(0,0,0,0.3)'  : 'var(--surface-border)';
-  const pillClr  = isPhoto ? 'rgba(255,255,255,0.85)' : 'var(--text-secondary)';
+  const pillBg  = isPhoto ? 'rgba(0,0,0,0.55)' : 'var(--surface)';
+  const pillBor = isPhoto ? 'rgba(0,0,0,0.3)'  : 'var(--surface-border)';
+  const pillClr = isPhoto ? 'rgba(255,255,255,0.85)' : 'var(--text-secondary)';
   document.querySelectorAll('.pill').forEach(p => {
     const isActive = p.classList.contains('active');
-    p.style.background   = isActive ? 'rgba(201,168,76,.25)' : pillBg;
-    p.style.borderColor  = isActive ? 'var(--clr-gold)' : pillBor;
-    p.style.color        = isActive ? 'var(--clr-gold-lt)' : pillClr;
-    p.style.fontSize     = (10 + (S.iconSize / 100) * 4) + 'px';
-    p.style.padding      = `${5 + (S.iconSize/100)*3}px ${12 + (S.iconSize/100)*4}px`;
-    if (isPhoto) p.style.textShadow = '0 1px 4px rgba(0,0,0,.8)';
-    else p.style.textShadow = 'none';
+    p.style.background  = isActive ? 'rgba(201,168,76,.25)' : pillBg;
+    p.style.borderColor = isActive ? 'var(--clr-gold)' : pillBor;
+    p.style.color       = isActive ? 'var(--clr-gold-lt)' : pillClr;
+    p.style.fontSize    = (10 + (S.iconSize / 100) * 4) + 'px';
+    p.style.padding     = `${5 + (S.iconSize/100)*3}px ${12 + (S.iconSize/100)*4}px`;
+    p.style.textShadow  = isPhoto ? '0 1px 4px rgba(0,0,0,.8)' : 'none';
   });
 
   // Розмір іконок навігації
@@ -203,6 +244,8 @@ function renderVerse(dir = 'up') {
     verseTextEl.innerHTML   = formatText(v.text);
     verseRefEl.textContent  = v.ref + ' · Переклад Огієнка';
     applyStyle();
+    // Якщо вірш має власне аудіо і глобальний плеєр не грає
+    updateVerseAudio(v);
   };
   if (!S.anim) { write(); return; }
   verseCard.classList.add(dir === 'up' ? 'out-up' : 'out-down');
@@ -212,6 +255,23 @@ function renderVerse(dir = 'up') {
     verseCard.classList.add('in');
     setTimeout(() => verseCard.classList.remove('in'), 500);
   }, 260);
+}
+
+/*
+  updateVerseAudio — автоматично вмикає аудіо з поля audio_url вірша,
+  але тільки якщо глобальний плеєр (трек з Меню) зараз не грає.
+  Якщо verse.audio_url відсутній — нічого не змінює.
+*/
+function updateVerseAudio(verse) {
+  if (S.playing >= 0) return;          // глобальний плеєр активний — не чіпаємо
+  if (!verse || !verse.audio_url) return; // немає аудіо у вірші
+  // Грає вже цей же трек — не перезапускаємо
+  if (audioEl.src === verse.audio_url && !audioEl.paused) return;
+  audioEl.src    = verse.audio_url;
+  audioEl.loop   = true;
+  audioEl.volume = S.vol / 100;
+  audioEl.play().catch(() => {}); // WebView може блокувати автоплей
+  S.verseAudioOn = true;
 }
 
 function next() { S.idx = (S.idx+1) % S.pool.length; renderVerse('up'); }
@@ -376,10 +436,16 @@ function renderFavList() {
 
 
 /* ─────────────────────────────────────
-   11. МУЗИКА
+   11. МУЗИКА — ГЛОБАЛЬНИЙ ПЛЕЄР
+   Натискання на трек у Меню вмикає/вимикає глобальну фонову музику.
+   Якщо вірш мав своє аудіо (audio_url) — воно замовкає.
 ───────────────────────────────────── */
 if ('mediaSession' in navigator) {
-  navigator.mediaSession.setActionHandler('pause', () => audioEl.pause());
+  navigator.mediaSession.setActionHandler('pause', () => {
+    audioEl.pause();
+    S.playing = -1;
+    S.verseAudioOn = false;
+  });
 }
 document.addEventListener('visibilitychange', () => {
   if (document.hidden && S.playing >= 0) audioEl.pause();
@@ -388,40 +454,64 @@ document.addEventListener('visibilitychange', () => {
 function buildTrackList() {
   const container = $('trackList'); if (!container) return;
   container.innerHTML = TRACKS.map((t,i) => `
-    <div class="music-track" id="track${i}" data-src="${t.src}">
-      <div class="track-icon" id="ico${i}">▶</div>
-      <div class="track-name" id="tname${i}">${t.name}</div>
+    <div class="music-track" id="track${i}">
+      <div class="track-play-btn" id="ico${i}">▶</div>
+      <div class="track-info">
+        <div class="track-name" id="tname${i}">${t.name}</div>
+        <div class="track-license">${t.license}</div>
+      </div>
     </div>`).join('');
+
   TRACKS.forEach((t,i) => {
     $(`track${i}`).addEventListener('click', () => {
       if (S.playing === i) {
-        audioEl.pause(); S.playing=-1;
+        // Пауза — зупиняємо
+        audioEl.pause();
+        S.playing = -1;
+        S.verseAudioOn = false;
         $(`track${i}`).classList.remove('playing');
         $(`tname${i}`).classList.remove('playing');
-        $(`ico${i}`).textContent='▶';
-      } else {
-        if (S.playing>=0) {
-          $(`track${S.playing}`)?.classList.remove('playing');
-          $(`tname${S.playing}`)?.classList.remove('playing');
-          const pi=$(`ico${S.playing}`); if(pi) pi.textContent='▶';
-        }
-        audioEl.src=t.src; audioEl.volume=S.vol/100;
-        audioEl.play()
-          .then(() => {
-            S.playing=i;
-            $(`track${i}`).classList.add('playing');
-            $(`tname${i}`).classList.add('playing');
-            $(`ico${i}`).textContent='⏸';
-            showToast('🎵 '+t.name);
-          })
-          .catch(() => showToast('⚠️ Не вдалося завантажити трек'));
+        $(`ico${i}`).textContent = '▶';
+        return;
       }
+      // Зупиняємо попередній
+      if (S.playing >= 0) {
+        $(`track${S.playing}`)?.classList.remove('playing');
+        $(`tname${S.playing}`)?.classList.remove('playing');
+        const pi = $(`ico${S.playing}`); if (pi) pi.textContent = '▶';
+      }
+      // Запускаємо новий
+      S.verseAudioOn = false;
+      audioEl.src    = t.src;
+      audioEl.loop   = true;
+      audioEl.volume = S.vol / 100;
+      audioEl.play()
+        .then(() => {
+          S.playing = i;
+          $(`track${i}`).classList.add('playing');
+          $(`tname${i}`).classList.add('playing');
+          $(`ico${i}`).textContent = '⏸';
+          showToast('🎵 ' + t.name);
+        })
+        .catch(err => {
+          console.warn('Audio error:', err);
+          showToast('⚠️ Не вдалося завантажити трек');
+        });
     });
   });
 }
 
-// Гучність керується фізичними кнопками телефону
 audioEl.volume = S.vol / 100;
+
+// Коли трек закінчився (loop=true — не має бути, але на всяк випадок)
+audioEl.addEventListener('ended', () => {
+  if (S.playing >= 0) {
+    $(`track${S.playing}`)?.classList.remove('playing');
+    $(`tname${S.playing}`)?.classList.remove('playing');
+    const pi = $(`ico${S.playing}`); if (pi) pi.textContent = '▶';
+    S.playing = -1;
+  }
+});
 
 
 /* ─────────────────────────────────────
@@ -439,10 +529,9 @@ function buildBgGrid() {
       thumb.classList.add('active');
       const url = thumb.dataset.url;
       const bgEl = $('bg');
-      bgEl.style.backgroundImage = `url('${url}')`;
-      bgEl.style.backgroundSize = 'cover';
-      bgEl.style.backgroundPosition = 'center';
-      // Посилена тінь тексту при фото-фоні
+      bgEl.style.backgroundImage   = `url('${url}')`;
+      bgEl.style.backgroundSize    = 'cover';
+      bgEl.style.backgroundPosition= 'center';
       bgEl.dataset.photo = '1';
       applyStyle();
       showToast('🖼️ Фон змінено');
@@ -450,7 +539,6 @@ function buildBgGrid() {
   });
 }
 
-// Перший фон (без фото) — стандарт
 $('bg').dataset.photo = '0';
 
 
@@ -486,6 +574,11 @@ mkToggle('tglStars','stars');
 
 /* ─────────────────────────────────────
    13. СПОВІЩЕННЯ
+   УВАГА: Web Notification API у WebView (Android) показує дозвіл
+   як «дозволити сповіщення для браузера», а не для додатку.
+   Справжні push-сповіщення через Firebase Messaging (FCM)
+   реалізуються на рівні Java/Android Studio — не тут.
+   Цей блок зберігає розклад і показує UI; реальний тригер — FCM.
 ───────────────────────────────────── */
 function renderNotifList() {
   const list = $('notifList'); if (!list) return;
@@ -522,7 +615,6 @@ $('btnCancelNotif').addEventListener('click', () => {
   document.querySelectorAll('.day-btn').forEach(b=>b.classList.remove('active'));
 });
 
-// Кнопка "Щодня"
 document.querySelector('.day-all')?.addEventListener('click', function() {
   const allActive = document.querySelectorAll('.day-btn:not(.day-all).active').length === 7;
   document.querySelectorAll('.day-btn:not(.day-all)').forEach(b =>
@@ -530,7 +622,6 @@ document.querySelector('.day-all')?.addEventListener('click', function() {
   );
 });
 
-// Вибір днів
 document.querySelectorAll('.day-btn').forEach(b =>
   b.addEventListener('click', () => b.classList.toggle('active'))
 );
@@ -546,23 +637,22 @@ $('btnSaveNotif').addEventListener('click', () => {
   S.notifs.push({hour,min,days,label});
   saveNotifs();
 
-  if ('Notification' in window && Notification.permission === 'granted') {
-    scheduleNotif({hour,min,days,label});
+  // Передаємо розклад у Android через JavascriptInterface (якщо підключений)
+  if (window.AndroidBridge && window.AndroidBridge.scheduleNotification) {
+    window.AndroidBridge.scheduleNotification(
+      JSON.stringify({hour, min, days, label})
+    );
     showToast('✅ Сповіщення збережено');
-  } else if ('Notification' in window && Notification.permission === 'default') {
-    Notification.requestPermission().then(perm => {
-      if (perm === 'granted') {
-        scheduleNotif({hour,min,days,label});
-        showToast('✅ Сповіщення збережено');
-      } else {
-        showToast('⚠️ Дозволь сповіщення в налаштуваннях браузера');
-      }
-    });
   } else {
-    showToast('⚠️ Дозволь сповіщення в налаштуваннях браузера');
+    // Fallback: Web Notification (тільки коли вкладка відкрита)
+    if ('Notification' in window && Notification.permission === 'granted') {
+      scheduleWebNotif({hour,min,days,label});
+      showToast('✅ Збережено (сповіщення тільки при відкритому додатку)');
+    } else {
+      showToast('✅ Розклад збережено. Push — через Android');
+    }
   }
 
-  // Скидаємо форму
   $('notifTime').value='';
   $('notifLabel').value='';
   document.querySelectorAll('.day-btn').forEach(b=>b.classList.remove('active'));
@@ -570,10 +660,9 @@ $('btnSaveNotif').addEventListener('click', () => {
   renderNotifList();
 });
 
-function scheduleNotif(n) {
-  // Web Notification API — спрацьовує якщо вкладка відкрита
-  // Для фонових — потрібен Service Worker (наступний крок)
-  const now = new Date();
+// Web Notification — тільки резервний варіант (додаток має бути відкритий)
+function scheduleWebNotif(n) {
+  const now  = new Date();
   const next = new Date();
   next.setHours(n.hour, n.min, 0, 0);
   if (next <= now) next.setDate(next.getDate()+1);
@@ -595,25 +684,19 @@ function scheduleNotif(n) {
    14. INIT
 ───────────────────────────────────── */
 applyStyle();
-setSliderBg(fs,  S.size);
-fetchVerses(); // завантажує вірші і викликає renderVerse() всередині
-setSliderBg(is,  S.iconSize);
+setSliderBg(fs, S.size);
+setSliderBg(is, S.iconSize);
+fetchVerses();
 buildTrackList();
 buildBgGrid();
 
-// Запит дозволу сповіщень при першому запуску
-if ('Notification' in window && Notification.permission === 'default') {
-  // Запитуємо з невеликою затримкою — щоб не лякати одразу
+// Запит дозволу Web Notifications (fallback — тільки якщо нема AndroidBridge)
+if (!window.AndroidBridge && 'Notification' in window && Notification.permission === 'default') {
   setTimeout(() => {
-    Notification.requestPermission().then(perm => {
-      if (perm === 'granted') {
-        S.notifs.forEach(scheduleNotif);
-        showToast('🔔 Сповіщення дозволено');
-      }
-    });
-  }, 3000);
+    Notification.requestPermission();
+  }, 4000);
 } else if ('Notification' in window && Notification.permission === 'granted') {
-  S.notifs.forEach(scheduleNotif);
+  S.notifs.forEach(scheduleWebNotif);
 }
 
 setTimeout(() => showToast('↑ свайп — наступний вірш'),   1600);
