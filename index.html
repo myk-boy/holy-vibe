@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#080c18">
-  <title>Слово</title>
+  <title>Holy Vibe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -25,8 +25,21 @@
     <div class="screen active" id="screenMain">
       <div class="safe-top"></div>
 
+      <!-- Кнопка категорій + Категорії -->
+      <div class="cat-toggle-wrap" id="catToggleWrap">
+        <button class="cat-toggle-btn" id="catToggleBtn" title="Категорії">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M2 4h12M2 8h8M2 12h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span id="catToggleLabel">Усі</span>
+          <svg class="cat-toggle-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
       <!-- Категорії -->
-      <div class="cat-bar" id="catBar">
+      <div class="cat-bar" id="catBar" style="display:none">
         <div class="pill active" data-cat="all">Усі</div>
         <div class="pill" data-cat="peace">Мир</div>
         <div class="pill" data-cat="love">Любов</div>
@@ -74,7 +87,7 @@
 
       <!-- Музика -->
       <div class="card music-block">
-        <div class="music-title">🎵 Музика Просочення (CC)</div>
+        <div class="music-title">🎵 Молитовна музика (CC)</div>
         <div id="trackList"></div>
 
       </div>
@@ -85,10 +98,7 @@
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 5h12M4 10h8M4 15h5" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/></svg>
           Методичка «Просочення»
         </div>
-        <div class="menu-row">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="13" rx="2" stroke="#c9a84c" stroke-width="1.3"/><path d="M7 4V3M13 4V3M6 9h8M6 13h5" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/></svg>
-          Сповіщення по днях тижня
-        </div>
+      
         <div class="menu-row">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 4h14M3 10h9M3 16h6" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/></svg>
           Модулі Біблії — MyBible ↗
@@ -146,6 +156,9 @@
           <div class="color-dot" data-color="#e8d08a"  style="background:#e8d08a"></div>
           <div class="color-dot" data-color="#b8d4f0"  style="background:#b8d4f0"></div>
           <div class="color-dot" data-color="#d4e8c8"  style="background:#d4e8c8"></div>
+          <div class="color-dot" data-color="#111111"  style="background:#111;border:1px solid rgba(255,255,255,.2)"></div>
+          <div class="color-dot" data-color="#1a1a2e"  style="background:#1a1a2e;border:1px solid rgba(255,255,255,.2)"></div>
+          <div class="color-dot" data-color="#2c1810"  style="background:#2c1810;border:1px solid rgba(255,255,255,.2)"></div>
         </div>
       </div>
 

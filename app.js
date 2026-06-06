@@ -25,14 +25,14 @@
 const VERSES = [];
 
 const TRACKS = [
-  { name: "Soaking Prayer — Calm Piano",              src: "https://cdn.pixabay.com/download/audio/2024/10/11/audio_9a1e3d5c2f.mp3" },
-  { name: "Peaceful Piano Worship (Loop)",            src: "https://cdn.pixabay.com/download/audio/2024/07/10/audio_4b2e1c8a3d.mp3" },
-  { name: "Beautiful Christian Piano — Peaceful Joy", src: "https://cdn.pixabay.com/download/audio/2024/09/15/audio_7f3a2b1c9e.mp3" },
-  { name: "Christian Worship — Calm Instrumental",   src: "https://cdn.pixabay.com/download/audio/2023/11/20/audio_5d4c3b2a1f.mp3" },
-  { name: "Instrumental Guitar Worship to Jesus",    src: "https://cdn.pixabay.com/download/audio/2023/08/12/audio_2a1b3c4d5e.mp3" },
-  { name: "Morning's First Light — Jesus Christ",    src: "https://cdn.pixabay.com/download/audio/2023/05/08/audio_1c2d3e4f5a.mp3" },
-  { name: "God Is Always Faithful — Background",     src: "https://cdn.pixabay.com/download/audio/2024/03/22/audio_8e7d6c5b4a.mp3" },
-  { name: "God Will Make a Way — Instrumental",      src: "https://cdn.pixabay.com/download/audio/2024/02/14/audio_3b4c5d6e7f.mp3" },
+  { name: "Peaceful Prayer Piano",           src: "https://cdn.pixabay.com/download/audio/2022/03/10/audio_8cb749d128.mp3?filename=soft-piano-100-bpm-121529.mp3" },
+  { name: "Calm Worship Meditation",         src: "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0c6ff1bab.mp3?filename=relaxing-145038.mp3" },
+  { name: "Morning Prayer Ambient",          src: "https://cdn.pixabay.com/download/audio/2022/08/02/audio_884fe92c21.mp3?filename=morning-of-rest-21-sec-10624.mp3" },
+  { name: "Holy Spirit Atmosphere",          src: "https://cdn.pixabay.com/download/audio/2021/09/09/audio_4f5b4f1b37.mp3?filename=deep-meditation-192828.mp3" },
+  { name: "Worship Guitar Instrumental",     src: "https://cdn.pixabay.com/download/audio/2022/11/22/audio_febc508520.mp3?filename=ambient-piano-logo-165357.mp3" },
+  { name: "God's Presence — Soft Keys",      src: "https://cdn.pixabay.com/download/audio/2023/02/28/audio_77a86fde80.mp3?filename=heaven-is-a-place-on-earth-glitchy-174434.mp3" },
+  { name: "Evening Contemplation",           src: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=relaxed-vlog-131746.mp3" },
+  { name: "Sacred Stillness",               src: "https://cdn.pixabay.com/download/audio/2022/10/25/audio_946b9939b5.mp3?filename=cinematic-documentary-115669.mp3" },
 ];
 
 const BACKGROUNDS = [
@@ -42,7 +42,7 @@ const BACKGROUNDS = [
   { name: "Тихе озеро",    url: "https://images.unsplash.com/photo-1439853949212-36089e104e22?w=800&q=80" },
   { name: "Пшеничне поле", url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" },
   { name: "Зоряне небо",   url: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80" },
-  { name: "Осінній ліс",   url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" },
+  { name: "Осінній ліс",   url: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&q=80" },
   { name: "Захід сонця",   url: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80" },
 ];
 
@@ -151,8 +151,34 @@ function applyStyle() {
   verseTextEl.style.color      = S.color;
   const base = 18 + (S.size / 100) * 12;
   verseTextEl.style.fontSize   = `clamp(${base-2}px,${(base*.45).toFixed(1)}vw,${base+4}px)`;
-  verseTextEl.style.textShadow = S.shadow ? '0 2px 30px rgba(0,0,0,.8)' : 'none';
-  $('bg').style.opacity        = S.stars ? '1' : '.25';
+
+  // Тінь тексту — посилена на фото-фоні для контрасту
+  const isPhoto = $('bg').dataset.photo === '1';
+  if (!S.shadow) {
+    verseTextEl.style.textShadow = 'none';
+  } else if (isPhoto) {
+    verseTextEl.style.textShadow = '0 2px 4px rgba(0,0,0,1), 0 4px 40px rgba(0,0,0,.95), 0 0 80px rgba(0,0,0,.8)';
+  } else {
+    verseTextEl.style.textShadow = '0 2px 30px rgba(0,0,0,.8)';
+  }
+
+  $('bg').style.opacity = ($('bg').dataset.photo === '1' || document.querySelector('.screen.active')?.id === 'screenMain')
+    ? (S.stars ? '1' : '.25') : '0';
+
+  // Pill кольори — адаптуємо до фото-фону
+  const pillBg   = isPhoto ? 'rgba(0,0,0,0.55)' : 'var(--surface)';
+  const pillBor  = isPhoto ? 'rgba(0,0,0,0.3)'  : 'var(--surface-border)';
+  const pillClr  = isPhoto ? 'rgba(255,255,255,0.85)' : 'var(--text-secondary)';
+  document.querySelectorAll('.pill').forEach(p => {
+    const isActive = p.classList.contains('active');
+    p.style.background   = isActive ? 'rgba(201,168,76,.25)' : pillBg;
+    p.style.borderColor  = isActive ? 'var(--clr-gold)' : pillBor;
+    p.style.color        = isActive ? 'var(--clr-gold-lt)' : pillClr;
+    p.style.fontSize     = (10 + (S.iconSize / 100) * 4) + 'px';
+    p.style.padding      = `${5 + (S.iconSize/100)*3}px ${12 + (S.iconSize/100)*4}px`;
+    if (isPhoto) p.style.textShadow = '0 1px 4px rgba(0,0,0,.8)';
+    else p.style.textShadow = 'none';
+  });
 
   // Розмір іконок навігації
   const iconPx = 20 + (S.iconSize / 100) * 16;
@@ -163,11 +189,6 @@ function applyStyle() {
   const labelPx = 9 + (S.iconSize / 100) * 5;
   document.querySelectorAll('.nav-label').forEach(l => {
     l.style.fontSize = labelPx + 'px';
-  });
-  // Іконки категорій та верхня панель
-  document.querySelectorAll('.pill').forEach(p => {
-    p.style.fontSize = (10 + (S.iconSize / 100) * 4) + 'px';
-    p.style.padding  = `${5 + (S.iconSize/100)*3}px ${12 + (S.iconSize/100)*4}px`;
   });
 }
 
@@ -205,11 +226,22 @@ function goScreen(id) {
   $(id).classList.add('active');
   document.querySelectorAll('.nav-btn').forEach(b =>
     b.classList.toggle('active', b.dataset.screen === id));
+  // Фон тільки на головній
+  $('bg').style.opacity = (id === 'screenMain') ? (S.stars ? '1' : '.25') : '0';
   if (id === 'screenFav')      renderFavList();
   if (id === 'screenSettings') renderNotifList();
 }
 document.querySelectorAll('.nav-btn').forEach(b =>
   b.addEventListener('click', () => goScreen(b.dataset.screen)));
+
+// Тоглення панелі категорій
+let catBarVisible = false;
+$('catToggleBtn').addEventListener('click', () => {
+  catBarVisible = !catBarVisible;
+  const bar = $('catBar');
+  bar.style.display = catBarVisible ? 'flex' : 'none';
+  $('catToggleBtn').classList.toggle('open', catBarVisible);
+});
 
 $('catBar').addEventListener('click', e => {
   const p = e.target.closest('.pill'); if (!p) return;
@@ -218,6 +250,13 @@ $('catBar').addEventListener('click', e => {
   S.cat  = p.dataset.cat;
   S.pool = S.cat === 'all' ? [...VERSES] : VERSES.filter(v => v.cat === S.cat);
   S.idx  = 0;
+  // Оновлюємо мітку кнопки
+  $('catToggleLabel').textContent = p.textContent;
+  // Закриваємо панель після вибору
+  catBarVisible = false;
+  $('catBar').style.display = 'none';
+  $('catToggleBtn').classList.remove('open');
+  applyStyle();
   renderVerse('up');
 });
 
@@ -398,11 +437,21 @@ function buildBgGrid() {
     thumb.addEventListener('click', () => {
       container.querySelectorAll('.bg-thumb').forEach(t=>t.classList.remove('active'));
       thumb.classList.add('active');
-      $('bg').style.cssText += `;background-image:url('${thumb.dataset.url}');background-size:cover;background-position:center`;
+      const url = thumb.dataset.url;
+      const bgEl = $('bg');
+      bgEl.style.backgroundImage = `url('${url}')`;
+      bgEl.style.backgroundSize = 'cover';
+      bgEl.style.backgroundPosition = 'center';
+      // Посилена тінь тексту при фото-фоні
+      bgEl.dataset.photo = '1';
+      applyStyle();
       showToast('🖼️ Фон змінено');
     });
   });
 }
+
+// Перший фон (без фото) — стандарт
+$('bg').dataset.photo = '0';
 
 
 /* ─────────────────────────────────────
@@ -497,18 +546,20 @@ $('btnSaveNotif').addEventListener('click', () => {
   S.notifs.push({hour,min,days,label});
   saveNotifs();
 
-  // Запросити дозвіл на сповіщення
-  if ('Notification' in window) {
+  if ('Notification' in window && Notification.permission === 'granted') {
+    scheduleNotif({hour,min,days,label});
+    showToast('✅ Сповіщення збережено');
+  } else if ('Notification' in window && Notification.permission === 'default') {
     Notification.requestPermission().then(perm => {
       if (perm === 'granted') {
         scheduleNotif({hour,min,days,label});
         showToast('✅ Сповіщення збережено');
       } else {
-        showToast('⚠️ Дозволь сповіщення в налаштуваннях');
+        showToast('⚠️ Дозволь сповіщення в налаштуваннях браузера');
       }
     });
   } else {
-    showToast('✅ Збережено (push — через сервер)');
+    showToast('⚠️ Дозволь сповіщення в налаштуваннях браузера');
   }
 
   // Скидаємо форму
@@ -537,10 +588,7 @@ function scheduleNotif(n) {
   }, delay);
 }
 
-// Відновлюємо сповіщення при завантаженні
-if ('Notification' in window && Notification.permission === 'granted') {
-  S.notifs.forEach(scheduleNotif);
-}
+// (відновлення сповіщень — в секції 14 INIT)
 
 
 /* ─────────────────────────────────────
@@ -552,6 +600,21 @@ fetchVerses(); // завантажує вірші і викликає renderVers
 setSliderBg(is,  S.iconSize);
 buildTrackList();
 buildBgGrid();
+
+// Запит дозволу сповіщень при першому запуску
+if ('Notification' in window && Notification.permission === 'default') {
+  // Запитуємо з невеликою затримкою — щоб не лякати одразу
+  setTimeout(() => {
+    Notification.requestPermission().then(perm => {
+      if (perm === 'granted') {
+        S.notifs.forEach(scheduleNotif);
+        showToast('🔔 Сповіщення дозволено');
+      }
+    });
+  }, 3000);
+} else if ('Notification' in window && Notification.permission === 'granted') {
+  S.notifs.forEach(scheduleNotif);
+}
 
 setTimeout(() => showToast('↑ свайп — наступний вірш'),   1600);
 setTimeout(() => showToast('✦ довге натискання — тлумач'), 4800);

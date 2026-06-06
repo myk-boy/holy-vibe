@@ -235,14 +235,60 @@ input[type=range]::-webkit-slider-thumb {
    8. ЕКРАН: СЛОВО
 ───────────────────────────────────── */
 
+/* Кнопка тоглення категорій */
+.cat-toggle-wrap {
+  padding: 0 20px 10px;
+  flex-shrink: 0;
+}
+
+.cat-toggle-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 14px 7px 11px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(201, 168, 76, .3);
+  background: rgba(0, 0, 0, .35);
+  backdrop-filter: blur(12px);
+  font-family: var(--font-ui); font-size: clamp(11px, 2.8vw, 13px); font-weight: 300;
+  color: var(--clr-gold-lt);
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+  text-shadow: 0 1px 6px rgba(0,0,0,.8);
+}
+.cat-toggle-btn:hover { background: rgba(0, 0, 0, .5); border-color: var(--clr-gold); }
+.cat-toggle-btn.open  { background: rgba(201,168,76,.15); border-color: var(--clr-gold); }
+.cat-toggle-arrow { transition: transform .25s; flex-shrink: 0; color: var(--clr-gold); }
+.cat-toggle-btn.open .cat-toggle-arrow { transform: rotate(180deg); }
+
 /* Смуга категорій */
 .cat-bar {
   display: flex; gap: 8px;
   padding: 0 20px 14px;
   overflow-x: auto; flex-shrink: 0;
   scrollbar-width: none;
+  animation: catSlideIn .22s ease;
 }
+@keyframes catSlideIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
 .cat-bar::-webkit-scrollbar { display: none; }
+
+/* Темний фон для не-головних екранів */
+#screenFav, #screenMenu, #screenSettings {
+  background: var(--clr-deep);
+}
+
+/* Темний оверлей для фото-фону (щоб текст вірша читався) */
+#bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.25) 0%,
+    rgba(0,0,0,.45) 40%,
+    rgba(0,0,0,.55) 100%
+  );
+  opacity: 0;
+  transition: opacity .6s;
+}
+#bg[data-photo="1"]::before { opacity: 1; }
 
 /* Зона вірша */
 .verse-wrap {
