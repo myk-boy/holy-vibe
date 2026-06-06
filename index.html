@@ -75,18 +75,7 @@
       <!-- Музика -->
       <div class="card music-block">
         <div class="music-title">🎵 Музика Просочення (CC)</div>
-        <div class="music-track" id="track0" data-src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_a17e735de8.mp3">
-          <div class="track-icon" id="ico0">▶</div>
-          <div class="track-name" id="tname0">Peaceful Worship Ambient</div>
-        </div>
-        <div class="music-track" id="track1" data-src="https://cdn.pixabay.com/download/audio/2023/03/09/audio_f6bde4a71d.mp3">
-          <div class="track-icon" id="ico1">▶</div>
-          <div class="track-name" id="tname1">Soaking — Still Waters</div>
-        </div>
-        <div class="music-track" id="track2" data-src="https://cdn.pixabay.com/download/audio/2022/11/22/audio_febc508520.mp3">
-          <div class="track-icon" id="ico2">▶</div>
-          <div class="track-name" id="tname2">Morning Prayer Atmosphere</div>
-        </div>
+        <div id="trackList"></div>
         <div class="vol-row">
           <span class="vol-label t-ui">Гучність</span>
           <input type="range" id="volSlider" min="0" max="100" value="60">
@@ -153,6 +142,11 @@
           <div class="color-dot" data-color="#b8d4f0"  style="background:#b8d4f0"></div>
           <div class="color-dot" data-color="#d4e8c8"  style="background:#d4e8c8"></div>
         </div>
+      </div>
+
+      <div class="card settings-block">
+        <div class="settings-block-title">Фон</div>
+        <div class="bg-grid" id="bgGrid"></div>
       </div>
 
       <div class="card settings-block">
