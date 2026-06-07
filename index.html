@@ -175,52 +175,9 @@
       </div>
       <div class="card settings-block" id="notifBlock">
         <div class="settings-block-title">Сповіщення</div>
-        <div id="notifList"></div>
-        <button class="sheet-btn" id="btnAddNotif" style="margin-top:12px;width:100%">
-          <div class="sheet-btn-ico">
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
-              <circle cx="8.5" cy="8.5" r="6.5" stroke="#c9a84c" stroke-width="1.2"/>
-              <path d="M8.5 5.5v6M5.5 8.5h6" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
-            </svg>
-          </div>
-          Додати сповіщення
-        </button>
-
-        <!-- Форма нового сповіщення -->
-        <div id="notifEditor" style="display:none;margin-top:14px">
-          <div class="vol-row" style="margin-bottom:10px">
-            <span class="vol-label t-ui" style="width:auto;margin-right:10px">Час:</span>
-            <input type="time" id="notifTime" style="flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 12px;color:#f0e8d5;font-family:'Nunito',sans-serif;font-size:14px">
-          </div>
-          <div style="margin-bottom:10px">
-            <div class="settings-label t-ui" style="font-size:10px;letter-spacing:2px;color:var(--text-secondary);margin-bottom:8px">ДНІ ТИЖНЯ</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap">
-              <div class="day-btn" data-day="1">Пн</div>
-              <div class="day-btn" data-day="2">Вт</div>
-              <div class="day-btn" data-day="3">Ср</div>
-              <div class="day-btn" data-day="4">Чт</div>
-              <div class="day-btn" data-day="5">Пт</div>
-              <div class="day-btn" data-day="6">Сб</div>
-              <div class="day-btn" data-day="0">Нд</div>
-              <div class="day-btn day-all">Щодня</div>
-            </div>
-          </div>
-          <input type="text" id="notifLabel" placeholder="Назва (напр. Ранкова молитва)"
-            style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 12px;color:#f0e8d5;font-family:'Nunito',sans-serif;font-size:14px;margin-bottom:10px">
-          <div style="display:flex;gap:8px">
-            <button class="sheet-btn" id="btnSaveNotif" style="flex:1">
-              <div class="sheet-btn-ico">
-                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M3 8.5l4 4 7-7" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              Зберегти
-            </button>
-            <button class="sheet-btn" id="btnCancelNotif" style="flex:1">
-              <div class="sheet-btn-ico">
-                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M4 4l9 9M13 4l-9 9" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/></svg>
-              </div>
-              Скасувати
-            </button>
-          </div>
+        <div class="notif-coming-soon">
+          <div class="notif-soon-icon">🔔</div>
+          <div class="notif-soon-text">Незабаром<br><span>Нагадування та будильник<br>для молитви з'являться<br>в наступному оновленні</span></div>
         </div>
       </div>
 

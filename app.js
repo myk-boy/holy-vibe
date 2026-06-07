@@ -35,56 +35,35 @@ const VERSES = [];
 */
 const TRACKS = [
   {
-    name: "Amazing Grace — Piano",
-    src:  "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3",
-    license: "Public Domain / archive.org"
+    name: "Soaking Prayer — Jesse Quinn",
+    src:  "audio/track1.mp3",
+    license: "Jesse Quinn Media — used with permission"
   },
   {
-    name: "How Great Thou Art — Piano",
-    src:  "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3",
-    license: "Public Domain / archive.org"
+    name: "Calm Worship Piano — Jesse Quinn",
+    src:  "audio/track2.mp3",
+    license: "Jesse Quinn Media — used with permission"
   },
   {
-    name: "Love Lifted Me — Piano",
-    src:  "https://archive.org/download/PianoMusic/07-Love%20lifted%20me.mp3",
-    license: "Public Domain / archive.org"
-  },
-  {
-    name: "Amazing Grace 2011 — Kevin MacLeod",
-    src:  "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Amazing%20Grace.mp3",
-    license: "CC BY 3.0 — incompetech.com"
-  },
-  {
-    name: "Peaceful Desolate — Kevin MacLeod",
-    src:  "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3",
-    license: "CC BY 3.0 — incompetech.com"
-  },
-  {
-    name: "Meditation Impromptu — Kevin MacLeod",
-    src:  "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Meditation%20Impromptu%2001.mp3",
-    license: "CC BY 3.0 — incompetech.com"
-  },
-  {
-    name: "Prelude in D — Kevin MacLeod",
-    src:  "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Prelude%20in%20D%20minor.mp3",
-    license: "CC BY 3.0 — incompetech.com"
-  },
-  {
-    name: "Because He Lives — Piano",
-    src:  "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3",
-    license: "Public Domain / archive.org"
+    name: "Peaceful Soaking Loop — Jesse Quinn",
+    src:  "audio/track3.mp3",
+    license: "Jesse Quinn Media — used with permission"
   },
 ];
 
+
+
 const BACKGROUNDS = [
+  { name: "Без фону",      url: "" },
   { name: "Туманний ліс",  url: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80" },
-  { name: "Ранкове небо",  url: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80" },
+  { name: "Ранкове небо",  url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
   { name: "Гори у хмарах", url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" },
   { name: "Тихе озеро",    url: "https://images.unsplash.com/photo-1439853949212-36089e104e22?w=800&q=80" },
   { name: "Пшеничне поле", url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" },
   { name: "Зоряне небо",   url: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80" },
-  { name: "Осінній ліс",   url: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&q=80" },
   { name: "Захід сонця",   url: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80" },
+  { name: "Скелі та море", url: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=80" },
+  { name: "Ранній туман",  url: "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&q=80" },
 ];
 
 const FONTS = {
@@ -132,7 +111,7 @@ const S = {
   verseAudioOn: false, // чи грає аудіо з вірша
   vol:      60,
   sheet:    false,
-  notifs:   JSON.parse(localStorage.getItem('hv_notifs') || '[]'),
+  // notifs: реалізується в наступному релізі
 };
 
 const DAYS_UK = ['Нд','Пн','Вт','Ср','Чт','Пт','Сб'];
@@ -529,12 +508,17 @@ function buildBgGrid() {
       thumb.classList.add('active');
       const url = thumb.dataset.url;
       const bgEl = $('bg');
-      bgEl.style.backgroundImage   = `url('${url}')`;
-      bgEl.style.backgroundSize    = 'cover';
-      bgEl.style.backgroundPosition= 'center';
-      bgEl.dataset.photo = '1';
+      if (url) {
+        bgEl.style.backgroundImage    = `url('${url}')`;
+        bgEl.style.backgroundSize     = 'cover';
+        bgEl.style.backgroundPosition = 'center';
+        bgEl.dataset.photo = '1';
+      } else {
+        bgEl.style.backgroundImage = '';
+        bgEl.dataset.photo = '0';
+      }
       applyStyle();
-      showToast('🖼️ Фон змінено');
+      showToast(url ? '🖼️ Фон змінено' : '🖼️ Фон прибрано');
     });
   });
 }
@@ -573,112 +557,12 @@ mkToggle('tglStars','stars');
 
 
 /* ─────────────────────────────────────
-   13. СПОВІЩЕННЯ
-   УВАГА: Web Notification API у WebView (Android) показує дозвіл
-   як «дозволити сповіщення для браузера», а не для додатку.
-   Справжні push-сповіщення через Firebase Messaging (FCM)
-   реалізуються на рівні Java/Android Studio — не тут.
-   Цей блок зберігає розклад і показує UI; реальний тригер — FCM.
+   13. СПОВІЩЕННЯ — незабаром
+   (Повноцінні push-сповіщення через
+   Firebase Cloud Messaging + AlarmManager
+   будуть реалізовані в наступному релізі)
 ───────────────────────────────────── */
-function renderNotifList() {
-  const list = $('notifList'); if (!list) return;
-  if (!S.notifs.length) {
-    list.innerHTML = `<div class="notif-empty t-ui">Немає сповіщень.<br>Додай перше нижче.</div>`;
-    return;
-  }
-  list.innerHTML = S.notifs.map((n,i) => `
-    <div class="notif-item">
-      <div class="notif-info">
-        <div class="notif-time">${n.hour.toString().padStart(2,'0')}:${n.min.toString().padStart(2,'0')}</div>
-        <div class="notif-days t-ui">${n.days.length===7?'Щодня':n.days.map(d=>DAYS_UK[d]).join(', ')}</div>
-        <div class="notif-label t-ui">${n.label||'Час молитви'}</div>
-      </div>
-      <div class="notif-del" data-idx="${i}">
-        <svg width="12" height="12" viewBox="0 0 12 12">
-          <path d="M1 1l10 10M11 1L1 11" stroke="#ff6060" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-    </div>`).join('');
-  list.querySelectorAll('.notif-del').forEach(b =>
-    b.addEventListener('click', () => {
-      S.notifs.splice(+b.dataset.idx,1); saveNotifs(); renderNotifList(); showToast('Сповіщення видалено');
-    })
-  );
-}
-
-$('btnAddNotif').addEventListener('click', () => {
-  $('notifEditor').classList.add('visible');
-});
-$('btnCancelNotif').addEventListener('click', () => {
-  $('notifEditor').classList.remove('visible');
-  $('notifTime').value=''; $('notifLabel').value='';
-  document.querySelectorAll('.day-btn').forEach(b=>b.classList.remove('active'));
-});
-
-document.querySelector('.day-all')?.addEventListener('click', function() {
-  const allActive = document.querySelectorAll('.day-btn:not(.day-all).active').length === 7;
-  document.querySelectorAll('.day-btn:not(.day-all)').forEach(b =>
-    b.classList.toggle('active', !allActive)
-  );
-});
-
-document.querySelectorAll('.day-btn').forEach(b =>
-  b.addEventListener('click', () => b.classList.toggle('active'))
-);
-
-$('btnSaveNotif').addEventListener('click', () => {
-  const timeVal = $('notifTime').value;
-  if (!timeVal) { showToast('⚠️ Вкажи час'); return; }
-  const [hour,min] = timeVal.split(':').map(Number);
-  const days = [...document.querySelectorAll('.day-btn.active')].map(b=>+b.dataset.day);
-  if (!days.length) { showToast('⚠️ Вибери хоча б один день'); return; }
-  const label = $('notifLabel').value || 'Час молитви';
-
-  S.notifs.push({hour,min,days,label});
-  saveNotifs();
-
-  // Передаємо розклад у Android через JavascriptInterface (якщо підключений)
-  if (window.AndroidBridge && window.AndroidBridge.scheduleNotification) {
-    window.AndroidBridge.scheduleNotification(
-      JSON.stringify({hour, min, days, label})
-    );
-    showToast('✅ Сповіщення збережено');
-  } else {
-    // Fallback: Web Notification (тільки коли вкладка відкрита)
-    if ('Notification' in window && Notification.permission === 'granted') {
-      scheduleWebNotif({hour,min,days,label});
-      showToast('✅ Збережено (сповіщення тільки при відкритому додатку)');
-    } else {
-      showToast('✅ Розклад збережено. Push — через Android');
-    }
-  }
-
-  $('notifTime').value='';
-  $('notifLabel').value='';
-  document.querySelectorAll('.day-btn').forEach(b=>b.classList.remove('active'));
-  $('notifEditor').classList.remove('visible');
-  renderNotifList();
-});
-
-// Web Notification — тільки резервний варіант (додаток має бути відкритий)
-function scheduleWebNotif(n) {
-  const now  = new Date();
-  const next = new Date();
-  next.setHours(n.hour, n.min, 0, 0);
-  if (next <= now) next.setDate(next.getDate()+1);
-  const delay = next - now;
-  setTimeout(() => {
-    if (n.days.includes(new Date().getDay())) {
-      new Notification(n.label || 'Час молитви 🙏', {
-        body: 'Holy Vibe чекає на тебе',
-        icon: '/icon.png'
-      });
-    }
-  }, delay);
-}
-
-// (відновлення сповіщень — в секції 14 INIT)
-
+// Placeholder — нічого не ломає додаток
 
 /* ─────────────────────────────────────
    14. INIT
@@ -690,14 +574,7 @@ fetchVerses();
 buildTrackList();
 buildBgGrid();
 
-// Запит дозволу Web Notifications (fallback — тільки якщо нема AndroidBridge)
-if (!window.AndroidBridge && 'Notification' in window && Notification.permission === 'default') {
-  setTimeout(() => {
-    Notification.requestPermission();
-  }, 4000);
-} else if ('Notification' in window && Notification.permission === 'granted') {
-  S.notifs.forEach(scheduleWebNotif);
-}
+// Сповіщення — наступний реліз
 
 setTimeout(() => showToast('↑ свайп — наступний вірш'),   1600);
 setTimeout(() => showToast('✦ довге натискання — тлумач'), 4800);
