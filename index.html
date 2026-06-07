@@ -14,18 +14,13 @@
 </head>
 <body>
 
-  <!-- ── ФОН ── -->
   <div id="bg"></div>
 
   <div id="app">
 
-    <!-- ════════════════════════
-         ЕКРАН 1 — СЛОВО
-    ════════════════════════ -->
     <div class="screen active" id="screenMain">
       <div class="safe-top"></div>
 
-      <!-- Кнопка категорій -->
       <div class="cat-toggle-wrap">
         <button class="cat-toggle-btn" id="catToggleBtn" title="Категорії">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
@@ -37,7 +32,6 @@
           </svg>
         </button>
       </div>
-      <!-- Категорії (приховані, відкриваються кнопкою) -->
       <div class="cat-bar" id="catBar" style="display:none">
         <div class="pill active" data-cat="all">Усі</div>
         <div class="pill" data-cat="peace">Мир</div>
@@ -49,7 +43,6 @@
         <div class="pill" data-cat="grace">Благодать</div>
       </div>
 
-      <!-- Вірш -->
       <div class="verse-wrap" id="verseWrap">
         <div class="verse-card" id="verseCard">
           <div class="t-label" id="verseBook"></div>
@@ -64,9 +57,6 @@
       </div>
     </div>
 
-    <!-- ════════════════════════
-         ЕКРАН 2 — УЛЮБЛЕНІ
-    ════════════════════════ -->
     <div class="screen" id="screenFav">
       <div class="safe-top"></div>
       <div class="screen-header">
@@ -75,9 +65,6 @@
       <div class="fav-list" id="favList"></div>
     </div>
 
-    <!-- ════════════════════════
-         ЕКРАН 3 — МЕНЮ
-    ════════════════════════ -->
     <div class="screen" id="screenMenu">
       <div class="safe-top"></div>
       <div class="menu-logo-block">
@@ -85,54 +72,47 @@
         <div class="menu-tagline">Просочення Живим Словом</div>
       </div>
 
-      <!-- Музика -->
       <div class="card music-block">
         <div class="music-title">🎵 Молитовна музика (CC)</div>
         <div id="trackList"></div>
-
       </div>
 
       <div class="menu-section">
-    <div class="menu-section-label">Матеріали</div>
-    
-    <a href="https://play.google.com/store/apps/details?id=mybible.audio" target="_blank" class="menu-item" style="text-decoration: none; display: block;">
-        Додаток MyBible
-    </a>
-</div>
+        <div class="menu-section-label">Матеріали</div>
+        <a href="https://play.google.com/store/apps/details?id=mybible.audio" target="_blank" class="menu-item" style="text-decoration: none; display: block;">
+            Додаток MyBible
+        </a>
+      </div>
 
-<div class="menu-divider"></div>
+      <div class="menu-divider"></div>
 
-<div class="menu-section">
-    <div class="menu-row" style="color:rgba(201,168,76,.6); margin-bottom: 12px;">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M10 17c-4-3.5-7-6.5-7-9.5a5 5 0 0 1 7-4.6A5 5 0 0 1 17 7.5c0 3-3 6-7 9.5z" stroke="#c9a84c" stroke-width="1.3"/>
-        </svg>
-        Підтримати розробника ❤️
-    </div>
-
-    <a href="https://www.paypal.com/donate/?hosted_button_id=PFLMN9VTMCPDY" target="_blank" class="menu-item" style="text-decoration: none; display: block; background: #0070ba; color: #ffffff; text-align: center; font-weight: bold; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
-        Support via PayPal (Worldwide) 🌐
-    </a>
-
-    <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 12px; text-align: center;">
-        <div style="font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 5px;">Картка ПриватБанк:</div>
-        
-        <div style="font-size: 17px; font-weight: bold; color: #ffffff; letter-spacing: 1px; margin-bottom: 10px;">
-            5168 7451 8260 6563
+      <div class="menu-section">
+        <div class="menu-row" style="color:rgba(201,168,76,.6); margin-bottom: 12px;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 17c-4-3.5-7-6.5-7-9.5a5 5 0 0 1 7-4.6A5 5 0 0 1 17 7.5c0 3-3 6-7 9.5z" stroke="#c9a84c" stroke-width="1.3"/>
+            </svg>
+            Підтримати розробника ❤️
         </div>
-        
-        <button onclick="navigator.clipboard.writeText('5168745182606563'); alert('Номер картки скопійовано! 👍')" style="background: #70A400; color: white; border: none; width: 100%; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px;">
-            Скопіювати картку 🟢
-        </button>
-    </div>
-</div>
 
-<div style="height:16px"></div>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=PFLMN9VTMCPDY" target="_blank" class="menu-item" style="text-decoration: none; display: block; background: #0070ba; color: #ffffff; text-align: center; font-weight: bold; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+            Support via PayPal (Worldwide) 🌐
+        </a>
 
-    <!-- ════════════════════════
-         ЕКРАН 4 — ВИГЛЯД
-    ════════════════════════ -->
-    <div class="screen" id="screenSettings">
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 12px; text-align: center;">
+            <div style="font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 5px;">Картка ПриватБанк:</div>
+            
+            <div style="font-size: 17px; font-weight: bold; color: #ffffff; letter-spacing: 1px; margin-bottom: 10px;">
+                5168 7451 8260 6563
+            </div>
+            
+            <button onclick="navigator.clipboard.writeText('5168745182606563'); alert('Номер картки скопійовано! 👍')" style="background: #70A400; color: white; border: none; width: 100%; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px;">
+                Скопіювати картку 🟢
+            </button>
+        </div>
+      </div>
+
+      <div style="height:16px"></div>
+    </div> <div class="screen" id="screenSettings">
       <div class="safe-top"></div>
       <div class="screen-header">
         <div class="t-label" style="font-size:clamp(12px,3vw,15px)">Оформлення</div>
@@ -199,9 +179,6 @@
       <div style="height:16px"></div>
     </div>
 
-    <!-- ════════════════════════
-         НИЖНЯ НАВІГАЦІЯ
-    ════════════════════════ -->
     <nav class="bottom-nav">
       <button class="nav-btn active" data-screen="screenMain">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3l1.5 4.5h4.7l-3.8 2.8 1.5 4.5L11 12l-3.9 2.8 1.5-4.5L4.8 7.5h4.7z" stroke="#f0e8d5" stroke-width="1.3" stroke-linejoin="round"/></svg>
@@ -221,10 +198,7 @@
       </button>
     </nav>
 
-  </div><!-- #app -->
-
-  <!-- ── ШТОРКА ── -->
-  <div class="sheet-overlay" id="sheetOverlay"></div>
+  </div><div class="sheet-overlay" id="sheetOverlay"></div>
   <div class="bottom-sheet" id="bottomSheet">
     <div class="sheet-handle"></div>
     <div class="sheet-section-title">Цей вірш</div>
@@ -249,14 +223,12 @@
         Поділитися
       </div>
     </div>
-    <!-- AI відповідь -->
     <div class="ai-panel" id="aiPanel">
       <div class="ai-answer" id="aiAnswer"></div>
       <div class="ai-ref">✦ Духовне тлумачення</div>
     </div>
   </div>
 
-  <!-- ── TOAST ── -->
   <div id="toast"></div>
 
   <audio id="audioEl" loop></audio>
