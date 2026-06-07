@@ -63,7 +63,7 @@ const BACKGROUNDS = [
   { name: "Зоряне небо",   url: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80" },
   { name: "Захід сонця",   url: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80" },
   { name: "Скелі та море", url: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=80" },
-  { name: "Ранній туман",  url: "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&q=80" },
+ 
 ];
 
 const FONTS = {
