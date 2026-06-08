@@ -25,13 +25,13 @@
 const VERSES = [];
 
 /*
-  ГЛОБАЛЬНІ ФОНОВІ ТРЕКИ — у вкладці Меню.
-  Всі URL перевірені: прямі .mp3, без редиректів, без реєстрації.
-  Ліцензія: CC BY 3.0 — Kevin MacLeod (incompetech.com) або Public Domain (archive.org)
-  ---
-  ВАЖЛИВО ДЛЯ РОЗРОБНИКА:
-  Якщо трек не грає в WebView — завантаж mp3 локально в assets/audio/
-  і змінь src на відносний шлях: "audio/peace_piano.mp3"
+   ГЛОБАЛЬНІ ФОНОВІ ТРЕКИ — у вкладці Меню.
+   Всі URL перевірені: прямі .mp3, без редиректів, без реєстрації.
+   Ліцензія: CC BY 3.0 — Kevin MacLeod (incompetech.com) або Public Domain (archive.org)
+   ---
+   ВАЖЛИВО ДЛЯ РОЗРОБНИКА:
+   Якщо трек не грає в WebView — завантаж mp3 локально в assets/audio/
+   і змінь src на відносний шлях: "audio/peace_piano.mp3"
 */
 const TRACKS = [
   {
@@ -51,8 +51,6 @@ const TRACKS = [
   },
 ];
 
-
-
 const BACKGROUNDS = [
   { name: "Без фону",      url: "" },
   { name: "Туманний ліс",  url: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80" },
@@ -63,7 +61,7 @@ const BACKGROUNDS = [
   { name: "Зоряне небо",   url: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80" },
   { name: "Захід сонця",   url: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80" },
   { name: "Скелі та море", url: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=80" },
-  { name: "Космос", url: "https://images.unsplash.com/photo-1779681755263-8292902e1ef3?q=80&w=563&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Космос", url: "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&q=80" },
   { name: "Скелі в пустелі", url: "https://images.unsplash.com/photo-1772289935758-d4190f9f849d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
   { name: "Тукан", url: "https://images.unsplash.com/photo-1775479822110-2d4e7fd0f7fd?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
 ];
@@ -241,12 +239,19 @@ function renderVerse(dir = 'up') {
 /*
   updateVerseAudio — автоматично вмикає аудіо з поля audio_url вірша,
   але тільки якщо глобальний плеєр (трек з Меню) зараз не грає.
-  Якщо verse.audio_url відсутній — нічого не змінює.
 */
 function updateVerseAudio(verse) {
-  if (S.playing >= 0) return;          // глобальний плеєр активний — не чіпаємо
+  if (S.playing >= 0) return;             // глобальний плеєр активний — не чіпаємо
   if (!verse || !verse.audio_url) return; // немає аудіо у вірші
-  // Грає вже цей же трек — не перезапускаємо
+
+  // ПЕРЕВІРКА НА ANDROID: фоновому нативне аудіо
+  if (typeof AndroidBridge !== 'undefined' && AndroidBridge.playBackgroundAudio) {
+    AndroidBridge.playBackgroundAudio(verse.audio_url);
+    S.verseAudioOn = true;
+    return;
+  }
+
+  // Звичайний веб-варіант (якщо відкрили просто як сайт)
   if (audioEl.src === verse.audio_url && !audioEl.paused) return;
   audioEl.src    = verse.audio_url;
   audioEl.loop   = true;
@@ -419,17 +424,26 @@ function renderFavList() {
 /* ─────────────────────────────────────
    11. МУЗИКА — ГЛОБАЛЬНИЙ ПЛЕЄР
    Натискання на трек у Меню вмикає/вимикає глобальну фонову музику.
-   Якщо вірш мав своє аудіо (audio_url) — воно замовкає.
 ───────────────────────────────────── */
 if ('mediaSession' in navigator) {
   navigator.mediaSession.setActionHandler('pause', () => {
-    audioEl.pause();
+    if (typeof AndroidBridge !== 'undefined' && AndroidBridge.pauseBackgroundAudio) {
+      AndroidBridge.pauseBackgroundAudio();
+    } else {
+      audioEl.pause();
+    }
     S.playing = -1;
     S.verseAudioOn = false;
   });
 }
+
+// Прибрали автоматичну зупинку звуку при згортанні додатка на Android
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden && S.playing >= 0) audioEl.pause();
+  if (document.hidden && S.playing >= 0) {
+    if (typeof AndroidBridge === 'undefined') {
+      audioEl.pause();
+    }
+  }
 });
 
 function buildTrackList() {
@@ -446,8 +460,13 @@ function buildTrackList() {
   TRACKS.forEach((t,i) => {
     $(`track${i}`).addEventListener('click', () => {
       if (S.playing === i) {
-        // Пауза — зупиняємо
-        audioEl.pause();
+        // ПАУЗА ТРЕКУ
+        if (typeof AndroidBridge !== 'undefined' && AndroidBridge.pauseBackgroundAudio) {
+          AndroidBridge.pauseBackgroundAudio();
+        } else {
+          audioEl.pause();
+        }
+        
         S.playing = -1;
         S.verseAudioOn = false;
         $(`track${i}`).classList.remove('playing');
@@ -455,36 +474,49 @@ function buildTrackList() {
         $(`ico${i}`).textContent = '▶';
         return;
       }
-      // Зупиняємо попередній
+      
+      // ЗУПИНЯЄМО ПОПЕРЕДНІЙ ТРЕК СТИЛІСТИЧНО
       if (S.playing >= 0) {
         $(`track${S.playing}`)?.classList.remove('playing');
         $(`tname${S.playing}`)?.classList.remove('playing');
         const pi = $(`ico${S.playing}`); if (pi) pi.textContent = '▶';
       }
-      // Запускаємо новий
+      
+      // ЗАПУСК НОВОГО ТРЕКУ
       S.verseAudioOn = false;
-      audioEl.src    = t.src;
-      audioEl.loop   = true;
-      audioEl.volume = S.vol / 100;
-      audioEl.play()
-        .then(() => {
-          S.playing = i;
-          $(`track${i}`).classList.add('playing');
-          $(`tname${i}`).classList.add('playing');
-          $(`ico${i}`).textContent = '⏸';
-          showToast('🎵 ' + t.name);
-        })
-        .catch(err => {
-          console.warn('Audio error:', err);
-          showToast('⚠️ Не вдалося завантажити трек');
-        });
+      
+      if (typeof AndroidBridge !== 'undefined' && AndroidBridge.playBackgroundAudio) {
+        // Android додаток: граємо нативно через сервіс у фоні
+        AndroidBridge.playBackgroundAudio(t.src);
+        S.playing = i;
+        $(`track${i}`).classList.add('playing');
+        $(`tname${i}`).classList.add('playing');
+        $(`ico${i}`).textContent = '⏸';
+        showToast('🎵 ' + t.name);
+      } else {
+        // Звичайний веб-сайт: граємо через стандартний браузер
+        audioEl.src    = t.src;
+        audioEl.loop   = true;
+        audioEl.volume = S.vol / 100;
+        audioEl.play()
+          .then(() => {
+            S.playing = i;
+            $(`track${i}`).classList.add('playing');
+            $(`tname${i}`).classList.add('playing');
+            $(`ico${i}`).textContent = '⏸';
+            showToast('🎵 ' + t.name);
+          })
+          .catch(err => {
+            console.warn('Audio error:', err);
+            showToast('⚠️ Не вдалося завантажити трек');
+          });
+      }
     });
   });
 }
 
 audioEl.volume = S.vol / 100;
 
-// Коли трек закінчився (loop=true — не має бути, але на всяк випадок)
 audioEl.addEventListener('ended', () => {
   if (S.playing >= 0) {
     $(`track${S.playing}`)?.classList.remove('playing');
@@ -503,7 +535,7 @@ function buildBgGrid() {
   container.innerHTML = BACKGROUNDS.map((b,i) => `
     <div class="bg-thumb${i===0?' active':''}" data-url="${b.url}"
          style="background-image:url('${b.url}')" title="${b.name}"></div>
-  `).join('');
+   `).join('');
   container.querySelectorAll('.bg-thumb').forEach(thumb => {
     thumb.addEventListener('click', () => {
       container.querySelectorAll('.bg-thumb').forEach(t=>t.classList.remove('active'));
@@ -559,12 +591,10 @@ mkToggle('tglStars','stars');
 
 
 /* ─────────────────────────────────────
-   13. СПОВІЩЕННЯ — незабаром
-   (Повноцінні push-сповіщення через
-   Firebase Cloud Messaging + AlarmManager
-   будуть реалізовані в наступному релізі)
+   13. СПОВІЩЕННЯ — нативна логіка готова
 ───────────────────────────────────── */
-// Placeholder — нічого не ломає додаток
+// Тут на базі твого методу AndroidBridge.scheduleNotification(timeString)
+// згодом оживимо вибір часу в меню конфігурації.
 
 /* ─────────────────────────────────────
    14. INIT
@@ -575,8 +605,6 @@ setSliderBg(is, S.iconSize);
 fetchVerses();
 buildTrackList();
 buildBgGrid();
-
-// Сповіщення — наступний реліз
 
 setTimeout(() => showToast('↑ свайп — наступний вірш'),   1600);
 setTimeout(() => showToast('✦ довге натискання — тлумач'), 4800);
