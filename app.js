@@ -84,7 +84,22 @@ async function fetchVerses() {
     const data = await res.json();
     const loaded = data.verses || [];
     VERSES.push(...loaded);
-    S.pool = [...VERSES];
+
+    // Відновлюємо збережену позицію
+    const pos = loadPos();
+    if (pos && pos.cat) {
+      S.cat  = pos.cat;
+      S.pool = pos.cat === 'all' ? [...VERSES] : VERSES.filter(v => v.cat === pos.cat);
+      S.idx  = (pos.idx >= 0 && pos.idx < S.pool.length) ? pos.idx : 0;
+      // Синхронізуємо пілюлі і мітку
+      const pill = document.querySelector(`.pill[data-cat="${pos.cat}"]`);
+      document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+      if (pill) { pill.classList.add('active'); $('catToggleLabel').textContent = pill.textContent; }
+    } else {
+      S.pool = [...VERSES];
+      S.idx  = 0;
+    }
+
     renderVerse();
     showToast('📖 ' + VERSES.length + ' віршів завантажено');
   } catch (err) {
@@ -153,8 +168,10 @@ function showToast(msg) {
 
 function cv()       { return S.pool[S.idx]; }
 function isFav(id)  { return S.favs.some(v => v.id === id); }
-function saveFavs() { localStorage.setItem('hv_fav',    JSON.stringify(S.favs)); }
+function saveFavs()  { localStorage.setItem('hv_fav',    JSON.stringify(S.favs)); }
 function saveNotifs(){ localStorage.setItem('hv_notifs', JSON.stringify(S.notifs)); }
+function savePos()   { localStorage.setItem('hv_pos', JSON.stringify({ cat: S.cat, idx: S.idx })); }
+function loadPos()   { try { return JSON.parse(localStorage.getItem('hv_pos') || 'null'); } catch { return null; } }
 
 function formatText(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>');
@@ -271,8 +288,60 @@ function updateVerseAudio(verse) {
   S.verseAudioOn = true;
 }
 
-function next() { S.idx = (S.idx+1) % S.pool.length; renderVerse('up'); }
-function prev() { S.idx = (S.idx-1+S.pool.length) % S.pool.length; renderVerse('down'); }
+// Порядок категорій — відповідає порядку пілюль у catBar
+const CAT_ORDER = ['all','peace','love','fear','strength','hope','healing','grace','promises'];
+
+function nextCat() {
+  const i = CAT_ORDER.indexOf(S.cat);
+  return CAT_ORDER[(i + 1) % CAT_ORDER.length];
+}
+function prevCat() {
+  const i = CAT_ORDER.indexOf(S.cat);
+  return CAT_ORDER[(i - 1 + CAT_ORDER.length) % CAT_ORDER.length];
+}
+
+function switchCat(catKey) {
+  S.cat  = catKey;
+  S.pool = catKey === 'all' ? [...VERSES] : VERSES.filter(v => v.cat === catKey);
+  // Синхронізуємо UI пілюль і мітку кнопки
+  const pill = document.querySelector(`.pill[data-cat="${catKey}"]`);
+  document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+  if (pill) { pill.classList.add('active'); $('catToggleLabel').textContent = pill.textContent; }
+}
+
+function next() {
+  if (S.cat === 'all') {
+    // Режим "Усі" — звичайна циклічність по всьому пулу
+    S.idx = (S.idx + 1) % S.pool.length;
+  } else {
+    // Режим категорії — перейти до наступної категорії після останнього вірша
+    if (S.idx + 1 < S.pool.length) {
+      S.idx++;
+    } else {
+      switchCat(nextCat());
+      S.idx = 0;
+      showToast('📖 ' + ($('catToggleLabel').textContent || S.cat));
+    }
+  }
+  savePos();
+  renderVerse('up');
+}
+
+function prev() {
+  if (S.cat === 'all') {
+    S.idx = (S.idx - 1 + S.pool.length) % S.pool.length;
+  } else {
+    if (S.idx - 1 >= 0) {
+      S.idx--;
+    } else {
+      switchCat(prevCat());
+      S.idx = Math.max(0, S.pool.length - 1);
+      showToast('📖 ' + ($('catToggleLabel').textContent || S.cat));
+    }
+  }
+  savePos();
+  renderVerse('down');
+}
 
 
 /* ─────────────────────────────────────
