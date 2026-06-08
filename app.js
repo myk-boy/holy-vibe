@@ -730,12 +730,186 @@ $('tglAutoBg').addEventListener('click', function() {
 
 
 /* ─────────────────────────────────────
-   13. СПОВІЩЕННЯ — незабаром
-   (Повноцінні push-сповіщення через
-   Firebase Cloud Messaging + AlarmManager
-   будуть реалізовані в наступному релізі)
+   13. СПОВІЩЕННЯ — БУДИЛЬНИКИ
 ───────────────────────────────────── */
-// Placeholder — нічого не ломає додаток
+const ALARM_KEY = 'hv_alarms';
+let alarms = [];
+let editingAlarmId = null; // null = новий, число = редагування
+
+function loadAlarms() {
+  try { alarms = JSON.parse(localStorage.getItem(ALARM_KEY) || '[]'); } catch { alarms = []; }
+}
+function saveAlarms() {
+  localStorage.setItem(ALARM_KEY, JSON.stringify(alarms));
+}
+function syncAlarmsToAndroid() {
+  if (window.AndroidBridge && window.AndroidBridge.scheduleNotifications) {
+    window.AndroidBridge.scheduleNotifications(JSON.stringify(alarms));
+  }
+}
+
+const DAY_NAMES = ['', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Нд'];
+
+function alarmDaysLabel(days) {
+  if (!days || days.length === 0) return 'Щодня';
+  if (days.length === 7) return 'Щодня';
+  if (JSON.stringify(days) === JSON.stringify([1,2,3,4,5])) return 'Пн–Пт';
+  if (JSON.stringify(days) === JSON.stringify([6,7])) return 'Сб–Нд';
+  return days.map(d => DAY_NAMES[d]).join(', ');
+}
+
+function renderNotifList() {
+  loadAlarms();
+  const list = $('alarmList');
+  if (!list) return;
+  if (!alarms.length) {
+    list.innerHTML = `<div style="text-align:center; padding:16px 0; color:rgba(255,255,255,.3); font-size:13px;">
+      Немає нагадувань.<br>Додай перше нижче 🙏</div>`;
+    return;
+  }
+  list.innerHTML = alarms.map(a => {
+    const h = String(a.hour).padStart(2,'0');
+    const m = String(a.minute).padStart(2,'0');
+    return `
+    <div class="alarm-item" data-id="${a.id}">
+      <div onclick="openAlarmModal(${a.id})" style="flex:1; cursor:pointer">
+        <div class="alarm-time">${h}:${m}</div>
+        <div class="alarm-label">${a.label || 'Нагадування'}</div>
+        <div class="alarm-meta">${alarmDaysLabel(a.days)}</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px">
+        <div class="toggle alarm-toggle ${a.active ? 'on' : ''}" data-toggle="${a.id}"></div>
+        <div class="alarm-del" data-del="${a.id}">✕</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Toggle active
+  list.querySelectorAll('[data-toggle]').forEach(el =>
+    el.addEventListener('click', () => {
+      const id = +el.dataset.toggle;
+      const alarm = alarms.find(a => a.id === id);
+      if (!alarm) return;
+      alarm.active = !alarm.active;
+      el.classList.toggle('on', alarm.active);
+      saveAlarms(); syncAlarmsToAndroid();
+      showToast(alarm.active ? '🔔 Увімкнено' : '🔕 Вимкнено');
+    })
+  );
+
+  // Delete
+  list.querySelectorAll('[data-del]').forEach(el =>
+    el.addEventListener('click', e => {
+      e.stopPropagation();
+      const id = +el.dataset.del;
+      if (window.AndroidBridge && window.AndroidBridge.cancelNotification)
+        window.AndroidBridge.cancelNotification(id);
+      alarms = alarms.filter(a => a.id !== id);
+      saveAlarms(); renderNotifList();
+      showToast('🗑️ Видалено');
+    })
+  );
+}
+
+// ── Модалка ──────────────────────────────────────────────────────────
+function openAlarmModal(editId = null) {
+  editingAlarmId = editId;
+  const modal = $('alarmModal');
+  const timeInput = $('alarmTime');
+  const labelInput = $('alarmLabel');
+
+  // Скидаємо дні
+  document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+
+  if (editId !== null) {
+    const a = alarms.find(x => x.id === editId);
+    if (a) {
+      timeInput.value = String(a.hour).padStart(2,'0') + ':' + String(a.minute).padStart(2,'0');
+      labelInput.value = a.label || '';
+      if (!a.days || a.days.length === 0) {
+        document.querySelector('.day-btn[data-day="0"]').classList.add('active');
+      } else {
+        a.days.forEach(d => {
+          const btn = document.querySelector(`.day-btn[data-day="${d}"]`);
+          if (btn) btn.classList.add('active');
+        });
+      }
+    }
+  } else {
+    // Новий — дефолт час 08:00, щодня
+    timeInput.value = '08:00';
+    labelInput.value = '';
+    document.querySelector('.day-btn[data-day="0"]').classList.add('active');
+  }
+
+  modal.style.display = 'flex';
+}
+
+function closeAlarmModal() {
+  $('alarmModal').style.display = 'none';
+  editingAlarmId = null;
+}
+
+// Вибір днів — "Щодня" знімає всі інші і навпаки
+document.querySelectorAll('.day-btn').forEach(btn =>
+  btn.addEventListener('click', () => {
+    const day = +btn.dataset.day;
+    if (day === 0) {
+      document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    } else {
+      document.querySelector('.day-btn[data-day="0"]').classList.remove('active');
+      btn.classList.toggle('active');
+      // Якщо всі 7 днів вибрані — перемикаємо на "Щодня"
+      const selected = document.querySelectorAll('.day-btn.active').length;
+      if (selected === 7) {
+        document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector('.day-btn[data-day="0"]').classList.add('active');
+      }
+      // Якщо нічого не вибрано — повертаємо "Щодня"
+      if (selected === 0) {
+        document.querySelector('.day-btn[data-day="0"]').classList.add('active');
+      }
+    }
+  })
+);
+
+$('btnAddAlarm').addEventListener('click', () => openAlarmModal(null));
+$('btnAlarmCancel').addEventListener('click', closeAlarmModal);
+$('alarmModal').addEventListener('click', e => { if (e.target === $('alarmModal')) closeAlarmModal(); });
+
+$('btnAlarmSave').addEventListener('click', () => {
+  const timeVal = $('alarmTime').value;
+  if (!timeVal) { showToast('⚠️ Вкажи час'); return; }
+  const [h, m] = timeVal.split(':').map(Number);
+
+  const everyDay = document.querySelector('.day-btn[data-day="0"]').classList.contains('active');
+  const days = everyDay ? [] :
+    [...document.querySelectorAll('.day-btn.active')]
+      .map(b => +b.dataset.day).filter(d => d > 0);
+
+  if (editingAlarmId !== null) {
+    // Оновлюємо існуючий
+    const alarm = alarms.find(a => a.id === editingAlarmId);
+    if (alarm) {
+      alarm.hour   = h;
+      alarm.minute = m;
+      alarm.days   = days;
+      alarm.label  = $('alarmLabel').value.trim() || 'Нагадування';
+      alarm.active = true;
+    }
+  } else {
+    // Новий
+    const newId = Date.now() % 100000; // унікальний id до 5 цифр
+    alarms.push({ id: newId, hour: h, minute: m, days, label: $('alarmLabel').value.trim() || 'Нагадування', active: true });
+  }
+
+  saveAlarms();
+  syncAlarmsToAndroid();
+  renderNotifList();
+  closeAlarmModal();
+  showToast('✅ Нагадування збережено');
+});
 
 /* ─────────────────────────────────────
    14. INIT
