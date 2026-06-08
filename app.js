@@ -173,6 +173,34 @@ function saveNotifs(){ localStorage.setItem('hv_notifs', JSON.stringify(S.notifs
 function savePos()   { localStorage.setItem('hv_pos', JSON.stringify({ cat: S.cat, idx: S.idx })); }
 function loadPos()   { try { return JSON.parse(localStorage.getItem('hv_pos') || 'null'); } catch { return null; } }
 
+function saveSettings() {
+  localStorage.setItem('hv_settings', JSON.stringify({
+    font:     S.font,
+    color:    S.color,
+    size:     S.size,
+    iconSize: S.iconSize,
+    shadow:   S.shadow,
+    anim:     S.anim,
+    stars:    S.stars,
+    autoBg:   S.autoBg,
+  }));
+}
+
+function loadSettings() {
+  try {
+    const s = JSON.parse(localStorage.getItem('hv_settings') || 'null');
+    if (!s) return;
+    S.font     = s.font     ?? S.font;
+    S.color    = s.color    ?? S.color;
+    S.size     = s.size     ?? S.size;
+    S.iconSize = s.iconSize ?? S.iconSize;
+    S.shadow   = s.shadow   ?? S.shadow;
+    S.anim     = s.anim     ?? S.anim;
+    S.stars    = s.stars    ?? S.stars;
+    S.autoBg   = s.autoBg   ?? S.autoBg;
+  } catch { /* нічого не робимо */ }
+}
+
 function formatText(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>');
 }
@@ -654,24 +682,24 @@ $('bg').dataset.photo = '0';
 document.querySelectorAll('.font-opt').forEach(o =>
   o.addEventListener('click', () => {
     document.querySelectorAll('.font-opt').forEach(x=>x.classList.remove('active'));
-    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); showToast('Шрифт змінено');
+    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast('Шрифт змінено');
   })
 );
 document.querySelectorAll('.color-dot').forEach(d =>
   d.addEventListener('click', () => {
     document.querySelectorAll('.color-dot').forEach(x=>x.classList.remove('active'));
-    d.classList.add('active'); S.color=d.dataset.color; applyStyle();
+    d.classList.add('active'); S.color=d.dataset.color; applyStyle(); saveSettings();
   })
 );
 
 const fs = $('fontSizeSlider');
-fs.addEventListener('input', e => { S.size=+e.target.value; setSliderBg(e.target,S.size); applyStyle(); });
+fs.addEventListener('input', e => { S.size=+e.target.value; setSliderBg(e.target,S.size); applyStyle(); saveSettings(); });
 
 const is = $('iconSizeSlider');
-is.addEventListener('input', e => { S.iconSize=+e.target.value; setSliderBg(e.target,S.iconSize); applyStyle(); });
+is.addEventListener('input', e => { S.iconSize=+e.target.value; setSliderBg(e.target,S.iconSize); applyStyle(); saveSettings(); });
 
 function mkToggle(id,key) {
-  $(id).addEventListener('click', function() { S[key]=!S[key]; this.classList.toggle('on',S[key]); applyStyle(); });
+  $(id).addEventListener('click', function() { S[key]=!S[key]; this.classList.toggle('on',S[key]); applyStyle(); saveSettings(); });
 }
 mkToggle('tglShadow','shadow');
 mkToggle('tglAnim','anim');
@@ -684,6 +712,7 @@ $('tglAutoBg').addEventListener('click', function() {
     // Вмикаємо — одразу міняємо фон під поточний вірш
     applyAutoBg();
     applyStyle();
+    saveSettings();
     showToast('🖼️ Авто-фон увімкнено');
   } else {
     // Вимикаємо — прибираємо фото-фон
@@ -694,6 +723,7 @@ $('tglAutoBg').addEventListener('click', function() {
     document.querySelectorAll('.bg-thumb').forEach((t,i) =>
       t.classList.toggle('active', i === 0));
     applyStyle();
+    saveSettings();
     showToast('🖼️ Авто-фон вимкнено');
   }
 });
@@ -710,6 +740,18 @@ $('tglAutoBg').addEventListener('click', function() {
 /* ─────────────────────────────────────
    14. INIT
 ───────────────────────────────────── */
+loadSettings();
+
+// Відновлюємо UI налаштувань під збережений стан
+document.querySelectorAll('.font-opt').forEach(o =>
+  o.classList.toggle('active', o.dataset.font === S.font));
+document.querySelectorAll('.color-dot').forEach(d =>
+  d.classList.toggle('active', d.dataset.color === S.color));
+$('tglShadow').classList.toggle('on', S.shadow);
+$('tglAnim').classList.toggle('on', S.anim);
+$('tglStars').classList.toggle('on', S.stars);
+$('tglAutoBg').classList.toggle('on', S.autoBg);
+
 applyStyle();
 setSliderBg(fs, S.size);
 setSliderBg(is, S.iconSize);
