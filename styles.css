@@ -285,3 +285,38 @@ body, html {
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
+/* Перемикання екранів (щоб налаштування не перекривали головний екран) */
+.screen {
+  display: none;
+}
+.screen.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Прості базові стилі для верхніх табів, щоб вони горталися горизонтально */
+.category-tabs-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  scrollbar-width: none; /* ховаємо скроллбар */
+}
+.category-tabs-scroll::-webkit-scrollbar {
+  display: none;
+}
+.cat-tab {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.cat-tab.active {
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+}

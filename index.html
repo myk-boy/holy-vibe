@@ -10,31 +10,23 @@
 
   <div id="appContainer">
 
-    <!-- ГОЛОВНИЙ ЕКРАН (Чистий, під твій скрол) -->
     <section id="screenMain" class="screen active">
-      
-      <!-- ВЕРХНЄ МЕНЮ КАТЕГОРІЙ -->
-      <div class="top-categories-bar">
-        <div class="category-tabs-scroll">
-          <button id="tab-all" class="cat-tab active" onclick="filterCategory('all')">Усі</button>
-          <button id="tab-peace" class="cat-tab" onclick="filterCategory('peace')">Мир</button>
-          <button id="tab-love" class="cat-tab" onclick="filterCategory('love')">Любов</button>
-          <button id="tab-fear" class="cat-tab" onclick="filterCategory('fear')">Страх → Віра</button>
-          <button id="tab-strength" class="cat-tab" onclick="filterCategory('strength')">Сила</button>
-          <button id="tab-hope" class="cat-tab" onclick="filterCategory('hope')">Надія</button>
-          <button id="tab-healing" class="cat-tab" onclick="filterCategory('healing')">Зцілення</button>
-        </div>
+      <div class="category-tabs-scroll">
+        <button id="tab-all" class="cat-tab active" onclick="filterCategory('all')">Усі</button>
+        <button id="tab-peace" class="cat-tab" onclick="filterCategory('peace')">Мир</button>
+        <button id="tab-love" class="cat-tab" onclick="filterCategory('love')">Любов</button>
+        <button id="tab-fear" class="cat-tab" onclick="filterCategory('fear')">Страх</button>
+        <button id="tab-strength" class="cat-tab" onclick="filterCategory('strength')">Сила</button>
+        <button id="tab-hope" class="cat-tab" onclick="filterCategory('hope')">Надія</button>
+        <button id="tab-healing" class="cat-tab" onclick="filterCategory('healing')">Зцілення</button>
       </div>
 
-      <!-- КОНТЕЙНЕР ДЛЯ ВІРША -->
       <div class="verse-container">
-        <p class="verse-text">Завантаження Слова...</p>
+        <p class="verse-text">Завантаження Слово...</p>
         <p class="verse-reference"></p>
       </div>
-
     </section>
 
-    <!-- ЕКРАН НАЛАШТУВАНЬ -->
     <section id="screenSettings" class="screen">
       <div class="settings-container">
         <h2>Налаштування</h2>
@@ -78,7 +70,6 @@
 
   </div>
 
-  <!-- НИЖНЯ НАВІГАЦІЯ -->
   <nav class="bottom-nav">
     <button class="nav-btn active" data-screen="screenMain">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
