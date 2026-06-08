@@ -109,6 +109,7 @@ const S = {
   shadow:   true,
   anim:     true,
   stars:    true,
+  autoBg:   false,   // автозміна фону з кожним віршем
   playing:  -1,      // індекс глобального треку (-1 = не грає)
   verseAudioOn: false, // чи грає аудіо з вірша
   vol:      60,
@@ -215,8 +216,20 @@ function applyStyle() {
 }
 
 
-/* ─────────────────────────────────────
-   6. РЕНДЕР ВІРША
+/* ── Авто-фон: міняється циклічно з кожним віршем ─────────────────── */
+function applyAutoBg() {
+  if (!S.autoBg) return;
+  // Пропускаємо перший елемент BACKGROUNDS (індекс 0 = "Без фону")
+  const photoBgs = BACKGROUNDS.slice(1);
+  const bg = photoBgs[S.idx % photoBgs.length];
+  const bgEl = $('bg');
+  bgEl.style.backgroundImage    = `url('${bg.url}')`;
+  bgEl.style.backgroundSize     = 'cover';
+  bgEl.style.backgroundPosition = 'center';
+  bgEl.dataset.photo = '1';
+}
+
+
 ───────────────────────────────────── */
 function renderVerse(dir = 'up') {
   const v = cv(); if (!v) return;
@@ -224,6 +237,7 @@ function renderVerse(dir = 'up') {
     verseBookEl.textContent = v.book;
     verseTextEl.innerHTML   = formatText(v.text);
     verseRefEl.textContent  = v.ref + ' · Переклад Огієнка';
+    applyAutoBg();
     applyStyle();
     // Якщо вірш має власне аудіо і глобальний плеєр не грає
     updateVerseAudio(v);
@@ -591,6 +605,27 @@ function mkToggle(id,key) {
 mkToggle('tglShadow','shadow');
 mkToggle('tglAnim','anim');
 mkToggle('tglStars','stars');
+
+$('tglAutoBg').addEventListener('click', function() {
+  S.autoBg = !S.autoBg;
+  this.classList.toggle('on', S.autoBg);
+  if (S.autoBg) {
+    // Вмикаємо — одразу міняємо фон під поточний вірш
+    applyAutoBg();
+    applyStyle();
+    showToast('🖼️ Авто-фон увімкнено');
+  } else {
+    // Вимикаємо — прибираємо фото-фон
+    const bgEl = $('bg');
+    bgEl.style.backgroundImage = '';
+    bgEl.dataset.photo = '0';
+    // Скидаємо активний thumb у гриді на "Без фону"
+    document.querySelectorAll('.bg-thumb').forEach((t,i) =>
+      t.classList.toggle('active', i === 0));
+    applyStyle();
+    showToast('🖼️ Авто-фон вимкнено');
+  }
+});
 
 
 /* ─────────────────────────────────────
