@@ -230,6 +230,8 @@ function applyAutoBg() {
 }
 
 
+/* ─────────────────────────────────────
+   6. РЕНДЕР ВІРША
 ───────────────────────────────────── */
 function renderVerse(dir = 'up') {
   const v = cv(); if (!v) return;
