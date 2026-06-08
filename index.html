@@ -9,26 +9,96 @@
 <body>
 
   <div id="appContainer">
+
+    <!-- ГОЛОВНИЙ ЕКРАН (Чистий, під твій скрол) -->
     <section id="screenMain" class="screen active">
-      <div id="categoryTabs" class="category-tabs-scroll">
-         <button onclick="filterCategory('all')" class="cat-tab">Усі</button>
-         <button onclick="filterCategory('peace')" class="cat-tab">Мир</button>
-      </div>
       
+      <!-- ВЕРХНЄ МЕНЮ КАТЕГОРІЙ -->
+      <div class="top-categories-bar">
+        <div class="category-tabs-scroll">
+          <button id="tab-all" class="cat-tab active" onclick="filterCategory('all')">Усі</button>
+          <button id="tab-peace" class="cat-tab" onclick="filterCategory('peace')">Мир</button>
+          <button id="tab-love" class="cat-tab" onclick="filterCategory('love')">Любов</button>
+          <button id="tab-fear" class="cat-tab" onclick="filterCategory('fear')">Страх → Віра</button>
+          <button id="tab-strength" class="cat-tab" onclick="filterCategory('strength')">Сила</button>
+          <button id="tab-hope" class="cat-tab" onclick="filterCategory('hope')">Надія</button>
+          <button id="tab-healing" class="cat-tab" onclick="filterCategory('healing')">Зцілення</button>
+        </div>
+      </div>
+
+      <!-- КОНТЕЙНЕР ДЛЯ ВІРША -->
       <div class="verse-container">
-        <p class="verse-text">Завантаження...</p>
+        <p class="verse-text">Завантаження Слова...</p>
         <p class="verse-reference"></p>
+      </div>
+
+    </section>
+
+    <!-- ЕКРАН НАЛАШТУВАНЬ -->
+    <section id="screenSettings" class="screen">
+      <div class="settings-container">
+        <h2>Налаштування</h2>
+
+        <div class="settings-section">
+          <h3>⏰ Щоденне нагадування</h3>
+          <div class="notif-container">
+            <div class="notif-input-row">
+              <input type="time" id="myTimePicker" class="notif-time-input" value="08:00">
+              <button class="notif-btn-set" onclick="setAndroidNotification(document.getElementById('myTimePicker').value)">
+                Увімкнути
+              </button>
+            </div>
+            <div id="notifList"></div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>📐 Налаштування вигляду</h3>
+          
+          <div class="settings-row">
+            <label for="fontSizeSlider">Розмір шрифту вірша:</label>
+            <input type="range" id="fontSizeSlider" min="0" max="100" value="50">
+          </div>
+          
+          <div class="settings-row">
+            <label for="iconSizeSlider">Розмір меню та іконок:</label>
+            <input type="range" id="iconSizeSlider" min="0" max="100" value="50">
+          </div>
+
+          <div class="settings-row checkbox-row">
+            <label for="dynamicBgCheckbox" class="checkbox-label">
+              <input type="checkbox" id="dynamicBgCheckbox">
+              <span>🖼️ Змінювати фон для кожного вірша</span>
+            </label>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section id="screenSettings" class="screen">
-      </section>
   </div>
 
+  <!-- НИЖНЯ НАВІГАЦІЯ -->
   <nav class="bottom-nav">
-     </nav>
+    <button class="nav-btn active" data-screen="screenMain">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+      </svg>
+      <span class="nav-label">Слово</span>
+    </button>
+
+    <button class="nav-btn" data-screen="screenSettings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+      <span class="nav-label">Налаштування</span>
+    </button>
+  </nav>
 
   <div id="toast" class="toast-message"></div>
+
   <script src="app.js"></script>
 </body>
 </html>
