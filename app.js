@@ -421,16 +421,48 @@ function renderFavList() {
    Натискання на трек у Меню вмикає/вимикає глобальну фонову музику.
    Якщо вірш мав своє аудіо (audio_url) — воно замовкає.
 ───────────────────────────────────── */
-if ('mediaSession' in navigator) {
+/* ── Media Session API ──────────────────────────────────────────────
+   Реєструємо активну медіа-сесію для ОС, щоб Android/iOS не вбивав
+   фонове відтворення й показував плашку у шторці повідомлень.
+   Обов'язково оновлюємо metadata при кожній зміні треку.
+──────────────────────────────────────────────────────────────────── */
+function updateMediaSession(track) {
+  if (!('mediaSession' in navigator)) return;
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title:  track ? track.name : 'Holy Vibe',
+    artist: 'Holy Vibe App',
+    album:  'Молитовна музика',
+    artwork: [
+      { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ]
+  });
+  navigator.mediaSession.setActionHandler('play',  () => {
+    audioEl.play().catch(() => {});
+    navigator.mediaSession.playbackState = 'playing';
+  });
   navigator.mediaSession.setActionHandler('pause', () => {
     audioEl.pause();
+    navigator.mediaSession.playbackState = 'paused';
+    // Не скидаємо S.playing — лише пауза, не зупинка
+  });
+  navigator.mediaSession.setActionHandler('stop',  () => {
+    audioEl.pause();
+    audioEl.currentTime = 0;
     S.playing = -1;
     S.verseAudioOn = false;
+    navigator.mediaSession.playbackState = 'none';
   });
 }
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden && S.playing >= 0) audioEl.pause();
-});
+
+/* ── НЕ зупиняємо аудіо при згортанні / блокуванні екрану ──────────
+   Старий код робив audioEl.pause() — прибрали.
+   Браузер/WebView сам продовжує відтворення поки є активна
+   MediaSession. Якщо потрібно справді зупиняти — розкоментуй.
+──────────────────────────────────────────────────────────────────── */
+// document.addEventListener('visibilitychange', () => {
+//   if (document.hidden && S.playing >= 0) audioEl.pause();
+// });
 
 function buildTrackList() {
   const container = $('trackList'); if (!container) return;
@@ -473,6 +505,9 @@ function buildTrackList() {
           $(`tname${i}`).classList.add('playing');
           $(`ico${i}`).textContent = '⏸';
           showToast('🎵 ' + t.name);
+          updateMediaSession(t);
+          if ('mediaSession' in navigator)
+            navigator.mediaSession.playbackState = 'playing';
         })
         .catch(err => {
           console.warn('Audio error:', err);
