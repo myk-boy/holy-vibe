@@ -261,6 +261,18 @@ function applyStyle() {
 }
 
 
+/* ── Попереднє завантаження фонів у кеш браузера ───────────────────
+   Викликається один раз при старті. new Image().src змушує браузер
+   завантажити картинку у кеш — при наступному зверненні миттєво.
+──────────────────────────────────────────────────────────────────── */
+function preloadBackgrounds() {
+  BACKGROUNDS.forEach(b => {
+    if (!b.url) return;
+    const img = new Image();
+    img.src = b.url;
+  });
+}
+
 /* ── Авто-фон: міняється циклічно з кожним віршем ─────────────────── */
 function applyAutoBg() {
   if (!S.autoBg) return;
@@ -937,6 +949,7 @@ setSliderBg(is, S.iconSize);
 fetchVerses();
 buildTrackList();
 buildBgGrid();
+preloadBackgrounds(); // завантажуємо всі фони в кеш одразу при старті
 
 // Сповіщення — наступний реліз
 
