@@ -751,7 +751,9 @@ function syncAlarmsToAndroid() {
 const DAY_NAMES = ['', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Нд'];
 
 function alarmDaysLabel(days) {
-  if (!days || days.length === 0) return 'Щодня';
+  if (days === null || days === undefined) return 'Один раз';
+  if (days === 'once') return 'Один раз';
+  if (!Array.isArray(days) || days.length === 0) return 'Щодня';
   if (days.length === 7) return 'Щодня';
   if (JSON.stringify(days) === JSON.stringify([1,2,3,4,5])) return 'Пн–Пт';
   if (JSON.stringify(days) === JSON.stringify([6,7])) return 'Сб–Нд';
@@ -826,7 +828,9 @@ function openAlarmModal(editId = null) {
     if (a) {
       timeInput.value = String(a.hour).padStart(2,'0') + ':' + String(a.minute).padStart(2,'0');
       labelInput.value = a.label || '';
-      if (!a.days || a.days.length === 0) {
+      if (a.days === 'once') {
+        document.querySelector('.day-btn[data-day="-1"]').classList.add('active');
+      } else if (!a.days || a.days.length === 0) {
         document.querySelector('.day-btn[data-day="0"]').classList.add('active');
       } else {
         a.days.forEach(d => {
@@ -836,10 +840,9 @@ function openAlarmModal(editId = null) {
       }
     }
   } else {
-    // Новий — дефолт час 08:00, щодня
     timeInput.value = '08:00';
     labelInput.value = '';
-    document.querySelector('.day-btn[data-day="0"]').classList.add('active');
+    document.querySelector('.day-btn[data-day="-1"]').classList.add('active'); // дефолт — один раз
   }
 
   modal.style.display = 'flex';
@@ -850,25 +853,27 @@ function closeAlarmModal() {
   editingAlarmId = null;
 }
 
-// Вибір днів — "Щодня" знімає всі інші і навпаки
 document.querySelectorAll('.day-btn').forEach(btn =>
   btn.addEventListener('click', () => {
     const day = +btn.dataset.day;
-    if (day === 0) {
+    if (day === -1 || day === 0) {
+      // "Один раз" або "Щодня" — знімаємо все, вибираємо тільки цю
       document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     } else {
+      // Конкретний день — знімаємо "Один раз" і "Щодня"
+      document.querySelector('.day-btn[data-day="-1"]').classList.remove('active');
       document.querySelector('.day-btn[data-day="0"]').classList.remove('active');
       btn.classList.toggle('active');
-      // Якщо всі 7 днів вибрані — перемикаємо на "Щодня"
       const selected = document.querySelectorAll('.day-btn.active').length;
+      // Якщо всі 7 днів — переключаємо на "Щодня"
       if (selected === 7) {
         document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
         document.querySelector('.day-btn[data-day="0"]').classList.add('active');
       }
-      // Якщо нічого не вибрано — повертаємо "Щодня"
+      // Якщо нічого — повертаємо "Один раз"
       if (selected === 0) {
-        document.querySelector('.day-btn[data-day="0"]').classList.add('active');
+        document.querySelector('.day-btn[data-day="-1"]').classList.add('active');
       }
     }
   })
@@ -883,8 +888,9 @@ $('btnAlarmSave').addEventListener('click', () => {
   if (!timeVal) { showToast('⚠️ Вкажи час'); return; }
   const [h, m] = timeVal.split(':').map(Number);
 
-  const everyDay = document.querySelector('.day-btn[data-day="0"]').classList.contains('active');
-  const days = everyDay ? [] :
+  const isOnce    = document.querySelector('.day-btn[data-day="-1"]').classList.contains('active');
+  const isEveryDay = document.querySelector('.day-btn[data-day="0"]').classList.contains('active');
+  const days = isOnce ? 'once' : isEveryDay ? [] :
     [...document.querySelectorAll('.day-btn.active')]
       .map(b => +b.dataset.day).filter(d => d > 0);
 
