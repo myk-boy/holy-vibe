@@ -492,7 +492,7 @@ $('btnAI').addEventListener('click', () => {
   aiAnswer.textContent = v.ai;
   aiPanel.classList.add('visible');
 });
-$('btnChapter').addEventListener('click', () => { closeSheet(); showToast('📖 Читати розділ — незабаром…'); });
+
 $('btnShare').addEventListener('click', () => {
   const v=cv(); if (!v) return; closeSheet();
   const txt = `«${v.text.replace(/\n/g,' ')}» — ${v.ref}`;
@@ -952,7 +952,7 @@ verseRefEl.innerHTML  = '<div class="skeleton-line" style="width:120px;height:9p
 
 fetchVerses();
 buildTrackList();
-buildBgGrid();
+fetchBackgrounds();
 
 // Сповіщення — наступний реліз
 
