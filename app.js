@@ -491,7 +491,7 @@ $('btnAI').addEventListener('click', () => {
   aiAnswer.textContent = v.ai;
   aiPanel.classList.add('visible');
 });
-$('btnChapter').addEventListener('click', () => { closeSheet(); showToast('📖 Читати розділ — незабаром…'); });
+
 $('btnShare').addEventListener('click', () => {
   const v=cv(); if (!v) return; closeSheet();
   const txt = `«${v.text.replace(/\n/g,' ')}» — ${v.ref}`;
