@@ -266,46 +266,32 @@ function applyStyle() {
 }
 
 
-/* ── Авто-фон: плавна зміна через crossfade ────────────────────────
-   #bg — поточний фон (завжди видимий)
-   #bgNext — наступний фон (завантажується невидимо, потім fade-in)
+/* ── Авто-фон: плавна зміна через opacity fade ──────────────────────
+   Просто: ховаємо #bg → міняємо фон → показуємо. Чисто і легко.
 ──────────────────────────────────────────────────────────────────── */
 function applyAutoBg() {
   if (!S.autoBg) return;
   const photoBgs = BACKGROUNDS.slice(1);
   if (!photoBgs.length) return;
-  const bg       = photoBgs[S.idx % photoBgs.length];
-  const bgEl     = $('bg');
-  const bgNextEl = $('bgNext');
+  const bg   = photoBgs[S.idx % photoBgs.length];
+  const bgEl = $('bg');
 
-  // Той самий фон — не анімуємо
-  if (bgEl.dataset.currentUrl === bg.url) return;
+  // Плавно ховаємо
+  bgEl.style.transition = 'opacity 0.3s ease';
+  bgEl.style.opacity    = '0';
 
-  // Ставимо новий фон поверх (невидимий), потім плавно показуємо
-  bgNextEl.style.backgroundImage    = `url('${bg.url}')`;
-  bgNextEl.style.backgroundSize     = 'cover';
-  bgNextEl.style.backgroundPosition = 'center';
-  bgNextEl.style.opacity = '0';
-
-  // Невелика затримка щоб браузер встиг застосувати backgroundImage
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      bgNextEl.style.transition = 'opacity 0.7s ease';
-      bgNextEl.style.opacity    = '1';
-    });
-  });
-
-  // Після завершення переходу — переносимо в основний шар
   setTimeout(() => {
-    bgEl.style.backgroundImage    = bgNextEl.style.backgroundImage;
+    // Міняємо фон поки невидимий
+    bgEl.style.backgroundImage    = `url('${bg.url}')`;
     bgEl.style.backgroundSize     = 'cover';
     bgEl.style.backgroundPosition = 'center';
-    bgEl.dataset.photo            = '1';
-    bgEl.dataset.currentUrl       = bg.url;
-    bgNextEl.style.transition     = 'none';
-    bgNextEl.style.opacity        = '0';
+    bgEl.dataset.photo = '1';
+
+    // Плавно показуємо
+    bgEl.style.transition = 'opacity 0.5s ease';
+    bgEl.style.opacity    = '1';
     applyStyle();
-  }, 750);
+  }, 300);
 }
 
 
