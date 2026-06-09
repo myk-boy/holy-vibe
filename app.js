@@ -100,17 +100,17 @@ const $ = id => document.getElementById(id);
 const DOM = {
   body:        document.body,
   app:         $('app'),
-  scrWord:     $('scrWord'),
-  scrFavs:     $('scrFavs'),
-  scrMenu:     $('scrMenu'),
-  scrLook:     $('scrLook'),
-  navWord:     $('navWord'),
-  navFavs:     $('navFavs'),
-  navMenu:     $('navMenu'),
-  navLook:     $('navLook'),
-  cardVerse:   $('cardVerse'),
-  textBlock:   $('textBlock'),
-  bookRef:     $('bookRef'),
+  scrWord:     $('screenMain'),
+  scrFavs:     $('screenFav'),
+  scrMenu:     $('screenMenu'),
+  scrLook:     $('screenSettings'),
+  navWord:     document.querySelector('.nav-btn[data-screen="screenMain"]'),
+  navFavs:     document.querySelector('.nav-btn[data-screen="screenFav"]'),
+  navMenu:     document.querySelector('.nav-btn[data-screen="screenMenu"]'),
+  navLook:     document.querySelector('.nav-btn[data-screen="screenSettings"]'),
+  cardVerse:   $('verseCard'),
+  textBlock:   $('verseText'),
+  bookRef:     $('verseRef'),
   btnFav:      $('btnFav'),
   audioEl:     $('audioEl')
 };
@@ -153,8 +153,10 @@ function applySettingsUI() {
 
   DOM.body.style.fontFamily = FONTS[S.font] || FONTS.cormorant;
 
-  DOM.cardVerse.style.textShadow = S.shadow ? '0 3px 12px rgba(0,0,0,0.8)' : 'none';
-  DOM.cardVerse.style.transition = S.anim ? 'transform 0.4s ease, opacity 0.4s ease' : 'none';
+  if (DOM.cardVerse) {
+    DOM.cardVerse.style.textShadow = S.shadow ? '0 3px 12px rgba(0,0,0,0.8)' : 'none';
+    DOM.cardVerse.style.transition = S.anim ? 'transform 0.4s ease, opacity 0.4s ease' : 'none';
+  }
 
   const starsContainer = $('starsContainer');
   if (starsContainer) starsContainer.style.display = S.stars ? 'block' : 'none';
@@ -182,7 +184,7 @@ function renderCurrentVerse() {
   if (filteredIndexes.length === 0) {
     DOM.textBlock.innerHTML = "Немає віршів у цій категорії";
     DOM.bookRef.innerText = "";
-    DOM.btnFav.classList.remove('active');
+    if (DOM.btnFav) DOM.btnFav.classList.remove('active');
     return;
   }
 
@@ -194,7 +196,7 @@ function renderCurrentVerse() {
   DOM.bookRef.innerText = `${item.book} ${item.ref}`;
 
   const isFav = favorites.includes(item.id);
-  DOM.btnFav.classList.toggle('active', isFav);
+  if (DOM.btnFav) DOM.btnFav.classList.toggle('active', isFav);
 
   updateBgOverlay();
 }
@@ -307,8 +309,8 @@ if ($('btnOpenSheet')) {
   });
 }
 
-if ($('sheetCloseZone')) {
-  $('sheetCloseZone').addEventListener('click', () => {
+if ($('sheetOverlay')) {
+  $('sheetOverlay').addEventListener('click', () => {
     sheetOpen = false;
     $('bottomSheet').classList.remove('open');
   });
@@ -381,7 +383,7 @@ function renderFavList() {
 const audioEl = DOM.audioEl;
 
 function renderMenuTracklist() {
-  const container = $('menuTracklist');
+  const container = $('trackList');
   if (!container) return;
   container.innerHTML = '';
 
@@ -434,7 +436,8 @@ function updatePlayerBar() {
   const bar = $('playerBar');
   if (!bar) return;
   if (S.playing >= 0) {
-    $('barTrackName').innerText = TRACKS[S.playing].name;
+    const barName = $('barTrackName');
+    if (barName) barName.innerText = TRACKS[S.playing].name;
     bar.classList.add('active');
   } else {
     bar.classList.remove('active');
@@ -466,7 +469,7 @@ if (audioEl) {
    11b. АВТО-ФОНИ ТА КІНЕМАТОГРАФІЧНІСТЬ
 ───────────────────────────────────── */
 function updateBgOverlay() {
-  const overlay = $('bgOverlay');
+  const overlay = $('bg');
   if (!overlay) return;
 
   if (!S.autoBg || filteredIndexes.length === 0) {
@@ -573,7 +576,7 @@ function syncAlarmsToAndroid() {
 }
 
 function renderNotifList() {
-  const box = $('notifList');
+  const box = $('alarmList');
   if (!box) return;
   box.innerHTML = '';
 
@@ -645,13 +648,13 @@ function openAlarmModal(id = null) {
         const btn = document.querySelector(`.day-btn[data-day="${d}"]`);
         if (btn) btn.classList.add('active');
       });
-      $('modalTitle').innerText = 'Редагувати нагадування';
+      if ($('modalTitle')) $('modalTitle').innerText = 'Редагувати нагадування';
     }
   } else {
     $('alarmTime').value = "08:00";
     $('alarmLabel').value = "";
-    document.querySelectorAll('.day-btn').forEach(b => b.add && b.classList.add('active'));
-    $('modalTitle').innerText = 'Нове нагадування';
+    document.querySelectorAll('.day-btn').forEach(b => b.classList.add('active'));
+    if ($('modalTitle')) $('modalTitle').innerText = 'Нове нагадування';
   }
 }
 
@@ -660,8 +663,8 @@ function closeAlarmModal() {
   editingAlarmId = null;
 }
 
-if ($('btnNewNotif')) $('btnNewNotif').addEventListener('click', () => openAlarmModal(null));
-if ($('btnCancelAlarm')) $('btnCancelAlarm').addEventListener('click', closeAlarmModal);
+if ($('btnAddAlarm')) $('btnAddAlarm').addEventListener('click', () => openAlarmModal(null));
+if ($('btnAlarmCancel')) $('btnAlarmCancel').addEventListener('click', closeAlarmModal);
 
 document.querySelectorAll('.day-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -669,8 +672,8 @@ document.querySelectorAll('.day-btn').forEach(btn => {
   });
 });
 
-if ($('btnSaveAlarm')) {
-  $('btnSaveAlarm').addEventListener('click', () => {
+if ($('btnAlarmSave')) {
+  $('btnAlarmSave').addEventListener('click', () => {
     const timeVal = $('alarmTime').value;
     if (!timeVal) return;
 
@@ -725,9 +728,9 @@ if ($('tglAutoBg')) $('tglAutoBg').classList.toggle('on', S.autoBg);
 updatePlayerBar();
 renderNotifList();
 
-document.querySelectorAll('.cat-pill').forEach(pill => {
+document.querySelectorAll('.pill').forEach(pill => {
   pill.addEventListener('click', () => {
-    document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
     pill.classList.add('active');
     currentCat = pill.dataset.cat;
     rebuildIndexes();
