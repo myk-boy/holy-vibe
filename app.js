@@ -54,18 +54,18 @@ const TRACKS = [
 
 
 const BACKGROUNDS = [
-  { name: "Без фону",      url: "" },
-  { name: "Туманний ліс",  url: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80" },
-  { name: "Ранкове небо",  url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
-  { name: "Гори у хмарах", url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" },
-  { name: "Квіти",    url: "https://images.unsplash.com/photo-1774275979685-545e62da5438?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { name: "Пшеничне поле", url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" },
-  { name: "Зоряне небо",   url: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80" },
-  { name: "Захід сонця",   url: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80" },
-  { name: "Скелі та море", url: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=80" },
-  { name: "Космос", url: "https://images.unsplash.com/photo-1779681755263-8292902e1ef3?q=80&w=563&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { name: "Скелі в пустелі", url: "https://images.unsplash.com/photo-1772289935758-d4190f9f849d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { name: "Тукан", url: "https://images.unsplash.com/photo-1775479822110-2d4e7fd0f7fd?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Без фону",        url: "" },
+  { name: "Туманний ліс",    url: "assets/bg/01.jfif" },
+  { name: "Ранкове небо",    url: "assets/bg/02.jfif" },
+  { name: "Гори у хмарах",   url: "assets/bg/03.jfif" },
+  { name: "Квіти",           url: "assets/bg/04.jfif" },
+  { name: "Пшеничне поле",   url: "assets/bg/05.jfif" },
+  { name: "Зоряне небо",     url: "assets/bg/06.jfif" },
+  { name: "Захід сонця",     url: "assets/bg/07.jfif" },
+  { name: "Скелі та море",   url: "assets/bg/08.jfif" },
+  { name: "Космос",          url: "assets/bg/09.jfif" },
+  { name: "Скелі в пустелі", url: "assets/bg/10.jfif" },
+  { name: "Тукан",           url: "assets/bg/11.jfif" },
 ];
 
 const FONTS = {
@@ -260,18 +260,6 @@ function applyStyle() {
   });
 }
 
-
-/* ── Попереднє завантаження фонів у кеш браузера ───────────────────
-   Викликається один раз при старті. new Image().src змушує браузер
-   завантажити картинку у кеш — при наступному зверненні миттєво.
-──────────────────────────────────────────────────────────────────── */
-function preloadBackgrounds() {
-  BACKGROUNDS.forEach(b => {
-    if (!b.url) return;
-    const img = new Image();
-    img.src = b.url;
-  });
-}
 
 /* ── Авто-фон: міняється циклічно з кожним віршем ─────────────────── */
 function applyAutoBg() {
@@ -949,7 +937,6 @@ setSliderBg(is, S.iconSize);
 fetchVerses();
 buildTrackList();
 buildBgGrid();
-preloadBackgrounds(); // завантажуємо всі фони в кеш одразу при старті
 
 // Сповіщення — наступний реліз
 
