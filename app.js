@@ -53,20 +53,8 @@ const TRACKS = [
 
 
 
-const BACKGROUNDS = [
-  { name: "Без фону",      url: "" },
-  { name: "Туманний ліс",  url: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80" },
-  { name: "Ранкове небо",  url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
-  { name: "Гори у хмарах", url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" },
-  { name: "Квіти",    url: "https://images.unsplash.com/photo-1774275979685-545e62da5438?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { name: "Пшеничне поле", url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" },
-  { name: "Зоряне небо",   url: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80" },
-  { name: "Захід сонця",   url: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80" },
-  { name: "Скелі та море", url: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=80" },
-  { name: "Космос", url: "https://images.unsplash.com/photo-1779681755263-8292902e1ef3?q=80&w=563&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { name: "Скелі в пустелі", url: "https://images.unsplash.com/photo-1772289935758-d4190f9f849d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { name: "Тукан", url: "https://images.unsplash.com/photo-1775479822110-2d4e7fd0f7fd?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-];
+// BACKGROUNDS завантажуються з backgrounds.json (div. fetchBackgrounds)
+const BACKGROUNDS = [{ name: "Без фону", url: "" }];
 
 const FONTS = {
   cormorant: "'Cormorant Garamond', serif",
@@ -100,11 +88,28 @@ async function fetchVerses() {
       S.idx  = 0;
     }
 
-    renderVerse('in');
+    renderVerse();
     showToast('📖 ' + VERSES.length + ' віршів завантажено');
   } catch (err) {
     console.error('verses.json не завантажився:', err);
     showToast('⚠️ Не вдалося завантажити вірші');
+  }
+}
+
+
+/* ─────────────────────────────────────
+   0b. ЗАВАНТАЖЕННЯ BACKGROUNDS.JSON
+───────────────────────────────────── */
+async function fetchBackgrounds() {
+  try {
+    const res  = await fetch('backgrounds.json');
+    const data = await res.json();
+    const loaded = data.backgrounds || [];
+    BACKGROUNDS.push(...loaded);
+    buildBgGrid(); // перебудовуємо грід після завантаження
+  } catch (err) {
+    console.error('backgrounds.json не завантажився:', err);
+    // Якщо файл не знайдено — грід залишається з одним "Без фону"
   }
 }
 
@@ -261,17 +266,46 @@ function applyStyle() {
 }
 
 
-/* ── Авто-фон: міняється циклічно з кожним віршем ─────────────────── */
+/* ── Авто-фон: плавна зміна через crossfade ────────────────────────
+   #bg — поточний фон (завжди видимий)
+   #bgNext — наступний фон (завантажується невидимо, потім fade-in)
+──────────────────────────────────────────────────────────────────── */
 function applyAutoBg() {
   if (!S.autoBg) return;
-  // Пропускаємо перший елемент BACKGROUNDS (індекс 0 = "Без фону")
   const photoBgs = BACKGROUNDS.slice(1);
-  const bg = photoBgs[S.idx % photoBgs.length];
-  const bgEl = $('bg');
-  bgEl.style.backgroundImage    = `url('${bg.url}')`;
-  bgEl.style.backgroundSize     = 'cover';
-  bgEl.style.backgroundPosition = 'center';
-  bgEl.dataset.photo = '1';
+  if (!photoBgs.length) return;
+  const bg       = photoBgs[S.idx % photoBgs.length];
+  const bgEl     = $('bg');
+  const bgNextEl = $('bgNext');
+
+  // Той самий фон — не анімуємо
+  if (bgEl.dataset.currentUrl === bg.url) return;
+
+  // Ставимо новий фон поверх (невидимий), потім плавно показуємо
+  bgNextEl.style.backgroundImage    = `url('${bg.url}')`;
+  bgNextEl.style.backgroundSize     = 'cover';
+  bgNextEl.style.backgroundPosition = 'center';
+  bgNextEl.style.opacity = '0';
+
+  // Невелика затримка щоб браузер встиг застосувати backgroundImage
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      bgNextEl.style.transition = 'opacity 0.7s ease';
+      bgNextEl.style.opacity    = '1';
+    });
+  });
+
+  // Після завершення переходу — переносимо в основний шар
+  setTimeout(() => {
+    bgEl.style.backgroundImage    = bgNextEl.style.backgroundImage;
+    bgEl.style.backgroundSize     = 'cover';
+    bgEl.style.backgroundPosition = 'center';
+    bgEl.dataset.photo            = '1';
+    bgEl.dataset.currentUrl       = bg.url;
+    bgNextEl.style.transition     = 'none';
+    bgNextEl.style.opacity        = '0';
+    applyStyle();
+  }, 750);
 }
 
 
@@ -285,16 +319,10 @@ function renderVerse(dir = 'up') {
     verseTextEl.innerHTML   = formatText(v.text);
     verseRefEl.textContent  = v.ref + ' · Переклад Огієнка';
     if (S.autoBg) applyAutoBg();
+    // Якщо вірш має власне аудіо і глобальний плеєр не грає
     updateVerseAudio(v);
   };
   if (!S.anim) { write(); return; }
-  // dir='in' — перше завантаження: одразу пишемо і робимо fade-in без затримки
-  if (dir === 'in') {
-    write();
-    verseCard.classList.add('in');
-    setTimeout(() => verseCard.classList.remove('in'), 400);
-    return;
-  }
   verseCard.classList.add(dir === 'up' ? 'out-up' : 'out-down');
   setTimeout(() => {
     write();
@@ -940,19 +968,9 @@ $('tglAutoBg').classList.toggle('on', S.autoBg);
 applyStyle();
 setSliderBg(fs, S.size);
 setSliderBg(is, S.iconSize);
-
-// Показуємо skeleton поки verses.json завантажується
-verseBookEl.innerHTML = '<div class="skeleton-line" style="width:60px;height:10px;margin:0 auto"></div>';
-verseTextEl.innerHTML = `
-  <div class="skeleton-line" style="width:100%;height:13px"></div>
-  <div class="skeleton-line" style="width:80%;height:13px"></div>
-  <div class="skeleton-line" style="width:90%;height:13px"></div>
-  <div class="skeleton-line" style="width:65%;height:13px"></div>`;
-verseRefEl.innerHTML  = '<div class="skeleton-line" style="width:120px;height:9px;margin:0 auto"></div>';
-
 fetchVerses();
 buildTrackList();
-fetchBackgrounds();
+fetchBackgrounds(); // завантажує backgrounds.json і будує грід фонів
 
 // Сповіщення — наступний реліз
 
