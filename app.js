@@ -68,7 +68,14 @@ const BACKGROUNDS = [
   { name: "Тукан", url: "https://images.unsplash.com/photo-1775479822110-2d4e7fd0f7fd?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
 ];
 
-const FONTS = {
+// Попередньо завантажуємо всі фони в кеш браузера одразу при старті.
+// Після цього applyAutoBg() міняє фон миттєво без затримки мережі.
+BACKGROUNDS.forEach(bg => {
+  if (bg.url) {
+    const img = new Image();
+    img.src = bg.url;
+  }
+});
   cormorant: "'Cormorant Garamond', serif",
   georgia:   "Georgia, serif",
   nunito:    "'Nunito', sans-serif"
