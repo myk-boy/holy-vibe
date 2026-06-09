@@ -53,20 +53,8 @@ const TRACKS = [
 
 
 
-const BACKGROUNDS = [
-  { name: "Без фону",        url: "" },
-  { name: "Туманний ліс",    url: "assets/bg/01.jfif" },
-  { name: "Ранкове небо",    url: "assets/bg/02.jfif" },
-  { name: "Гори у хмарах",   url: "assets/bg/03.jfif" },
-  { name: "Квіти",           url: "assets/bg/04.jfif" },
-  { name: "Пшеничне поле",   url: "assets/bg/05.jfif" },
-  { name: "Зоряне небо",     url: "assets/bg/06.jfif" },
-  { name: "Захід сонця",     url: "assets/bg/07.jfif" },
-  { name: "Скелі та море",   url: "assets/bg/08.jfif" },
-  { name: "Космос",          url: "assets/bg/09.jfif" },
-  { name: "Скелі в пустелі", url: "assets/bg/10.jfif" },
-  { name: "Тукан",           url: "assets/bg/11.jfif" },
-];
+// BACKGROUNDS завантажуються з backgrounds.json (div. fetchBackgrounds)
+const BACKGROUNDS = [{ name: "Без фону", url: "" }];
 
 const FONTS = {
   cormorant: "'Cormorant Garamond', serif",
@@ -105,6 +93,23 @@ async function fetchVerses() {
   } catch (err) {
     console.error('verses.json не завантажився:', err);
     showToast('⚠️ Не вдалося завантажити вірші');
+  }
+}
+
+
+/* ─────────────────────────────────────
+   0b. ЗАВАНТАЖЕННЯ BACKGROUNDS.JSON
+───────────────────────────────────── */
+async function fetchBackgrounds() {
+  try {
+    const res  = await fetch('backgrounds.json');
+    const data = await res.json();
+    const loaded = data.backgrounds || [];
+    BACKGROUNDS.push(...loaded);
+    buildBgGrid(); // перебудовуємо грід після завантаження
+  } catch (err) {
+    console.error('backgrounds.json не завантажився:', err);
+    // Якщо файл не знайдено — грід залишається з одним "Без фону"
   }
 }
 
@@ -936,7 +941,7 @@ setSliderBg(fs, S.size);
 setSliderBg(is, S.iconSize);
 fetchVerses();
 buildTrackList();
-buildBgGrid();
+fetchBackgrounds(); // завантажує backgrounds.json і будує грід фонів
 
 // Сповіщення — наступний реліз
 
