@@ -324,7 +324,7 @@ function updateVerseAudio(verse) {
 }
 
 // Порядок категорій — відповідає порядку пілюль у catBar
-const CAT_ORDER = ['all','peace','love','fear','strength','hope','healing','grace','promises'];
+const CAT_ORDER = ['all','peace','love','fear','faith','victory','strength','hope','healing','grace','promises'];
 
 function nextCat() {
   const i = CAT_ORDER.indexOf(S.cat);
