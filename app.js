@@ -73,6 +73,12 @@ async function fetchVerses() {
     const loaded = data.verses || [];
     VERSES.push(...loaded);
 
+    // ── Динамічно будуємо пілюлі категорій з _categories ──────────────
+    const categories = data._categories || {};
+    buildCatOrder(categories);
+    buildCatPills(categories);
+    // ───────────────────────────────────────────────────────────────────
+
     // Відновлюємо збережену позицію
     const pos = loadPos();
     if (pos && pos.cat) {
@@ -323,8 +329,27 @@ function updateVerseAudio(verse) {
   S.verseAudioOn = true;
 }
 
-// Порядок категорій — відповідає порядку пілюль у catBar
-const CAT_ORDER = ['all','peace','love','fear','faith','victory','strength','hope','healing','grace','promises'];
+// Порядок категорій — будується динамічно з _categories у verses.json
+// Перший елемент завжди 'all', далі — ключі у тому порядку, як вони в JSON
+let CAT_ORDER = ['all'];
+
+function buildCatOrder(categories) {
+  CAT_ORDER = ['all', ...Object.keys(categories)];
+}
+
+// Будує пілюлі catBar динамічно з об'єкта { key: 'Назва', ... }
+// Замінює весь вміст #catBar, зберігаючи першу пілюлю "Усі" активною
+function buildCatPills(categories) {
+  const bar = $('catBar');
+  if (!bar) return;
+  const pills = [
+    `<div class="pill active" data-cat="all">Усі</div>`,
+    ...Object.entries(categories).map(
+      ([key, label]) => `<div class="pill" data-cat="${key}">${label}</div>`
+    )
+  ].join('\n        ');
+  bar.innerHTML = pills;
+}
 
 function nextCat() {
   const i = CAT_ORDER.indexOf(S.cat);
