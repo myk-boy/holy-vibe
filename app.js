@@ -53,8 +53,20 @@ const TRACKS = [
 
 
 
-// BACKGROUNDS завантажуються з backgrounds.json (div. fetchBackgrounds)
-const BACKGROUNDS = [{ name: "Без фону", url: "" }];
+const BACKGROUNDS = [
+  { name: "Без фону",      url: "" },
+  { name: "Туманний ліс",  url: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80" },
+  { name: "Ранкове небо",  url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
+  { name: "Гори у хмарах", url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" },
+  { name: "Квіти",    url: "https://images.unsplash.com/photo-1774275979685-545e62da5438?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Пшеничне поле", url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" },
+  { name: "Зоряне небо",   url: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80" },
+  { name: "Захід сонця",   url: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80" },
+  { name: "Скелі та море", url: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=80" },
+  { name: "Космос", url: "https://images.unsplash.com/photo-1779681755263-8292902e1ef3?q=80&w=563&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Скелі в пустелі", url: "https://images.unsplash.com/photo-1772289935758-d4190f9f849d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Тукан", url: "https://images.unsplash.com/photo-1775479822110-2d4e7fd0f7fd?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+];
 
 const FONTS = {
   cormorant: "'Cormorant Garamond', serif",
@@ -88,28 +100,11 @@ async function fetchVerses() {
       S.idx  = 0;
     }
 
-    renderVerse();
+    renderVerse('in');
     showToast('📖 ' + VERSES.length + ' віршів завантажено');
   } catch (err) {
     console.error('verses.json не завантажився:', err);
     showToast('⚠️ Не вдалося завантажити вірші');
-  }
-}
-
-
-/* ─────────────────────────────────────
-   0b. ЗАВАНТАЖЕННЯ BACKGROUNDS.JSON
-───────────────────────────────────── */
-async function fetchBackgrounds() {
-  try {
-    const res  = await fetch('backgrounds.json');
-    const data = await res.json();
-    const loaded = data.backgrounds || [];
-    BACKGROUNDS.push(...loaded);
-    buildBgGrid(); // перебудовуємо грід після завантаження
-  } catch (err) {
-    console.error('backgrounds.json не завантажився:', err);
-    // Якщо файл не знайдено — грід залишається з одним "Без фону"
   }
 }
 
@@ -290,10 +285,16 @@ function renderVerse(dir = 'up') {
     verseTextEl.innerHTML   = formatText(v.text);
     verseRefEl.textContent  = v.ref + ' · Переклад Огієнка';
     if (S.autoBg) applyAutoBg();
-    // Якщо вірш має власне аудіо і глобальний плеєр не грає
     updateVerseAudio(v);
   };
   if (!S.anim) { write(); return; }
+  // dir='in' — перше завантаження: одразу пишемо і робимо fade-in без затримки
+  if (dir === 'in') {
+    write();
+    verseCard.classList.add('in');
+    setTimeout(() => verseCard.classList.remove('in'), 400);
+    return;
+  }
   verseCard.classList.add(dir === 'up' ? 'out-up' : 'out-down');
   setTimeout(() => {
     write();
@@ -491,7 +492,7 @@ $('btnAI').addEventListener('click', () => {
   aiAnswer.textContent = v.ai;
   aiPanel.classList.add('visible');
 });
-
+$('btnChapter').addEventListener('click', () => { closeSheet(); showToast('📖 Читати розділ — незабаром…'); });
 $('btnShare').addEventListener('click', () => {
   const v=cv(); if (!v) return; closeSheet();
   const txt = `«${v.text.replace(/\n/g,' ')}» — ${v.ref}`;
@@ -939,9 +940,19 @@ $('tglAutoBg').classList.toggle('on', S.autoBg);
 applyStyle();
 setSliderBg(fs, S.size);
 setSliderBg(is, S.iconSize);
+
+// Показуємо skeleton поки verses.json завантажується
+verseBookEl.innerHTML = '<div class="skeleton-line" style="width:60px;height:10px;margin:0 auto"></div>';
+verseTextEl.innerHTML = `
+  <div class="skeleton-line" style="width:100%;height:13px"></div>
+  <div class="skeleton-line" style="width:80%;height:13px"></div>
+  <div class="skeleton-line" style="width:90%;height:13px"></div>
+  <div class="skeleton-line" style="width:65%;height:13px"></div>`;
+verseRefEl.innerHTML  = '<div class="skeleton-line" style="width:120px;height:9px;margin:0 auto"></div>';
+
 fetchVerses();
 buildTrackList();
-fetchBackgrounds(); // завантажує backgrounds.json і будує грід фонів
+buildBgGrid();
 
 // Сповіщення — наступний реліз
 
