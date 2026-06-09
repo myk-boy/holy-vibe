@@ -284,8 +284,7 @@ function renderVerse(dir = 'up') {
     verseBookEl.textContent = v.book;
     verseTextEl.innerHTML   = formatText(v.text);
     verseRefEl.textContent  = v.ref + ' · Переклад Огієнка';
-    applyAutoBg();
-    applyStyle();
+    if (S.autoBg) applyAutoBg();
     // Якщо вірш має власне аудіо і глобальний плеєр не грає
     updateVerseAudio(v);
   };
@@ -295,8 +294,8 @@ function renderVerse(dir = 'up') {
     write();
     verseCard.classList.remove('out-up','out-down');
     verseCard.classList.add('in');
-    setTimeout(() => verseCard.classList.remove('in'), 500);
-  }, 260);
+    setTimeout(() => verseCard.classList.remove('in'), 400);
+  }, 200);
 }
 
 /*
