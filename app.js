@@ -266,8 +266,9 @@ function applyStyle() {
 }
 
 
-/* ── Авто-фон: плавна зміна через opacity fade ──────────────────────
-   Просто: ховаємо #bg → міняємо фон → показуємо. Чисто і легко.
+/* ── Авто-фон: міняється разом з анімацією вірша ───────────────────
+   Фон просто ставиться в момент коли verseCard невидимий (між out і in).
+   Окремої анімації фону немає — він змінюється "за кадром".
 ──────────────────────────────────────────────────────────────────── */
 function applyAutoBg() {
   if (!S.autoBg) return;
@@ -275,23 +276,10 @@ function applyAutoBg() {
   if (!photoBgs.length) return;
   const bg   = photoBgs[S.idx % photoBgs.length];
   const bgEl = $('bg');
-
-  // Плавно ховаємо
-  bgEl.style.transition = 'opacity 0.3s ease';
-  bgEl.style.opacity    = '0';
-
-  setTimeout(() => {
-    // Міняємо фон поки невидимий
-    bgEl.style.backgroundImage    = `url('${bg.url}')`;
-    bgEl.style.backgroundSize     = 'cover';
-    bgEl.style.backgroundPosition = 'center';
-    bgEl.dataset.photo = '1';
-
-    // Плавно показуємо
-    bgEl.style.transition = 'opacity 0.5s ease';
-    bgEl.style.opacity    = '1';
-    applyStyle();
-  }, 300);
+  bgEl.style.backgroundImage    = `url('${bg.url}')`;
+  bgEl.style.backgroundSize     = 'cover';
+  bgEl.style.backgroundPosition = 'center';
+  bgEl.dataset.photo = '1';
 }
 
 
