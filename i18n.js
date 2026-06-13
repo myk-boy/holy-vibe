@@ -442,12 +442,6 @@ function applyUIStrings(ui) {
   const notifAdd = document.getElementById('btnAddAlarm');
   if (notifAdd && ui.notif_add) notifAdd.textContent = ui.notif_add;
 
-  // Вірш — посилання на переклад
-  const verseRef = document.getElementById('verseRef');
-  if (verseRef && ui.translation && langCode === 'uk') {
-    // Лишаємо "Переклад Огієнка" тільки для укр
-  }
-
   // Зберігаємо UI для тостів і renderVerse
   window._currentUI = ui;
 }
