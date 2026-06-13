@@ -96,6 +96,11 @@ async function fetchVerses() {
 
     renderVerse();
     showToast('📖 ' + VERSES.length + ' віршів завантажено');
+    // i18n: якщо активна не українська — застосовуємо переклад
+    const savedLang = localStorage.getItem('hv_lang') || 'uk';
+    if (savedLang !== 'uk' && window.translationCache && window.translationCache[savedLang]) {
+      applyTranslation(savedLang);
+    }
   } catch (err) {
     console.error('verses.json не завантажився:', err);
     showToast('⚠️ Не вдалося завантажити вірші');
@@ -297,7 +302,9 @@ function renderVerse(dir = 'up') {
   const write = () => {
     verseBookEl.textContent = v.book;
     verseTextEl.innerHTML   = formatText(v.text);
-    verseRefEl.textContent  = v.ref + ' · Переклад Огієнка';
+    verseRefEl.textContent  = (typeof currentLang === 'undefined' || currentLang === 'uk')
+      ? v.ref + ' · Переклад Огієнка'
+      : v.ref;
     if (S.autoBg) applyAutoBg();
     // Якщо вірш має власне аудіо і глобальний плеєр не грає
     updateVerseAudio(v);

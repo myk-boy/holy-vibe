@@ -1,0 +1,596 @@
+/* ═══════════════════════════════════════════
+   i18n.js  —  Holy Vibe
+   Система автоматичного перекладу через Gemini API
+   
+   Як працює:
+   1. Юзер вибирає мову в налаштуваннях
+   2. Якщо переклад вже є в localStorage — завантажуємо миттєво
+   3. Якщо немає — перекладаємо батчами через Gemini Flash
+   4. Кешуємо в localStorage назавжди (до очищення браузера)
+   
+   Що перекладається:
+   - Всі вірші (text, book, ref, ai) з verses.json
+   - Рядки інтерфейсу (UI_STRINGS нижче)
+═══════════════════════════════════════════ */
+
+// ─── Адреса твого Cloudflare Worker (проксі для Gemini) ─────────────
+const TRANSLATE_PROXY_URL = 'https://holy-vibe-translate.nicklavigneua.workers.dev';
+// ────────────────────────────────────────────────────────────────────
+
+// Поточна активна мова ('uk' = українська = оригінал, без перекладу)
+let currentLang = 'uk';
+
+// Кеш перекладів { 'en': { verses: [...], ui: {...} }, ... }
+const translationCache = {};
+
+// Підтримувані мови
+const SUPPORTED_LANGUAGES = [
+  { code: 'uk', name: '🇺🇦 Українська', native: 'Українська' },
+  { code: 'en', name: '🇬🇧 English',    native: 'English' },
+  { code: 'pl', name: '🇵🇱 Polski',     native: 'Polski' },
+  { code: 'de', name: '🇩🇪 Deutsch',    native: 'Deutsch' },
+  { code: 'fr', name: '🇫🇷 Français',   native: 'Français' },
+  { code: 'es', name: '🇪🇸 Español',    native: 'Español' },
+  { code: 'pt', name: '🇧🇷 Português',  native: 'Português' },
+  { code: 'ro', name: '🇷🇴 Română',     native: 'Română' },
+  { code: 'ru', name: '🇷🇺 Русский',    native: 'Русский' },
+  { code: 'zh', name: '🇨🇳 中文',       native: '中文' },
+  { code: 'ar', name: '🇸🇦 العربية',    native: 'العربية' },
+  { code: 'hi', name: '🇮🇳 हिन्दी',      native: 'हिन्दी' },
+  { code: 'sw', name: '🇰🇪 Kiswahili',  native: 'Kiswahili' },
+];
+
+// Рядки інтерфейсу — все що юзер бачить у тексті
+const UI_STRINGS = {
+  uk: {
+    // Навігація
+    nav_word:      'Слово',
+    nav_favs:      'Улюблені',
+    nav_menu:      'Меню',
+    nav_settings:  'Вигляд',
+    // Головний екран
+    cat_all:       'Усі',
+    swipe_hint:    'свайп вгору',
+    translation:   'Переклад Огієнка',
+    // Улюблені
+    favs_title:    'Улюблені вірші',
+    favs_empty:    'Ще немає улюблених.\nДвічі торкніться вірша, щоб додати.',
+    // Шторка
+    sheet_title:   'Цей вірш',
+    btn_explain:   'Пояснити цей вірш',
+    btn_share:     'Поділитися',
+    ai_ref:        '✦ Духовне тлумачення',
+    // Меню
+    menu_logo:     'СЛОВО',
+    menu_tagline:  'Просочення Живим Словом',
+    music_title:   '🎵 Молитовна музика (CC)',
+    donate_title:  'Підтримати проєкт ❤️',
+    // Налаштування
+    settings_title:     'Оформлення',
+    settings_font:      'Шрифт',
+    settings_font_classic: 'Класика',
+    settings_font_tradition: 'Традиція',
+    settings_font_modern: 'Сучасний',
+    settings_size:      'Розмір тексту',
+    settings_icon_size: 'Розмір іконок і навігації',
+    settings_color:     'Колір тексту',
+    settings_bg:        'Фон',
+    settings_extra:     'Додатково',
+    toggle_shadow:      'Тінь тексту',
+    toggle_anim:        'Анімація переходу',
+    toggle_stars:       'Зірочки на фоні',
+    toggle_autobg:      'Фон змінюється з віршем',
+    settings_lang:      '🌐 Мова',
+    // Нагадування
+    notif_title:   '🔔 Нагадування для молитви',
+    notif_empty:   'Немає нагадувань.\nДодай перше нижче 🙏',
+    notif_add:     '+ Додати нагадування',
+    alarm_modal_title: 'Налаштування нагадування',
+    alarm_label_ph:    'Ранкова молитва',
+    alarm_name:        'Назва',
+    alarm_time:        'Час',
+    alarm_days:        'Дні тижня',
+    alarm_once:        'Один раз',
+    alarm_daily:       'Щодня',
+    alarm_cancel:      'Скасувати',
+    alarm_save:        'Зберегти 🔔',
+    day_mon: 'Пн', day_tue: 'Вт', day_wed: 'Ср',
+    day_thu: 'Чт', day_fri: 'Пт', day_sat: 'Сб', day_sun: 'Нд',
+    // Тости
+    toast_loaded:  '📖 {n} віршів завантажено',
+    toast_copied:  '📋 Вірш скопійовано',
+    toast_added_fav:   '🤍 Додано до улюблених',
+    toast_removed_fav: 'Видалено з улюблених',
+    toast_deleted:     '🗑️ Видалено',
+    toast_saved:       '✅ Нагадування збережено',
+    toast_enabled:     '🔔 Увімкнено',
+    toast_disabled:    '🔕 Вимкнено',
+    toast_shadow_off:  'Тінь вимкнена',
+    toast_font_changed:'Шрифт змінено',
+    toast_bg_changed:  '🖼️ Фон змінено',
+    toast_bg_removed:  '🖼️ Фон прибрано',
+    toast_autobg_on:   '🖼️ Авто-фон увімкнено',
+    toast_autobg_off:  '🖼️ Авто-фон вимкнено',
+    toast_swipe:       '↑ свайп — наступний вірш',
+    toast_longpress:   '✦ довге натискання — тлумач',
+    toast_translating: '🌐 Перекладаю...',
+    toast_translated:  '✅ Переклад готовий!',
+    toast_trans_error: '⚠️ Помилка перекладу',
+    toast_time_missing:'⚠️ Вкажи час',
+    // Прогрес перекладу
+    trans_progress:    'Перекладаю {done} / {total} віршів...',
+    trans_ui:          'Перекладаю інтерфейс...',
+    trans_caching:     'Зберігаю переклад...',
+  }
+};
+
+// Категорії — назви для перекладу
+const CATEGORY_NAMES_UK = {
+  peace:    'Мир',
+  love:     'Любов',
+  faith:    'Віра',
+  victory:  'Перемога',
+  strength: 'Сила',
+  hope:     'Надія',
+  healing:  'Зцілення',
+  grace:    'Благодать',
+  promises: 'Обітниці',
+};
+
+
+/* ─────────────────────────────────────
+   ЯДРО ПЕРЕКЛАДУ
+───────────────────────────────────── */
+
+// Викликати Gemini API через наш Cloudflare Worker (ключ ховається на сервері)
+async function callGemini(prompt) {
+  const resp = await fetch(TRANSLATE_PROXY_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ prompt })
+  });
+  if (!resp.ok) throw new Error(`Помилка проксі: ${resp.status}`);
+  const data = await resp.json();
+  if (data.error) throw new Error(data.error);
+  return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+}
+
+// Перекласти масив рядків одним запитом, повертає масив того ж розміру
+async function translateBatch(texts, targetLang) {
+  const json = JSON.stringify(texts);
+  const prompt = `You are a professional Bible translator. Translate the following JSON array of strings from Ukrainian to ${targetLang}.
+
+CRITICAL RULES:
+- Return ONLY a valid JSON array, nothing else
+- Keep the same number of elements
+- Preserve \\n line breaks exactly as they are
+- Keep Bible references (like "Пс. 23:1", "Ів. 3:16") in standard format for ${targetLang}
+- Use a reverent, literary style appropriate for Scripture
+- Do NOT add any explanation, markdown, or commentary
+
+Input JSON array:
+${json}
+
+Output JSON array:`;
+
+  const raw = await callGemini(prompt);
+  // Витягуємо JSON навіть якщо модель додала щось зайвого
+  const match = raw.match(/\[[\s\S]*\]/);
+  if (!match) throw new Error('No JSON array in response');
+  return JSON.parse(match[0]);
+}
+
+// Перекласти об'єкт рядків інтерфейсу
+async function translateUI(targetLang, langName) {
+  const uk = UI_STRINGS.uk;
+  const keys = Object.keys(uk);
+  const values = Object.values(uk);
+
+  const prompt = `You are a professional translator. Translate the following JSON array of UI strings for a Bible app from Ukrainian to ${langName}.
+
+CRITICAL RULES:
+- Return ONLY a valid JSON array with exactly ${keys.length} elements
+- Keep {n}, {done}, {total} placeholders exactly as they are
+- Keep emoji exactly as they are
+- Keep \\n exactly as they are
+- Use natural, friendly tone for a mobile app
+- Do NOT add explanation or markdown
+
+Input:
+${JSON.stringify(values)}
+
+Output:`;
+
+  const raw = await callGemini(prompt);
+  const match = raw.match(/\[[\s\S]*\]/);
+  if (!match) throw new Error('No JSON array in UI response');
+  const translated = JSON.parse(match[0]);
+
+  const result = {};
+  keys.forEach((k, i) => { result[k] = translated[i] ?? uk[k]; });
+  return result;
+}
+
+// Перекласти назви категорій
+async function translateCategories(targetLang, langName) {
+  const keys = Object.keys(CATEGORY_NAMES_UK);
+  const values = Object.values(CATEGORY_NAMES_UK);
+
+  const prompt = `Translate these Bible category names from Ukrainian to ${langName}. Return ONLY a JSON array of ${keys.length} translated strings, nothing else.
+Input: ${JSON.stringify(values)}
+Output:`;
+
+  const raw = await callGemini(prompt);
+  const match = raw.match(/\[[\s\S]*\]/);
+  if (!match) return CATEGORY_NAMES_UK;
+  const translated = JSON.parse(match[0]);
+  const result = {};
+  keys.forEach((k, i) => { result[k] = translated[i] ?? CATEGORY_NAMES_UK[k]; });
+  return result;
+}
+
+
+/* ─────────────────────────────────────
+   ГОЛОВНА ФУНКЦІЯ ПЕРЕКЛАДУ
+───────────────────────────────────── */
+async function translateToLanguage(langCode, onProgress) {
+  // Шукаємо назву мови
+  const langObj = SUPPORTED_LANGUAGES.find(l => l.code === langCode);
+  const langName = langObj ? langObj.native : langCode;
+
+  // Перевіряємо кеш в localStorage
+  const cacheKey = `hv_trans_${langCode}`;
+  const cached = localStorage.getItem(cacheKey);
+  if (cached) {
+    try {
+      translationCache[langCode] = JSON.parse(cached);
+      return translationCache[langCode];
+    } catch { /* пошкоджений кеш — перекладаємо знову */ }
+  }
+
+  // Отримуємо вірші з глобального масиву VERSES
+  const verses = window.VERSES || [];
+  const total = verses.length;
+  const BATCH = 20; // по 20 віршів за раз
+
+  onProgress && onProgress(0, total, 'ui');
+
+  // 1. Перекладаємо інтерфейс
+  const translatedUI = await translateUI(langCode, langName);
+
+  // 2. Перекладаємо категорії
+  const translatedCats = await translateCategories(langCode, langName);
+
+  // 3. Перекладаємо вірші батчами
+  const translatedVerses = [];
+
+  for (let i = 0; i < total; i += BATCH) {
+    const batch = verses.slice(i, i + BATCH);
+
+    // Готуємо масиви для перекладу окремо (text, book, ai)
+    const texts = batch.map(v => v.text);
+    const books = batch.map(v => v.book);
+    const ais   = batch.map(v => v.ai || '');
+    const refs  = batch.map(v => v.ref);
+
+    const [tTexts, tBooks, tAis, tRefs] = await Promise.all([
+      translateBatch(texts, langName),
+      translateBatch(books, langName),
+      translateBatch(ais.filter(a => a), langName).then(arr => {
+        // Відновлюємо порожні AI-рядки
+        let idx = 0;
+        return ais.map(a => a ? (arr[idx++] || a) : '');
+      }),
+      translateBatch(refs, langName),
+    ]);
+
+    batch.forEach((v, j) => {
+      translatedVerses.push({
+        id:   v.id,
+        book: tBooks[j] || v.book,
+        text: tTexts[j] || v.text,
+        ref:  tRefs[j]  || v.ref,
+        ai:   tAis[j]   || v.ai || '',
+        cat:  v.cat,
+        audio_url: v.audio_url,
+      });
+    });
+
+    onProgress && onProgress(Math.min(i + BATCH, total), total, 'verses');
+  }
+
+  // Зберігаємо результат
+  const result = {
+    ui:         translatedUI,
+    verses:     translatedVerses,
+    categories: translatedCats,
+    lang:       langCode,
+    timestamp:  Date.now(),
+  };
+
+  translationCache[langCode] = result;
+  localStorage.setItem(cacheKey, JSON.stringify(result));
+
+  return result;
+}
+
+
+/* ─────────────────────────────────────
+   ЗАСТОСУВАННЯ ПЕРЕКЛАДУ ДО ДОДАТКУ
+───────────────────────────────────── */
+function applyTranslation(langCode) {
+  if (langCode === 'uk') {
+    // Відновлюємо оригінал
+    applyUIStrings(UI_STRINGS.uk);
+    // Відновлюємо оригінальні вірші
+    if (window._VERSES_ORIGINAL) {
+      window.VERSES.length = 0;
+      window.VERSES.push(...window._VERSES_ORIGINAL);
+    }
+    // Відновлюємо оригінальні категорії
+    if (window._CATEGORIES_ORIGINAL) {
+      buildCatPills(window._CATEGORIES_ORIGINAL);
+      buildCatOrder(window._CATEGORIES_ORIGINAL);
+    }
+    currentLang = 'uk';
+    renderVerse();
+    return;
+  }
+
+  const data = translationCache[langCode];
+  if (!data) return;
+
+  // Застосовуємо рядки UI
+  applyUIStrings(data.ui);
+
+  // Замінюємо вірші перекладеними
+  if (data.verses && data.verses.length) {
+    if (!window._VERSES_ORIGINAL) {
+      window._VERSES_ORIGINAL = [...window.VERSES];
+    }
+    window.VERSES.length = 0;
+    window.VERSES.push(...data.verses);
+    // Оновлюємо пул
+    S.pool = S.cat === 'all' ? [...window.VERSES] : window.VERSES.filter(v => v.cat === S.cat);
+  }
+
+  // Оновлюємо категорії
+  if (data.categories) {
+    if (!window._CATEGORIES_ORIGINAL) {
+      window._CATEGORIES_ORIGINAL = { ...window._CATEGORIES_ORIGINAL };
+    }
+    buildCatPills(data.categories);
+    buildCatOrder(data.categories);
+  }
+
+  currentLang = langCode;
+  renderVerse();
+}
+
+// Застосовуємо рядки UI до DOM
+function applyUIStrings(ui) {
+  if (!ui) return;
+
+  // Навігація
+  const navLabels = document.querySelectorAll('.nav-label');
+  const navKeys = ['nav_word', 'nav_favs', 'nav_menu', 'nav_settings'];
+  navLabels.forEach((el, i) => { if (navKeys[i] && ui[navKeys[i]]) el.textContent = ui[navKeys[i]]; });
+
+  // "Усі" у catBar і catToggleLabel
+  const allPill = document.querySelector('.pill[data-cat="all"]');
+  if (allPill && ui.cat_all) allPill.textContent = ui.cat_all;
+  const toggleLabel = document.getElementById('catToggleLabel');
+  if (toggleLabel && S.cat === 'all' && ui.cat_all) toggleLabel.textContent = ui.cat_all;
+
+  // Підказка свайпу
+  const swipeHint = document.querySelector('.swipe-hint-text');
+  if (swipeHint && ui.swipe_hint) swipeHint.textContent = ui.swipe_hint;
+
+  // Заголовки екранів
+  const favTitle = document.querySelector('#screenFav .screen-header .t-label');
+  if (favTitle && ui.favs_title) favTitle.textContent = ui.favs_title;
+  const settingsTitle = document.querySelector('#screenSettings .screen-header .t-label');
+  if (settingsTitle && ui.settings_title) settingsTitle.textContent = ui.settings_title;
+
+  // Шторка
+  const sheetTitle = document.querySelector('.sheet-section-title');
+  if (sheetTitle && ui.sheet_title) sheetTitle.textContent = ui.sheet_title;
+  const btnAI = document.querySelector('#btnAI');
+  if (btnAI && ui.btn_explain) {
+    const ico = btnAI.querySelector('.sheet-btn-ico');
+    btnAI.textContent = ui.btn_explain;
+    if (ico) btnAI.prepend(ico);
+  }
+  const btnShare = document.querySelector('#btnShare');
+  if (btnShare && ui.btn_share) {
+    const ico = btnShare.querySelector('.sheet-btn-ico');
+    btnShare.textContent = ui.btn_share;
+    if (ico) btnShare.prepend(ico);
+  }
+  const aiRef = document.querySelector('.ai-ref');
+  if (aiRef && ui.ai_ref) aiRef.textContent = ui.ai_ref;
+
+  // Меню
+  const menuLogo = document.querySelector('.menu-logo');
+  if (menuLogo && ui.menu_logo) menuLogo.textContent = ui.menu_logo;
+  const menuTagline = document.querySelector('.menu-tagline');
+  if (menuTagline && ui.menu_tagline) menuTagline.textContent = ui.menu_tagline;
+  const musicTitle = document.querySelector('.music-title');
+  if (musicTitle && ui.music_title) musicTitle.textContent = ui.music_title;
+
+  // Налаштування — заголовки блоків
+  const blockTitles = document.querySelectorAll('.settings-block-title');
+  const blockKeys = ['settings_font','settings_size','settings_icon_size','settings_color','settings_bg','settings_extra','settings_lang','notif_title'];
+  blockTitles.forEach((el, i) => { if (blockKeys[i] && ui[blockKeys[i]]) el.textContent = ui[blockKeys[i]]; });
+
+  // Шрифти — підписи
+  const fontSpans = document.querySelectorAll('.font-opt span');
+  const fontKeys = ['settings_font_classic','settings_font_tradition','settings_font_modern'];
+  fontSpans.forEach((el, i) => { if (fontKeys[i] && ui[fontKeys[i]]) el.textContent = ui[fontKeys[i]]; });
+
+  // Тогли
+  const toggleRows = document.querySelectorAll('.toggle-row');
+  const toggleKeys = ['toggle_shadow','toggle_anim','toggle_stars','toggle_autobg'];
+  toggleRows.forEach((row, i) => {
+    if (!toggleKeys[i] || !ui[toggleKeys[i]]) return;
+    const toggle = row.querySelector('.toggle');
+    row.textContent = ui[toggleKeys[i]];
+    if (toggle) row.appendChild(toggle);
+  });
+
+  // Нагадування
+  const notifAdd = document.getElementById('btnAddAlarm');
+  if (notifAdd && ui.notif_add) notifAdd.textContent = ui.notif_add;
+
+  // Вірш — посилання на переклад
+  const verseRef = document.getElementById('verseRef');
+  if (verseRef && ui.translation && langCode === 'uk') {
+    // Лишаємо "Переклад Огієнка" тільки для укр
+  }
+
+  // Зберігаємо UI для тостів і renderVerse
+  window._currentUI = ui;
+}
+
+// Отримати рядок UI для поточної мови
+function t(key, vars) {
+  const ui = window._currentUI || UI_STRINGS.uk;
+  let str = ui[key] || UI_STRINGS.uk[key] || key;
+  if (vars) {
+    Object.entries(vars).forEach(([k, v]) => { str = str.replace(`{${k}}`, v); });
+  }
+  return str;
+}
+
+
+/* ─────────────────────────────────────
+   UI: ВИБІР МОВИ В НАЛАШТУВАННЯХ
+───────────────────────────────────── */
+function buildLanguageSelector() {
+  const container = document.getElementById('langBlock');
+  if (!container) return;
+
+  const savedLang = localStorage.getItem('hv_lang') || 'uk';
+  currentLang = savedLang;
+
+  container.innerHTML = `
+    <div class="settings-block-title" id="langBlockTitle">🌐 Мова</div>
+    <div style="position:relative">
+      <select id="langSelect" style="
+        width:100%; padding:11px 14px; border-radius:10px;
+        background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+        color:#f0e8d5; font-size:15px; font-family:'Nunito',sans-serif;
+        appearance:none; -webkit-appearance:none; cursor:pointer;
+        background-image: url('data:image/svg+xml,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'12\\' height=\\'8\\' viewBox=\\'0 0 12 8\\'><path d=\\'M1 1l5 5 5-5\\' stroke=\\'%23c9a84c\\' stroke-width=\\'1.5\\' fill=\\'none\\' stroke-linecap=\\'round\\'/></svg>');
+        background-repeat:no-repeat; background-position:right 14px center;">
+        ${SUPPORTED_LANGUAGES.map(l =>
+          `<option value="${l.code}" ${l.code === savedLang ? 'selected' : ''}>${l.name}</option>`
+        ).join('')}
+      </select>
+    </div>
+
+    <!-- Прогрес-бар перекладу -->
+    <div id="transProgress" style="display:none; margin-top:12px;">
+      <div style="font-family:'Nunito',sans-serif; font-size:12px; color:rgba(255,255,255,.5); margin-bottom:6px;" id="transProgressText">Перекладаю...</div>
+      <div style="height:3px; background:rgba(255,255,255,.1); border-radius:2px; overflow:hidden;">
+        <div id="transProgressBar" style="height:100%; width:0%; background:linear-gradient(90deg,#c9a84c,#e8d08a); border-radius:2px; transition:width .3s;"></div>
+      </div>
+    </div>
+
+    <!-- Помилка -->
+    <div id="transError" style="display:none; margin-top:10px; padding:10px 12px; background:rgba(255,60,60,.08); border:1px solid rgba(255,60,60,.2); border-radius:8px; font-family:'Nunito',sans-serif; font-size:12px; color:rgba(255,150,150,.8); line-height:1.5;"></div>
+  `;
+
+  document.getElementById('langSelect').addEventListener('change', async (e) => {
+    const langCode = e.target.value;
+    await switchLanguage(langCode);
+  });
+
+  // Якщо збережена мова не українська — застосовуємо при запуску
+  if (savedLang !== 'uk') {
+    const cached = localStorage.getItem(`hv_trans_${savedLang}`);
+    if (cached) {
+      try {
+        translationCache[savedLang] = JSON.parse(cached);
+        applyTranslation(savedLang);
+      } catch { /* пошкоджений кеш — залишаємо українську */ }
+    }
+  }
+}
+
+async function switchLanguage(langCode) {
+  const progressEl  = document.getElementById('transProgress');
+  const progressBar = document.getElementById('transProgressBar');
+  const progressTxt = document.getElementById('transProgressText');
+  const errorEl     = document.getElementById('transError');
+
+  errorEl.style.display = 'none';
+
+  if (langCode === 'uk') {
+    localStorage.setItem('hv_lang', 'uk');
+    applyTranslation('uk');
+    showToast('🇺🇦 Українська');
+    return;
+  }
+
+  // Якщо вже є в кеші — застосовуємо миттєво
+  const cacheKey = `hv_trans_${langCode}`;
+  if (localStorage.getItem(cacheKey)) {
+    try {
+      translationCache[langCode] = JSON.parse(localStorage.getItem(cacheKey));
+      localStorage.setItem('hv_lang', langCode);
+      applyTranslation(langCode);
+      const lang = SUPPORTED_LANGUAGES.find(l => l.code === langCode);
+      showToast(`${lang?.name || langCode}`);
+      return;
+    } catch { /* перекладаємо знову */ }
+  }
+
+  // Показуємо прогрес
+  progressEl.style.display = 'block';
+  progressBar.style.width = '0%';
+  progressTxt.textContent = 'Перекладаю інтерфейс...';
+
+  try {
+    const total = (window.VERSES || []).length;
+
+    await translateToLanguage(langCode, (done, total, stage) => {
+      if (stage === 'ui') {
+        progressTxt.textContent = 'Перекладаю інтерфейс...';
+        progressBar.style.width = '3%';
+      } else {
+        const pct = Math.round(5 + (done / total) * 95);
+        progressBar.style.width = pct + '%';
+        progressTxt.textContent = `Перекладаю ${done} / ${total} віршів...`;
+      }
+    });
+
+    progressBar.style.width = '100%';
+    progressTxt.textContent = 'Готово! ✅';
+    setTimeout(() => { progressEl.style.display = 'none'; }, 1500);
+
+    localStorage.setItem('hv_lang', langCode);
+    applyTranslation(langCode);
+    const lang = SUPPORTED_LANGUAGES.find(l => l.code === langCode);
+    showToast(`✅ ${lang?.name || langCode}`);
+
+  } catch (err) {
+    console.error('Translation error:', err);
+    progressEl.style.display = 'none';
+    errorEl.textContent = `⚠️ Помилка: ${err.message}. Перевір API ключ або спробуй ще раз.`;
+    errorEl.style.display = 'block';
+    // Повертаємо вибір на попередню мову
+    document.getElementById('langSelect').value = currentLang;
+  }
+}
+
+
+/* ─────────────────────────────────────
+   ІНІЦІАЛІЗАЦІЯ
+───────────────────────────────────── */
+// Ініціалізуємо після завантаження сторінки
+window._currentUI = UI_STRINGS.uk;
+
+document.addEventListener('DOMContentLoaded', () => {
+  buildLanguageSelector();
+});
