@@ -142,41 +142,63 @@ const CATEGORY_NAMES_UK = {
    ЯДРО ПЕРЕКЛАДУ
 ───────────────────────────────────── */
 
+// Пауза між запитами, щоб не впиратися в ліміт 15 запитів/хв
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+const REQUEST_DELAY_MS = 4500; // ~13 запитів/хв — з запасом
+
 // Викликати Gemini API через наш Cloudflare Worker (ключ ховається на сервері)
-async function callGemini(prompt) {
-  const resp = await fetch(TRANSLATE_PROXY_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ prompt })
-  });
-  if (!resp.ok) throw new Error(`Помилка проксі: ${resp.status}`);
-  const data = await resp.json();
-  if (data.error) throw new Error(data.error);
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+// При 429 (rate limit) — чекає і повторює, до 4 спроб
+async function callGemini(prompt, retries = 4) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const resp = await fetch(TRANSLATE_PROXY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
+    });
+
+    if (resp.status === 429) {
+      if (attempt < retries) {
+        await sleep(15000 * (attempt + 1)); // 15с, 30с, 45с, 60с
+        continue;
+      }
+      throw new Error('429 — забагато запитів, спробуйте через хвилину');
+    }
+
+    if (!resp.ok) throw new Error(`Помилка проксі: ${resp.status}`);
+    const data = await resp.json();
+    if (data.error) throw new Error(data.error);
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  }
 }
 
-// Перекласти масив рядків одним запитом, повертає масив того ж розміру
-async function translateBatch(texts, targetLang) {
-  const json = JSON.stringify(texts);
-  const prompt = `You are a professional Bible translator. Translate the following JSON array of strings from Ukrainian to ${targetLang}.
+// Перекласти батч віршів ОДНИМ запитом (текст, книга, посилання, тлумачення разом)
+async function translateVerseBatch(batch, langName) {
+  const payload = {
+    texts: batch.map(v => v.text),
+    books: batch.map(v => v.book),
+    refs:  batch.map(v => v.ref),
+    ais:   batch.map(v => v.ai || ''),
+  };
+
+  const prompt = `You are a professional Bible translator. Translate the following JSON object from Ukrainian to ${langName}.
 
 CRITICAL RULES:
-- Return ONLY a valid JSON array, nothing else
-- Keep the same number of elements
+- Return ONLY a valid JSON object with the exact same structure (keys: "texts", "books", "refs", "ais")
+- Each array must have exactly ${batch.length} elements, in the same order
 - Preserve \\n line breaks exactly as they are
-- Keep Bible references (like "Пс. 23:1", "Ів. 3:16") in standard format for ${targetLang}
+- Keep Bible references (like "Пс. 23:1", "Ів. 3:16") in standard format for ${langName}
+- If an element of "ais" is an empty string "", keep it as an empty string "" in the output
 - Use a reverent, literary style appropriate for Scripture
 - Do NOT add any explanation, markdown, or commentary
 
-Input JSON array:
-${json}
+Input JSON:
+${JSON.stringify(payload)}
 
-Output JSON array:`;
+Output JSON:`;
 
   const raw = await callGemini(prompt);
-  // Витягуємо JSON навіть якщо модель додала щось зайвого
-  const match = raw.match(/\[[\s\S]*\]/);
-  if (!match) throw new Error('No JSON array in response');
+  const match = raw.match(/\{[\s\S]*\}/);
+  if (!match) throw new Error('No JSON object in verse batch response');
   return JSON.parse(match[0]);
 }
 
@@ -240,6 +262,7 @@ async function translateToLanguage(langCode, onProgress) {
 
   // Перевіряємо кеш в localStorage
   const cacheKey = `hv_trans_${langCode}`;
+  const partialKey = `hv_trans_partial_${langCode}`;
   const cached = localStorage.getItem(cacheKey);
   if (cached) {
     try {
@@ -251,55 +274,71 @@ async function translateToLanguage(langCode, onProgress) {
   // Отримуємо вірші з глобального масиву VERSES
   const verses = VERSES || [];
   const total = verses.length;
-  const BATCH = 20; // по 20 віршів за раз
+  const BATCH = 15; // менший батч — швидша і надійніша відповідь
+
+  // Перевіряємо, чи є збережений прогрес (на випадок попередньої переривання)
+  let translatedUI, translatedCats, translatedVerses = [], startIdx = 0;
+  const partial = localStorage.getItem(partialKey);
+  if (partial) {
+    try {
+      const p = JSON.parse(partial);
+      translatedUI    = p.ui;
+      translatedCats  = p.categories;
+      translatedVerses = p.verses || [];
+      startIdx = translatedVerses.length;
+    } catch { /* ігноруємо пошкоджений прогрес */ }
+  }
 
   onProgress && onProgress(0, total, 'ui');
 
-  // 1. Перекладаємо інтерфейс
-  const translatedUI = await translateUI(langCode, langName);
+  // 1. Перекладаємо інтерфейс (якщо ще не зроблено)
+  if (!translatedUI) {
+    translatedUI = await translateUI(langCode, langName);
+    await sleep(REQUEST_DELAY_MS);
+  }
 
-  // 2. Перекладаємо категорії
-  const translatedCats = await translateCategories(langCode, langName);
+  // 2. Перекладаємо категорії (якщо ще не зроблено)
+  if (!translatedCats) {
+    translatedCats = await translateCategories(langCode, langName);
+    await sleep(REQUEST_DELAY_MS);
+  }
 
-  // 3. Перекладаємо вірші батчами
-  const translatedVerses = [];
+  // Зберігаємо проміжний прогрес після кожного батча —
+  // якщо процес переривається (помилка/закриття), наступний запуск продовжить звідси
+  const savePartial = () => {
+    localStorage.setItem(partialKey, JSON.stringify({
+      ui: translatedUI, categories: translatedCats, verses: translatedVerses,
+    }));
+  };
+  savePartial();
+  onProgress && onProgress(startIdx, total, 'verses');
 
-  for (let i = 0; i < total; i += BATCH) {
+  // 3. Перекладаємо вірші батчами — по одному запиту на батч, з паузою між ними
+  for (let i = startIdx; i < total; i += BATCH) {
     const batch = verses.slice(i, i + BATCH);
 
-    // Готуємо масиви для перекладу окремо (text, book, ai)
-    const texts = batch.map(v => v.text);
-    const books = batch.map(v => v.book);
-    const ais   = batch.map(v => v.ai || '');
-    const refs  = batch.map(v => v.ref);
-
-    const [tTexts, tBooks, tAis, tRefs] = await Promise.all([
-      translateBatch(texts, langName),
-      translateBatch(books, langName),
-      translateBatch(ais.filter(a => a), langName).then(arr => {
-        // Відновлюємо порожні AI-рядки
-        let idx = 0;
-        return ais.map(a => a ? (arr[idx++] || a) : '');
-      }),
-      translateBatch(refs, langName),
-    ]);
+    const translated = await translateVerseBatch(batch, langName);
 
     batch.forEach((v, j) => {
       translatedVerses.push({
         id:   v.id,
-        book: tBooks[j] || v.book,
-        text: tTexts[j] || v.text,
-        ref:  tRefs[j]  || v.ref,
-        ai:   tAis[j]   || v.ai || '',
+        book: translated.books?.[j] || v.book,
+        text: translated.texts?.[j] || v.text,
+        ref:  translated.refs?.[j]  || v.ref,
+        ai:   translated.ais?.[j]   ?? (v.ai || ''),
         cat:  v.cat,
         audio_url: v.audio_url,
       });
     });
 
+    savePartial();
     onProgress && onProgress(Math.min(i + BATCH, total), total, 'verses');
+
+    // Пауза перед наступним запитом (окрім останнього батча)
+    if (i + BATCH < total) await sleep(REQUEST_DELAY_MS);
   }
 
-  // Зберігаємо результат
+  // Зберігаємо фінальний результат і прибираємо тимчасовий прогрес
   const result = {
     ui:         translatedUI,
     verses:     translatedVerses,
@@ -310,6 +349,7 @@ async function translateToLanguage(langCode, onProgress) {
 
   translationCache[langCode] = result;
   localStorage.setItem(cacheKey, JSON.stringify(result));
+  localStorage.removeItem(partialKey);
 
   return result;
 }
@@ -582,7 +622,7 @@ async function switchLanguage(langCode) {
   } catch (err) {
     console.error('Translation error:', err);
     progressEl.style.display = 'none';
-    errorEl.textContent = `⚠️ Помилка: ${err.message}. Перевір API ключ або спробуй ще раз.`;
+    errorEl.textContent = `⚠️ Помилка: ${err.message}. Прогрес збережено — просто оберіть мову знову, переклад продовжиться з того ж місця.`;
     errorEl.style.display = 'block';
     // Повертаємо вибір на попередню мову
     document.getElementById('langSelect').value = currentLang;
