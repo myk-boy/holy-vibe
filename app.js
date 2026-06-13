@@ -146,6 +146,8 @@ const S = {
   verseAudioOn: false, // чи грає аудіо з вірша
   vol:      60,
   sheet:    false,
+  playMode: 'single', // 'single' = повтор одного треку, 'sequence' = по черзі
+  shuffle:  false,    // перемішування при переході до наступного треку
   // notifs: реалізується в наступному релізі
 };
 
@@ -200,6 +202,8 @@ function saveSettings() {
     anim:     S.anim,
     stars:    S.stars,
     autoBg:   S.autoBg,
+    playMode: S.playMode,
+    shuffle:  S.shuffle,
   }));
 }
 
@@ -215,6 +219,8 @@ function loadSettings() {
     S.anim     = s.anim     ?? S.anim;
     S.stars    = s.stars    ?? S.stars;
     S.autoBg   = s.autoBg   ?? S.autoBg;
+    S.playMode = s.playMode ?? S.playMode;
+    S.shuffle  = s.shuffle  ?? S.shuffle;
   } catch { /* нічого не робимо */ }
 }
 
@@ -573,6 +579,12 @@ function renderFavList() {
    11. МУЗИКА — ГЛОБАЛЬНИЙ ПЛЕЄР
    Натискання на трек у Меню вмикає/вимикає глобальну фонову музику.
    Якщо вірш мав своє аудіо (audio_url) — воно замовкає.
+
+   Режими відтворення (S.playMode):
+   - 'single'   — повторювати поточний трек (audioEl.loop = true)
+   - 'sequence' — після завершення треку грати наступний по черзі
+   Кнопка шафл (S.shuffle) — при переході обирає випадковий трек
+   (працює разом з режимом 'sequence' або одна, незалежно від 'single').
 ───────────────────────────────────── */
 /* ── Media Session API ──────────────────────────────────────────────
    Реєструємо активну медіа-сесію для ОС, щоб Android/iOS не вбивав
@@ -590,22 +602,24 @@ function updateMediaSession(track) {
       { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
     ]
   });
-  navigator.mediaSession.setActionHandler('play',  () => {
+  const setHandler = (action, fn) => {
+    try { navigator.mediaSession.setActionHandler(action, fn); } catch { /* не підтримується */ }
+  };
+  setHandler('play',  () => {
     audioEl.play().catch(() => {});
     navigator.mediaSession.playbackState = 'playing';
   });
-  navigator.mediaSession.setActionHandler('pause', () => {
+  setHandler('pause', () => {
     audioEl.pause();
     navigator.mediaSession.playbackState = 'paused';
     // Не скидаємо S.playing — лише пауза, не зупинка
   });
-  navigator.mediaSession.setActionHandler('stop',  () => {
-    audioEl.pause();
-    audioEl.currentTime = 0;
-    S.playing = -1;
-    S.verseAudioOn = false;
+  setHandler('stop',  () => {
+    stopTrack();
     navigator.mediaSession.playbackState = 'none';
   });
+  setHandler('nexttrack',     () => nextTrack());
+  setHandler('previoustrack', () => prevTrack());
 }
 
 /* ── НЕ зупиняємо аудіо при згортанні / блокуванні екрану ──────────
@@ -630,56 +644,124 @@ function buildTrackList() {
 
   TRACKS.forEach((t,i) => {
     $(`track${i}`).addEventListener('click', () => {
-      if (S.playing === i) {
-        // Пауза — зупиняємо
-        audioEl.pause();
-        S.playing = -1;
-        S.verseAudioOn = false;
-        $(`track${i}`).classList.remove('playing');
-        $(`tname${i}`).classList.remove('playing');
-        $(`ico${i}`).textContent = '▶';
-        return;
-      }
-      // Зупиняємо попередній
-      if (S.playing >= 0) {
-        $(`track${S.playing}`)?.classList.remove('playing');
-        $(`tname${S.playing}`)?.classList.remove('playing');
-        const pi = $(`ico${S.playing}`); if (pi) pi.textContent = '▶';
-      }
-      // Запускаємо новий
-      S.verseAudioOn = false;
-      audioEl.src    = t.src;
-      audioEl.loop   = true;
-      audioEl.volume = S.vol / 100;
-      audioEl.play()
-        .then(() => {
-          S.playing = i;
-          $(`track${i}`).classList.add('playing');
-          $(`tname${i}`).classList.add('playing');
-          $(`ico${i}`).textContent = '⏸';
-          showToast('🎵 ' + t.name);
-          updateMediaSession(t);
-          if ('mediaSession' in navigator)
-            navigator.mediaSession.playbackState = 'playing';
-        })
-        .catch(err => {
-          console.warn('Audio error:', err);
-          showToast('⚠️ Не вдалося завантажити трек');
-        });
+      if (S.playing === i) stopTrack();
+      else playTrack(i);
     });
   });
+
+  syncPlayerControlsUI();
 }
+
+// Прибирає виділення треку i у списку
+function clearTrackUI(i) {
+  if (i < 0) return;
+  $(`track${i}`)?.classList.remove('playing');
+  $(`tname${i}`)?.classList.remove('playing');
+  const ico = $(`ico${i}`); if (ico) ico.textContent = '▶';
+}
+
+// Запускає трек за індексом
+function playTrack(i) {
+  if (!TRACKS.length) return;
+  i = ((i % TRACKS.length) + TRACKS.length) % TRACKS.length; // циклічно
+  const t = TRACKS[i];
+
+  clearTrackUI(S.playing);
+
+  S.verseAudioOn = false;
+  audioEl.src    = t.src;
+  // loop = true тільки в режимі "повтор треку" без шафлу;
+  // інакше перехід до наступного контролюємо самі (подія 'ended')
+  audioEl.loop   = (S.playMode === 'single' && !S.shuffle);
+  audioEl.volume = S.vol / 100;
+  audioEl.play()
+    .then(() => {
+      S.playing = i;
+      $(`track${i}`)?.classList.add('playing');
+      $(`tname${i}`)?.classList.add('playing');
+      const ico = $(`ico${i}`); if (ico) ico.textContent = '⏸';
+      showToast('🎵 ' + t.name);
+      updateMediaSession(t);
+      if ('mediaSession' in navigator)
+        navigator.mediaSession.playbackState = 'playing';
+    })
+    .catch(err => {
+      console.warn('Audio error:', err);
+      showToast('⚠️ Не вдалося завантажити трек');
+    });
+}
+
+// Повна зупинка глобального плеєра
+function stopTrack() {
+  audioEl.pause();
+  clearTrackUI(S.playing);
+  S.playing = -1;
+  S.verseAudioOn = false;
+}
+
+// Наступний/попередній індекс з урахуванням шафлу
+function getAdjacentTrackIndex(current, dir) {
+  if (TRACKS.length <= 1) return current < 0 ? 0 : current;
+  if (S.shuffle) {
+    let next;
+    do { next = Math.floor(Math.random() * TRACKS.length); } while (next === current);
+    return next;
+  }
+  if (current < 0) return dir > 0 ? 0 : TRACKS.length - 1;
+  return (current + dir + TRACKS.length) % TRACKS.length;
+}
+
+function nextTrack() { playTrack(getAdjacentTrackIndex(S.playing, 1)); }
+function prevTrack() { playTrack(getAdjacentTrackIndex(S.playing, -1)); }
+
+// Синхронізує іконки кнопок режиму повтору і шафлу з S
+function syncPlayerControlsUI() {
+  const repeatBtn  = $('btnRepeatMode');
+  const shuffleBtn = $('btnShuffle');
+  if (repeatBtn) {
+    const sequence = S.playMode === 'sequence';
+    repeatBtn.textContent = sequence ? '🔁' : '🔂';
+    repeatBtn.classList.toggle('active', sequence);
+    repeatBtn.title = sequence ? 'По черзі (клік — повтор треку)' : 'Повтор треку (клік — по черзі)';
+  }
+  if (shuffleBtn) {
+    shuffleBtn.classList.toggle('active', S.shuffle);
+    shuffleBtn.title = S.shuffle ? 'Перемішування: увімкнено' : 'Перемішування: вимкнено';
+  }
+}
+
+$('btnRepeatMode')?.addEventListener('click', () => {
+  S.playMode = (S.playMode === 'single') ? 'sequence' : 'single';
+  if (S.playing >= 0) audioEl.loop = (S.playMode === 'single' && !S.shuffle);
+  syncPlayerControlsUI();
+  saveSettings();
+  showToast(S.playMode === 'sequence' ? '🔁 Відтворення по черзі' : '🔂 Повтор поточного треку');
+});
+
+$('btnShuffle')?.addEventListener('click', () => {
+  S.shuffle = !S.shuffle;
+  if (S.playing >= 0) audioEl.loop = (S.playMode === 'single' && !S.shuffle);
+  syncPlayerControlsUI();
+  saveSettings();
+  showToast(S.shuffle ? '🔀 Перемішування увімкнено' : '🔀 Перемішування вимкнено');
+});
+
+$('btnPrevTrack')?.addEventListener('click', () => prevTrack());
+$('btnNextTrack')?.addEventListener('click', () => nextTrack());
 
 audioEl.volume = S.vol / 100;
 
-// Коли трек закінчився (loop=true — не має бути, але на всяк випадок)
+// Трек завершився:
+// - 'single' без шафлу — audioEl.loop=true вже подбав про повтор (це лише запасний варіант)
+// - інакше — переходимо до наступного (по черзі або випадково)
 audioEl.addEventListener('ended', () => {
-  if (S.playing >= 0) {
-    $(`track${S.playing}`)?.classList.remove('playing');
-    $(`tname${S.playing}`)?.classList.remove('playing');
-    const pi = $(`ico${S.playing}`); if (pi) pi.textContent = '▶';
-    S.playing = -1;
+  if (S.playing < 0) return;
+  if (S.playMode === 'single' && !S.shuffle) {
+    audioEl.currentTime = 0;
+    audioEl.play().catch(() => {});
+    return;
   }
+  nextTrack();
 });
 
 
