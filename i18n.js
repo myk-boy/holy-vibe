@@ -249,7 +249,7 @@ async function translateToLanguage(langCode, onProgress) {
   }
 
   // Отримуємо вірші з глобального масиву VERSES
-  const verses = window.VERSES || [];
+  const verses = VERSES || [];
   const total = verses.length;
   const BATCH = 20; // по 20 віршів за раз
 
@@ -320,18 +320,17 @@ async function translateToLanguage(langCode, onProgress) {
 ───────────────────────────────────── */
 function applyTranslation(langCode) {
   if (langCode === 'uk') {
-    // Відновлюємо оригінал
-    applyUIStrings(UI_STRINGS.uk);
     // Відновлюємо оригінальні вірші
     if (window._VERSES_ORIGINAL) {
-      window.VERSES.length = 0;
-      window.VERSES.push(...window._VERSES_ORIGINAL);
+      VERSES.length = 0;
+      VERSES.push(...window._VERSES_ORIGINAL);
+      S.pool = S.cat === 'all' ? [...VERSES] : VERSES.filter(v => v.cat === S.cat);
     }
     // Відновлюємо оригінальні категорії
-    if (window._CATEGORIES_ORIGINAL) {
-      buildCatPills(window._CATEGORIES_ORIGINAL);
-      buildCatOrder(window._CATEGORIES_ORIGINAL);
-    }
+    refreshCatBar(window._CATEGORIES_UK || {}, UI_STRINGS.uk.cat_all);
+    // Відновлюємо рядки UI
+    applyUIStrings(UI_STRINGS.uk);
+
     currentLang = 'uk';
     renderVerse();
     return;
@@ -340,31 +339,45 @@ function applyTranslation(langCode) {
   const data = translationCache[langCode];
   if (!data) return;
 
-  // Застосовуємо рядки UI
-  applyUIStrings(data.ui);
-
   // Замінюємо вірші перекладеними
   if (data.verses && data.verses.length) {
     if (!window._VERSES_ORIGINAL) {
-      window._VERSES_ORIGINAL = [...window.VERSES];
+      window._VERSES_ORIGINAL = [...VERSES];
     }
-    window.VERSES.length = 0;
-    window.VERSES.push(...data.verses);
+    VERSES.length = 0;
+    VERSES.push(...data.verses);
     // Оновлюємо пул
-    S.pool = S.cat === 'all' ? [...window.VERSES] : window.VERSES.filter(v => v.cat === S.cat);
+    S.pool = S.cat === 'all' ? [...VERSES] : VERSES.filter(v => v.cat === S.cat);
   }
 
-  // Оновлюємо категорії
-  if (data.categories) {
-    if (!window._CATEGORIES_ORIGINAL) {
-      window._CATEGORIES_ORIGINAL = { ...window._CATEGORIES_ORIGINAL };
-    }
-    buildCatPills(data.categories);
-    buildCatOrder(data.categories);
-  }
+  // Оновлюємо категорії (з перекладеною назвою "Усі")
+  refreshCatBar(data.categories || {}, data.ui?.cat_all);
+
+  // Застосовуємо рядки UI
+  applyUIStrings(data.ui);
 
   currentLang = langCode;
   renderVerse();
+}
+
+// Перебудовує пілюлі категорій з перекладеними назвами,
+// відновлює активну пілюлю відповідно до S.cat і оновлює мітку кнопки
+function refreshCatBar(categories, allLabel) {
+  buildCatPills(categories);
+  buildCatOrder(categories);
+
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  const activePill = document.querySelector(`.pill[data-cat="${S.cat}"]`)
+                   || document.querySelector('.pill[data-cat="all"]');
+
+  const allPill = document.querySelector('.pill[data-cat="all"]');
+  if (allPill && allLabel) allPill.textContent = allLabel;
+
+  if (activePill) {
+    activePill.classList.add('active');
+    const toggleLabel = document.getElementById('catToggleLabel');
+    if (toggleLabel) toggleLabel.textContent = activePill.textContent;
+  }
 }
 
 // Застосовуємо рядки UI до DOM
@@ -546,8 +559,6 @@ async function switchLanguage(langCode) {
   progressTxt.textContent = 'Перекладаю інтерфейс...';
 
   try {
-    const total = (window.VERSES || []).length;
-
     await translateToLanguage(langCode, (done, total, stage) => {
       if (stage === 'ui') {
         progressTxt.textContent = 'Перекладаю інтерфейс...';

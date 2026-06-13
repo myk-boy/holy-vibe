@@ -75,6 +75,7 @@ async function fetchVerses() {
 
     // ── Динамічно будуємо пілюлі категорій з _categories ──────────────
     const categories = data._categories || {};
+    window._CATEGORIES_UK = categories; // для i18n.js — повернення на українську
     buildCatOrder(categories);
     buildCatPills(categories);
     // ───────────────────────────────────────────────────────────────────
