@@ -185,6 +185,18 @@ function showToast(msg) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
 }
 
+// Банер переходу між категоріями — більший, по центру екрану
+let catBannerTimer;
+function showCatBanner(catName) {
+  const banner = $('catBanner');
+  const nameEl = $('catBannerName');
+  if (!banner || !nameEl) { showToast('📖 ' + catName); return; }
+  nameEl.textContent = catName;
+  banner.classList.add('show');
+  clearTimeout(catBannerTimer);
+  catBannerTimer = setTimeout(() => banner.classList.remove('show'), 1800);
+}
+
 function cv()       { return S.pool[S.idx]; }
 function isFav(id)  { return S.favs.some(v => v.id === id); }
 function saveFavs()  { localStorage.setItem('hv_fav',    JSON.stringify(S.favs)); }
@@ -305,6 +317,7 @@ function applyAutoBg() {
    6. РЕНДЕР ВІРША
 ───────────────────────────────────── */
 function renderVerse(dir = 'up') {
+  S.idx = Math.min(S.idx, Math.max(0, S.pool.length - 1));
   const v = cv(); if (!v) return;
   const write = () => {
     verseBookEl.textContent = v.book;
@@ -394,7 +407,7 @@ function next() {
     } else {
       switchCat(nextCat());
       S.idx = 0;
-      showToast('📖 ' + ($('catToggleLabel').textContent || S.cat));
+      showCatBanner($('catToggleLabel').textContent || S.cat);
     }
   }
   savePos();
@@ -410,7 +423,7 @@ function prev() {
     } else {
       switchCat(prevCat());
       S.idx = Math.max(0, S.pool.length - 1);
-      showToast('📖 ' + ($('catToggleLabel').textContent || S.cat));
+      showCatBanner($('catToggleLabel').textContent || S.cat);
     }
   }
   savePos();

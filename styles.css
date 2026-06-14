@@ -673,6 +673,40 @@ input[type=range]::-webkit-slider-thumb {
 }
 #toast.show { opacity: .92; transform: translateX(-50%) translateY(0); }
 
+/* Банер переходу між категоріями */
+#catBanner {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(.88);
+  background: rgba(10, 14, 26, .96);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(201, 168, 76, .35);
+  border-radius: 18px;
+  padding: 18px 28px;
+  text-align: center;
+  pointer-events: none;
+  z-index: 300;
+  opacity: 0;
+  transition: opacity .3s, transform .3s;
+}
+#catBanner.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.cat-banner-label {
+  font-family: var(--font-display);
+  font-size: 10px; letter-spacing: 2.5px;
+  color: rgba(201, 168, 76, .5);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.cat-banner-name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 6vw, 28px);
+  color: var(--clr-gold-lt);
+  letter-spacing: 2px;
+}
+
 /* ─────────────────────────────────────
    СПОВІЩЕННЯ
 ───────────────────────────────────── */
