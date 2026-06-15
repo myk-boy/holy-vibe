@@ -119,6 +119,8 @@ async function fetchBackgrounds() {
     const loaded = data.backgrounds || [];
     BACKGROUNDS.push(...loaded);
     buildBgGrid(); // перебудовуємо грід після завантаження
+    // Якщо autoBg увімкнено — застосовуємо фон під поточний вірш
+    if (S.autoBg) applyAutoBg();
   } catch (err) {
     console.error('backgrounds.json не завантажився:', err);
     // Якщо файл не знайдено — грід залишається з одним "Без фону"
@@ -140,7 +142,7 @@ const S = {
   iconSize: 50,
   shadow:   true,
   anim:     false,
-  stars:    true,
+  stars:    true,  // залишаємо в стані для сумісності, але UI перемикач прибрано
   autoBg:   false,   // автозміна фону з кожним віршем
   playing:  -1,      // індекс глобального треку (-1 = не грає)
   verseAudioOn: false, // чи грає аудіо з вірша
@@ -205,6 +207,7 @@ function savePos()   { localStorage.setItem('hv_pos', JSON.stringify({ cat: S.ca
 function loadPos()   { try { return JSON.parse(localStorage.getItem('hv_pos') || 'null'); } catch { return null; } }
 
 function saveSettings() {
+  const bgEl = $('bg');
   localStorage.setItem('hv_settings', JSON.stringify({
     font:     S.font,
     color:    S.color,
@@ -216,6 +219,7 @@ function saveSettings() {
     autoBg:   S.autoBg,
     playMode: S.playMode,
     shuffle:  S.shuffle,
+    bgUrl:    bgEl.style.backgroundImage.replace(/url\(['"]?|['"]?\)/g, '') || '',
   }));
 }
 
@@ -233,6 +237,15 @@ function loadSettings() {
     S.autoBg   = s.autoBg   ?? S.autoBg;
     S.playMode = s.playMode ?? S.playMode;
     S.shuffle  = s.shuffle  ?? S.shuffle;
+
+    // Відновлюємо фон (якщо autoBg вимкнено але був вручну вибраний фон)
+    if (!S.autoBg && s.bgUrl) {
+      const bgEl = $('bg');
+      bgEl.style.backgroundImage    = `url('${s.bgUrl}')`;
+      bgEl.style.backgroundSize     = 'cover';
+      bgEl.style.backgroundPosition = 'center';
+      bgEl.dataset.photo = '1';
+    }
   } catch { /* нічого не робимо */ }
 }
 
@@ -806,8 +819,22 @@ function buildBgGrid() {
       }
       applyStyle();
       showToast(url ? '🖼️ Фон змінено' : '🖼️ Фон прибрано');
+      saveSettings();
     });
   });
+
+  // Відновлюємо активний thumb після перезапуску
+  const bgEl = $('bg');
+  const currentUrl = bgEl.style.backgroundImage.replace(/url\(['"]?|['"]?\)/g, '');
+  if (currentUrl) {
+    let matched = false;
+    container.querySelectorAll('.bg-thumb').forEach(t => {
+      const match = t.dataset.url === currentUrl;
+      t.classList.toggle('active', match);
+      if (match) matched = true;
+    });
+    if (!matched) container.querySelectorAll('.bg-thumb')[0]?.classList.add('active');
+  }
 }
 
 $('bg').dataset.photo = '0';
@@ -840,7 +867,6 @@ function mkToggle(id,key) {
 }
 mkToggle('tglShadow','shadow');
 mkToggle('tglAnim','anim');
-mkToggle('tglStars','stars');
 
 $('tglAutoBg').addEventListener('click', function() {
   S.autoBg = !S.autoBg;
@@ -1066,7 +1092,6 @@ document.querySelectorAll('.color-dot').forEach(d =>
   d.classList.toggle('active', d.dataset.color === S.color));
 $('tglShadow').classList.toggle('on', S.shadow);
 $('tglAnim').classList.toggle('on', S.anim);
-$('tglStars').classList.toggle('on', S.stars);
 $('tglAutoBg').classList.toggle('on', S.autoBg);
 
 // Відновлюємо value слайдерів зі збереженого стану (інакше HTML дефолт "50" перезапише)
