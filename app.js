@@ -139,7 +139,7 @@ const S = {
   size:     50,
   iconSize: 50,
   shadow:   true,
-  anim:     true,
+  anim:     false,
   stars:    true,
   autoBg:   false,   // автозміна фону з кожним віршем
   playing:  -1,      // індекс глобального треку (-1 = не грає)
@@ -264,10 +264,12 @@ function applyStyle() {
     verseTextEl.style.textShadow = '0 2px 30px rgba(0,0,0,.8)';
   }
 
-  // Фон: показуємо тільки на головній
+  // Фон: показуємо тільки на головній (незалежно від зірочок)
   const activeScreen = document.querySelector('.screen.active');
   const onMain = activeScreen && activeScreen.id === 'screenMain';
-  $('bg').style.opacity = onMain ? (S.stars ? '1' : '.25') : '0';
+  $('bg').style.opacity = onMain ? '1' : '0';
+  // Зірочки — окремо через CSS клас
+  $('bg').classList.toggle('no-stars', !S.stars);
 
   // Pill кольори — адаптуємо до фото-фону
   const pillBg  = isPhoto ? 'rgba(0,0,0,0.55)' : 'var(--surface)';
@@ -440,7 +442,7 @@ function goScreen(id) {
   document.querySelectorAll('.nav-btn').forEach(b =>
     b.classList.toggle('active', b.dataset.screen === id));
   // Фон тільки на головній
-  $('bg').style.opacity = (id === 'screenMain') ? (S.stars ? '1' : '.25') : '0';
+  $('bg').style.opacity = (id === 'screenMain') ? '1' : '0';
   if (id === 'screenFav')      renderFavList();
   if (id === 'screenSettings') renderNotifList();
 }
@@ -1067,6 +1069,9 @@ $('tglAnim').classList.toggle('on', S.anim);
 $('tglStars').classList.toggle('on', S.stars);
 $('tglAutoBg').classList.toggle('on', S.autoBg);
 
+// Відновлюємо value слайдерів зі збереженого стану (інакше HTML дефолт "50" перезапише)
+fs.value = S.size;
+is.value = S.iconSize;
 applyStyle();
 setSliderBg(fs, S.size);
 setSliderBg(is, S.iconSize);

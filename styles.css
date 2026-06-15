@@ -107,7 +107,9 @@ body {
     radial-gradient(circle 1px at 22% 78%, rgba(180, 210, 255, .15) 0%, transparent 100%),
     radial-gradient(circle 2px at 52% 22%, rgba(201, 168, 76, .20) 0%, transparent 100%),
     radial-gradient(circle 1px at 75% 45%, rgba(201, 168, 76, .20) 0%, transparent 100%);
+  transition: opacity .5s;
 }
+#bg.no-stars::after { opacity: 0; }
 
 
 /* ─────────────────────────────────────
