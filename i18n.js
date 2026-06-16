@@ -1,71 +1,44 @@
 /* ═══════════════════════════════════════════
    i18n.js  —  Holy Vibe
-   Система мовних файлів (готові переклади з папки lang/)
-
-   Як працює тепер:
-   1. При старті додатку визначаємо мову пристрою (navigator.language).
-      Якщо для неї є готовий переклад — вмикаємо її автоматично.
-      Якщо юзер уже колись сам обрав мову в налаштуваннях — її і
-      використовуємо, навіть якщо мова пристрою інша.
-   2. Файл перекладу (lang/{code}.json — те саме, що і uk.json,
-      але іншою мовою) довантажується одним fetch-запитом і
-      кешується в localStorage — вдруге з мережі не тягнеться.
-   3. У налаштуваннях юзер може будь-коли сам перемкнути мову —
-      його вибір завжди має пріоритет і запам'ятовується назавжди.
-
+   Система автоматичного перекладу через Gemini API
+   
+   Як працює:
+   1. Юзер вибирає мову в налаштуваннях
+   2. Якщо переклад вже є в localStorage — завантажуємо миттєво
+   3. Якщо немає — перекладаємо батчами через Gemini Flash
+   4. Кешуємо в localStorage назавжди (до очищення браузера)
+   
    Що перекладається:
-   - Всі вірші (text, book, ref, ai) — масив "verses" у lang-файлі
-   - Назви категорій — об'єкт "_categories" у lang-файлі
-   - Рядки інтерфейсу — об'єкт "ui" у lang-файлі (UI_STRINGS нижче —
-     це лише дефолтні українські значення для t() і запасний варіант)
-
-   ⚠️ ШІ-переклад (Gemini) вимкнено й прибрано з ужитку —
-   юзери чекали занадто довго. Весь той код залишився нижче,
-   в розділі "ЗАКОНСЕРВОВАНО", про всяк випадок на майбутнє.
-   Він ніде не викликається.
+   - Всі вірші (text, book, ref, ai) з verses.json
+   - Рядки інтерфейсу (UI_STRINGS нижче)
 ═══════════════════════════════════════════ */
 
-// ─── Тут лежать готові переклади. Поклади поруч з index.html папку
-//     "lang" і файли lang/en.json, lang/ru.json, lang/pl.json... —
-//     кожен у тому самому форматі, що й uk.json. ────────────────────
-const LANG_FOLDER = 'lang/';
-
-// Підвищуй цю цифру, коли заливаєш ОНОВЛЕНІ переклади на гітхаб —
-// це змусить додаток ігнорувати старий кеш у телефонах юзерів
-// і підвантажити свіжий файл.
-const LANG_CACHE_VERSION = 1;
+// ─── Адреса твого Cloudflare Worker (проксі для Gemini) ─────────────
+const TRANSLATE_PROXY_URL = 'https://holy-vibe-translate.nicklavigneua.workers.dev';
 // ────────────────────────────────────────────────────────────────────
 
 // Поточна активна мова ('uk' = українська = оригінал, без перекладу)
 let currentLang = 'uk';
 
-// Кеш перекладів у пам'яті { 'en': { verses: [...], ui: {...}, categories:{...} }, ... }
+// Кеш перекладів { 'en': { verses: [...], ui: {...} }, ... }
 const translationCache = {};
 
-// Підтримувані мови.
-// ready: true  → файл lang/{code}.json вже завантажений на гітхаб, мову можна вибрати
-// ready: false → переклад ще не готовий, у списку мов вона не показується
-// Коли заллєш черговий переклад — просто зміни йому ready на true.
+// Підтримувані мови
 const SUPPORTED_LANGUAGES = [
-  { code: 'uk', name: '🇺🇦 Українська', native: 'Українська', ready: true },
-  { code: 'en', name: '🇬🇧 English',    native: 'English',    ready: true },
-  { code: 'pl', name: '🇵🇱 Polski',     native: 'Polski',     ready: false },
-  { code: 'de', name: '🇩🇪 Deutsch',    native: 'Deutsch',    ready: true },
-  { code: 'fr', name: '🇫🇷 Français',   native: 'Français',   ready: true },
-  { code: 'es', name: '🇪🇸 Español',    native: 'Español',    ready: true },
-  { code: 'pt', name: '🇧🇷 Português',  native: 'Português',  ready: false },
-  { code: 'ro', name: '🇷🇴 Română',     native: 'Română',     ready: false },
-  { code: 'ru', name: '🇷🇺 Русский',    native: 'Русский',    ready: false },
-  { code: 'zh', name: '🇨🇳 中文',       native: '中文',        ready: false },
-  { code: 'ar', name: '🇸🇦 العربية',    native: 'العربية',    ready: false },
-  { code: 'hi', name: '🇮🇳 हिन्दी',      native: 'हिन्दी',      ready: false },
-  { code: 'sw', name: '🇰🇪 Kiswahili',  native: 'Kiswahili',  ready: false },
-  { code: 'it', name: '🇮🇹 Italiano', native: 'Italiano', ready: true },
-  { code: 'el', name: '🇬🇷 Ελληνικά', native: 'Ελληνικά', ready: true },
+  { code: 'uk', name: '🇺🇦 Українська', native: 'Українська' },
+  { code: 'en', name: '🇬🇧 English',    native: 'English' },
+  { code: 'pl', name: '🇵🇱 Polski',     native: 'Polski' },
+  { code: 'de', name: '🇩🇪 Deutsch',    native: 'Deutsch' },
+  { code: 'fr', name: '🇫🇷 Français',   native: 'Français' },
+  { code: 'es', name: '🇪🇸 Español',    native: 'Español' },
+  { code: 'pt', name: '🇧🇷 Português',  native: 'Português' },
+  { code: 'ro', name: '🇷🇴 Română',     native: 'Română' },
+  { code: 'ru', name: '🇷🇺 Русский',    native: 'Русский' },
+  { code: 'zh', name: '🇨🇳 中文',       native: '中文' },
+  { code: 'ar', name: '🇸🇦 العربية',    native: 'العربية' },
+  { code: 'hi', name: '🇮🇳 हिन्दी',      native: 'हिन्दी' },
+  { code: 'sw', name: '🇰🇪 Kiswahili',  native: 'Kiswahili' },
 ];
-
-// Лише ті мови, для яких реально є готовий файл
-const READY_LANGUAGES = SUPPORTED_LANGUAGES.filter(l => l.ready).map(l => l.code);
 
 // Рядки інтерфейсу — все що юзер бачить у тексті
 const UI_STRINGS = {
@@ -165,29 +138,9 @@ const CATEGORY_NAMES_UK = {
 };
 
 
-/* ═════════════════════════════════════════════════════════
-   ЗАКОНСЕРВОВАНО — ШІ-переклад через Gemini (НЕ ВИКОРИСТОВУЄТЬСЯ)
-   ═════════════════════════════════════════════════════════
-   Цей блок коду (callGemini, translateVerseBatch, translateUI,
-   translateCategories, translateToLanguage) ніде не викликається
-   в поточній версії додатку. Залишений навмисно — раніше це була
-   жива функція "перекласти мову на ходу", але вона перекладала
-   903 вірші ХВИЛИНАМИ через ліміти Gemini API, тому її приховали
-   від юзерів і замінили на готові lang-файли (нижче).
-
-   Якщо колись знадобиться — досить буде:
-   1. Розкоментувати викликати translateToLanguage(code) замість
-      loadLanguageFile(code) у функції switchLanguage().
-   2. Переконатися, що TRANSLATE_PROXY_URL ще живий (Cloudflare Worker).
-───────────────────────────────────────────────────────────── */
-
 /* ─────────────────────────────────────
    ЯДРО ПЕРЕКЛАДУ
 ───────────────────────────────────── */
-// ─── Адреса Cloudflare Worker (проксі для Gemini) — потрібна лише
-//     для коду нижче, який зараз не використовується ─────────────────
-const TRANSLATE_PROXY_URL = 'https://holy-vibe-translate.nicklavigneua.workers.dev';
-// ────────────────────────────────────────────────────────────────────
 
 // Пауза між запитами, щоб не впиратися в ліміт 15 запитів/хв
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
@@ -510,10 +463,6 @@ function applyUIStrings(ui) {
   const aiRef = document.querySelector('.ai-ref');
   if (aiRef && ui.ai_ref) aiRef.textContent = ui.ai_ref;
 
-  // Банер "Нова категорія" при перемиканні
-  const catBannerLabel = document.querySelector('.cat-banner-label');
-  if (catBannerLabel && ui.cat_banner_label) catBannerLabel.textContent = ui.cat_banner_label;
-
   // Меню
   const menuLogo = document.querySelector('.menu-logo');
   if (menuLogo && ui.menu_logo) menuLogo.textContent = ui.menu_logo;
@@ -562,96 +511,14 @@ function t(key, vars) {
 
 
 /* ─────────────────────────────────────
-   ВИЗНАЧЕННЯ МОВИ ПРИСТРОЮ
-───────────────────────────────────── */
-// Бере мову з navigator.languages/navigator.language ("ru-RU" → "ru")
-// і повертає першу, для якої в нас є готовий переклад.
-// Якщо жодна не підходить — повертає 'uk' (оригінал, завжди доступний).
-function detectDeviceLanguage() {
-  const candidates = (navigator.languages && navigator.languages.length)
-    ? navigator.languages
-    : [navigator.language || 'uk'];
-
-  for (const raw of candidates) {
-    const code = String(raw).toLowerCase().split('-')[0];
-    if (code === 'uk') return 'uk';
-    if (READY_LANGUAGES.includes(code)) return code;
-  }
-  return 'uk';
-}
-
-/* ─────────────────────────────────────
-   ЗАВАНТАЖЕННЯ ГОТОВОГО ПЕРЕКЛАДУ З lang/{code}.json
-───────────────────────────────────── */
-async function loadLanguageFile(code) {
-  if (code === 'uk') return null; // оригінал — окремий файл не потрібен
-
-  // Кеш у localStorage — щоб удруге не тягнути той самий файл з мережі
-  const cacheKey = `hv_trans_v${LANG_CACHE_VERSION}_${code}`;
-  const cached = localStorage.getItem(cacheKey);
-  if (cached) {
-    try {
-      const parsed = JSON.parse(cached);
-      translationCache[code] = parsed;
-      return parsed;
-    } catch { /* пошкоджений кеш — довантажимо знову нижче */ }
-  }
-
-  const res = await fetch(`${LANG_FOLDER}${code}.json`);
-  if (!res.ok) throw new Error(`lang/${code}.json не знайдено (HTTP ${res.status})`);
-  const raw = await res.json();
-
-  const data = {
-    ui:         raw.ui || {},
-    categories: raw._categories || {},
-    verses:     raw.verses || [],
-    lang:       code,
-    timestamp:  Date.now(),
-  };
-
-  translationCache[code] = data;
-  try {
-    localStorage.setItem(cacheKey, JSON.stringify(data));
-  } catch {
-    // localStorage переповнений (буває з кількома великими мовами одразу) —
-    // не критично, переклад просто підвантажиться з мережі ще раз наступного разу
-  }
-  return data;
-}
-
-// Гарантує, що до моменту виклику переклад для currentLang (якщо це не 'uk')
-// вже лежить у translationCache. Стартує одразу при завантаженні скрипта —
-// паралельно з тим, як app.js тягне verses.json — щоб не було гонки умов.
-window._langReadyPromise = (async function initLanguageOnLoad() {
-  const saved = localStorage.getItem('hv_lang');
-  const target = saved || detectDeviceLanguage();
-  currentLang = target;
-
-  // Перший запуск — запам'ятовуємо визначену мову назавжди,
-  // далі вона веде себе як ручний вибір (і не "стрибає" назад
-  // до мови пристрою, якщо юзер потім сам обере щось інше)
-  if (!saved) localStorage.setItem('hv_lang', target);
-
-  if (target === 'uk') return;
-
-  try {
-    await loadLanguageFile(target);
-  } catch (err) {
-    console.warn(`Не вдалося завантажити мову "${target}", залишаємось на українській:`, err);
-    currentLang = 'uk';
-  }
-})();
-
-
-/* ─────────────────────────────────────
    UI: ВИБІР МОВИ В НАЛАШТУВАННЯХ
 ───────────────────────────────────── */
-function buildLanguageSelector() {
+async function buildLanguageSelector() {
   const container = document.getElementById('langBlock');
   if (!container) return;
 
-  // Лише українська + мови з готовим перекладом
-  const selectable = SUPPORTED_LANGUAGES.filter(l => l.ready);
+  const savedLang = localStorage.getItem('hv_lang') || 'uk';
+  currentLang = savedLang;
 
   container.innerHTML = `
     <div class="settings-block-title" id="langBlockTitle">🌐 Мова</div>
@@ -663,53 +530,142 @@ function buildLanguageSelector() {
         appearance:none; -webkit-appearance:none; cursor:pointer;
         background-image: url('data:image/svg+xml,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'12\\' height=\\'8\\' viewBox=\\'0 0 12 8\\'><path d=\\'M1 1l5 5 5-5\\' stroke=\\'%23c9a84c\\' stroke-width=\\'1.5\\' fill=\\'none\\' stroke-linecap=\\'round\\'/></svg>');
         background-repeat:no-repeat; background-position:right 14px center;">
-        ${selectable.map(l =>
-          `<option value="${l.code}" ${l.code === currentLang ? 'selected' : ''}>${l.name}</option>`
+        ${SUPPORTED_LANGUAGES.map(l =>
+          `<option value="${l.code}" ${l.code === savedLang ? 'selected' : ''}>${l.name}</option>`
         ).join('')}
       </select>
     </div>
 
-    <!-- Помилка завантаження -->
+    <!-- Прогрес-бар перекладу -->
+    <div id="transProgress" style="display:none; margin-top:12px;">
+      <div style="font-family:'Nunito',sans-serif; font-size:12px; color:rgba(255,255,255,.5); margin-bottom:6px;" id="transProgressText">Перекладаю...</div>
+      <div style="height:3px; background:rgba(255,255,255,.1); border-radius:2px; overflow:hidden;">
+        <div id="transProgressBar" style="height:100%; width:0%; background:linear-gradient(90deg,#c9a84c,#e8d08a); border-radius:2px; transition:width .3s;"></div>
+      </div>
+    </div>
+
+    <!-- Помилка -->
     <div id="transError" style="display:none; margin-top:10px; padding:10px 12px; background:rgba(255,60,60,.08); border:1px solid rgba(255,60,60,.2); border-radius:8px; font-family:'Nunito',sans-serif; font-size:12px; color:rgba(255,150,150,.8); line-height:1.5;"></div>
   `;
 
   document.getElementById('langSelect').addEventListener('change', async (e) => {
-    await switchLanguage(e.target.value);
+    const langCode = e.target.value;
+    await switchLanguage(langCode);
   });
+
+  // Якщо збережена мова не українська — застосовуємо при запуску
+  if (savedLang !== 'uk') {
+    // Спочатку пробуємо готовий файл з lang/
+    try {
+      const resp = await fetch(`lang/${savedLang}.json`);
+      if (resp.ok) {
+        const raw = await resp.json();
+        const data = {
+          lang:       savedLang,
+          ui:         raw.ui         || {},
+          verses:     raw.verses     || [],
+          categories: raw._categories || raw.categories || {},
+        };
+        translationCache[savedLang] = data;
+        applyTranslation(savedLang);
+        return; // готово
+      }
+    } catch { /* файл не знайдено */ }
+
+    // Фолбек на кеш Gemini
+    const cached = localStorage.getItem(`hv_trans_${savedLang}`);
+    if (cached) {
+      try {
+        translationCache[savedLang] = JSON.parse(cached);
+        applyTranslation(savedLang);
+      } catch { /* пошкоджений кеш — залишаємо українську */ }
+    }
+  }
 }
 
-// Юзер сам обирає мову в налаштуваннях — це завжди має пріоритет
-// над автовизначенням і запам'ятовується назавжди.
 async function switchLanguage(langCode) {
-  const select  = document.getElementById('langSelect');
-  const errorEl = document.getElementById('transError');
-  if (errorEl) errorEl.style.display = 'none';
+  const progressEl  = document.getElementById('transProgress');
+  const progressBar = document.getElementById('transProgressBar');
+  const progressTxt = document.getElementById('transProgressText');
+  const errorEl     = document.getElementById('transError');
+
+  errorEl.style.display = 'none';
 
   if (langCode === 'uk') {
     localStorage.setItem('hv_lang', 'uk');
-    currentLang = 'uk';
     applyTranslation('uk');
     showToast('🇺🇦 Українська');
     return;
   }
 
+  // ── 1. Спробуємо завантажити готовий файл з папки lang/ ──────────────
   try {
-    if (!translationCache[langCode]) {
-      showToast('🌐 Завантажую переклад...');
-      await loadLanguageFile(langCode);
+    const resp = await fetch(`lang/${langCode}.json`);
+    if (resp.ok) {
+      const raw = await resp.json();
+      // Нормалізуємо структуру: _categories → categories
+      const data = {
+        lang:       langCode,
+        ui:         raw.ui         || {},
+        verses:     raw.verses     || [],
+        categories: raw._categories || raw.categories || {},
+      };
+      translationCache[langCode] = data;
+      localStorage.setItem('hv_lang', langCode);
+      applyTranslation(langCode);
+      const lang = SUPPORTED_LANGUAGES.find(l => l.code === langCode);
+      showToast(`${lang?.name || langCode}`);
+      return;
     }
+  } catch { /* файл не знайдено — йдемо до Gemini */ }
+
+  // ── 2. Якщо вже є в кеші Gemini — застосовуємо миттєво ──────────────
+  const cacheKey = `hv_trans_${langCode}`;
+  if (localStorage.getItem(cacheKey)) {
+    try {
+      translationCache[langCode] = JSON.parse(localStorage.getItem(cacheKey));
+      localStorage.setItem('hv_lang', langCode);
+      applyTranslation(langCode);
+      const lang = SUPPORTED_LANGUAGES.find(l => l.code === langCode);
+      showToast(`${lang?.name || langCode}`);
+      return;
+    } catch { /* перекладаємо знову */ }
+  }
+
+  // ── 3. Перекладаємо через Gemini ─────────────────────────────────────
+  // Показуємо прогрес
+  progressEl.style.display = 'block';
+  progressBar.style.width = '0%';
+  progressTxt.textContent = 'Перекладаю інтерфейс...';
+
+  try {
+    await translateToLanguage(langCode, (done, total, stage) => {
+      if (stage === 'ui') {
+        progressTxt.textContent = 'Перекладаю інтерфейс...';
+        progressBar.style.width = '3%';
+      } else {
+        const pct = Math.round(5 + (done / total) * 95);
+        progressBar.style.width = pct + '%';
+        progressTxt.textContent = `Перекладаю ${done} / ${total} віршів...`;
+      }
+    });
+
+    progressBar.style.width = '100%';
+    progressTxt.textContent = 'Готово! ✅';
+    setTimeout(() => { progressEl.style.display = 'none'; }, 1500);
+
     localStorage.setItem('hv_lang', langCode);
-    currentLang = langCode;
     applyTranslation(langCode);
     const lang = SUPPORTED_LANGUAGES.find(l => l.code === langCode);
     showToast(`✅ ${lang?.name || langCode}`);
+
   } catch (err) {
-    console.error('Lang load error:', err);
-    if (errorEl) {
-      errorEl.textContent = `⚠️ Не вдалося завантажити переклад. Перевір інтернет-з'єднання і спробуй ще раз.`;
-      errorEl.style.display = 'block';
-    }
-    if (select) select.value = currentLang; // повертаємо вибір назад
+    console.error('Translation error:', err);
+    progressEl.style.display = 'none';
+    errorEl.textContent = `⚠️ Помилка: ${err.message}. Прогрес збережено — просто оберіть мову знову, переклад продовжиться з того ж місця.`;
+    errorEl.style.display = 'block';
+    // Повертаємо вибір на попередню мову
+    document.getElementById('langSelect').value = currentLang;
   }
 }
 
@@ -717,6 +673,7 @@ async function switchLanguage(langCode) {
 /* ─────────────────────────────────────
    ІНІЦІАЛІЗАЦІЯ
 ───────────────────────────────────── */
+// Ініціалізуємо після завантаження сторінки
 window._currentUI = UI_STRINGS.uk;
 
 document.addEventListener('DOMContentLoaded', () => {
