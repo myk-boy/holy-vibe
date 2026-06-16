@@ -27,17 +27,6 @@ const translationCache = {};
 const SUPPORTED_LANGUAGES = [
   { code: 'uk', name: '🇺🇦 Українська', native: 'Українська' },
   { code: 'en', name: '🇬🇧 English',    native: 'English' },
-  { code: 'pl', name: '🇵🇱 Polski',     native: 'Polski' },
-  { code: 'de', name: '🇩🇪 Deutsch',    native: 'Deutsch' },
-  { code: 'fr', name: '🇫🇷 Français',   native: 'Français' },
-  { code: 'es', name: '🇪🇸 Español',    native: 'Español' },
-  { code: 'pt', name: '🇧🇷 Português',  native: 'Português' },
-  { code: 'ro', name: '🇷🇴 Română',     native: 'Română' },
-  { code: 'ru', name: '🇷🇺 Русский',    native: 'Русский' },
-  { code: 'zh', name: '🇨🇳 中文',       native: '中文' },
-  { code: 'ar', name: '🇸🇦 العربية',    native: 'العربية' },
-  { code: 'hi', name: '🇮🇳 हिन्दी',      native: 'हिन्दी' },
-  { code: 'sw', name: '🇰🇪 Kiswahili',  native: 'Kiswahili' },
 ];
 
 // Рядки інтерфейсу — все що юзер бачить у тексті
