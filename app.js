@@ -97,10 +97,14 @@ async function fetchVerses() {
 
     renderVerse();
     showToast('📖 ' + VERSES.length + ' віршів завантажено');
-    // i18n: якщо активна не українська — застосовуємо переклад
-    const savedLang = localStorage.getItem('hv_lang') || 'uk';
-    if (savedLang !== 'uk' && window.translationCache && window.translationCache[savedLang]) {
-      applyTranslation(savedLang);
+
+    // i18n: чекаємо, поки паралельно завантажений lang-файл (якщо мова не
+    // українська) опиниться в translationCache, і застосовуємо переклад.
+    // window._langReadyPromise виставляється в i18n.js одразу при старті,
+    // тож тут просто чекаємо його завершення — без гонки умов.
+    if (window._langReadyPromise) await window._langReadyPromise;
+    if (typeof currentLang !== 'undefined' && currentLang !== 'uk') {
+      applyTranslation(currentLang);
     }
   } catch (err) {
     console.error('verses.json не завантажився:', err);
