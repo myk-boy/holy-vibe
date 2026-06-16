@@ -48,11 +48,11 @@ const translationCache = {};
 // Коли заллєш черговий переклад — просто зміни йому ready на true.
 const SUPPORTED_LANGUAGES = [
   { code: 'uk', name: '🇺🇦 Українська', native: 'Українська', ready: true },
-  { code: 'en', name: '🇬🇧 English',    native: 'English',    ready: false },
+  { code: 'en', name: '🇬🇧 English',    native: 'English',    ready: true },
   { code: 'pl', name: '🇵🇱 Polski',     native: 'Polski',     ready: false },
-  { code: 'de', name: '🇩🇪 Deutsch',    native: 'Deutsch',    ready: false },
-  { code: 'fr', name: '🇫🇷 Français',   native: 'Français',   ready: false },
-  { code: 'es', name: '🇪🇸 Español',    native: 'Español',    ready: false },
+  { code: 'de', name: '🇩🇪 Deutsch',    native: 'Deutsch',    ready: true },
+  { code: 'fr', name: '🇫🇷 Français',   native: 'Français',   ready: true },
+  { code: 'es', name: '🇪🇸 Español',    native: 'Español',    ready: true },
   { code: 'pt', name: '🇧🇷 Português',  native: 'Português',  ready: false },
   { code: 'ro', name: '🇷🇴 Română',     native: 'Română',     ready: false },
   { code: 'ru', name: '🇷🇺 Русский',    native: 'Русский',    ready: false },
@@ -60,6 +60,8 @@ const SUPPORTED_LANGUAGES = [
   { code: 'ar', name: '🇸🇦 العربية',    native: 'العربية',    ready: false },
   { code: 'hi', name: '🇮🇳 हिन्दी',      native: 'हिन्दी',      ready: false },
   { code: 'sw', name: '🇰🇪 Kiswahili',  native: 'Kiswahili',  ready: false },
+  { code: 'it', name: '🇮🇹 Italiano', native: 'Italiano', ready: true },
+  { code: 'el', name: '🇬🇷 Ελληνικά', native: 'Ελληνικά', ready: true },
 ];
 
 // Лише ті мови, для яких реально є готовий файл
