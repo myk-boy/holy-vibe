@@ -105,7 +105,7 @@
     },
     {
       "id": 2,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "Peace I leave you, My peace I give you;\nnot as the world giveth, give I unto you.",
       "ref": "Iv. 14:27",
       "cat": "peace",
@@ -123,7 +123,7 @@
     },
     {
       "id": 4,
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "Come to Me, all you who labor\nand burdened - and I will comfort you!",
       "ref": "Mt. 11:28",
       "cat": "peace",
@@ -132,7 +132,7 @@
     },
     {
       "id": 5,
-      "book": "TO THE PHILIPPINES",
+      "book": "PHILIPPIANS",
       "text": "The peace of God that prevails\nevery mind will guard your hearts\nand your thoughts in Christ Jesus.",
       "ref": "Fl. 4:7",
       "cat": "peace",
@@ -159,7 +159,7 @@
     },
     {
       "id": 8,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "God is love, and whoever abides in love\nhe abides in God.",
       "ref": "1 John 4:16 a.m",
       "cat": "love",
@@ -177,7 +177,7 @@
     },
     {
       "id": 10,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Nothing can separate us\nfrom the love of God\nthat is in Christ Jesus our Lord.",
       "ref": "Rm. 8:39 a.m",
       "cat": "love",
@@ -186,7 +186,7 @@
     },
     {
       "id": 11,
-      "book": "ANNOUNCEMENT",
+      "book": "REVELATION",
       "text": "Here I am standing at the door and knocking.\nIf anyone hears My voice\nand will open the door - I will enter him.",
       "ref": "About. 3:20",
       "cat": "love",
@@ -204,7 +204,7 @@
     },
     {
       "id": 13,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "That you, rooted and established in love,\ncould comprehend with all the saints\nwidth and length, height and depth.",
       "ref": "Ef. 3:17-18",
       "cat": "love",
@@ -267,7 +267,7 @@
     },
     {
       "id": 20,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "There is no fear in love;\nbut perfect love casts out fear.",
       "ref": "1 John 4:18",
       "cat": "faith",
@@ -285,7 +285,7 @@
     },
     {
       "id": 22,
-      "book": "TO THE PHILIPPINES",
+      "book": "PHILIPPIANS",
       "text": "I can do everything in Tim\nWho strengthens me is in Christ.",
       "ref": "Fl. 4:13",
       "cat": "strength",
@@ -303,7 +303,7 @@
     },
     {
       "id": 24,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "Be strong in the Lord\nand in the might of His power.",
       "ref": "Ef. 6:10 a.m",
       "cat": "strength",
@@ -348,7 +348,7 @@
     },
     {
       "id": 29,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "To all who love God,\neverything contributes to the good.",
       "ref": "Rm. 8:28 a.m",
       "cat": "hope",
@@ -366,7 +366,7 @@
     },
     {
       "id": 31,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Hope is the anchor of the soul for us,\nreliable and durable.",
       "ref": "Hebrew 6:19 a.m",
       "cat": "hope",
@@ -375,7 +375,7 @@
     },
     {
       "id": 32,
-      "book": "WEEP",
+      "book": "LAMENTATIONS",
       "text": "It comes back to my heart\ntherefore I hope: God's mercy\ndid not end",
       "ref": "Lamentations 3:21-22",
       "cat": "hope",
@@ -393,7 +393,7 @@
     },
     {
       "id": 34,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "Prayer of faith\nheal the sick\nand the Lord will raise him up.",
       "ref": "As. 5:15",
       "cat": "healing",
@@ -402,7 +402,7 @@
     },
     {
       "id": 35,
-      "book": "FROM LUKA",
+      "book": "LUKE",
       "text": "The Spirit of the Lord is upon me,\nfor He anointed Me\nto heal the brokenhearted.",
       "ref": "Lk. 4:18",
       "cat": "healing",
@@ -447,7 +447,7 @@
     },
     {
       "id": 40,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "And let the peace of Christ reign\nin your hearts.",
       "ref": "Qty. 3:15",
       "cat": "peace",
@@ -456,7 +456,7 @@
     },
     {
       "id": 41,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "I came that they might have\nlife and had it to the fullest.",
       "ref": "Iv. 10:10",
       "cat": "peace",
@@ -465,7 +465,7 @@
     },
     {
       "id": 42,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "walk in love\nas Christ loved us.",
       "ref": "Ef. 5:2",
       "cat": "love",
@@ -474,7 +474,7 @@
     },
     {
       "id": 43,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "We love because He first loved us.",
       "ref": "1 John 4:19 a.m",
       "cat": "love",
@@ -483,7 +483,7 @@
     },
     {
       "id": 44,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Fear was dealt with by faith,\nhaving built an ark for the salvation of his house.",
       "ref": "Hebrew 11:7",
       "cat": "faith",
@@ -492,7 +492,7 @@
     },
     {
       "id": 45,
-      "book": "BRAND",
+      "book": "MARK",
       "text": "Don't be afraid, just believe.",
       "ref": "Mk. 5:36 a.m",
       "cat": "faith",
@@ -501,7 +501,7 @@
     },
     {
       "id": 46,
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "Where is your faith, little believers?",
       "ref": "Mt. 8:26 a.m",
       "cat": "faith",
@@ -519,7 +519,7 @@
     },
     {
       "id": 48,
-      "book": "ZACHARIAH",
+      "book": "ZECHARIAH",
       "text": "Not by force or power,\nbut by My Spirit, says the Lord.",
       "ref": "west 4:6",
       "cat": "strength",
@@ -546,7 +546,7 @@
     },
     {
       "id": 51,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "And let the God of hope fill you\nwith all joy and peace in faith.",
       "ref": "Rm. 15:13",
       "cat": "hope",
@@ -555,7 +555,7 @@
     },
     {
       "id": 52,
-      "book": "WEEP",
+      "book": "LAMENTATIONS",
       "text": "They are new every morning;\nYour faithfulness is great!",
       "ref": "Lament 3:23",
       "cat": "hope",
@@ -573,7 +573,7 @@
     },
     {
       "id": 54,
-      "book": "EXIT",
+      "book": "EXODUS",
       "text": "I am the Lord who heals you.",
       "ref": "Ex. 15:26",
       "cat": "healing",
@@ -582,7 +582,7 @@
     },
     {
       "id": 55,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "The Word of God is alive and active,\nsharper than anything\na double-edged sword.",
       "ref": "Hebrew 4:12 a.m",
       "cat": "peace",
@@ -600,7 +600,7 @@
     },
     {
       "id": 57,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "If you stay\nin my word\nthen you are truly My disciples.",
       "ref": "Iv. 8:31 a.m",
       "cat": "peace",
@@ -609,7 +609,7 @@
     },
     {
       "id": 58,
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "Ask and it will be given to you;\nseek and you shall find;\nknock and it will be opened to you.",
       "ref": "Mt. 7:7",
       "cat": "hope",
@@ -618,7 +618,7 @@
     },
     {
       "id": 59,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "If any of you lack wisdom,\nlet him ask God\nWhich gives generously.",
       "ref": "As. 1:5",
       "cat": "hope",
@@ -627,7 +627,7 @@
     },
     {
       "id": 60,
-      "book": "TO THE PHILIPPINES",
+      "book": "PHILIPPIANS",
       "text": "don't worry about anything\nbut in all things by prayer and supplication\nopen your desires to God with gratitude.",
       "ref": "Fl. 4:6",
       "cat": "peace",
@@ -636,7 +636,7 @@
     },
     {
       "id": 61,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Faith is the basis\nfor what we hope\nevidence of things not seen.",
       "ref": "Hebrew 11:1",
       "cat": "strength",
@@ -645,7 +645,7 @@
     },
     {
       "id": 62,
-      "book": "BRAND",
+      "book": "MARK",
       "text": "All things are possible to those who believe.",
       "ref": "Mk. 9:23 a.m",
       "cat": "strength",
@@ -654,7 +654,7 @@
     },
     {
       "id": 63,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Therefore, faith comes from hearing,\nand hearing through the Word of Christ.",
       "ref": "Rm. 10:17 a.m",
       "cat": "strength",
@@ -663,7 +663,7 @@
     },
     {
       "id": 64,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "For we are His creation,\ncreated in Christ Jesus\nfor good deeds.",
       "ref": "Ef. 2:10",
       "cat": "love",
@@ -681,7 +681,7 @@
     },
     {
       "id": 66,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "I don't live anymore\nbut Christ lives in me.",
       "ref": "Gal. 2:20",
       "cat": "strength",
@@ -699,7 +699,7 @@
     },
     {
       "id": 68,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "For by grace you are saved\nthrough faith\nand it is not from you - God's gift.",
       "ref": "Ef. 2:8",
       "cat": "love",
@@ -708,7 +708,7 @@
     },
     {
       "id": 69,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Where sin multiplied,\nthere grace became even more abundant.",
       "ref": "Rm. 5:20",
       "cat": "love",
@@ -735,7 +735,7 @@
     },
     {
       "id": 72,
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "And here I am with you all the days\nuntil the end of the age.",
       "ref": "Mt. 28:20",
       "cat": "peace",
@@ -744,7 +744,7 @@
     },
     {
       "id": 73,
-      "book": "EXIT",
+      "book": "EXODUS",
       "text": "My presence will go with you\nand I will give you rest.",
       "ref": "Ex. 33:14",
       "cat": "peace",
@@ -771,7 +771,7 @@
     },
     {
       "id": 76,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "If we confess our sins,\nthen He is faithful and righteous,\nto forgive us our sins.",
       "ref": "1 John 1:9",
       "cat": "love",
@@ -798,7 +798,7 @@
     },
     {
       "id": 79,
-      "book": "PARABLE",
+      "book": "PROVERBS",
       "text": "Trust in the Lord with all your heart\nand lean not on your own understanding.\nRemember Him in all your ways,\nand He will guide you.",
       "ref": "Prov. 3:5-6",
       "cat": "hope",
@@ -834,7 +834,7 @@
     },
     {
       "id": 83,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "I am the resurrection and the life.\nHe who believes in me will live,\neven if he died.",
       "ref": "Iv. 11:25",
       "cat": "hope",
@@ -843,7 +843,7 @@
     },
     {
       "id": 84,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "And to Him who can do\nimmeasurably more than all\nwhat we ask or think.",
       "ref": "Ef. 3:20",
       "cat": "hope",
@@ -870,7 +870,7 @@
     },
     {
       "id": 87,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "If God is for us, who is against us?",
       "ref": "Rm. 8:31 a.m",
       "cat": "strength",
@@ -879,7 +879,7 @@
     },
     {
       "id": 88,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "In Him was life,\nand that life was the light of men.",
       "ref": "Iv. 1:4",
       "cat": "love",
@@ -942,7 +942,7 @@
     },
     {
       "id": 95,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Jesus Christ - yesterday and today\nthe same, and the eyelids.",
       "ref": "Hebrew 13:8",
       "cat": "hope",
@@ -969,7 +969,7 @@
     },
     {
       "id": 98,
-      "book": "2 CHRONICLE",
+      "book": "2 CHRONICLES",
       "text": "If my people humble themselves,\nWhat is called by my name\nI will hear from heaven and forgive their sin\nand I will heal their land.",
       "ref": "2 Chron. 7:14 a.m",
       "cat": "healing",
@@ -987,7 +987,7 @@
     },
     {
       "id": 100,
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "And here I am with you\nall day long\nuntil the end of the age.",
       "ref": "Mt. 28:20",
       "cat": "peace",
@@ -996,7 +996,7 @@
     },
     {
       "id": 101,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "take a look\nwhat love the Father gave us\nso that we can be called and be children of God!",
       "ref": "1 John 3:1",
       "cat": "love",
@@ -1004,7 +1004,7 @@
     },
     {
       "id": 102,
-      "book": "THE LAMENT OF JEREMIAH",
+      "book": "LAMENTATIONS",
       "text": "God's mercy has not ended,\nand His mercy was not exhausted. It is updated every morning;\nYour faithfulness is great!",
       "ref": "Lamentations 3:22-23",
       "cat": "love",
@@ -1012,7 +1012,7 @@
     },
     {
       "id": 103,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "Lord, your mercy to the heavens, your truth to the clouds!",
       "ref": "Psalm 35:6",
       "cat": "love",
@@ -1028,7 +1028,7 @@
     },
     {
       "id": 105,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "And how are you sons?\nthen God sent the Spirit of His Son into your hearts,\nWho calls out: \"Abba, Father!\"",
       "ref": "Galatians 4:6",
       "cat": "love",
@@ -1036,7 +1036,7 @@
     },
     {
       "id": 106,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "The Lord is for me - I will not be afraid: what will man do to me?",
       "ref": "Psalm 117:6",
       "cat": "faith",
@@ -1044,7 +1044,7 @@
     },
     {
       "id": 107,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "The fruit of the spirit is: love, joy, peace, long-suffering, kindness...",
       "ref": "Galatians 5:22-23",
       "cat": "love",
@@ -1060,7 +1060,7 @@
     },
     {
       "id": 109,
-      "book": "ENTRANCE",
+      "book": "GENESIS",
       "text": "...because I am the Lord, your Healer!",
       "ref": "Exodus 15:26",
       "cat": "healing",
@@ -1068,7 +1068,7 @@
     },
     {
       "id": 110,
-      "book": "REPETITION OF THE LAW",
+      "book": "DEUTERONOMY",
       "text": "And the Lord will remove all sickness from you...",
       "ref": "Deuteronomy 7:15",
       "cat": "healing",
@@ -1076,7 +1076,7 @@
     },
     {
       "id": 111,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "I will saturate him with the length of days, and I will reveal My salvation to him!",
       "ref": "Psalm 90:16",
       "cat": "healing",
@@ -1084,7 +1084,7 @@
     },
     {
       "id": 112,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "He sent His word and healed them,\nand saved their graves from them!",
       "ref": "Psalm 106:20",
       "cat": "healing",
@@ -1172,7 +1172,7 @@
     },
     {
       "id": 123,
-      "book": "BRAND",
+      "book": "MARK",
       "text": "And they marveled excessively and said: He does all things well: He gives hearing to the deaf,\nand speech to the dumb!",
       "ref": "Mark 7:37",
       "cat": "healing",
@@ -1180,7 +1180,7 @@
     },
     {
       "id": 124,
-      "book": "BRAND",
+      "book": "MARK",
       "text": "...they will lay hands on the sick, and they will be well!",
       "ref": "Mark 16:18",
       "cat": "healing",
@@ -1196,7 +1196,7 @@
     },
     {
       "id": 126,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "...I have come that you may have life, and have it abundantly!",
       "ref": "John 10:10",
       "cat": "healing",
@@ -1204,7 +1204,7 @@
     },
     {
       "id": 127,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Jesus Christ yesterday, today, and forever is the same!",
       "ref": "Hebrews 13:8",
       "cat": "strength",
@@ -1212,7 +1212,7 @@
     },
     {
       "id": 128,
-      "book": "REPETITION OF THE LAW",
+      "book": "DEUTERONOMY",
       "text": "...choose life\nthat you and your descendants may live... for the Son is your life and the length of your days...",
       "ref": "Deuteronomy 30:19-20",
       "cat": "healing",
@@ -1236,7 +1236,7 @@
     },
     {
       "id": 131,
-      "book": "AXES",
+      "book": "ACTS",
       "text": "come on\nand return to the Lord\nbecause He cut - and He will heal us, He struck - and He will bind up our wounds!",
       "ref": "Hosea 6:1",
       "cat": "healing",
@@ -1252,7 +1252,7 @@
     },
     {
       "id": 133,
-      "book": "BRAND",
+      "book": "MARK",
       "text": "And He had mercy,\nstretch out your hand\ntouched him and said to him: I want - clean yourself!",
       "ref": "Mark 1:41",
       "cat": "healing",
@@ -1260,7 +1260,7 @@
     },
     {
       "id": 134,
-      "book": "BRAND",
+      "book": "MARK",
       "text": "...Daughter,\nyour faith saved you\ngo in peace, and be healthy from your illness!",
       "ref": "Mark 5:34",
       "cat": "healing",
@@ -1284,7 +1284,7 @@
     },
     {
       "id": 137,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "...Get up, take your bed and go! And now the husband has recovered...",
       "ref": "John 5:8-9",
       "cat": "love",
@@ -1292,7 +1292,7 @@
     },
     {
       "id": 138,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "...He went, washed, and came back sighted!",
       "ref": "John 9:7",
       "cat": "love",
@@ -1316,7 +1316,7 @@
     },
     {
       "id": 141,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "...and they brought the sick... — and they were all healed!",
       "ref": "Acts 5:16",
       "cat": "healing",
@@ -1324,7 +1324,7 @@
     },
     {
       "id": 142,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "...saw\nthat he has faith to be healed,\nthen he said in a loud voice: Stand straight on your feet!",
       "ref": "Acts 14:9-10",
       "cat": "healing",
@@ -1332,7 +1332,7 @@
     },
     {
       "id": 143,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "And God performed many miracles with Paul's hands... - and their diseases were thrown away...",
       "ref": "Acts 19:11-12",
       "cat": "strength",
@@ -1348,7 +1348,7 @@
     },
     {
       "id": 145,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "Are any of you sick? Let him call the elders of the Church... and the prayer of faith will save the sick,\nand the Lord will fail him...",
       "ref": "James 5:14-15",
       "cat": "love",
@@ -1356,7 +1356,7 @@
     },
     {
       "id": 146,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "...and pray for each other,\nto get well. Because the fervent prayer of the righteous is very powerful!",
       "ref": "James 5:16",
       "cat": "healing",
@@ -1364,7 +1364,7 @@
     },
     {
       "id": 147,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "This is my joy in my poverty, that Your word revives me!",
       "ref": "Psalm 118:50",
       "cat": "strength",
@@ -1372,7 +1372,7 @@
     },
     {
       "id": 148,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "When I walk even through the valley of the shadow of death\nfear no evil\nbecause you are with me...",
       "ref": "Psalm 22:4",
       "cat": "faith",
@@ -1380,7 +1380,7 @@
     },
     {
       "id": 149,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "The Lord is my light and my salvation,\nwho will I be afraid of? The Lord is the stronghold of my life,\nwho will I be afraid of?",
       "ref": "Psalm 26:1",
       "cat": "faith",
@@ -1388,7 +1388,7 @@
     },
     {
       "id": 150,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "In the day of fear, I hope in You!",
       "ref": "Psalm 55:4",
       "cat": "faith",
@@ -1412,7 +1412,7 @@
     },
     {
       "id": 153,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "...If God is for us, then who is against us?",
       "ref": "Romans 8:31",
       "cat": "healing",
@@ -1428,7 +1428,7 @@
     },
     {
       "id": 155,
-      "book": "REPETITION OF THE LAW",
+      "book": "DEUTERONOMY",
       "text": "Be strong and courageous... He will not leave you or forsake you!",
       "ref": "Deuteronomy 31:6",
       "cat": "victory",
@@ -1436,7 +1436,7 @@
     },
     {
       "id": 156,
-      "book": "JESUS ​​NEWS",
+      "book": "MARK",
       "text": "...be strong and brave? do not be afraid and do not be afraid,\nfor the Lord is with you...",
       "ref": "Joshua 1:9",
       "cat": "strength",
@@ -1452,7 +1452,7 @@
     },
     {
       "id": 158,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "God! His way is immaculate,\nthe purified word of the Lord,\nHe is a shield for all who turn to Him!",
       "ref": "Psalm 17:31",
       "cat": "love",
@@ -1460,7 +1460,7 @@
     },
     {
       "id": 159,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "There are many evils for the righteous, but the Lord delivers him from all of them!",
       "ref": "Psalm 33:20",
       "cat": "hope",
@@ -1468,7 +1468,7 @@
     },
     {
       "id": 160,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "Put your longing on the Lord, and He will support you...",
       "ref": "Psalm 54:23",
       "cat": "victory",
@@ -1476,7 +1476,7 @@
     },
     {
       "id": 161,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "In God is my salvation and my glory, the rock of my strength...",
       "ref": "Psalm 61:8",
       "cat": "hope",
@@ -1484,7 +1484,7 @@
     },
     {
       "id": 162,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "My body and my heart are dying,\n— God is the rock of my heart and my destiny forever and ever!",
       "ref": "Psalm 72:26",
       "cat": "strength",
@@ -1492,7 +1492,7 @@
     },
     {
       "id": 163,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "on the day\nwhen i called\nYou heard me, encouraged me, poured strength into my soul!",
       "ref": "Psalm 137:3",
       "cat": "strength",
@@ -1500,7 +1500,7 @@
     },
     {
       "id": 164,
-      "book": "NAUMA",
+      "book": "NAHUM",
       "text": "Good Lord, He is a refuge in the day of adversity...",
       "ref": "Nahum 1:7",
       "cat": "healing",
@@ -1524,7 +1524,7 @@
     },
     {
       "id": 167,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "For you have been saved by grace through faith, and this is not of yourselves, it is the gift of God...",
       "ref": "Ephesians 2:8",
       "cat": "grace",
@@ -1532,7 +1532,7 @@
     },
     {
       "id": 168,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "but excuse themselves for nothing,\nby his grace,\nthrough the redemption that is in Jesus Christ...",
       "ref": "Romans 3:24",
       "cat": "love",
@@ -1540,7 +1540,7 @@
     },
     {
       "id": 169,
-      "book": "TITA",
+      "book": "TITUS",
       "text": "Because the grace of God appeared, which saves all people...",
       "ref": "Titus 2:11",
       "cat": "grace",
@@ -1548,7 +1548,7 @@
     },
     {
       "id": 170,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "That we have redemption in Him by His blood,\nforgiveness of sins\nthrough the riches of His grace...",
       "ref": "Ephesians 1:7",
       "cat": "healing",
@@ -1556,7 +1556,7 @@
     },
     {
       "id": 171,
-      "book": "2 TIMOPHY",
+      "book": "2 TIMOTHY",
       "text": "who saved us and called us with a holy call,\nnot for our deeds\nbut according to His decree and grace, which was given to us in Christ Jesus before eternal times...",
       "ref": "2 Timothy 1:9",
       "cat": "grace",
@@ -1564,7 +1564,7 @@
     },
     {
       "id": 172,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Because of this faith,\nto be by grace\nso that the promise would be certain for all descendants...",
       "ref": "Romans 4:16",
       "cat": "love",
@@ -1572,7 +1572,7 @@
     },
     {
       "id": 173,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "And we all received Him from His fullness, and then grace upon grace...",
       "ref": "John 1:16",
       "cat": "grace",
@@ -1580,7 +1580,7 @@
     },
     {
       "id": 174,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "And the apostles testified with great power about the resurrection of the Lord Jesus,\nand grace was great on all of them!",
       "ref": "Acts 4:33",
       "cat": "love",
@@ -1612,7 +1612,7 @@
     },
     {
       "id": 178,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "The law has come\nthat sin may abound. And where sin multiplied,\nthere began to exceed grace...",
       "ref": "Romans 5:20",
       "cat": "grace",
@@ -1620,7 +1620,7 @@
     },
     {
       "id": 179,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "For sin must not rule over you,\n- because you are not under the Law,\nand under grace!",
       "ref": "Romans 6:14",
       "cat": "strength",
@@ -1628,7 +1628,7 @@
     },
     {
       "id": 180,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "I do not reject the grace of God! For when righteousness is acquired by the Law,\nthen Christ died in vain...",
       "ref": "Galatians 2:21",
       "cat": "strength",
@@ -1636,7 +1636,7 @@
     },
     {
       "id": 181,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "you\nthat you are justified by the Law,\nremained without Christ, fell away from grace!",
       "ref": "Galatians 5:4",
       "cat": "strength",
@@ -1644,7 +1644,7 @@
     },
     {
       "id": 182,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "What shall we say? Shall we remain in sin\nthat grace may increase? Absolutely not!",
       "ref": "Romans 6:1",
       "cat": "grace",
@@ -1652,7 +1652,7 @@
     },
     {
       "id": 183,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "So what? Shall we sin\nfor we are not under the Law\nand under grace? Absolutely not!",
       "ref": "Romans 6:15",
       "cat": "strength",
@@ -1660,7 +1660,7 @@
     },
     {
       "id": 184,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "How much more torment\nwhat do you think\nthe one who trampled the Son of God... and despised the Spirit of grace will deserve it!",
       "ref": "Hebrews 10:29",
       "cat": "grace",
@@ -1708,7 +1708,7 @@
     },
     {
       "id": 190,
-      "book": "2 TIMOPHY",
+      "book": "2 TIMOTHY",
       "text": "So, my son, be strong in the grace that is in Christ Jesus!",
       "ref": "2 Timothy 2:1",
       "cat": "faith",
@@ -1724,7 +1724,7 @@
     },
     {
       "id": 192,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "As he arrived and saw the grace of God,\nI was glad\nand urged everyone to remain steadfast in the Lord...",
       "ref": "Acts 11:23",
       "cat": "grace",
@@ -1732,7 +1732,7 @@
     },
     {
       "id": 193,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "when God\nWho chose me from my mother's womb and called me by His grace,\nliked...",
       "ref": "Galatians 1:15",
       "cat": "grace",
@@ -1740,7 +1740,7 @@
     },
     {
       "id": 194,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "through Whom we received grace and apostleship in obedience to faith among all nations for His Name...",
       "ref": "Romans 1:5",
       "cat": "grace",
@@ -1748,7 +1748,7 @@
     },
     {
       "id": 195,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "if you have only heard of the government of the grace of God given to me for you...",
       "ref": "Ephesians 3:2",
       "cat": "grace",
@@ -1756,7 +1756,7 @@
     },
     {
       "id": 196,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "to me\nthe least of all saints,\nthe grace was given to preach the unfathomable riches of Christ to the Gentiles...",
       "ref": "Ephesians 3:8",
       "cat": "love",
@@ -1780,7 +1780,7 @@
     },
     {
       "id": 199,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Because through grace,\nI will give\nI tell each of you not to think more of yourself than you should think, but to think modestly...",
       "ref": "Romans 12:3",
       "cat": "grace",
@@ -1788,7 +1788,7 @@
     },
     {
       "id": 200,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "... grace to you and peace from God, our Father, and the Lord Jesus Christ!",
       "ref": "Romans 1:7",
       "cat": "grace",
@@ -1812,7 +1812,7 @@
     },
     {
       "id": 203,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "Grace to you and peace from God the Father and our Lord Jesus Christ...",
       "ref": "Galatians 1:3",
       "cat": "love",
@@ -1820,7 +1820,7 @@
     },
     {
       "id": 204,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "Grace to you and peace from God, our Father, and the Lord Jesus Christ!",
       "ref": "Ephesians 1:2",
       "cat": "love",
@@ -1828,7 +1828,7 @@
     },
     {
       "id": 205,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "...Grace to you and peace from God, our Father, and the Lord Jesus Christ!",
       "ref": "Colossians 1:2",
       "cat": "faith",
@@ -1868,7 +1868,7 @@
     },
     {
       "id": 210,
-      "book": "2 TIMOPHY",
+      "book": "2 TIMOTHY",
       "text": "Timofey,\nbeloved son: grace,\nmercy, peace from God the Father and Christ Jesus, our Lord!",
       "ref": "2 Timothy 1:2",
       "cat": "strength",
@@ -1876,7 +1876,7 @@
     },
     {
       "id": 211,
-      "book": "TITA",
+      "book": "TITUS",
       "text": "Titus,\nto the true son according to the common faith: grace and peace from God the Father and Christ Jesus,\nOur Savior!",
       "ref": "Titus 1:4",
       "cat": "grace",
@@ -1900,7 +1900,7 @@
     },
     {
       "id": 214,
-      "book": "2 IVAN",
+      "book": "2 JOHN",
       "text": "May grace be with you\nmercy\npeace from God the Father and from Jesus Christ, the Son of the Father, in truth and love!",
       "ref": "2 John 1:3",
       "cat": "grace",
@@ -1908,7 +1908,7 @@
     },
     {
       "id": 215,
-      "book": "JUDAS",
+      "book": "JUDE",
       "text": "Because some people have chosen themselves... who turn the grace of our God into debauchery...",
       "ref": "Jude 1:4",
       "cat": "love",
@@ -1916,7 +1916,7 @@
     },
     {
       "id": 216,
-      "book": "ENTRANCE",
+      "book": "GENESIS",
       "text": "And the Lord passed before his face,\nand said: Lord,\nThe Lord God is merciful and gracious, long-suffering, and abundant in mercy and truth...",
       "ref": "Exodus 34:6",
       "cat": "love",
@@ -1924,7 +1924,7 @@
     },
     {
       "id": 217,
-      "book": "EZDRAS",
+      "book": "EZRA",
       "text": "And now for a short moment we had a favor from the Lord,\nour God\nWhich left us the remains...",
       "ref": "Ezra 9:8",
       "cat": "grace",
@@ -1932,7 +1932,7 @@
     },
     {
       "id": 218,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "He made memorial signs for His miracles,\ngracious and merciful [full of grace] Lord!",
       "ref": "Psalm 110:4",
       "cat": "love",
@@ -1956,7 +1956,7 @@
     },
     {
       "id": 221,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "...what came to you\nand fruitful and growing all over the world,\nas it is with you from the day you heard and knew the grace of God in truth...",
       "ref": "Colossians 1:6",
       "cat": "strength",
@@ -1972,7 +1972,7 @@
     },
     {
       "id": 223,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "Because God so loved the world,\nwho gave his only begotten Son,\nthat whosoever believeth in Him should not perish, but have eternal life",
       "ref": "John 3:16",
       "cat": "love",
@@ -1980,7 +1980,7 @@
     },
     {
       "id": 224,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "He who does not love has not known God, because God is love",
       "ref": "1 John 4:8",
       "cat": "love",
@@ -1988,7 +1988,7 @@
     },
     {
       "id": 225,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "But God proves His love for us by\nthat Christ died for us\nwhen we were still sinners",
       "ref": "Romans 5:8",
       "cat": "love",
@@ -1996,7 +1996,7 @@
     },
     {
       "id": 226,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "We love Him because He first loved us",
       "ref": "1 John 4:19",
       "cat": "love",
@@ -2012,7 +2012,7 @@
     },
     {
       "id": 228,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "That's love\nthat we did not love God\nand He loved us and sent His Son as propitiation for our sins",
       "ref": "1 John 4:10",
       "cat": "love",
@@ -2020,7 +2020,7 @@
     },
     {
       "id": 229,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "god\nrich in mercy\nbecause of His great love, with which He loved us, and we, who were dead in trespasses, made alive together with Christ",
       "ref": "Ephesians 2:4-5",
       "cat": "love",
@@ -2028,7 +2028,7 @@
     },
     {
       "id": 230,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "Greater love hath no man than this, that he lay down his life for his friends",
       "ref": "John 15:13",
       "cat": "love",
@@ -2036,7 +2036,7 @@
     },
     {
       "id": 231,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "For as the heavens are high above the earth, so great is His mercy to those who fear Him",
       "ref": "Psalm 102:11",
       "cat": "love",
@@ -2044,7 +2044,7 @@
     },
     {
       "id": 232,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Because I'm sure\nthan death\nneither life... nor any other creature will be able to separate us from the love of God, which is in Christ Jesus our Lord",
       "ref": "Romans 8:38-39",
       "cat": "strength",
@@ -2060,7 +2060,7 @@
     },
     {
       "id": 234,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "Praise the Lord, for He is good, for His mercy endures forever",
       "ref": "Psalm 135:1",
       "cat": "hope",
@@ -2076,7 +2076,7 @@
     },
     {
       "id": 236,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "But you\ngod\nGod is generous and merciful, longsuffering and many-merciful and true",
       "ref": "Psalm 85:15",
       "cat": "love",
@@ -2092,7 +2092,7 @@
     },
     {
       "id": 238,
-      "book": "SOPHONIA",
+      "book": "ZEPHANIAH",
       "text": "The Lord your God is in your midst... He will comfort you in His joy,\nwill be merciful in His love",
       "ref": "Zephaniah 3:17",
       "cat": "love",
@@ -2100,7 +2100,7 @@
     },
     {
       "id": 239,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "Because the Lord is good, His mercy is forever, and His faithfulness is from generation to generation",
       "ref": "Psalm 100:5",
       "cat": "grace",
@@ -2124,7 +2124,7 @@
     },
     {
       "id": 242,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "The Lord is my Shepherd, I will not lack anything",
       "ref": "Psalm 22:1",
       "cat": "victory",
@@ -2132,7 +2132,7 @@
     },
     {
       "id": 243,
-      "book": "ZACHARIAH",
+      "book": "ZECHARIAH",
       "text": "For thus says the Lord... whoever touches you touches the apple of His eye",
       "ref": "Zechariah 2:8",
       "cat": "victory",
@@ -2148,7 +2148,7 @@
     },
     {
       "id": 245,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "The Lord will protect you from all evil; the Lord will save your soul",
       "ref": "Psalm 120:7-8",
       "cat": "victory",
@@ -2156,7 +2156,7 @@
     },
     {
       "id": 246,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "Because He commanded His Angels about you to guard you in all your ways",
       "ref": "Psalm 90:11-12",
       "cat": "victory",
@@ -2172,7 +2172,7 @@
     },
     {
       "id": 248,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "If we confess our sins,\nthen he\nbeing faithful and righteous, forgive us our sins and cleanse us from all unrighteousness",
       "ref": "1 John 1:9",
       "cat": "healing",
@@ -2180,7 +2180,7 @@
     },
     {
       "id": 249,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "As far as the east is from the west, so far has He removed our iniquities from us",
       "ref": "Psalm 102:12",
       "cat": "healing",
@@ -2204,7 +2204,7 @@
     },
     {
       "id": 252,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "He heals the brokenhearted and binds up their wounds",
       "ref": "Psalm 146:3",
       "cat": "healing",
@@ -2220,7 +2220,7 @@
     },
     {
       "id": 254,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Therefore, there is now no condemnation to those who are in Christ Jesus",
       "ref": "Romans 8:1",
       "cat": "healing",
@@ -2228,7 +2228,7 @@
     },
     {
       "id": 255,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "Mercy rises above judgment",
       "ref": "James 2:13",
       "cat": "healing",
@@ -2236,7 +2236,7 @@
     },
     {
       "id": 256,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "The Lord is close to the brokenhearted, and He saves the humble in spirit",
       "ref": "Psalm 33:19",
       "cat": "healing",
@@ -2244,7 +2244,7 @@
     },
     {
       "id": 257,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "Because You created my entrails, woven me in my mother's womb... I am wonderfully made",
       "ref": "Psalm 138:13-14",
       "cat": "love",
@@ -2252,7 +2252,7 @@
     },
     {
       "id": 258,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "And to those who accepted Him, to those who believed in His name, He gave the power to be children of God",
       "ref": "John 1:12",
       "cat": "love",
@@ -2268,7 +2268,7 @@
     },
     {
       "id": 260,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "For you are His creation, created in Christ Jesus for good works",
       "ref": "Ephesians 2:10",
       "cat": "love",
@@ -2284,7 +2284,7 @@
     },
     {
       "id": 262,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "So,\nget dressed\nas God's chosen, holy and beloved, in heart mercy, kindness",
       "ref": "Colossians 3:12",
       "cat": "love",
@@ -2308,7 +2308,7 @@
     },
     {
       "id": 265,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "Favorites! We are now children of God, but it has not yet been revealed that we will be",
       "ref": "1 John 3:2",
       "cat": "love",
@@ -2316,7 +2316,7 @@
     },
     {
       "id": 266,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "I leave you peace\nMy peace I give you... Let not your heart be troubled and not be afraid",
       "ref": "John 14:27",
       "cat": "peace",
@@ -2324,7 +2324,7 @@
     },
     {
       "id": 267,
-      "book": "FILIPINO",
+      "book": "PHILIPPIANS",
       "text": "And the peace of God,\nwhich surpasses all understanding\nwill keep your hearts and your thoughts in Christ Jesus",
       "ref": "Philippians 4:7",
       "cat": "peace",
@@ -2340,7 +2340,7 @@
     },
     {
       "id": 269,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "May the God of hope fill you with all joy and peace in faith",
       "ref": "Romans 15:13",
       "cat": "peace",
@@ -2348,7 +2348,7 @@
     },
     {
       "id": 270,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "I lie down peacefully and sleep, because You, Lord, are the only one who allows me to live in safety",
       "ref": "Psalm 4:9",
       "cat": "healing",
@@ -2356,7 +2356,7 @@
     },
     {
       "id": 271,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "I told you this\nthat you may have peace in Me. In the world you will have sorrow;\nbut take courage: I have overcome the world",
       "ref": "John 16:33",
       "cat": "peace",
@@ -2364,7 +2364,7 @@
     },
     {
       "id": 272,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "You will show me the way of life: fullness of joy before Your face",
       "ref": "Psalm 15:11",
       "cat": "peace",
@@ -2380,7 +2380,7 @@
     },
     {
       "id": 274,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "You turned my crying into joy\ntook off my sackcloth and girded me with joy",
       "ref": "Psalm 29:12",
       "cat": "peace",
@@ -2388,7 +2388,7 @@
     },
     {
       "id": 275,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Because the wages of sin is death,\nand the gift of God is eternal life in Christ Jesus,\nOur Lord",
       "ref": "Romans 6:23",
       "cat": "hope",
@@ -2396,7 +2396,7 @@
     },
     {
       "id": 276,
-      "book": "TITA",
+      "book": "TITUS",
       "text": "When the grace and humanity of our Savior appeared,\ngod\nHe saved us not by works of righteousness... but by His mercy",
       "ref": "Titus 3:4-5",
       "cat": "hope",
@@ -2404,7 +2404,7 @@
     },
     {
       "id": 277,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "And I give them eternal life, and they will never perish, and no one will snatch them out of My hand",
       "ref": "John 10:28",
       "cat": "victory",
@@ -2412,7 +2412,7 @@
     },
     {
       "id": 278,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "This testimony is that God has given us eternal life, and this life is in His Son",
       "ref": "1 John 5:11",
       "cat": "hope",
@@ -2420,7 +2420,7 @@
     },
     {
       "id": 279,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "Whoever hears My word and believes in Him,\nwho sent me\nhas eternal life and does not come to judgment",
       "ref": "John 5:24",
       "cat": "faith",
@@ -2436,7 +2436,7 @@
     },
     {
       "id": 281,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "The will of Him\nwho sent me\nis that everyone who sees the Son and believes in Him will have eternal life",
       "ref": "John 6:40",
       "cat": "hope",
@@ -2444,7 +2444,7 @@
     },
     {
       "id": 282,
-      "book": "ANNOUNCEMENT",
+      "book": "REVELATION",
       "text": "And God will wipe away every tear from their eyes, and there will be no more death... because the former things have passed away",
       "ref": "Revelation 21:4",
       "cat": "hope",
@@ -2452,7 +2452,7 @@
     },
     {
       "id": 283,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "And whom He appointed\ncalled them;\nand whom he called, those he justified; and whom he justified, those he glorified",
       "ref": "Romans 8:30",
       "cat": "hope",
@@ -2460,7 +2460,7 @@
     },
     {
       "id": 284,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "For my father and my mother have forsaken me, but the Lord will receive me",
       "ref": "Psalm (26):10",
       "cat": "love",
@@ -2476,7 +2476,7 @@
     },
     {
       "id": 286,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "The angel of the Lord encamps around those who fear him and delivers them",
       "ref": "Psalm 33:8",
       "cat": "victory",
@@ -2492,7 +2492,7 @@
     },
     {
       "id": 288,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "text": "The name of the Lord is a strong tower: the righteous flees to it and is safe",
       "ref": "Proverbs 18:10",
       "cat": "love",
@@ -2500,7 +2500,7 @@
     },
     {
       "id": 289,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "If I go in the midst of sorrow, You will revive me",
       "ref": "Psalm 137:7",
       "cat": "love",
@@ -2508,7 +2508,7 @@
     },
     {
       "id": 290,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "We know that everything works together for good to those who love God",
       "ref": "Romans 8:28",
       "cat": "love",
@@ -2516,7 +2516,7 @@
     },
     {
       "id": 291,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "Favorites! If God so loved us, then we must also love one another",
       "ref": "1 John 4:11",
       "cat": "love",
@@ -2524,7 +2524,7 @@
     },
     {
       "id": 292,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "I give you a new commandment: love one another! How I loved you\nso do you love one another",
       "ref": "John 13:34",
       "cat": "love",
@@ -2532,7 +2532,7 @@
     },
     {
       "id": 293,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "There is no fear in love, but perfect love casts out fear",
       "ref": "1 John 4:18",
       "cat": "faith",
@@ -2548,7 +2548,7 @@
     },
     {
       "id": 295,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "And above all this put on love, which is the totality of perfection",
       "ref": "Colossians 3:14",
       "cat": "love",
@@ -2564,7 +2564,7 @@
     },
     {
       "id": 297,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Love does not harm one's neighbor; therefore, love is the fulfillment of the law",
       "ref": "Romans 13:10",
       "cat": "love",
@@ -2572,7 +2572,7 @@
     },
     {
       "id": 298,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "My children! We will love not with word or tongue, but with deed and truth",
       "ref": "1 John 3:18",
       "cat": "love",
@@ -2596,7 +2596,7 @@
     },
     {
       "id": 301,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "Yes, Your mercy and grace will accompany me all the days of my life",
       "ref": "Psalm 22:6",
       "cat": "hope",
@@ -2604,7 +2604,7 @@
     },
     {
       "id": 302,
-      "book": "ANNOUNCEMENT",
+      "book": "REVELATION",
       "text": "Here,\nI stand at the door and knock: if anyone hears My voice and opens the door,\nI will enter it",
       "ref": "Revelation 3:20",
       "cat": "hope",
@@ -2612,7 +2612,7 @@
     },
     {
       "id": 303,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "There are many abodes in My Father's house... I am going to prepare a place for you",
       "ref": "John 14:2-3",
       "cat": "hope",
@@ -2620,7 +2620,7 @@
     },
     {
       "id": 304,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "And I will contemplate Your face in truth;\nwaking up\nI will be satisfied with Your image",
       "ref": "Psalm 16:15",
       "cat": "hope",
@@ -2628,7 +2628,7 @@
     },
     {
       "id": 305,
-      "book": "2 TIMOPHY",
+      "book": "2 TIMOTHY",
       "text": "And now the crown of righteousness is being prepared for me, which the Lord will give me",
       "ref": "2 Timothy 4:8",
       "cat": "hope",
@@ -2644,7 +2644,7 @@
     },
     {
       "id": 307,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "The Lord is good to all, and His generosity is in all His works",
       "ref": "Psalm 144:9",
       "cat": "hope",
@@ -2652,7 +2652,7 @@
     },
     {
       "id": 308,
-      "book": "ENTRANCE",
+      "book": "GENESIS",
       "text": "And you will serve the Lord,\nto your God\nand He will bless your bread and your water, and take sickness away from you. There will not be one that throws away fruit, and one that is barren in your land - I will make the number of your days complete",
       "ref": "Exodus 23:25-26",
       "cat": "healing",
@@ -2660,7 +2660,7 @@
     },
     {
       "id": 309,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "god\nmy god\nI cried to You, and You healed me! Lord, You brought my soul out of Sheol, You revived me so that I would not go down to the grave",
       "ref": "Psalm 29:3-4",
       "cat": "healing",
@@ -2668,7 +2668,7 @@
     },
     {
       "id": 310,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "He forgives all your sins, heals all your ailments",
       "ref": "Psalm 102:3",
       "cat": "healing",
@@ -2732,7 +2732,7 @@
     },
     {
       "id": 318,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "Jesus spoke to her: I am the resurrection and the life. Who believes in me\neven if he dies\nwill live",
       "ref": "John 11:25",
       "cat": "healing",
@@ -2740,7 +2740,7 @@
     },
     {
       "id": 319,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "And through faith in His Name, His Name strengthened this,\nwhom you see and know. And faith\nthat from Him brought him full recovery before all of you",
       "ref": "Acts 3:16",
       "cat": "strength",
@@ -2748,7 +2748,7 @@
     },
     {
       "id": 320,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "...when You stretch out Your hand for healing,\nand that signs and wonders may be performed in the Name of Your Holy Child Jesus",
       "ref": "Acts 4:30",
       "cat": "healing",
@@ -2756,7 +2756,7 @@
     },
     {
       "id": 321,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "And Peter said to him: Aeneas,\nJesus Christ heals you! stand up\nand make your own bed! And he got up now",
       "ref": "Acts 9:34",
       "cat": "healing",
@@ -2764,7 +2764,7 @@
     },
     {
       "id": 322,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "...Jesus of Nazareth,\nhow God anointed Him with the Holy Spirit and power. And he walked\ndoing good and healing all whom the devil had enslaved, for God was with Him",
       "ref": "Acts 10:38",
       "cat": "healing",
@@ -2772,7 +2772,7 @@
     },
     {
       "id": 323,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "For the law of the spirit of life in Christ Jesus has set me free from the law of sin and death",
       "ref": "Romans 8:2",
       "cat": "healing",
@@ -2780,7 +2780,7 @@
     },
     {
       "id": 324,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "The Lord will comfort him on the bed of sickness, he will turn all his bed in his sickness",
       "ref": "Psalm 40:4",
       "cat": "healing",
@@ -2788,7 +2788,7 @@
     },
     {
       "id": 325,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "text": "Be not wise in your own eyes,\nfear the Lord and turn away from evil,\n- it will be medicine for your body and drink for your bones",
       "ref": "Proverbs 3:7-8",
       "cat": "healing",
@@ -2796,7 +2796,7 @@
     },
     {
       "id": 326,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "text": "my son\nlisten to my words\nincline your ear to my things! ... For they are life to those who find them, and for the whole body it is healing",
       "ref": "Proverbs 4:20-22",
       "cat": "healing",
@@ -2804,7 +2804,7 @@
     },
     {
       "id": 327,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "text": "The light of the eyes gladdens the heart, good news strengthens the bones",
       "ref": "Proverbs 3:30 p.m",
       "cat": "healing",
@@ -2812,7 +2812,7 @@
     },
     {
       "id": 328,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "text": "Pleasant words are dense honey, sweet to the soul and medicine for the bones",
       "ref": "Proverbs 16:24",
       "cat": "healing",
@@ -2820,7 +2820,7 @@
     },
     {
       "id": 329,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "text": "A joyful heart heals well, and a depressed spirit dries the bones",
       "ref": "Proverbs 17:22",
       "cat": "healing",
@@ -2860,7 +2860,7 @@
     },
     {
       "id": 334,
-      "book": "BRAND",
+      "book": "MARK",
       "text": "...Go, your faith has saved you! And now he saw, and followed Jesus on the road",
       "ref": "Mark 10:52",
       "cat": "healing",
@@ -2908,7 +2908,7 @@
     },
     {
       "id": 340,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "...The man believed the word that Jesus told him and left",
       "ref": "John 4:50",
       "cat": "love",
@@ -2924,7 +2924,7 @@
     },
     {
       "id": 342,
-      "book": "BRAND",
+      "book": "MARK",
       "text": "And many demons were cast out, and many sick people were anointed with oil and healed",
       "ref": "Mark 6:13",
       "cat": "love",
@@ -2940,7 +2940,7 @@
     },
     {
       "id": 344,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "so that the sick were also carried out on the street... so that,\nhow will Peter go\nat least his shadow fell on one of them",
       "ref": "Acts 5:15",
       "cat": "healing",
@@ -2948,7 +2948,7 @@
     },
     {
       "id": 345,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "...Paul entered him and prayed, and laying hands on him, healed him",
       "ref": "Acts 28:8-9",
       "cat": "healing",
@@ -2956,7 +2956,7 @@
     },
     {
       "id": 346,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "I will never forget Your commandments, because You revive me with them",
       "ref": "Psalm 118:93",
       "cat": "love",
@@ -2964,7 +2964,7 @@
     },
     {
       "id": 347,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "text": "...and a faithful ambassador is like medicine",
       "ref": "Proverbs 13:17",
       "cat": "healing",
@@ -2972,7 +2972,7 @@
     },
     {
       "id": 348,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "text": "A tender heart is life to the body, but envy is rot to the bones",
       "ref": "Proverbs 2:30 p.m",
       "cat": "love",
@@ -2980,7 +2980,7 @@
     },
     {
       "id": 349,
-      "book": "FILIPINO",
+      "book": "PHILIPPIANS",
       "text": "Don't worry about anything... And the peace of God,\nwhich is above all reason,\nmay he protect your hearts and your thoughts...",
       "ref": "Philippians 4:6-7",
       "cat": "healing",
@@ -2988,7 +2988,7 @@
     },
     {
       "id": 350,
-      "book": "3 IVAN",
+      "book": "3 JOHN",
       "text": "Beloved\nI pray\nmay you be happy in everything and may you be healthy, as your soul is happy",
       "ref": "3 John 1:2",
       "cat": "healing",
@@ -2996,7 +2996,7 @@
     },
     {
       "id": 351,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "For You saved my soul from death, my eye from tears, my foot from stumbling",
       "ref": "Psalm 115:8",
       "cat": "victory",
@@ -3004,7 +3004,7 @@
     },
     {
       "id": 352,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "But in all this we are victorious through Him who loved us",
       "ref": "Romans 8:37",
       "cat": "victory",
@@ -3020,7 +3020,7 @@
     },
     {
       "id": 354,
-      "book": "2 TIMOPHY",
+      "book": "2 TIMOTHY",
       "text": "Because God did not give us the spirit of cowardice, but strength, and love, and a sound mind",
       "ref": "2 Timothy 1:7",
       "cat": "faith",
@@ -3028,7 +3028,7 @@
     },
     {
       "id": 355,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "...for greater is He who is in you than he who is in the world",
       "ref": "1 John 4:4",
       "cat": "victory",
@@ -3036,7 +3036,7 @@
     },
     {
       "id": 356,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "God for us is protection and strength, help in the misfortunes that often happen",
       "ref": "Psalm 45:2",
       "cat": "love",
@@ -3044,7 +3044,7 @@
     },
     {
       "id": 357,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "The Lord supports all the fallen, and straightens all the bent ones",
       "ref": "Psalm 144:14",
       "cat": "healing",
@@ -3052,7 +3052,7 @@
     },
     {
       "id": 358,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "He heals the brokenhearted and binds up their wounds",
       "ref": "Psalm 147:3",
       "cat": "love",
@@ -3060,7 +3060,7 @@
     },
     {
       "id": 359,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "So do not lose your courage, for it has a great reward",
       "ref": "Hebrews 10:35",
       "cat": "love",
@@ -3068,7 +3068,7 @@
     },
     {
       "id": 360,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "not of works, so that no one may boast",
       "ref": "Ephesians 2:9",
       "cat": "grace",
@@ -3076,7 +3076,7 @@
     },
     {
       "id": 361,
-      "book": "TITA",
+      "book": "TITUS",
       "text": "that we\njustified by His grace,\nbecame heirs of eternal life by hope",
       "ref": "Titus 3:7",
       "cat": "grace",
@@ -3084,7 +3084,7 @@
     },
     {
       "id": 362,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "through whom we have access by faith to that grace,\nin which we stand\nand we boast in the hope of the glory of God",
       "ref": "Romans 5:2",
       "cat": "grace",
@@ -3092,7 +3092,7 @@
     },
     {
       "id": 363,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "And the Word became flesh,\nand was between us\nfull of grace and truth, and we have seen His glory, the glory as the Only Begotten of the Father",
       "ref": "John 1:14",
       "cat": "grace",
@@ -3100,7 +3100,7 @@
     },
     {
       "id": 364,
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "Because the Law was given through Moses,\nand grace and truth appeared through Jesus Christ",
       "ref": "John 1:17",
       "cat": "strength",
@@ -3132,7 +3132,7 @@
     },
     {
       "id": 368,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "in order to\nas sin reigned through death,\nso also grace reigned through righteousness to eternal life through Jesus Christ our Lord",
       "ref": "Romans 5:21",
       "cat": "strength",
@@ -3140,7 +3140,7 @@
     },
     {
       "id": 369,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "And when by grace,\nnot for business\notherwise grace would not be grace. And if it is for works, then it is no longer grace, otherwise a work is no longer a work",
       "ref": "Romans 11:6",
       "cat": "strength",
@@ -3148,7 +3148,7 @@
     },
     {
       "id": 370,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "So,\nlet us approach the throne of grace with courage,\nto accept mercy and find grace for timely help",
       "ref": "Hebrews 4:16",
       "cat": "faith",
@@ -3156,7 +3156,7 @@
     },
     {
       "id": 371,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "And now I entrust you to God and the word of His grace,\nWhich has the power to build and give a legacy among all the sanctified",
       "ref": "Acts 20:32",
       "cat": "faith",
@@ -3164,7 +3164,7 @@
     },
     {
       "id": 372,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "But gives an even greater grace,\nbecause of which he says: God opposes the proud,\nand gives grace to the humble",
       "ref": "James 4:6",
       "cat": "strength",
@@ -3180,7 +3180,7 @@
     },
     {
       "id": 374,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Do not get carried away by all kinds of other people's sciences,\nfor it is good grace to strengthen hearts,\nand not with dishes that were of no use to those who followed them",
       "ref": "Hebrews 13:9",
       "cat": "grace",
@@ -3188,7 +3188,7 @@
     },
     {
       "id": 375,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "May your word always be kind [in grace],\nseasoned with salt\nthat you may know how you should answer each one",
       "ref": "Colossians 4:6",
       "cat": "grace",
@@ -3196,7 +3196,7 @@
     },
     {
       "id": 376,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "Let not a single rotten word come out of your mouth,\nbut only this\nwhich is good for the necessary edification, so that it gives grace [grace] to those who hear",
       "ref": "Ephesians 4:29",
       "cat": "grace",
@@ -3204,7 +3204,7 @@
     },
     {
       "id": 377,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "And when the assembly dispersed... many Jews and devout new believers followed Paul and Barnabas,\nwho talked with them and convinced them to be in the grace of God",
       "ref": "Acts 13:43",
       "cat": "grace",
@@ -3212,7 +3212,7 @@
     },
     {
       "id": 378,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "From there they sailed to Antioch,\nfrom where the grace of God was entrusted to work,\nwhich they did",
       "ref": "Acts 14:26",
       "cat": "grace",
@@ -3228,7 +3228,7 @@
     },
     {
       "id": 380,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "to whom I became a servant by the gift of the grace of God,\nwhich is given to me as a factor of His strength",
       "ref": "Ephesians 3:7",
       "cat": "strength",
@@ -3236,7 +3236,7 @@
     },
     {
       "id": 381,
-      "book": "FILIPINO",
+      "book": "PHILIPPIANS",
       "text": "...because you are all in my chains,\nand in defense,\nand in the affirmation of the Gospel, sharers in my grace",
       "ref": "Philippians 1:7",
       "cat": "grace",
@@ -3244,7 +3244,7 @@
     },
     {
       "id": 382,
-      "book": "FILIPINO",
+      "book": "PHILIPPIANS",
       "text": "Grace to you and peace from God, our Father, and the Lord Jesus Christ!",
       "ref": "Philippians 1:2",
       "cat": "grace",
@@ -3252,7 +3252,7 @@
     },
     {
       "id": 383,
-      "book": "ANNOUNCEMENT",
+      "book": "REVELATION",
       "text": "Ivan to seven churches,\nthat in Asia: grace to you and peace from Him,\nWho is, and Who was, and Who is to come...",
       "ref": "Revelation 1:4",
       "cat": "grace",
@@ -3276,7 +3276,7 @@
     },
     {
       "id": 386,
-      "book": "BEING",
+      "book": "GENESIS",
       "text": "But Noah found grace [favor] in the Lord's eyes",
       "ref": "Genesis 6:8",
       "cat": "grace",
@@ -3284,7 +3284,7 @@
     },
     {
       "id": 387,
-      "book": "ENTRANCE",
+      "book": "GENESIS",
       "text": "And the Lord spoke to Moses: Also this thing,\nwhich you were talking about\nI will do it, because you have found grace in My eyes, and I know you by name",
       "ref": "Exodus 33:17",
       "cat": "grace",
@@ -3292,7 +3292,7 @@
     },
     {
       "id": 388,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "Because the sun and the shield are the Lord God! The Lord gives grace [grace] and glory,\ngood does not refuse those\nwho walks in integrity",
       "ref": "Psalm 83:12",
       "cat": "faith",
@@ -3300,7 +3300,7 @@
     },
     {
       "id": 389,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "text": "He mocks scoffers, but gives grace to the humble",
       "ref": "Proverbs 3:34",
       "cat": "grace",
@@ -3308,7 +3308,7 @@
     },
     {
       "id": 390,
-      "book": "PSALM",
+      "book": "PSALMS",
       "text": "You are better than the sons of men\nbeauty [grace] poured out on Your lips,\ntherefore God has blessed You forever",
       "ref": "Psalm 44:3",
       "cat": "grace",
@@ -3324,7 +3324,7 @@
     },
     {
       "id": 392,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "in order to reveal the immeasurable wealth of His grace in kindness to us in Christ Jesus in the following ages",
       "ref": "Ephesians 2:7",
       "cat": "strength",
@@ -3332,7 +3332,7 @@
     },
     {
       "id": 393,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "For when for the transgression of one death reigned through another,\neven more so those\nthose who accept the bounty of grace and the gift of righteousness will reign in life through Jesus Christ alone",
       "ref": "Romans 5:17",
       "cat": "strength",
@@ -3340,7 +3340,7 @@
     },
     {
       "id": 394,
-      "book": "ANNOUNCEMENT",
+      "book": "REVELATION",
       "text": "May the grace of our Lord Jesus Christ be with you all! Amen",
       "ref": "Revelation 22:21",
       "cat": "strength",
@@ -3348,7 +3348,7 @@
     },
     {
       "id": 395,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "And the God of peace will quickly crush Satan under your feet. May the grace of our Lord Jesus Christ be with you! Amen",
       "ref": "Romans 16:20",
       "cat": "strength",
@@ -3356,7 +3356,7 @@
     },
     {
       "id": 396,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "May the grace of our Lord Jesus Christ be with your spirit, brothers! Amen",
       "ref": "Galatians 6:18",
       "cat": "peace",
@@ -3364,7 +3364,7 @@
     },
     {
       "id": 397,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "Grace be with all,\nwho love our Lord Jesus Christ with incorruptible love! Amen",
       "ref": "Ephesians 6:24",
       "cat": "strength",
@@ -3372,7 +3372,7 @@
     },
     {
       "id": 398,
-      "book": "FILIPINO",
+      "book": "PHILIPPIANS",
       "text": "The grace of the Lord Jesus Christ be with your spirit! Amen",
       "ref": "Philippians 4:23",
       "cat": "strength",
@@ -3380,7 +3380,7 @@
     },
     {
       "id": 399,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "...Remember my chains! Grace be with you! Amen",
       "ref": "Colossians 4:18",
       "cat": "strength",
@@ -3404,7 +3404,7 @@
     },
     {
       "id": 402,
-      "book": "2 TIMOPHY",
+      "book": "2 TIMOTHY",
       "text": "Lord Jesus with your spirit! Grace be with you! Amen",
       "ref": "2 Timothy 4:22",
       "cat": "peace",
@@ -3412,7 +3412,7 @@
     },
     {
       "id": 403,
-      "book": "TITA",
+      "book": "TITUS",
       "text": "...Grace be with all of you! Amen",
       "ref": "Titus 3:15",
       "cat": "strength",
@@ -3420,14 +3420,14 @@
     },
     {
       "id": 404,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Grace be with you all! Amen",
       "ref": "Hebrews 13:25",
       "cat": "strength",
       "ai": "Completion of a deep theological treatise on the supremacy of Christ's high priesthood. All dogmatics comes down to practical grace."
     },
     {
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "And here I am with you\nall day long\nuntil the end of the age.",
       "ref": "Mt. 28:20",
       "cat": "promises",
@@ -3435,7 +3435,7 @@
       "id": 405
     },
     {
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "I will not leave you\nand I will not leave you",
       "ref": "Hebrew 13:5",
       "cat": "promises",
@@ -3475,7 +3475,7 @@
       "id": 410
     },
     {
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "Ask and you shall receive\nseek and you will find\nknock and it will be opened to you.",
       "ref": "Mt. 7:7",
       "cat": "promises",
@@ -3483,7 +3483,7 @@
       "id": 411
     },
     {
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "draw near to God\nand He will draw near to you.",
       "ref": "As. 4:8",
       "cat": "promises",
@@ -3515,7 +3515,7 @@
       "id": 415
     },
     {
-      "book": "PARABLE",
+      "book": "PROVERBS",
       "text": "The name of the Lord is a strong tower:\nthe righteous flees into it\nand finds safety.",
       "ref": "Prov. 18:10",
       "cat": "promises",
@@ -3523,7 +3523,7 @@
       "id": 416
     },
     {
-      "book": "2 CHRONICLE",
+      "book": "2 CHRONICLES",
       "text": "The eyes of the Lord are directed\nto the whole earth\nto strengthen those\nwhose heart is wholly His.",
       "ref": "2 Chron. 16:9",
       "cat": "promises",
@@ -3539,7 +3539,7 @@
       "id": 418
     },
     {
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "If God is for us -\nwho is against us",
       "ref": "Rm. 8:31 a.m",
       "cat": "promises",
@@ -3547,7 +3547,7 @@
       "id": 419
     },
     {
-      "book": "PHILIPPIAN",
+      "book": "PHILIPPIANS",
       "text": "And my God will fill\nyour every need\naccording to His riches in glory\nin Christ Jesus.",
       "ref": "Fl. 4:19 a.m",
       "cat": "promises",
@@ -3563,7 +3563,7 @@
       "id": 421
     },
     {
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "Search first of all\nThe kingdom of God and His truth,\nand all that will be added to you.",
       "ref": "Mt. 6:33 a.m",
       "cat": "promises",
@@ -3587,7 +3587,7 @@
       "id": 424
     },
     {
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "If any of you\nlack of wisdom\nlet him ask God\nWhich gives generously\nand does not reproach -\nand it will be given to him.",
       "ref": "As. 1:5",
       "cat": "promises",
@@ -3595,7 +3595,7 @@
       "id": 425
     },
     {
-      "book": "PARABLE",
+      "book": "PROVERBS",
       "text": "Trust in the Lord with all your heart\nand lean not on your own understanding.\nRemember Him in all your ways,\nand He will guide you.",
       "ref": "Prov. 3:5-6",
       "cat": "promises",
@@ -3627,7 +3627,7 @@
       "id": 429
     },
     {
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "I leave you peace\nMy peace I give you;\nnot as the world gives\nI give you",
       "ref": "Iv. 14:27",
       "cat": "promises",
@@ -3635,7 +3635,7 @@
       "id": 430
     },
     {
-      "book": "PHILIPPIAN",
+      "book": "PHILIPPIANS",
       "text": "And the peace of God,\nwhich surpasses all reason,\nwill save your hearts\nand your thoughts in Christ Jesus.",
       "ref": "Fl. 4:7",
       "cat": "promises",
@@ -3643,7 +3643,7 @@
       "id": 431
     },
     {
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "And the God of hope\nlet it fill you\nwith all joy and peace in faith.",
       "ref": "Rm. 15:13",
       "cat": "promises",
@@ -3667,7 +3667,7 @@
       "id": 434
     },
     {
-      "book": "ZACHARIAH",
+      "book": "ZECHARIAH",
       "text": "Not by force or power,\nand by My Spirit,\nsays the Lord of hosts.",
       "ref": "west 4:6",
       "cat": "promises",
@@ -3675,7 +3675,7 @@
       "id": 435
     },
     {
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "Be strong in the Lord\nand in the might of His power.",
       "ref": "Ef. 6:10 a.m",
       "cat": "promises",
@@ -3683,7 +3683,7 @@
       "id": 436
     },
     {
-      "book": "EXIT",
+      "book": "EXODUS",
       "text": "I am the Lord who heals you.",
       "ref": "Ex. 15:26",
       "cat": "promises",
@@ -3715,7 +3715,7 @@
       "id": 440
     },
     {
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "If we confess our sins,\nthen He is faithful and righteous,\nto forgive us our sins\nand cleanse us from all unrighteousness.",
       "ref": "1 John 1:9",
       "cat": "promises",
@@ -3755,7 +3755,7 @@
       "id": 445
     },
     {
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Everything contributes to the good\nto those who love God\nwho is called according to His decree.",
       "ref": "Rm. 8:28 a.m",
       "cat": "promises",
@@ -3763,7 +3763,7 @@
       "id": 446
     },
     {
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "There are many abodes in My Father's house;\nand if that's not the case,\nI would tell you.\nI am going to prepare a place for you.",
       "ref": "Iv. 14:2",
       "cat": "promises",
@@ -3787,7 +3787,7 @@
       "id": 449
     },
     {
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "And this is what courage we have before Him:\nwhen we ask for something according to His will,\nHe listens to us.",
       "ref": "1 John 5:14",
       "cat": "promises",
@@ -3795,7 +3795,7 @@
       "id": 450
     },
     {
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "When two of you\nwill agree on the ground\nask for something\nthat will be given to them by My Heavenly Father.",
       "ref": "Mt. 18:19",
       "cat": "promises",
@@ -3803,7 +3803,7 @@
       "id": 451
     },
     {
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "And everything you ask for\nin my name\ni will do that\nthat the Father may be glorified in the Son.",
       "ref": "Iv. 14:13",
       "cat": "promises",
@@ -3819,7 +3819,7 @@
       "id": 453
     },
     {
-      "book": "PHILIPPIAN",
+      "book": "PHILIPPIANS",
       "text": "The One who started in you\ngood job\nwill complete it\nuntil the day of Jesus Christ.",
       "ref": "Fl. 1:6",
       "cat": "promises",
@@ -3835,7 +3835,7 @@
       "id": 455
     },
     {
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "But do not conquer evil,\nand overcome evil with good.",
       "ref": "Rm. 12:21 p.m",
       "cat": "promises",
@@ -3843,7 +3843,7 @@
       "id": 456
     },
     {
-      "book": "1 SAMUILOV",
+      "book": "1 SAMUEL",
       "text": "Because the Lord does not look that way,\nas a person:\na person looks at a face\nand the Lord looks at the heart.",
       "ref": "1 Sam. 16:7",
       "cat": "promises",
@@ -3907,7 +3907,7 @@
       "id": 464
     },
     {
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "And the Comforter, the Holy Spirit,\nWhom the Father will send\nin my name\nwill teach you everything.",
       "ref": "Iv. 14:26",
       "cat": "promises",
@@ -3923,7 +3923,7 @@
       "id": 466
     },
     {
-      "book": "BEING",
+      "book": "GENESIS",
       "text": "It is not good for a man to be alone;\nI will make him an assistant suitable for him.",
       "ref": "Genesis 2:18 a.m",
       "cat": "promises",
@@ -3963,7 +3963,7 @@
       "id": 471
     },
     {
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Because I think that suffering\npresent time\nworthless\ncompared to future glory,\nwhich will open in us.",
       "ref": "Rm. 8:18",
       "cat": "promises",
@@ -3979,7 +3979,7 @@
       "id": 473
     },
     {
-      "book": "THE CRY OF JEREMIAH",
+      "book": "LAMENTATIONS",
       "text": "They are new every morning;\nYour faithfulness is great!",
       "ref": "Lament 3:23",
       "cat": "promises",
@@ -3995,7 +3995,7 @@
       "id": 475
     },
     {
-      "book": "2 TIMOPHY",
+      "book": "2 TIMOTHY",
       "text": "If we are wrong -\nHe remains faithful:\nHe cannot deny Himself.",
       "ref": "2 Tim. 2:13",
       "cat": "promises",
@@ -4003,7 +4003,7 @@
       "id": 476
     },
     {
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "He who promised is faithful.",
       "ref": "Hebrew 10:23",
       "cat": "promises",
@@ -4019,7 +4019,7 @@
       "id": 478
     },
     {
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "I will lay down My laws\nin their minds\nand I will write them\non their hearts.",
       "ref": "Hebrew 8:10",
       "cat": "promises",
@@ -4051,7 +4051,7 @@
       "id": 482
     },
     {
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "Because God so loved the world,\nwho also gave His only begotten Son,\nthat everyone who believes in Him\ndid not die\nbut had eternal life.",
       "ref": "Iv. 3:16 a.m",
       "cat": "promises",
@@ -4059,7 +4059,7 @@
       "id": 483
     },
     {
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Because the wages of sin is death,\nand the gift of God -\nlife is eternal\nin Christ Jesus, our Lord.",
       "ref": "Rm. 6:23 a.m",
       "cat": "promises",
@@ -4067,7 +4067,7 @@
       "id": 484
     },
     {
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "I am the resurrection and the life;\nwho believes in me\nwill be alive\neven if he died.",
       "ref": "Iv. 11:25",
       "cat": "promises",
@@ -4075,7 +4075,7 @@
       "id": 485
     },
     {
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "I am in them, and You are in Me,\nthat they may be perfect in unity,\nand for the world to know\nthat you sent me",
       "ref": "Iv. 17:23",
       "cat": "promises",
@@ -4083,7 +4083,7 @@
       "id": 486
     },
     {
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "Where there is no Greek or Jew,\ncircumcision or uncircumcision\nbarbarian, hermit, slave, free,\nbut all and in all Christ.",
       "ref": "Qty. 3:11 a.m",
       "cat": "promises",
@@ -4099,7 +4099,7 @@
       "id": 488
     },
     {
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "For all that is born of God\nwins the world;\nand this is the victory\nthat conquered the world -\nour faith",
       "ref": "1 John 5:4",
       "cat": "promises",
@@ -4115,7 +4115,7 @@
       "id": 490
     },
     {
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "come to me\nall labored and burdened,\nand I will comfort you.",
       "ref": "Mt. 11:28",
       "cat": "promises",
@@ -4123,7 +4123,7 @@
       "id": 491
     },
     {
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "Take My yoke upon you\nand learn from me\nfor I am meek and lowly in heart,\nand you will find rest for your souls.",
       "ref": "Mt. 11:29",
       "cat": "promises",
@@ -4131,7 +4131,7 @@
       "id": 492
     },
     {
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "So, it remains\na Sabbath of rest for God's people.",
       "ref": "Hebrew 4:9",
       "cat": "promises",
@@ -4139,7 +4139,7 @@
       "id": 493
     },
     {
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "God punishes whom he loves\nand scourges every son,\nwhich accepts",
       "ref": "Hebrew 12:6",
       "cat": "promises",
@@ -4163,7 +4163,7 @@
       "id": 496
     },
     {
-      "book": "ACTS OF THE APOSTLES",
+      "book": "ACTS",
       "text": "Repent, and let everyone\nof you will be baptized\nin the name of Jesus Christ\nfor the forgiveness of sins,\nand you will receive the gift of the Holy Spirit.\nBecause this promise is to you and your children.",
       "ref": "Acts 2:38-39",
       "cat": "promises",
@@ -4171,7 +4171,7 @@
       "id": 497
     },
     {
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "For by grace you are saved\nthrough faith\nand it is not from you - God's gift;\nnot really\nthat no one should boast.",
       "ref": "Ef. 2:8-9",
       "cat": "promises",
@@ -4187,7 +4187,7 @@
       "id": 499
     },
     {
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Where sin multiplied\ngrace abounded there beyond measure.",
       "ref": "Rm. 5:20",
       "cat": "promises",
@@ -4195,7 +4195,7 @@
       "id": 500
     },
     {
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Because He lives forever,\nto intercede for them.",
       "ref": "Hebrew 7:25",
       "cat": "promises",
@@ -4203,7 +4203,7 @@
       "id": 501
     },
     {
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "And in the same way, the Spirit helps our weakness;\nbecause we don't know what to pray for\nproperly\nbut the Spirit Himself intercedes for us\nwith inexpressible sighs.",
       "ref": "Rm. 8:26 a.m",
       "cat": "promises",
@@ -4211,7 +4211,7 @@
       "id": 502
     },
     {
-      "book": "IVAN",
+      "book": "JOHN",
       "text": "I am the resurrection and the life.\nWho believes in me\nhe will be alive, even if he died;\nand everyone who lives and believes in me\nwill never die.",
       "ref": "Iv. 11:25-26",
       "cat": "promises",
@@ -4235,7 +4235,7 @@
       "id": 505
     },
     {
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "Praise be to God and the Father\nOur Lord Jesus Christ,\nThat blessed us\nevery spiritual blessing\nheavenly in Christ.",
       "ref": "Ef. 1:3",
       "cat": "promises",
@@ -4276,7 +4276,7 @@
     },
     {
       "id": 511,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "victory",
       "text": "What can we say about that?\nIf God is for us, then who is against us?",
       "ref": "Rome. 8:31 a.m",
@@ -4303,7 +4303,7 @@
     },
     {
       "id": 514,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "cat": "victory",
       "text": "For we fight not against flesh and blood,\nbut against the superiors, against the authorities...",
       "ref": "Ef. 6:12 a.m",
@@ -4312,7 +4312,7 @@
     },
     {
       "id": 515,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "cat": "victory",
       "text": "Put on the whole armor of God,\nthat you may be able to stand against the wiles of the devil.",
       "ref": "Ef. 6:11 a.m",
@@ -4321,7 +4321,7 @@
     },
     {
       "id": 516,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "cat": "victory",
       "text": "Submit to God.\nHowever\nresist the devil\nand he will run away from you.",
       "ref": "As. 4:7",
@@ -4330,7 +4330,7 @@
     },
     {
       "id": 517,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "cat": "victory",
       "text": "For everything born of God overcomes the world;\nand this is the victory that has overcome the world—our faith.",
       "ref": "1 John 5:4",
@@ -4348,7 +4348,7 @@
     },
     {
       "id": 519,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "cat": "victory",
       "text": "He disarmed the superiors and authorities\nand put them to ridicule,\ndefeating them on the cross.",
       "ref": "Qty. 2:15",
@@ -4366,7 +4366,7 @@
     },
     {
       "id": 521,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "victory",
       "text": "To destroy with His death the one\nwho had the power of death, that is, the devil.",
       "ref": "Hebrew 2:14 a.m",
@@ -4429,7 +4429,7 @@
     },
     {
       "id": 528,
-      "book": "REPETITION OF THE LAW",
+      "book": "DEUTERONOMY",
       "cat": "victory",
       "text": "The Lord your God\nIt is He who fights for you.",
       "ref": "Pov. Zak. 3:22 a.m",
@@ -4438,7 +4438,7 @@
     },
     {
       "id": 529,
-      "book": "ENTRANCE",
+      "book": "GENESIS",
       "cat": "victory",
       "text": "The Lord is a man of battle;\nThe Lord is His name!",
       "ref": "Ex. 15:3",
@@ -4447,7 +4447,7 @@
     },
     {
       "id": 530,
-      "book": "2 CHRONICLE",
+      "book": "2 CHRONICLES",
       "cat": "victory",
       "text": "Because this is not your battle, but God's.",
       "ref": "2 Chron. 20:15",
@@ -4456,7 +4456,7 @@
     },
     {
       "id": 531,
-      "book": "ZARACHI",
+      "book": "ZECHARIAH",
       "cat": "victory",
       "text": "Not by force or power,\nbut by My Spirit, says the Lord of hosts.",
       "ref": "west 4:6",
@@ -4483,7 +4483,7 @@
     },
     {
       "id": 534,
-      "book": "NUMBER",
+      "book": "NUMBERS",
       "cat": "victory",
       "text": "The Lord is with us;\ndon't be afraid of them!",
       "ref": "No. 14:9",
@@ -4492,7 +4492,7 @@
     },
     {
       "id": 535,
-      "book": "PHILIPPIAN",
+      "book": "PHILIPPIANS",
       "cat": "victory",
       "text": "I can do all things in Christ\nWhat strengthens me.",
       "ref": "Phlp. 4:13",
@@ -4501,7 +4501,7 @@
     },
     {
       "id": 536,
-      "book": "IOVA",
+      "book": "JOB",
       "cat": "victory",
       "text": "I know: my Redeemer lives,\nand at the last day He will rise above the dust.",
       "ref": "Job 19:25",
@@ -4519,7 +4519,7 @@
     },
     {
       "id": 538,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "victory",
       "text": "So we boldly say:\nThe Lord is my helper,\nI am not afraid: what will man do to me?",
       "ref": "Hebrew 13:6",
@@ -4555,7 +4555,7 @@
     },
     {
       "id": 542,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "victory",
       "text": "Because I am convinced that neither death nor life...\nnor any other animal\ncannot separate us from the love of God.",
       "ref": "Rome. 8:38-39",
@@ -4564,7 +4564,7 @@
     },
     {
       "id": 543,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "victory",
       "text": "I conquered the world.",
       "ref": "Iv. 16:33",
@@ -4636,7 +4636,7 @@
     },
     {
       "id": 551,
-      "book": "BRAND",
+      "book": "MARK",
       "cat": "victory",
       "text": "And those who believe will be accompanied by these signs:\nin my name they will cast out demons.",
       "ref": "Mr. 16:17",
@@ -4663,7 +4663,7 @@
     },
     {
       "id": 554,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "cat": "victory",
       "text": "And seated Him at His right hand in the heavenly places,\nfar above all authority and power.",
       "ref": "Ef. 1:20-21",
@@ -4672,7 +4672,7 @@
     },
     {
       "id": 555,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "cat": "victory",
       "text": "And we who were dead in sins\nrevived with Christ\nand planted together in heavenly places.",
       "ref": "Ef. 2:5-6",
@@ -4690,7 +4690,7 @@
     },
     {
       "id": 557,
-      "book": "2 TIMOPHY",
+      "book": "2 TIMOTHY",
       "cat": "victory",
       "text": "Because God did not give us the spirit of fear,\nbut the spirit of strength, and love, and chastity.",
       "ref": "2 Tim. 1:7",
@@ -4726,7 +4726,7 @@
     },
     {
       "id": 561,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "Faith is the fulfillment of what we hope for,\nevidence of things unseen.",
       "ref": "Hebrew 11:1",
@@ -4735,7 +4735,7 @@
     },
     {
       "id": 562,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "Without faith it is impossible to please God;\nfor whoever comes to God\nmust believe that He is\nand who rewards those who seek Him.",
       "ref": "Hebrew 11:6",
@@ -4744,7 +4744,7 @@
     },
     {
       "id": 563,
-      "book": "BRAND",
+      "book": "MARK",
       "cat": "faith",
       "text": "All things are possible to those who believe.",
       "ref": "Mr. 9:23 a.m",
@@ -4753,7 +4753,7 @@
     },
     {
       "id": 564,
-      "book": "BRAND",
+      "book": "MARK",
       "cat": "faith",
       "text": "I believe;\nhelp my unbelief!",
       "ref": "Mr. 9:24 a.m",
@@ -4807,7 +4807,7 @@
     },
     {
       "id": 570,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "By faith Abraham obeyed as he was called,\nto go to the place he was supposed to inherit;\nand went out, not knowing where he was going.",
       "ref": "Hebrew 11:8",
@@ -4816,7 +4816,7 @@
     },
     {
       "id": 571,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "By faith Abraham sacrificed Isaac,\nwhen tempted\nreasoning that God can even raise from the dead.",
       "ref": "Hebrew 11:17, 19",
@@ -4825,7 +4825,7 @@
     },
     {
       "id": 572,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "By faith Moses left Egypt,\nnot fearing the wrath of the king,\nbecause he held on as if he saw the Invisible.",
       "ref": "Hebrew 11:27 a.m",
@@ -4834,7 +4834,7 @@
     },
     {
       "id": 573,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "By faith the walls of Jericho fell,\nbecause they were bypassed for seven days.",
       "ref": "Hebrew 11:30 a.m",
@@ -4843,7 +4843,7 @@
     },
     {
       "id": 574,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "And all these, witnessed by faith,\ndid not receive what was promised\nbecause God has planned something better for us.",
       "ref": "Hebrew 11:39-40",
@@ -4852,7 +4852,7 @@
     },
     {
       "id": 575,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "faith",
       "text": "Because I am not ashamed of the gospel of Christ,\nbecause it is the power of God for salvation\nto everyone who believes.",
       "ref": "Rome. 1:16 a.m",
@@ -4861,7 +4861,7 @@
     },
     {
       "id": 576,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "faith",
       "text": "The righteous will live by faith.",
       "ref": "Rome. 1:17 a.m",
@@ -4870,7 +4870,7 @@
     },
     {
       "id": 577,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "faith",
       "text": "Therefore, being justified by faith,\nwe have peace with God\nthrough our Lord Jesus Christ.",
       "ref": "Rome. 5:1",
@@ -4879,7 +4879,7 @@
     },
     {
       "id": 578,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "cat": "faith",
       "text": "Knowing that a person does not make excuses\nby law,\nbut by faith in Jesus Christ.",
       "ref": "Gal. 2:16 a.m",
@@ -4888,7 +4888,7 @@
     },
     {
       "id": 579,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "cat": "faith",
       "text": "And that now I live in the body,\nthen I live by faith in the Son of God,\nWho loved me and gave Himself for me.",
       "ref": "Gal. 2:20",
@@ -4897,7 +4897,7 @@
     },
     {
       "id": 580,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "cat": "faith",
       "text": "For by faith you have been saved by grace,\nand this is not from you - it is a gift from God;\nnot of works, so that no one may boast.",
       "ref": "Ef. 2:8-9",
@@ -4906,7 +4906,7 @@
     },
     {
       "id": 581,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "cat": "faith",
       "text": "So is faith, if it does not have works,\ndead in itself.",
       "ref": "As. 2:17 a.m",
@@ -4915,7 +4915,7 @@
     },
     {
       "id": 582,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "cat": "faith",
       "text": "And the Scripture was fulfilled, which says:\nAbraham believed God\nand it is credited to him for righteousness.",
       "ref": "As. 2:23",
@@ -4951,7 +4951,7 @@
     },
     {
       "id": 586,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "faith",
       "text": "Verily, verily, I say unto you,\nwho believes in me\nhe will do the works that I do\nand he will do more than these.",
       "ref": "Iv. 14:12",
@@ -4960,7 +4960,7 @@
     },
     {
       "id": 587,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "faith",
       "text": "If you try in Maine\nand my words shall be tested in you,\nask for what you want and it will happen to you.",
       "ref": "Iv. 15:7",
@@ -4969,7 +4969,7 @@
     },
     {
       "id": 588,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "faith",
       "text": "For God so loved the world\nthat He gave His only begotten Son,\nthat whoever believes in Him should not perish\nbut have eternal life.",
       "ref": "Iv. 3:16 a.m",
@@ -4978,7 +4978,7 @@
     },
     {
       "id": 589,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "faith",
       "text": "But these are written\nthat you may believe\nthat Jesus is the Christ, the Son of God,\nand that believing you may have life in His name.",
       "ref": "Iv. 20:31",
@@ -4987,7 +4987,7 @@
     },
     {
       "id": 590,
-      "book": "ACT",
+      "book": "ACTS",
       "cat": "faith",
       "text": "And there is no salvation in any other;\nfor there is no other name under heaven\ngiven to the people we need to be saved.",
       "ref": "Acts 4:12",
@@ -4996,7 +4996,7 @@
     },
     {
       "id": 591,
-      "book": "ACT",
+      "book": "ACTS",
       "cat": "faith",
       "text": "Believe in the Lord Jesus -\nand you and your house will be saved.",
       "ref": "Acts 16:31",
@@ -5005,7 +5005,7 @@
     },
     {
       "id": 592,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "faith",
       "text": "Because when you confess with your mouth,\nthat Jesus is Lord\nand you believe with your heart\nthat God raised Him from the dead - you will be saved.",
       "ref": "Rome. 10:9",
@@ -5014,7 +5014,7 @@
     },
     {
       "id": 593,
-      "book": "NOVELS",
+      "book": "REVELATION",
       "cat": "faith",
       "text": "Therefore, faith comes from hearing,\nand hearing through the word of Christ.",
       "ref": "Rome. 10:17 a.m",
@@ -5023,7 +5023,7 @@
     },
     {
       "id": 594,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "Look to the Head and Finisher of faith—Jesus,\nWhat for the joy that stood before Him,\nendured the cross",
       "ref": "Hebrew 12:2",
@@ -5032,7 +5032,7 @@
     },
     {
       "id": 595,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "Therefore we, having such a cloud of witnesses around us,\nlet's throw off every burden and sin,\nthat easily confuses us\nand with patience let us run the race prepared for us.",
       "ref": "Hebrew 12:1",
@@ -5041,7 +5041,7 @@
     },
     {
       "id": 596,
-      "book": "PETER",
+      "book": "1 PETER",
       "cat": "faith",
       "text": "To test your faith,\nmore expensive than perishable gold,\nthat through the fire is revealed\nwas found with praise.",
       "ref": "1 Fri. 1:7",
@@ -5050,7 +5050,7 @@
     },
     {
       "id": 597,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "cat": "faith",
       "text": "Consider it a great joy, my brothers,\nwhen you fall into various temptations,\nknowing that testing your faith\nproduces patience.",
       "ref": "As. 1:2-3",
@@ -5059,7 +5059,7 @@
     },
     {
       "id": 598,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "cat": "faith",
       "text": "But let him ask with faith,\nwithout doubting anything;\nfor he who doubts is like a wave of the sea.",
       "ref": "As. 1:6",
@@ -5086,7 +5086,7 @@
     },
     {
       "id": 601,
-      "book": "BRAND",
+      "book": "MARK",
       "cat": "faith",
       "text": "You have to believe in your heart,\nand do not doubt.",
       "ref": "Mr. 11:23",
@@ -5095,7 +5095,7 @@
     },
     {
       "id": 602,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "faith",
       "text": "Jesus said to her:\nI am the resurrection and the life;\nwhoever believes in Me, even though he dies, he will live.",
       "ref": "Iv. 11:25",
@@ -5104,7 +5104,7 @@
     },
     {
       "id": 603,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "faith",
       "text": "Jesus said to him:\nI am the road, the truth and the life;\nno one comes to the Father\nas only through Me.",
       "ref": "Iv. 14:6",
@@ -5122,7 +5122,7 @@
     },
     {
       "id": 605,
-      "book": "A PARABLE",
+      "book": "PROVERBS",
       "cat": "faith",
       "text": "Trust in the Lord with all your heart\nand lean not on your own understanding.",
       "ref": "Attribute 3:5",
@@ -5131,7 +5131,7 @@
     },
     {
       "id": 606,
-      "book": "A PARABLE",
+      "book": "PROVERBS",
       "cat": "faith",
       "text": "Acknowledge Him in all your ways,\nand He will direct your paths.",
       "ref": "Attribute 3:6",
@@ -5176,7 +5176,7 @@
     },
     {
       "id": 611,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "peace",
       "text": "Therefore, being justified by faith,\nwe have peace with God\nthrough our Lord Jesus Christ.",
       "ref": "Rome. 5:1",
@@ -5266,7 +5266,7 @@
     },
     {
       "id": 621,
-      "book": "A PARABLE",
+      "book": "PROVERBS",
       "cat": "peace",
       "text": "A calm heart means a healthy body.",
       "ref": "Attribute 2:30 p.m",
@@ -5275,7 +5275,7 @@
     },
     {
       "id": 622,
-      "book": "A PARABLE",
+      "book": "PROVERBS",
       "cat": "peace",
       "text": "It is better to have the fear of the Lord,\nthan a great treasure with anxiety about it.",
       "ref": "Attribute 15:16",
@@ -5311,7 +5311,7 @@
     },
     {
       "id": 626,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "peace",
       "text": "Peace to you!",
       "ref": "Iv. 20:19",
@@ -5329,7 +5329,7 @@
     },
     {
       "id": 628,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "peace",
       "text": "If possible on your part,\nhave peace with all men.",
       "ref": "Rome. 12:18 p.m",
@@ -5338,7 +5338,7 @@
     },
     {
       "id": 629,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "peace",
       "text": "Because the Kingdom of God is not food and drink,\nbut righteousness, and peace, and joy in the Holy Spirit.",
       "ref": "Rome. 14:17",
@@ -5347,7 +5347,7 @@
     },
     {
       "id": 630,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "peace",
       "text": "May God fill you with hope\nwith all joy and peace in faith.",
       "ref": "Rome. 15:13",
@@ -5356,7 +5356,7 @@
     },
     {
       "id": 631,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "cat": "peace",
       "text": "The fruit of the Spirit: love, joy, peace,\npatience, gentleness, kindness,\nloyalty, meekness, restraint.",
       "ref": "Gal. 5:22-23",
@@ -5365,7 +5365,7 @@
     },
     {
       "id": 632,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "cat": "peace",
       "text": "And the peace of Christ,\nto which you are called in one body,\nlet it reign in your hearts.",
       "ref": "Qty. 3:15",
@@ -5374,7 +5374,7 @@
     },
     {
       "id": 633,
-      "book": "PHILIPPIAN",
+      "book": "PHILIPPIANS",
       "cat": "peace",
       "text": "And the God of peace will be with you.",
       "ref": "Phlp. 4:9",
@@ -5392,7 +5392,7 @@
     },
     {
       "id": 635,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "peace",
       "text": "Seek peace with all\nand holiness\nwithout which no one will see the Lord.",
       "ref": "Hebrew 12:14 p.m",
@@ -5401,7 +5401,7 @@
     },
     {
       "id": 636,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "cat": "peace",
       "text": "The fruit of righteousness\nis sown in peace\nthose who make peace.",
       "ref": "As. 3:18 a.m",
@@ -5419,7 +5419,7 @@
     },
     {
       "id": 638,
-      "book": "NUMBER",
+      "book": "NUMBERS",
       "cat": "peace",
       "text": "God bless you and keep you!\nThe Lord will shine His face on you and look down on you!\nThe Lord will raise His face upon you and give you peace!",
       "ref": "No. 6:24-26",
@@ -5455,7 +5455,7 @@
     },
     {
       "id": 642,
-      "book": "AGEA",
+      "book": "HAGGAI",
       "cat": "peace",
       "text": "The glory of this last house\nwill be greater than the first one,\nsays the Lord of hosts;\nand in this place I will give peace.",
       "ref": "Ag. 2:9",
@@ -5482,7 +5482,7 @@
     },
     {
       "id": 645,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "peace",
       "text": "I leave you my peace,\nMy peace I give you.\nNot as the world gives, I give to you.",
       "ref": "Iv. 14:27",
@@ -5491,7 +5491,7 @@
     },
     {
       "id": 646,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "cat": "peace",
       "text": "And having come, he announced peace to you,\nfar and near",
       "ref": "Ef. 2:17 a.m",
@@ -5500,7 +5500,7 @@
     },
     {
       "id": 647,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "cat": "peace",
       "text": "Undertaking to preserve the unity of the Spirit\na node of peace.",
       "ref": "Ef. 4:3",
@@ -5509,7 +5509,7 @@
     },
     {
       "id": 648,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "cat": "peace",
       "text": "And through Him to reconcile everything for Himself,\nhaving made peace with the blood of His cross.",
       "ref": "Qty. 1:20",
@@ -5590,7 +5590,7 @@
     },
     {
       "id": 657,
-      "book": "ANNOUNCEMENT",
+      "book": "REVELATION",
       "cat": "peace",
       "text": "And God will wipe every tear from their eyes,\nand there will be no more death\nthere will be no more mourning, crying, or pain.",
       "ref": "About. 21:4",
@@ -5617,7 +5617,7 @@
     },
     {
       "id": 660,
-      "book": "NUMBER",
+      "book": "NUMBERS",
       "cat": "peace",
       "text": "And you will know the truth\nand the truth shall set you free.",
       "ref": "Iv. 8:32 a.m",
@@ -5626,7 +5626,7 @@
     },
     {
       "id": 661,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Justified foolishly by His grace,\nthrough redemption in Christ Jesus...",
       "ref": "Rome. 3:24 a.m",
       "cat": "grace",
@@ -5635,7 +5635,7 @@
     },
     {
       "id": 662,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Therefore, let us boldly approach the throne of grace,\nthat we may receive mercy and find grace for timely help!",
       "ref": "Hebrew 4:16 a.m",
       "cat": "grace",
@@ -5716,7 +5716,7 @@
     },
     {
       "id": 671,
-      "book": "ZACHARIAH",
+      "book": "ZECHARIAH",
       "text": "And I will pour it on the house of David\nand upon the inhabitants of Jerusalem the Spirit of grace and supplication...",
       "ref": "west 12:10",
       "cat": "grace",
@@ -5734,7 +5734,7 @@
     },
     {
       "id": 673,
-      "book": "WEEP",
+      "book": "LAMENTATIONS",
       "text": "God's grace has not ended,\nHis mercy has not run out...\nThey are new every morning!",
       "ref": "Lamentations 3:22-23",
       "cat": "grace",
@@ -5752,7 +5752,7 @@
     },
     {
       "id": 675,
-      "book": "AXES",
+      "book": "ACTS",
       "text": "Because I want a favor\nnot victims\nand the knowledge of God is more than a burnt offering!",
       "ref": "Wasp 6:6",
       "cat": "grace",
@@ -5761,7 +5761,7 @@
     },
     {
       "id": 676,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "...to show in the ages to come\nthe exceeding riches of His grace\nin kindness to us in Christ Jesus",
       "ref": "Ef. 2:7",
       "cat": "grace",
@@ -5770,7 +5770,7 @@
     },
     {
       "id": 677,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "I do not reject the grace of God,\nfor when righteousness is through the law,\nthen Christ died in vain!",
       "ref": "Gal. 2:21 a.m",
       "cat": "grace",
@@ -5779,7 +5779,7 @@
     },
     {
       "id": 678,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "You are alienated from Christ\nall you who are justified by the law,\nyou fell from grace!",
       "ref": "Gal. 5:4",
       "cat": "grace",
@@ -5788,7 +5788,7 @@
     },
     {
       "id": 679,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "see\nso that no one loses the grace of God...",
       "ref": "Hebrew 12:15 p.m",
       "cat": "grace",
@@ -5797,7 +5797,7 @@
     },
     {
       "id": 680,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "But He gives greater grace,\nthat's why he says:\nGod resists the proud, but gives grace to the humble!",
       "ref": "As. 4:6",
       "cat": "grace",
@@ -5815,7 +5815,7 @@
     },
     {
       "id": 682,
-      "book": "DATA",
+      "book": "ACTS",
       "text": "Then he said to me:\nFear not, Daniel, for from the first day you set your heart to understand\nand humble yourself before your God,\nheard your words...",
       "ref": "Dan. 10:12 a.m",
       "cat": "grace",
@@ -5824,7 +5824,7 @@
     },
     {
       "id": 683,
-      "book": "BEING",
+      "book": "GENESIS",
       "text": "Then Joseph could not resist all those\nwho stood before him... and he wept...",
       "ref": "Genesis 45:1",
       "cat": "grace",
@@ -5833,7 +5833,7 @@
     },
     {
       "id": 684,
-      "book": "BEING",
+      "book": "GENESIS",
       "text": "But I did not deserve all the mercy and all the loyalty,\nwhich You revealed to Your servant!",
       "ref": "Genesis 32:10",
       "cat": "grace",
@@ -5842,7 +5842,7 @@
     },
     {
       "id": 685,
-      "book": "NUMBER",
+      "book": "NUMBERS",
       "text": "The Lord is long-suffering and merciful,\nthat forgiveth iniquity and trespass...",
       "ref": "No. 14:18",
       "cat": "grace",
@@ -5851,7 +5851,7 @@
     },
     {
       "id": 686,
-      "book": "2 CHRONICLE",
+      "book": "2 CHRONICLES",
       "text": "But You are the God of forgiveness,\nkind and merciful\nlong-suffering and merciful...",
       "ref": "I don't 9:17 a.m",
       "cat": "grace",
@@ -5905,7 +5905,7 @@
     },
     {
       "id": 692,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "And who comes to Me\nI will not drive him away!",
       "ref": "Iv. 6:37 a.m",
       "cat": "grace",
@@ -5914,7 +5914,7 @@
     },
     {
       "id": 693,
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "Come to Me, all you weary and heavy laden,\nand I will calm you down!",
       "ref": "Mt. 11:28",
       "cat": "grace",
@@ -5923,7 +5923,7 @@
     },
     {
       "id": 694,
-      "book": "FROM MARK",
+      "book": "MARK",
       "text": "He could not resist and stretched out his hand, and touched him, and said to him: I want to be cleansed!",
       "ref": "Mk. 1:41 a.m",
       "cat": "grace",
@@ -5932,7 +5932,7 @@
     },
     {
       "id": 695,
-      "book": "FROM LUKA",
+      "book": "LUKE",
       "text": "And he got up and went to his father.\nHis father saw him from afar\nand had mercy...\nand ran and threw himself on his neck and kissed him",
       "ref": "Lk. 15:20",
       "cat": "grace",
@@ -5941,7 +5941,7 @@
     },
     {
       "id": 696,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "For God so loved the world,\nwho gave His only begotten Son,\nthat whosoever believeth in Him should not perish...",
       "ref": "Iv. 3:16 a.m",
       "cat": "grace",
@@ -5950,7 +5950,7 @@
     },
     {
       "id": 697,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "But God shows His love for us by\nthat Christ died for us\nwhen we were still sinners!",
       "ref": "Rome. 5:8",
       "cat": "grace",
@@ -5977,7 +5977,7 @@
     },
     {
       "id": 700,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "Grace to you and peace from God our Father and the Lord Jesus Christ,\nWho gave Himself for our sins...",
       "ref": "Gal. 1:3-4",
       "cat": "grace",
@@ -5986,7 +5986,7 @@
     },
     {
       "id": 701,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "...have come to know the grace of God in truth...",
       "ref": "Qty. 1:6",
       "cat": "grace",
@@ -6004,7 +6004,7 @@
     },
     {
       "id": 703,
-      "book": "2 TIMOPHY",
+      "book": "2 TIMOTHY",
       "text": "So you, my son, be strong in grace,\nwhich is in Christ Jesus!",
       "ref": "2 Tim. 2:1",
       "cat": "grace",
@@ -6013,7 +6013,7 @@
     },
     {
       "id": 704,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Jesus Christ - yesterday, today\nand forever the same!",
       "ref": "Hebrew 13:8",
       "cat": "grace",
@@ -6022,7 +6022,7 @@
     },
     {
       "id": 705,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "Every good gift and every good endowment\nthere is from above\nproceeds from the Father of the worlds...",
       "ref": "As. 1:17 a.m",
       "cat": "grace",
@@ -6031,7 +6031,7 @@
     },
     {
       "id": 706,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "And if anyone sins,\nthen we have a Substitute in the Father,\nJesus Christ the Righteous!",
       "ref": "1 John 2:1",
       "cat": "grace",
@@ -6040,7 +6040,7 @@
     },
     {
       "id": 707,
-      "book": "JUDAS",
+      "book": "JUDE",
       "text": "Let them be multiplied to you\nmercy and peace and love!",
       "ref": "Jude 1:2",
       "cat": "grace",
@@ -6049,7 +6049,7 @@
     },
     {
       "id": 708,
-      "book": "ANNOUNCEMENT",
+      "book": "REVELATION",
       "text": "May the grace of the Lord Jesus be with everyone!\nAmen!",
       "ref": "Announcement 22:21",
       "cat": "grace",
@@ -6058,7 +6058,7 @@
     },
     {
       "id": 709,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "text": "A kind woman gains honor,\nand rapists acquire wealth!",
       "ref": "Prov. 11:16 a.m",
       "cat": "grace",
@@ -6166,7 +6166,7 @@
     },
     {
       "id": 721,
-      "book": "HABAKUMA",
+      "book": "HABAKKUK",
       "text": "The Lord God is my strength!\nHe gives me legs like a deer\nand He leads me along my heights!",
       "ref": "Avak. 3:19 a.m",
       "cat": "strength",
@@ -6175,7 +6175,7 @@
     },
     {
       "id": 722,
-      "book": "ZACHARIAH",
+      "book": "ZECHARIAH",
       "text": "The Lord of hosts will protect them...\nand the Lord their God will save them\nthe day when the flock of His people!",
       "ref": "west 9:15-16",
       "cat": "strength",
@@ -6184,7 +6184,7 @@
     },
     {
       "id": 723,
-      "book": "THE SECOND LAW.",
+      "book": "DEUTERONOMY",
       "text": "Be strong and courageous!\nDo not be afraid and do not be afraid of them,\nfor the Lord your God goes with you;\nThat will not leave you and will not leave you!",
       "ref": "Second 31:6",
       "cat": "strength",
@@ -6193,7 +6193,7 @@
     },
     {
       "id": 724,
-      "book": "JESUS ​​NEWS",
+      "book": "MARK",
       "text": "Just be very strong and courageous,\nto keep and fulfill the whole law,\nwhat did Moses, My servant, command you...",
       "ref": "Is. Nav. 1:7",
       "cat": "strength",
@@ -6220,7 +6220,7 @@
     },
     {
       "id": 727,
-      "book": "2 CHRONICLE",
+      "book": "2 CHRONICLES",
       "text": "For the eyes of the Lord roam over the whole earth,\nto show Himself strong\nfor the benefit of those whose heart is wholly His.",
       "ref": "2 Chron. 16:9",
       "cat": "strength",
@@ -6238,7 +6238,7 @@
     },
     {
       "id": 729,
-      "book": "JOVA",
+      "book": "JOB",
       "text": "The Lord answered Job from the whirlwind\nand said:\nWhere were you when I founded the earth?\nTell me if you know the mind!",
       "ref": "Job 38:1,4",
       "cat": "strength",
@@ -6247,7 +6247,7 @@
     },
     {
       "id": 730,
-      "book": "A PARABLE",
+      "book": "PROVERBS",
       "text": "The Lord is my rock,\nmy fortress and my deliverer;\nMy God is my rock, I take refuge in Him...",
       "ref": "2 Sam. 22:2-3",
       "cat": "strength",
@@ -6265,7 +6265,7 @@
     },
     {
       "id": 732,
-      "book": "FROM MARK",
+      "book": "MARK",
       "text": "He healed many\nwho suffered from various diseases,\nand cast out many demons...",
       "ref": "Mk. 1:34",
       "cat": "strength",
@@ -6274,7 +6274,7 @@
     },
     {
       "id": 733,
-      "book": "FROM LUKA",
+      "book": "LUKE",
       "text": "The power of the Lord was present,\nthat He would heal.",
       "ref": "Lk. 5:17 a.m",
       "cat": "strength",
@@ -6283,7 +6283,7 @@
     },
     {
       "id": 734,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "You will hear and see\nmore than that!",
       "ref": "Iv. 1:50",
       "cat": "strength",
@@ -6292,7 +6292,7 @@
     },
     {
       "id": 735,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "...and the power of the Most High will overshadow you...",
       "ref": "Lk. 1:35",
       "cat": "strength",
@@ -6301,7 +6301,7 @@
     },
     {
       "id": 736,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "But you will take power\nwhen the Holy Spirit comes upon you,\nand you will be My witnesses...",
       "ref": "Acts 1:8",
       "cat": "strength",
@@ -6310,7 +6310,7 @@
     },
     {
       "id": 737,
-      "book": "ACTIONS",
+      "book": "ACTS",
       "text": "...and the Apostles gave great power\ntestimony of the resurrection of the Lord Jesus,\nand great grace was upon them all.",
       "ref": "Acts 4:33",
       "cat": "strength",
@@ -6319,7 +6319,7 @@
     },
     {
       "id": 738,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "...because I believe that the suffering of the present time\nmean nothing against glory\nwhich will appear in us.",
       "ref": "Rm. 8:18",
       "cat": "strength",
@@ -6328,7 +6328,7 @@
     },
     {
       "id": 739,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "Because the Kingdom of God is not food and drink,\nbut righteousness, and peace, and joy in the Holy Spirit.",
       "ref": "Rm. 14:17",
       "cat": "strength",
@@ -6355,7 +6355,7 @@
     },
     {
       "id": 742,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "...that He may give you\naccording to the riches of His glory,\nto be firmly strengthened by His Spirit in the inner man!",
       "ref": "Ef. 3:16 a.m",
       "cat": "strength",
@@ -6364,7 +6364,7 @@
     },
     {
       "id": 743,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "And to Him who can do\nimmeasurably more than all we ask or think,\naccording to the power that works in us...",
       "ref": "Ef. 3:20",
       "cat": "strength",
@@ -6373,7 +6373,7 @@
     },
     {
       "id": 744,
-      "book": "FILIPINO",
+      "book": "PHILIPPIANS",
       "text": "And my God will fill your every need\naccording to His wealth,\nwith glory in Christ Jesus!",
       "ref": "Phlp. 4:19 a.m",
       "cat": "strength",
@@ -6382,7 +6382,7 @@
     },
     {
       "id": 745,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "...strengthened with all strength\nby the power of His glory\nfor all patience and long-suffering with joy!",
       "ref": "Qty. 1:11 a.m",
       "cat": "strength",
@@ -6400,7 +6400,7 @@
     },
     {
       "id": 747,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "That's why we, having around us\nsuch a great cloud of witnesses,\nlet's throw away every burden...\nand we will run with patience\nthe race is set for us!",
       "ref": "Hebrew 12:1",
       "cat": "strength",
@@ -6409,7 +6409,7 @@
     },
     {
       "id": 748,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "...looking at Jesus,\nthe leader and finisher of faith,\nWhat instead of the joy prepared for Him\nbore the cross, despising the shame...",
       "ref": "Hebrew 12:2",
       "cat": "strength",
@@ -6418,7 +6418,7 @@
     },
     {
       "id": 749,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "Is there a sick person among you?...\nA prayer of faith will heal the sick,\nand the Lord will raise him up...",
       "ref": "As. 5:14-15",
       "cat": "strength",
@@ -6436,7 +6436,7 @@
     },
     {
       "id": 751,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "The Greater One\nwho do you have\nthan he who is in the world.",
       "ref": "1 John 4:4",
       "cat": "strength",
@@ -6445,7 +6445,7 @@
     },
     {
       "id": 752,
-      "book": "ANNOUNCEMENT",
+      "book": "REVELATION",
       "text": "Don't be afraid!\nI am the First and the Last,\nand Alive!\nAnd I was dead, and behold, I am alive forever and ever!",
       "ref": "Announcement 1:17-18",
       "cat": "strength",
@@ -6454,7 +6454,7 @@
     },
     {
       "id": 753,
-      "book": "ANNOUNCEMENT",
+      "book": "REVELATION",
       "text": "I will give the victor to sit with Me on My throne,\nas I have overcome\nand sat down with My Father on His throne.",
       "ref": "Announcement 3:21 a.m",
       "cat": "strength",
@@ -6571,7 +6571,7 @@
     },
     {
       "id": 766,
-      "book": "ZACHARIAH",
+      "book": "ZECHARIAH",
       "text": "you too\nby the blood of your covenant\nreleased her prisoners from the ditch,\nwhere there is no water!\nReturn to the stronghold\ncaptive of hope!",
       "ref": "west 9:11-12",
       "cat": "hope",
@@ -6589,7 +6589,7 @@
     },
     {
       "id": 768,
-      "book": "RUTY",
+      "book": "RUTH",
       "text": "May the Lord repay you for your deed,\nand may your full reward be from the Lord...",
       "ref": "Ruth. 2:12",
       "cat": "hope",
@@ -6598,7 +6598,7 @@
     },
     {
       "id": 769,
-      "book": "JOVA",
+      "book": "JOB",
       "text": "But I know: my Redeemer lives,\nand on the last day will rise above the dust!",
       "ref": "Job 19:25",
       "cat": "hope",
@@ -6607,7 +6607,7 @@
     },
     {
       "id": 770,
-      "book": "BEING",
+      "book": "GENESIS",
       "text": "And God saw that the light was good,\nand God separated the light from the darkness.",
       "ref": "Genesis 1:4",
       "cat": "hope",
@@ -6616,7 +6616,7 @@
     },
     {
       "id": 771,
-      "book": "ENTRANCE",
+      "book": "GENESIS",
       "text": "And the children of Israel groaned from work\nand shouted\nand their cry from work went down to God!\nAnd God heard their groaning...",
       "ref": "Ex. 2:23-24",
       "cat": "hope",
@@ -6625,7 +6625,7 @@
     },
     {
       "id": 772,
-      "book": "JESUS ​​NEWS",
+      "book": "MARK",
       "text": "Not a single word fell\nof all kind words\nwhat did the Lord say to the house of Israel!\nEverything came true!",
       "ref": "Is. Nav. 21:45",
       "cat": "hope",
@@ -6652,7 +6652,7 @@
     },
     {
       "id": 775,
-      "book": "2 CHRONICLE",
+      "book": "2 CHRONICLES",
       "text": "If My people submit,\nabove whom My Name is called,\nand will pray and seek my face,\nand will turn away from his evil ways -\nthen I will hear from heaven...",
       "ref": "2 Chron. 7:14 a.m",
       "cat": "hope",
@@ -6724,7 +6724,7 @@
     },
     {
       "id": 783,
-      "book": "AXES",
+      "book": "ACTS",
       "text": "Therefore, I will seduce her\nand I will lead her into the desert\nand I will speak to her heart...",
       "ref": "Wasp 2:14 a.m",
       "cat": "hope",
@@ -6733,7 +6733,7 @@
     },
     {
       "id": 784,
-      "book": "HABAKUMA",
+      "book": "HABAKKUK",
       "text": "Because the vision is still for a certain time,\nand hastens to the end and will not lie.\nIf it lingers, wait for it,\nbecause it will come, it will not be delayed!",
       "ref": "Avak. 2:3",
       "cat": "hope",
@@ -6742,7 +6742,7 @@
     },
     {
       "id": 785,
-      "book": "SOPHONIA",
+      "book": "ZEPHANIAH",
       "text": "The Lord your God is in your midst,\nHe is a Hero, He saves!\nHe rejoices in you with joy,\nsilent in His love,\nrejoices with you with a cry of joy!",
       "ref": "Soph. 3:17 a.m",
       "cat": "hope",
@@ -6760,7 +6760,7 @@
     },
     {
       "id": 787,
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "Blessed are the poor in spirit,\nbecause theirs is the Kingdom of Heaven!",
       "ref": "Mt. 5:3",
       "cat": "hope",
@@ -6769,7 +6769,7 @@
     },
     {
       "id": 788,
-      "book": "FROM MATVIA",
+      "book": "MATTHEW",
       "text": "Blessed are those who weep\nbecause they will be happy!",
       "ref": "Mt. 5:4",
       "cat": "hope",
@@ -6778,7 +6778,7 @@
     },
     {
       "id": 789,
-      "book": "FROM LUKA",
+      "book": "LUKE",
       "text": "Will God not defend His chosen ones,\nwhat call to Him day and night?",
       "ref": "Lk. 18:7",
       "cat": "hope",
@@ -6787,7 +6787,7 @@
     },
     {
       "id": 790,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "Jesus said to her:\nI am the resurrection and the life.\nWho believes in me\neven if he dies, he will live!",
       "ref": "Iv. 11:25",
       "cat": "hope",
@@ -6796,7 +6796,7 @@
     },
     {
       "id": 791,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "Peace I leave you, My peace I give you;\nnot as the world giveth, give I unto you.\nLet not your heart be troubled\nand don't be afraid!",
       "ref": "Iv. 14:27",
       "cat": "hope",
@@ -6805,7 +6805,7 @@
     },
     {
       "id": 792,
-      "book": "FROM IVAN",
+      "book": "JOHN",
       "text": "In the world you will have sorrow,\nbe brave:\nI conquered the world!",
       "ref": "Iv. 16:33",
       "cat": "hope",
@@ -6814,7 +6814,7 @@
     },
     {
       "id": 793,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "...hope will not be ashamed,\nbecause the love of God is poured out in our hearts\nBy the Holy Spirit, which is given to us.",
       "ref": "Rm. 5:5",
       "cat": "hope",
@@ -6823,7 +6823,7 @@
     },
     {
       "id": 794,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "text": "May God fill you with hope\nwith all joy and peace in faith,\nthat you may be filled with hope\nby the power of the Holy Spirit!",
       "ref": "Rm. 15:13",
       "cat": "hope",
@@ -6841,7 +6841,7 @@
     },
     {
       "id": 796,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "text": "For we hope by the Spirit by faith\nto righteousness — to hope!",
       "ref": "Gal. 5:5",
       "cat": "hope",
@@ -6850,7 +6850,7 @@
     },
     {
       "id": 797,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "...that you may know what hope there is\nHis calling\nwhat riches of the glory of his inheritance\nin the saints...",
       "ref": "Ef. 1:18 a.m",
       "cat": "hope",
@@ -6859,7 +6859,7 @@
     },
     {
       "id": 798,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "text": "One body and one Spirit,\njust as you are called in one hope\nyour calling",
       "ref": "Ef. 4:4",
       "cat": "hope",
@@ -6868,7 +6868,7 @@
     },
     {
       "id": 799,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "...because of hope\nthat is stored up for you in heaven,\nwhich you have heard before\nin the word of truth of the Gospel...",
       "ref": "Qty. 1:5",
       "cat": "hope",
@@ -6877,7 +6877,7 @@
     },
     {
       "id": 800,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "text": "...Christ in you is the hope of glory!",
       "ref": "Qty. 1:27 a.m",
       "cat": "hope",
@@ -6913,7 +6913,7 @@
     },
     {
       "id": 804,
-      "book": "TITA",
+      "book": "TITUS",
       "text": "...for the hope of eternal life,\nwhich God, Who cannot lie,\npromised before the ages...",
       "ref": "Titus 1:2",
       "cat": "hope",
@@ -6922,7 +6922,7 @@
     },
     {
       "id": 805,
-      "book": "TITA",
+      "book": "TITUS",
       "text": "...and we are waiting for the blessed hope\nand the appearance of glory\ngreat God and our Savior Jesus Christ...",
       "ref": "Titus 2:13",
       "cat": "hope",
@@ -6949,7 +6949,7 @@
     },
     {
       "id": 808,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Now let's go back to what we said:\nwe have such a High Priest,\nWho sat down at the right hand of the throne of majesty in heaven...",
       "ref": "Hebrew 8:1",
       "cat": "hope",
@@ -6958,7 +6958,7 @@
     },
     {
       "id": 809,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "text": "Let us hold fast the confession of hope,\nwithout faltering\nbecause He who promised is faithful!",
       "ref": "Hebrew 10:23",
       "cat": "hope",
@@ -6967,7 +6967,7 @@
     },
     {
       "id": 810,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "text": "Be patient too,\nstrengthen your hearts\nbecause the coming of the Lord is near!",
       "ref": "As. 5:8",
       "cat": "hope",
@@ -6976,7 +6976,7 @@
     },
     {
       "id": 811,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "And now, little children, abide in Him,\nso that we, when it appears,\nhad courage and were not ashamed before Him at His coming.",
       "ref": "1 John 2:28",
       "cat": "hope",
@@ -6985,7 +6985,7 @@
     },
     {
       "id": 812,
-      "book": "1 IVAN",
+      "book": "1 JOHN",
       "text": "Favorites!\nNow we are God's children\nand it has not yet appeared who we will be.\nBut we know that when He appears,\nlet us be like Him...",
       "ref": "1 John 3:2",
       "cat": "hope",
@@ -6994,7 +6994,7 @@
     },
     {
       "id": 813,
-      "book": "ANNOUNCEMENT",
+      "book": "REVELATION",
       "text": "And then I heard a great voice from the throne saying:\nHere is the abode of God with people!\nAnd He will dwell with them...",
       "ref": "Announcement 21:3",
       "cat": "hope",
@@ -7003,7 +7003,7 @@
     },
     {
       "id": 814,
-      "book": "ENTRANCE",
+      "book": "GENESIS",
       "cat": "victory",
       "text": "The Lord will fight for you\nand you keep quiet.",
       "ref": "Ex. 14:14",
@@ -7012,7 +7012,7 @@
     },
     {
       "id": 815,
-      "book": "THE SECOND SAMUEL",
+      "book": "2 SAMUEL",
       "cat": "victory",
       "text": "The Lord is my rock and my fortress,\nand my deliverer\nMy God is my fortress.",
       "ref": "2 Sam. 22:2-3",
@@ -7048,7 +7048,7 @@
     },
     {
       "id": 819,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "victory",
       "text": "He, since he lives forever,\nhas eternal priesthood.\nHence He can completely save those\nwho comes to God through Him.",
       "ref": "Hebrew 7:24-25",
@@ -7084,7 +7084,7 @@
     },
     {
       "id": 823,
-      "book": "REPETITION OF THE LAW",
+      "book": "DEUTERONOMY",
       "cat": "victory",
       "text": "the Lord your God\nThis one will go before you;\nHe will destroy these nations before you.",
       "ref": "Region Order 31:3",
@@ -7093,7 +7093,7 @@
     },
     {
       "id": 824,
-      "book": "THE SECOND CHRONICLE",
+      "book": "2 CHRONICLES",
       "cat": "victory",
       "text": "Do not fear or be dismayed at this great crowd,\nbecause this fight is not yours, but God's!",
       "ref": "2 Chron. 20:15",
@@ -7102,7 +7102,7 @@
     },
     {
       "id": 825,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "victory",
       "text": "Тож тепер нема жодного осуду\nto those who are in Christ Jesus.",
       "ref": "Rome. 8:1",
@@ -7147,7 +7147,7 @@
     },
     {
       "id": 830,
-      "book": "JESUS ​​NEWS",
+      "book": "MARK",
       "cat": "victory",
       "text": "No man can stand before you\nall the day of your life;\nas I was with Moses\nI will do the same with you.",
       "ref": "Nav. 1:5",
@@ -7165,7 +7165,7 @@
     },
     {
       "id": 832,
-      "book": "SECOND CORINTHIANS",
+      "book": "2 CORINTHIANS",
       "cat": "victory",
       "text": "We don't have physical weapons for battle,\nbut mighty by God —\nto destroy strongholds.",
       "ref": "2 Cor. 10:4",
@@ -7183,7 +7183,7 @@
     },
     {
       "id": 834,
-      "book": "THE FIRST IVAN",
+      "book": "1 JOHN",
       "cat": "victory",
       "text": "For whatever is born of God overcomes the world,\nand this is the victory that overcame the world,\nour faith",
       "ref": "1 John 5:4",
@@ -7201,7 +7201,7 @@
     },
     {
       "id": 836,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "victory",
       "text": "Be brave:\nI conquered the world.",
       "ref": "Iv. 16:33",
@@ -7291,7 +7291,7 @@
     },
     {
       "id": 846,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "Faith is the foundation of what we hope for\nproof of things unseen.",
       "ref": "Hebrew 11:1",
@@ -7300,7 +7300,7 @@
     },
     {
       "id": 847,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "And without faith it is impossible to please God;\nfor whoever comes to God\nmust believe that He is.",
       "ref": "Hebrew 11:6",
@@ -7309,7 +7309,7 @@
     },
     {
       "id": 848,
-      "book": "BRAND",
+      "book": "MARK",
       "cat": "faith",
       "text": "All things are possible to those who believe.",
       "ref": "Mr. 9:23 a.m",
@@ -7336,7 +7336,7 @@
     },
     {
       "id": 851,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "faith",
       "text": "The righteous will live by faith.",
       "ref": "Rome. 1:17 a.m",
@@ -7345,7 +7345,7 @@
     },
     {
       "id": 852,
-      "book": "GALATIV",
+      "book": "GALATIANS",
       "cat": "faith",
       "text": "But I'm not alive anymore\nand Christ lives in me.\nAnd that I live now in the body,\nI live by the faith of the Son of God.",
       "ref": "Gal. 2:20",
@@ -7354,7 +7354,7 @@
     },
     {
       "id": 853,
-      "book": "SECOND CORINTHIANS",
+      "book": "2 CORINTHIANS",
       "cat": "faith",
       "text": "Let's walk by faith\nnot a vision.",
       "ref": "2 Cor. 5:7",
@@ -7363,7 +7363,7 @@
     },
     {
       "id": 854,
-      "book": "EPHESIAN",
+      "book": "EPHESIANS",
       "cat": "faith",
       "text": "For by grace you have been saved through faith,\nand it is not from you - it is a gift from God.",
       "ref": "Ef. 2:8",
@@ -7372,7 +7372,7 @@
     },
     {
       "id": 855,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "cat": "faith",
       "text": "But let him ask with faith,\nnot in the least doubting;\nfor who doubts\nthat is like a sea wave.",
       "ref": "As. 1:6",
@@ -7390,7 +7390,7 @@
     },
     {
       "id": 857,
-      "book": "THE FIRST PETER",
+      "book": "1 PETER",
       "cat": "faith",
       "text": "That the test of your faith,\nmore precious than perishable gold,\nthat is explored by fire\nwas found to praise.",
       "ref": "1 Fri. 1:7",
@@ -7399,7 +7399,7 @@
     },
     {
       "id": 858,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "Looking at the founder and executor of our faith,\njesus\nThat for the sake of the joy that lay before Him,\nendured the cross.",
       "ref": "Hebrew 12:2",
@@ -7417,7 +7417,7 @@
     },
     {
       "id": 860,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "cat": "faith",
       "text": "Trust the Lord with all your heart\nand do not rely on your own understanding.",
       "ref": "Attribute 3:5",
@@ -7426,7 +7426,7 @@
     },
     {
       "id": 861,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "faith",
       "text": "Who believes in the Son of God,\nhas a certificate in itself.",
       "ref": "1 John 5:10",
@@ -7444,7 +7444,7 @@
     },
     {
       "id": 863,
-      "book": "BRAND",
+      "book": "MARK",
       "cat": "faith",
       "text": "And said to her:\nDonya, your faith saved you;\ngo in peace",
       "ref": "Mr. 5:34 a.m",
@@ -7453,7 +7453,7 @@
     },
     {
       "id": 864,
-      "book": "OF THE SECOND TIMOTHY",
+      "book": "2 TIMOTHY",
       "cat": "faith",
       "text": "I kept by faith\nkept the faith\nFrom now on, a crown of righteousness is being prepared for me.",
       "ref": "2 Tim. 4:7-8",
@@ -7462,7 +7462,7 @@
     },
     {
       "id": 865,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "faith",
       "text": "Who believes in me\nas the scriptures say\nrivers of living water\nwill flow from inside him.",
       "ref": "Iv. 7:38 a.m",
@@ -7471,7 +7471,7 @@
     },
     {
       "id": 866,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "faith",
       "text": "Abraham did not waver in faith,\nwhen I thought about my body\n- already dead -\nbut strengthened in faith,\ngiving glory to God.",
       "ref": "Rome. 4:19-20",
@@ -7480,7 +7480,7 @@
     },
     {
       "id": 867,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "faith",
       "text": "By faith Noah, having received the message\nabout what is not yet seen\nprepared the ark with fear\nfor the salvation of his house.",
       "ref": "Hebrew 11:7",
@@ -7489,7 +7489,7 @@
     },
     {
       "id": 868,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "faith",
       "text": "Jesus said to her:\nI am the resurrection and the life.\nWho believes in me\neven if he dies, he will live.",
       "ref": "Iv. 11:25",
@@ -7498,7 +7498,7 @@
     },
     {
       "id": 869,
-      "book": "NUMBER",
+      "book": "NUMBERS",
       "cat": "peace",
       "text": "May the Lord bless you\nand protect you!\nMay the Lord shine His face on you\nand will be kind to you!\nMay the Lord turn His face upon you\nand give you peace!",
       "ref": "No. 6:24-26",
@@ -7543,7 +7543,7 @@
     },
     {
       "id": 874,
-      "book": "PHILIPPIAN",
+      "book": "PHILIPPIANS",
       "cat": "peace",
       "text": "And the peace of God,\nbeyond all understanding\nwill keep your hearts and your thoughts\nin Christ Jesus.",
       "ref": "Phlp. 4:7",
@@ -7552,7 +7552,7 @@
     },
     {
       "id": 875,
-      "book": "COLLOSSIAN",
+      "book": "COLOSSIANS",
       "cat": "peace",
       "text": "And the peace of Christ\nlet it reign in your hearts.",
       "ref": "Qty. 3:15",
@@ -7570,7 +7570,7 @@
     },
     {
       "id": 877,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "peace",
       "text": "Peace to you!\nAs the Father sent me,\nso I send you.",
       "ref": "Iv. 20:21",
@@ -7588,7 +7588,7 @@
     },
     {
       "id": 879,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "peace",
       "text": "Because God's kingdom is not food and drink,\nbut righteousness, peace, and joy\nin the Holy Spirit.",
       "ref": "Rome. 14:17",
@@ -7615,7 +7615,7 @@
     },
     {
       "id": 882,
-      "book": "OF THE SECOND THESSALONIANS",
+      "book": "2 THESSALONIANS",
       "cat": "peace",
       "text": "And the Lord of peace Himself\nmay he give you peace\nalways and in every way.",
       "ref": "2 Sol. 3:16 a.m",
@@ -7624,7 +7624,7 @@
     },
     {
       "id": 883,
-      "book": "JEWS",
+      "book": "HEBREWS",
       "cat": "peace",
       "text": "Seek peace with all\nand holiness,\nwithout which no one will see the Lord.",
       "ref": "Hebrew 12:14 p.m",
@@ -7660,7 +7660,7 @@
     },
     {
       "id": 887,
-      "book": "IVAN THE FIRST",
+      "book": "1 JOHN",
       "cat": "love",
       "text": "we love\nbecause He first loved us.",
       "ref": "1 John 4:19 a.m",
@@ -7669,7 +7669,7 @@
     },
     {
       "id": 888,
-      "book": "ROMAN",
+      "book": "ROMANS",
       "cat": "love",
       "text": "God's love is poured out in our hearts\nthrough the Holy Spirit,\nthat is given to us",
       "ref": "Rome. 5:5",
@@ -7678,7 +7678,7 @@
     },
     {
       "id": 889,
-      "book": "EXIT",
+      "book": "EXODUS",
       "cat": "healing",
       "text": "Because I am the Lord, your Healer.",
       "ref": "Ex. 15:26",
@@ -7723,7 +7723,7 @@
     },
     {
       "id": 894,
-      "book": "YAKOVA",
+      "book": "JAMES",
       "cat": "healing",
       "text": "And the prayer of faith will save the sick,\nand the Lord will raise him up.",
       "ref": "As. 5:15",
@@ -7750,7 +7750,7 @@
     },
     {
       "id": 897,
-      "book": "BRAND",
+      "book": "MARK",
       "cat": "healing",
       "text": "I want\nclean yourself up",
       "ref": "Mr. 1:41 a.m",
@@ -7759,7 +7759,7 @@
     },
     {
       "id": 898,
-      "book": "THE FIRST PETER",
+      "book": "1 PETER",
       "cat": "healing",
       "text": "By His stripes you were healed.",
       "ref": "1 Fri. 2:24",
@@ -7786,7 +7786,7 @@
     },
     {
       "id": 901,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "cat": "healing",
       "text": "A gentle word is a tree of life,\nbut a wicked word is a broken spirit.",
       "ref": "Attribute 15:4",
@@ -7795,7 +7795,7 @@
     },
     {
       "id": 902,
-      "book": "PARABLES",
+      "book": "PROVERBS",
       "cat": "healing",
       "text": "A cheerful heart is a good medicine,\nand a broken spirit dries up the bones.",
       "ref": "Attribute 17:22",
@@ -7804,7 +7804,7 @@
     },
     {
       "id": 903,
-      "book": "IVAN",
+      "book": "JOHN",
       "cat": "healing",
       "text": "Jesus says to him:\nGet up, take your bed and walk.",
       "ref": "Iv. 5:8",
@@ -7831,7 +7831,7 @@
     },
     {
       "id": 906,
-      "book": "BRAND",
+      "book": "MARK",
       "cat": "healing",
       "text": "And he went about all Galilee,\npreaching in their synagogues\nand casting out demons.\nAnd healed many.",
       "ref": "Mr. 1:39",

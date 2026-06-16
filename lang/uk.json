@@ -91,7 +91,24 @@
     "toast_swipe": "↑ свайп — наступний вірш",
     "toast_longpress": "✦ довге натискання — тлумач",
     "toast_time_missing": "⚠️ Вкажи час",
-    "cat_banner_label": "Нова категорія"
+    "cat_banner_label": "Нова категорія",
+    "toast_translating": "🌐 Перекладаю...",
+    "toast_translated": "✅ Переклад готовий!",
+    "toast_trans_error": "⚠️ Помилка перекладу",
+    "trans_progress": "Перекладаю {done} / {total} віршів...",
+    "trans_ui": "Перекладаю інтерфейс...",
+    "trans_caching": "Зберігаю переклад...",
+    "donate_privat": "Картка Приватбанк",
+    "donate_copy": "Скопіювати картку",
+    "alarm_default_label": "Нагадування",
+    "no_bg": "Без фону",
+    "days_label_once": "Один раз",
+    "days_label_daily": "Щодня",
+    "days_label_weekdays": "Пн–Пт",
+    "days_label_weekend": "Сб–Нд",
+    "err_load_verses": "⚠️ Не вдалося завантажити вірші",
+    "trans_progress_done": "Готово! ✅",
+    "trans_error_msg": "⚠️ Помилка: {msg}. Прогрес збережено — просто оберіть мову знову."
   },
   "verses": [
     {
