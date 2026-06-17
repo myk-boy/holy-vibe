@@ -574,7 +574,7 @@ function renderFavList() {
     favList.innerHTML = `
       <div class="fav-empty">
         <div class="fav-empty-icon">🤍</div>
-        <div class="fav-empty-text">Ще немає улюблених.<br>Двічі торкніться вірша, щоб додати.</div>
+        <div class="fav-empty-text">${t('favs_empty').replace(/\n/g,'<br>')}</div>
       </div>`;
     return;
   }
@@ -925,7 +925,7 @@ function renderNotifList() {
   if (!list) return;
   if (!alarms.length) {
     list.innerHTML = `<div style="text-align:center; padding:16px 0; color:rgba(255,255,255,.3); font-size:13px;">
-      Немає нагадувань.<br>Додай перше нижче 🙏</div>`;
+      ${t('notif_empty').replace(/\n/g,'<br>')}</div>`;
     return;
   }
   list.innerHTML = alarms.map(a => {
