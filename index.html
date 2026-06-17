@@ -138,6 +138,22 @@
         <div class="t-label" style="font-size:clamp(12px,3vw,15px)" data-i18n="settings_title">Оформлення</div>
       </div>
 
+      <div class="card settings-block" id="langBlock">
+        <div class="settings-block-title" data-i18n="settings_lang">🌐 Мова</div>
+        <div style="position:relative">
+          <select id="langSelect" style="
+            width:100%; padding:11px 14px; border-radius:10px;
+            background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+            color:#f0e8d5; font-size:15px; font-family:'Nunito',sans-serif;
+            appearance:none; -webkit-appearance:none; cursor:pointer;
+            background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22><path d=%22M1 1l5 5 5-5%22 stroke=%22%23c9a84c%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>');
+            background-repeat:no-repeat; background-position:right 14px center;">
+            <option value="uk">🇺🇦 Українська</option>
+            <option value="en">🇬🇧 English</option>
+          </select>
+        </div>
+      </div>
+
       <div class="card settings-block">
         <div class="settings-block-title" data-i18n="settings_font">Шрифт</div>
         <div class="font-options">
@@ -188,22 +204,6 @@
         <div class="toggle-row"><span data-i18n="toggle_anim">Анімація переходу</span><div class="toggle" id="tglAnim"></div></div>
         <div class="toggle-row"><span data-i18n="toggle_autobg">Фон змінюється з віршем</span><div class="toggle" id="tglAutoBg"></div></div>
       </div>
-      <div class="card settings-block" id="langBlock">
-        <div class="settings-block-title" data-i18n="settings_lang">🌐 Мова</div>
-        <div style="position:relative">
-          <select id="langSelect" style="
-            width:100%; padding:11px 14px; border-radius:10px;
-            background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
-            color:#f0e8d5; font-size:15px; font-family:'Nunito',sans-serif;
-            appearance:none; -webkit-appearance:none; cursor:pointer;
-            background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22><path d=%22M1 1l5 5 5-5%22 stroke=%22%23c9a84c%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>');
-            background-repeat:no-repeat; background-position:right 14px center;">
-            <option value="uk">🇺🇦 Українська</option>
-            <option value="en">🇬🇧 English</option>
-          </select>
-        </div>
-      </div>
-
       <div class="card settings-block" id="notifBlock">
         <div class="settings-block-title" data-i18n="notif_title">🔔 Нагадування для молитви</div>
 
