@@ -338,7 +338,7 @@ function renderVerse(dir = 'up') {
     verseBookEl.textContent = v.book;
     verseTextEl.innerHTML   = formatText(v.text);
     verseRefEl.textContent  = (typeof currentLang === 'undefined' || currentLang === 'uk')
-      ? v.ref + ' · Переклад Огієнка'
+      ? v.ref + ' · ' + t('translation')
       : v.ref;
     if (S.autoBg) applyAutoBg();
     // Якщо вірш має власне аудіо і глобальний плеєр не грає

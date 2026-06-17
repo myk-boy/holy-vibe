@@ -51,10 +51,13 @@ async function loadLanguage(code) {
 
     if (typeof renderVerse === 'function') renderVerse();
 
-    // Тост після завантаження — тепер _currentUI вже готовий
+    // Тост — тепер _currentUI вже готовий
     if (typeof showToast === 'function' && typeof VERSES !== 'undefined') {
       showToast(t('toast_loaded', {n: VERSES.length}));
     }
+
+    // Перемальовуємо список нагадувань з правильною мовою
+    if (typeof renderNotifList === 'function') renderNotifList();
 
   } catch (err) {
     console.error('i18n: помилка завантаження мови', code, err);
