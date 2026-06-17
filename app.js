@@ -907,15 +907,14 @@ function syncAlarmsToAndroid() {
   }
 }
 
-const DAY_NAMES = ['', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Нд'];
-
 function alarmDaysLabel(days) {
-  if (days === null || days === undefined) return 'Один раз';
-  if (days === 'once') return 'Один раз';
-  if (!Array.isArray(days) || days.length === 0) return 'Щодня';
-  if (days.length === 7) return 'Щодня';
-  if (JSON.stringify(days) === JSON.stringify([1,2,3,4,5])) return 'Пн–Пт';
-  if (JSON.stringify(days) === JSON.stringify([6,7])) return 'Сб–Нд';
+  const DAY_NAMES = ['', t('day_mon'), t('day_tue'), t('day_wed'), t('day_thu'), t('day_fri'), t('day_sat'), t('day_sun')];
+  if (days === null || days === undefined) return t('alarm_once');
+  if (days === 'once') return t('alarm_once');
+  if (!Array.isArray(days) || days.length === 0) return t('alarm_daily');
+  if (days.length === 7) return t('alarm_daily');
+  if (JSON.stringify(days) === JSON.stringify([1,2,3,4,5])) return `${t('day_mon')}–${t('day_fri')}`;
+  if (JSON.stringify(days) === JSON.stringify([6,7])) return `${t('day_sat')}–${t('day_sun')}`;
   return days.map(d => DAY_NAMES[d]).join(', ');
 }
 
@@ -935,7 +934,7 @@ function renderNotifList() {
     <div class="alarm-item" data-id="${a.id}">
       <div onclick="openAlarmModal(${a.id})" style="flex:1; cursor:pointer">
         <div class="alarm-time">${h}:${m}</div>
-        <div class="alarm-label">${a.label || 'Нагадування'}</div>
+        <div class="alarm-label">${a.label || t('alarm_modal_title')}</div>
         <div class="alarm-meta">${alarmDaysLabel(a.days)}</div>
       </div>
       <div style="display:flex; align-items:center; gap:10px">
@@ -954,7 +953,7 @@ function renderNotifList() {
       alarm.active = !alarm.active;
       el.classList.toggle('on', alarm.active);
       saveAlarms(); syncAlarmsToAndroid();
-      showToast(alarm.active ? '🔔 Увімкнено' : '🔕 Вимкнено');
+      showToast(alarm.active ? t('toast_enabled') : t('toast_disabled'));
     })
   );
 
@@ -967,7 +966,7 @@ function renderNotifList() {
         window.AndroidBridge.cancelNotification(id);
       alarms = alarms.filter(a => a.id !== id);
       saveAlarms(); renderNotifList();
-      showToast('🗑️ Видалено');
+      showToast(t('toast_deleted'));
     })
   );
 }
@@ -1044,7 +1043,7 @@ $('alarmModal').addEventListener('click', e => { if (e.target === $('alarmModal'
 
 $('btnAlarmSave').addEventListener('click', () => {
   const timeVal = $('alarmTime').value;
-  if (!timeVal) { showToast('⚠️ Вкажи час'); return; }
+  if (!timeVal) { showToast(t('toast_time_missing')); return; }
   const [h, m] = timeVal.split(':').map(Number);
 
   const isOnce    = document.querySelector('.day-btn[data-day="-1"]').classList.contains('active');
@@ -1060,20 +1059,20 @@ $('btnAlarmSave').addEventListener('click', () => {
       alarm.hour   = h;
       alarm.minute = m;
       alarm.days   = days;
-      alarm.label  = $('alarmLabel').value.trim() || 'Нагадування';
+      alarm.label  = $('alarmLabel').value.trim() || t('alarm_modal_title');
       alarm.active = true;
     }
   } else {
     // Новий
     const newId = Date.now() % 100000; // унікальний id до 5 цифр
-    alarms.push({ id: newId, hour: h, minute: m, days, label: $('alarmLabel').value.trim() || 'Нагадування', active: true });
+    alarms.push({ id: newId, hour: h, minute: m, days, label: $('alarmLabel').value.trim() || t('alarm_modal_title'), active: true });
   }
 
   saveAlarms();
   syncAlarmsToAndroid();
   renderNotifList();
   closeAlarmModal();
-  showToast('✅ Нагадування збережено');
+  showToast(t('toast_saved'));
 });
 
 /* ─────────────────────────────────────
