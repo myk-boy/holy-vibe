@@ -47,7 +47,7 @@
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
             <path d="M1.5 3.5h12M1.5 7.5h8M1.5 11.5h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
           </svg>
-          <span id="catToggleLabel">Усі</span>
+          <span id="catToggleLabel" data-i18n="cat_all">Усі</span>
           <svg class="cat-toggle-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none">
             <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -56,7 +56,7 @@
       
       <!-- Пілюлі категорій — генеруються динамічно з verses.json (_categories) -->
       <div class="cat-bar" id="catBar" style="display:none">
-        <div class="pill active" data-cat="all">Усі</div>
+        <div class="pill active" data-cat="all" data-i18n="cat_all">Усі</div>
       </div>
 
       <div class="verse-wrap" id="verseWrap">
@@ -68,7 +68,7 @@
         <div id="heartBurst">🤍</div>
         <div class="swipe-hint">
           <div class="swipe-hint-line"></div>
-          <div class="swipe-hint-text">свайп вгору</div>
+          <div class="swipe-hint-text" data-i18n="swipe_hint">свайп вгору</div>
         </div>
       </div>
     </div>
@@ -76,7 +76,7 @@
     <div class="screen" id="screenFav">
       <div class="safe-top"></div>
       <div class="screen-header">
-        <div class="t-label" style="font-size:clamp(12px,3vw,15px)">Улюблені вірші</div>
+        <div class="t-label" style="font-size:clamp(12px,3vw,15px)" data-i18n="favs_title">Улюблені вірші</div>
       </div>
       <div class="fav-list" id="favList"></div>
     </div>
@@ -84,12 +84,12 @@
     <div class="screen" id="screenMenu">
       <div class="safe-top"></div>
       <div class="menu-logo-block">
-        <div class="menu-logo">СЛОВО</div>
-        <div class="menu-tagline">Просочення Живим Словом</div>
+        <div class="menu-logo" data-i18n="menu_logo">СЛОВО</div>
+        <div class="menu-tagline" data-i18n="menu_tagline">Просочення Живим Словом</div>
       </div>
 
       <div class="card music-block">
-        <div class="music-title">🎵 Молитовна музика (CC)</div>
+        <div class="music-title" data-i18n="music_title">🎵 Молитовна музика (CC)</div>
         <div class="player-controls">
           <div class="player-btn skip" id="btnPrevTrack" title="Попередній трек">⏮</div>
           <div class="player-btn" id="btnRepeatMode" title="Режим повтору">🔂</div>
@@ -107,7 +107,7 @@
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M10 17c-4-3.5-7-6.5-7-9.5a5 5 0 0 1 7-4.6A5 5 0 0 1 17 7.5c0 3-3 6-7 9.5z" stroke="#c9a84c" stroke-width="1.3"/>
             </svg>
-            <span>Підтримати проєкт ❤️</span>
+            <span data-i18n="donate_title">Підтримати проєкт ❤️</span>
           </div>
           <span id="donateArrow" style="transition: transform 0.3s ease; font-size: 12px; color: rgba(201,168,76,.5);">▼</span>
         </div>
@@ -135,7 +135,7 @@
     <div class="screen" id="screenSettings">
       <div class="safe-top"></div>
       <div class="screen-header">
-        <div class="t-label" style="font-size:clamp(12px,3vw,15px)">Оформлення</div>
+        <div class="t-label" style="font-size:clamp(12px,3vw,15px)" data-i18n="settings_title">Оформлення</div>
       </div>
 
       <div class="card settings-block" id="langBlock">
@@ -155,16 +155,16 @@
       </div>
 
       <div class="card settings-block">
-        <div class="settings-block-title">Шрифт</div>
+        <div class="settings-block-title" data-i18n="settings_font">Шрифт</div>
         <div class="font-options">
-          <div class="font-opt active" data-font="cormorant" style="font-family:'Cormorant Garamond',serif">Аа<span>Класика</span></div>
-          <div class="font-opt" data-font="georgia" style="font-family:Georgia,serif">Аа<span>Традиція</span></div>
-          <div class="font-opt" data-font="nunito" style="font-family:'Nunito',sans-serif">Аа<span>Сучасний</span></div>
+          <div class="font-opt active" data-font="cormorant" style="font-family:'Cormorant Garamond',serif">Аа<span data-i18n="settings_font_classic">Класика</span></div>
+          <div class="font-opt" data-font="georgia" style="font-family:Georgia,serif">Аа<span data-i18n="settings_font_tradition">Традиція</span></div>
+          <div class="font-opt" data-font="nunito" style="font-family:'Nunito',sans-serif">Аа<span data-i18n="settings_font_modern">Сучасний</span></div>
         </div>
       </div>
 
       <div class="card settings-block">
-        <div class="settings-block-title">Розмір тексту</div>
+        <div class="settings-block-title" data-i18n="settings_size">Розмір тексту</div>
         <div class="vol-row">
           <span class="vol-label t-ui" style="font-size:10px">А — А</span>
           <input type="range" id="fontSizeSlider" min="0" max="100" value="50">
@@ -172,7 +172,7 @@
       </div>
 
       <div class="card settings-block">
-        <div class="settings-block-title">Розмір іконок і навігації</div>
+        <div class="settings-block-title" data-i18n="settings_icon_size">Розмір іконок і навігації</div>
         <div class="vol-row">
           <span class="vol-label t-ui" style="font-size:10px">⊙ — ⊙</span>
           <input type="range" id="iconSizeSlider" min="0" max="100" value="50">
@@ -180,7 +180,7 @@
       </div>
 
       <div class="card settings-block">
-        <div class="settings-block-title">Колір тексту</div>
+        <div class="settings-block-title" data-i18n="settings_color">Колір тексту</div>
         <div class="color-row">
           <div class="color-dot active" data-color="#f0e8d5" style="background:#f0e8d5"></div>
           <div class="color-dot" data-color="#ffffff"  style="background:#fff"></div>
@@ -194,18 +194,18 @@
       </div>
 
       <div class="card settings-block">
-        <div class="settings-block-title">Фон</div>
+        <div class="settings-block-title" data-i18n="settings_bg">Фон</div>
         <div class="bg-grid" id="bgGrid"></div>
       </div>
 
       <div class="card settings-block">
-        <div class="settings-block-title">Додатково</div>
+        <div class="settings-block-title" data-i18n="settings_extra">Додатково</div>
         <div class="toggle-row">Тінь тексту<div class="toggle on" id="tglShadow"></div></div>
         <div class="toggle-row">Анімація переходу<div class="toggle" id="tglAnim"></div></div>
         <div class="toggle-row">Фон змінюється з віршем<div class="toggle" id="tglAutoBg"></div></div>
       </div>
       <div class="card settings-block" id="notifBlock">
-        <div class="settings-block-title">🔔 Нагадування для молитви</div>
+        <div class="settings-block-title" data-i18n="notif_title">🔔 Нагадування для молитви</div>
 
         <div id="alarmList" style="margin-bottom:12px"></div>
 
@@ -227,7 +227,7 @@
           </div>
 
           <div style="margin-bottom:14px">
-            <div style="font-size:11px; color:rgba(255,255,255,.45); margin-bottom:6px;">Назва</div>
+            <div style="font-size:11px; color:rgba(255,255,255,.45); margin-bottom:6px;" data-i18n="alarm_name">Назва</div>
             <input id="alarmLabel" type="text" placeholder="Ранкова молитва" maxlength="40" style="
               width:100%; padding:10px 12px; background:rgba(255,255,255,.06);
               border:1px solid rgba(255,255,255,.12); border-radius:8px;
@@ -235,7 +235,7 @@
           </div>
 
           <div style="margin-bottom:14px">
-            <div style="font-size:11px; color:rgba(255,255,255,.45); margin-bottom:6px;">Час</div>
+            <div style="font-size:11px; color:rgba(255,255,255,.45); margin-bottom:6px;" data-i18n="alarm_time">Час</div>
             <input id="alarmTime" type="time" style="
               width:100%; padding:10px 12px; background:rgba(255,255,255,.06);
               border:1px solid rgba(255,255,255,.12); border-radius:8px;
@@ -243,17 +243,17 @@
           </div>
 
           <div style="margin-bottom:18px">
-            <div style="font-size:11px; color:rgba(255,255,255,.45); margin-bottom:8px;">Дні тижня</div>
+            <div style="font-size:11px; color:rgba(255,255,255,.45); margin-bottom:8px;" data-i18n="alarm_days">Дні тижня</div>
             <div id="dayPicker" style="display:flex; gap:6px; justify-content:center; flex-wrap:wrap">
-              <div class="day-btn active" data-day="-1">Один раз</div>
-              <div class="day-btn" data-day="0">Щодня</div>
-              <div class="day-btn" data-day="1">Пн</div>
-              <div class="day-btn" data-day="2">Вт</div>
-              <div class="day-btn" data-day="3">Ср</div>
-              <div class="day-btn" data-day="4">Чт</div>
-              <div class="day-btn" data-day="5">Пт</div>
-              <div class="day-btn" data-day="6">Сб</div>
-              <div class="day-btn" data-day="7">Нд</div>
+              <div class="day-btn active" data-day="-1" data-i18n="alarm_once">Один раз</div>
+              <div class="day-btn" data-day="0" data-i18n="alarm_daily">Щодня</div>
+              <div class="day-btn" data-day="1" data-i18n="day_mon">Пн</div>
+              <div class="day-btn" data-day="2" data-i18n="day_tue">Вт</div>
+              <div class="day-btn" data-day="3" data-i18n="day_wed">Ср</div>
+              <div class="day-btn" data-day="4" data-i18n="day_thu">Чт</div>
+              <div class="day-btn" data-day="5" data-i18n="day_fri">Пт</div>
+              <div class="day-btn" data-day="6" data-i18n="day_sat">Сб</div>
+              <div class="day-btn" data-day="7" data-i18n="day_sun">Нд</div>
             </div>
           </div>
 
@@ -272,19 +272,19 @@
     <nav class="bottom-nav">
       <button class="nav-btn active" data-screen="screenMain">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3l1.5 4.5h4.7l-3.8 2.8 1.5 4.5L11 12l-3.9 2.8 1.5-4.5L4.8 7.5h4.7z" stroke="#f0e8d5" stroke-width="1.3" stroke-linejoin="round"/></svg>
-        <span class="nav-label">Слово</span>
+        <span class="nav-label" data-i18n="nav_word">Слово</span>
       </button>
       <button class="nav-btn" data-screen="screenFav">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 18C7 15 3 11.5 3 8a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 19 8c0 3.5-4 7-8 10z" stroke="#f0e8d5" stroke-width="1.3"/></svg>
-        <span class="nav-label">Улюблені</span>
+        <span class="nav-label" data-i18n="nav_favs">Улюблені</span>
       </button>
       <button class="nav-btn" data-screen="screenMenu">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h11M3 16h7" stroke="#f0e8d5" stroke-width="1.3" stroke-linecap="round"/></svg>
-        <span class="nav-label">Меню</span>
+        <span class="nav-label" data-i18n="nav_menu">Меню</span>
       </button>
       <button class="nav-btn" data-screen="screenSettings">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="3" stroke="#f0e8d5" stroke-width="1.3"/><path d="M11 2v2M11 18v2M2 11h2M18 11h2M4.9 4.9l1.4 1.4M15.7 15.7l1.4 1.4M4.9 17.1l1.4-1.4M15.7 6.3l1.4-1.4" stroke="#f0e8d5" stroke-width="1.3" stroke-linecap="round"/></svg>
-        <span class="nav-label">Вигляд</span>
+        <span class="nav-label" data-i18n="nav_settings">Вигляд</span>
       </button>
     </nav>
 
@@ -293,7 +293,7 @@
   <div class="sheet-overlay" id="sheetOverlay"></div>
   <div class="bottom-sheet" id="bottomSheet">
     <div class="sheet-handle"></div>
-    <div class="sheet-section-title">Цей вірш</div>
+    <div class="sheet-section-title" data-i18n="sheet_title">Цей вірш</div>
     <div class="sheet-verse-preview" id="sheetPreview"></div>
     <div class="sheet-actions">
       <div class="sheet-btn" id="btnAI">
@@ -311,7 +311,7 @@
     </div>
     <div class="ai-panel" id="aiPanel">
       <div class="ai-answer" id="aiAnswer"></div>
-      <div class="ai-ref">✦ Духовне тлумачення</div>
+      <div class="ai-ref" data-i18n="ai_ref">✦ Духовне тлумачення</div>
     </div>
   </div>
 
