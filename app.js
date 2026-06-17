@@ -924,6 +924,11 @@ function alarmDaysLabel(days) {
 }
 
 function renderNotifList() {
+  // Якщо мова ще не завантажена — чекаємо
+  if (!window._currentUI || !window._currentUI.notif_empty) {
+    setTimeout(renderNotifList, 100);
+    return;
+  }
   loadAlarms();
   const list = $('alarmList');
   if (!list) return;
