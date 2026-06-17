@@ -578,7 +578,7 @@ function renderFavList() {
     favList.innerHTML = `
       <div class="fav-empty">
         <div class="fav-empty-icon">🤍</div>
-        <div class="fav-empty-text">Ще немає улюблених.<br>Двічі торкніться вірша, щоб додати.</div>
+        <div class="fav-empty-text">${t('favs_empty').replace('\n','<br>')}</div>
       </div>`;
     return;
   }
@@ -924,11 +924,6 @@ function alarmDaysLabel(days) {
 }
 
 function renderNotifList() {
-  // Якщо мова ще не завантажена — чекаємо
-  if (!window._currentUI || !window._currentUI.notif_empty) {
-    setTimeout(renderNotifList, 100);
-    return;
-  }
   loadAlarms();
   const list = $('alarmList');
   if (!list) return;
