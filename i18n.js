@@ -194,8 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const saved = localStorage.getItem('hv_lang') || 'uk';
 
-  // Викликається з app.js одразу після того як verses.json завантажився
-  window._onVersesReady = () => {
+  // Чекаємо поки verses.json завантажиться, потім завантажуємо мову
+  // _onVersesReady викликається з app.js одразу після fetchVerses
+  window._onVersesReady = () => loadLanguage(saved);
+
+  // Страховка: якщо verses вже є (напр. кеш) — запускаємо одразу
+  if (window.VERSES && window.VERSES.length > 0) {
     loadLanguage(saved);
-  };
+  }
 });

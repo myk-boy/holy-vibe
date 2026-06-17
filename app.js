@@ -96,11 +96,11 @@ async function fetchVerses() {
     }
 
     renderVerse();
-    // Сигналізуємо i18n.js що вірші готові
+    // Повідомляємо i18n.js що вірші готові → завантажує збережену мову
     if (typeof window._onVersesReady === 'function') window._onVersesReady();
   } catch (err) {
     console.error('verses.json не завантажився:', err);
-    showToast(t('toast_load_error'));
+    showToast('⚠️ Не вдалося завантажити вірші');
   }
 }
 
@@ -334,7 +334,7 @@ function renderVerse(dir = 'up') {
     verseBookEl.textContent = v.book;
     verseTextEl.innerHTML   = formatText(v.text);
     verseRefEl.textContent  = (typeof currentLang === 'undefined' || currentLang === 'uk')
-      ? v.ref + ' · ' + t('translation')
+      ? v.ref + ' · Переклад Огієнка'
       : v.ref;
     if (S.autoBg) applyAutoBg();
     // Якщо вірш має власне аудіо і глобальний плеєр не грає
@@ -530,8 +530,8 @@ window.addEventListener('mouseup',   e => {
 
 function triggerHeart() {
   const v=cv(); if (!v) return;
-  if (!isFav(v.id)) { S.favs.push(v); saveFavs(); showToast(t('toast_added_fav')); }
-  else showToast(t('toast_already_fav'));
+  if (!isFav(v.id)) { S.favs.push(v); saveFavs(); showToast('♡  Додано до улюблених'); }
+  else showToast('Вже в улюблених ✦');
   heartBurst.classList.remove('pop'); void heartBurst.offsetWidth; heartBurst.classList.add('pop');
   setTimeout(() => heartBurst.classList.remove('pop'), 900);
 }
@@ -562,7 +562,7 @@ $('btnShare').addEventListener('click', () => {
   const v=cv(); if (!v) return; closeSheet();
   const txt = `«${v.text.replace(/\n/g,' ')}» — ${v.ref}`;
   if (navigator.share) navigator.share({text:txt}).catch(()=>{});
-  else { navigator.clipboard?.writeText(txt); showToast(t('toast_copied')); }
+  else { navigator.clipboard?.writeText(txt); showToast('📋 Вірш скопійовано'); }
 });
 
 
@@ -574,7 +574,7 @@ function renderFavList() {
     favList.innerHTML = `
       <div class="fav-empty">
         <div class="fav-empty-icon">🤍</div>
-        <div class="fav-empty-text">${t('favs_empty').replace('\n','<br>')}</div>
+        <div class="fav-empty-text">Ще немає улюблених.<br>Двічі торкніться вірша, щоб додати.</div>
       </div>`;
     return;
   }
@@ -593,7 +593,7 @@ function renderFavList() {
     b.addEventListener('click', e => {
       e.stopPropagation();
       S.favs = S.favs.filter(v => v.id !== +b.dataset.del);
-      saveFavs(); renderFavList(); showToast(t('toast_deleted'));
+      saveFavs(); renderFavList(); showToast('Видалено');
     })
   );
 }
@@ -711,7 +711,7 @@ function playTrack(i) {
     })
     .catch(err => {
       console.warn('Audio error:', err);
-      showToast(t('toast_track_error'));
+      showToast('⚠️ Не вдалося завантажити трек');
     });
 }
 
@@ -924,7 +924,8 @@ function renderNotifList() {
   const list = $('alarmList');
   if (!list) return;
   if (!alarms.length) {
-    list.innerHTML = `<div style="text-align:center; padding:16px 0; color:rgba(255,255,255,.3); font-size:13px;">${t('notif_empty').replace('\n','<br>')}</div>`;
+    list.innerHTML = `<div style="text-align:center; padding:16px 0; color:rgba(255,255,255,.3); font-size:13px;">
+      Немає нагадувань.<br>Додай перше нижче 🙏</div>`;
     return;
   }
   list.innerHTML = alarms.map(a => {
