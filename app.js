@@ -1052,6 +1052,9 @@ $('btnAlarmSave').addEventListener('click', () => {
     [...document.querySelectorAll('.day-btn.active')]
       .map(b => +b.dataset.day).filter(d => d > 0);
 
+  // Отримуємо актуальний переклад сповіщення через функцію t()
+  const bodyText = t('notif_body');
+
   if (editingAlarmId !== null) {
     // Оновлюємо існуючий
     const alarm = alarms.find(a => a.id === editingAlarmId);
@@ -1060,12 +1063,21 @@ $('btnAlarmSave').addEventListener('click', () => {
       alarm.minute = m;
       alarm.days   = days;
       alarm.label  = $('alarmLabel').value.trim() || t('alarm_modal_title');
+      alarm.notif_body = bodyText; // <-- Додали сюди для оновлення існуючого
       alarm.active = true;
     }
   } else {
     // Новий
     const newId = Date.now() % 100000; // унікальний id до 5 цифр
-    alarms.push({ id: newId, hour: h, minute: m, days, label: $('alarmLabel').value.trim() || t('alarm_modal_title'), active: true });
+    alarms.push({ 
+      id: newId, 
+      hour: h, 
+      minute: m, 
+      days, 
+      label: $('alarmLabel').value.trim() || t('alarm_modal_title'), 
+      notif_body: bodyText, // <-- Додали сюди для нового сповіщення
+      active: true 
+    });
   }
 
   saveAlarms();
