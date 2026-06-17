@@ -530,8 +530,8 @@ window.addEventListener('mouseup',   e => {
 
 function triggerHeart() {
   const v=cv(); if (!v) return;
-  if (!isFav(v.id)) { S.favs.push(v); saveFavs(); showToast('♡  Додано до улюблених'); }
-  else showToast('Вже в улюблених ✦');
+  if (!isFav(v.id)) { S.favs.push(v); saveFavs(); showToast(t('toast_added_fav_alt')); }
+  else showToast(t('toast_already_fav'));
   heartBurst.classList.remove('pop'); void heartBurst.offsetWidth; heartBurst.classList.add('pop');
   setTimeout(() => heartBurst.classList.remove('pop'), 900);
 }
@@ -593,7 +593,7 @@ function renderFavList() {
     b.addEventListener('click', e => {
       e.stopPropagation();
       S.favs = S.favs.filter(v => v.id !== +b.dataset.del);
-      saveFavs(); renderFavList(); showToast('Видалено');
+      saveFavs(); renderFavList(); showToast(t('toast_deleted'));
     })
   );
 }
