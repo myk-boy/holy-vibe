@@ -107,6 +107,7 @@
     "toast_play_sequence": "🔁 Sequential playback",
     "toast_play_repeat": "🔂 Repeat current track",
     "toast_shuffle_on": "🔀 Shuffle on",
+	"notif_body": "Pause for a moment, read a verse, and pray from the heart. 🙏",
     "toast_shuffle_off": "🔀 Shuffle off"
   },
   "verses": [
