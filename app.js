@@ -96,12 +96,8 @@ async function fetchVerses() {
     }
 
     renderVerse();
-    // тост показується після завантаження мови (в i18n.js)
-    // i18n: якщо активна не українська — застосовуємо переклад
-    const savedLang = localStorage.getItem('hv_lang') || 'uk';
-    if (savedLang !== 'uk' && window.translationCache && window.translationCache[savedLang]) {
-      applyTranslation(savedLang);
-    }
+    // Сигналізуємо i18n.js що вірші готові
+    if (typeof window._onVersesReady === 'function') window._onVersesReady();
   } catch (err) {
     console.error('verses.json не завантажився:', err);
     showToast(t('toast_load_error'));
