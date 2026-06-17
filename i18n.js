@@ -59,6 +59,7 @@ const UK_DEFAULT = {
   cat_banner_label: "Нова категорія",
   title_categories: "Категорії", title_prev: "Попередній трек",
   title_repeat: "Режим повтору", title_shuffle: "Перемішати", title_next: "Наступний трек",
+  notif_body: "Зупинись на хвилину, прочитай вірш і помолися від серця. 🙏",
 };
 
 // _currentUI одразу містить українські рядки — t() працює з першої секунди
