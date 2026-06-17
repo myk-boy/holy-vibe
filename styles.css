@@ -36,6 +36,17 @@
   --surface-border: rgba(255, 255, 255, .08);
   --sheet-bg:       rgba(7, 11, 22, .97);
 
+  /* Тема */
+  --theme-screen-bg: #080c18;
+  --theme-nav-bg:    rgba(6, 9, 18, .92);
+  --theme-card-bg:   rgba(255,255,255,.04);
+  --theme-card-bdr:  rgba(255,255,255,.08);
+  --theme-sheet-bg:  rgba(7, 11, 22, .97);
+  --theme-text:      #f0e8d5;
+  --theme-text-sec:  rgba(240,232,213,.5);
+  --theme-toggle-bg: rgba(255,255,255,.1);
+  --theme-main-bg:   #080c18;
+
   --accent: var(--clr-gold);
 
   /* Типографіка */
@@ -71,7 +82,7 @@
 html, body {
   height: 100%;
   overflow: hidden;
-  background: var(--clr-deep);
+  background: var(--theme-main-bg);
   font-family: var(--font-body);
   color: var(--text-primary);
 }
@@ -278,7 +289,7 @@ input[type=range]::-webkit-slider-thumb {
 
 /* Темний фон для не-головних екранів */
 #screenFav, #screenMenu, #screenSettings {
-  background: var(--clr-deep);
+  background: var(--theme-screen-bg);
 }
 
 /* Темний оверлей поверх фото-фону (для читабельності тексту) */
@@ -603,7 +614,7 @@ input[type=range]::-webkit-slider-thumb {
 ───────────────────────────────────── */
 .bottom-nav {
   position: relative; z-index: 50; flex-shrink: 0;
-  background: rgba(6, 9, 18, .92);
+  background: var(--theme-nav-bg);
   backdrop-filter: blur(20px);
   border-top: 1px solid rgba(255, 255, 255, .07);
   display: flex;
@@ -645,7 +656,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .bottom-sheet {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 101;
-  background: var(--sheet-bg);
+  background: var(--theme-sheet-bg);
   backdrop-filter: blur(28px);
   border-top: 1px solid rgba(201, 168, 76, .12);
   border-radius: var(--r-lg) var(--r-lg) 0 0;
@@ -824,4 +835,128 @@ input[type=range]::-webkit-slider-thumb {
 .notif-soon-text span {
   font-size: 12px; color: var(--text-secondary);
   display: block; margin-top: 4px; line-height: 1.5;
+}
+
+
+/* ─────────────────────────────────────
+   16. ТЕМИ: СУТІНОК і СВІТЛИЙ
+───────────────────────────────────── */
+
+/* ── Сутінок ── */
+body.theme-dim {
+  --theme-main-bg:    #12192e;
+  --theme-screen-bg:  #12192e;
+  --theme-nav-bg:     rgba(14, 20, 38, .95);
+  --theme-sheet-bg:   rgba(14, 20, 38, .97);
+  --clr-deep:         #12192e;
+  --text-primary:     #e8dfc8;
+  --text-secondary:   rgba(232,223,200,.55);
+  --surface:          rgba(255,255,255,.06);
+  --surface-border:   rgba(255,255,255,.11);
+}
+body.theme-dim #bg {
+  background:
+    radial-gradient(ellipse 70% 50% at 25% 20%, rgba(55,75,135,.55) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 75%, rgba(40,60,120,.4) 0%, transparent 55%),
+    linear-gradient(160deg, #0e1426 0%, #14213a 50%, #0c1220 100%);
+}
+
+/* ── Світлий ── */
+body.theme-light {
+  --theme-main-bg:    #f5f0e8;
+  --theme-screen-bg:  #ede8dd;
+  --theme-nav-bg:     rgba(240,234,222,.96);
+  --theme-sheet-bg:   rgba(245,240,232,.98);
+  --clr-deep:         #f5f0e8;
+  --clr-gold:         #a07828;
+  --clr-gold-lt:      #b8892e;
+  --clr-gold-dim:     rgba(160,120,40,.25);
+  --text-primary:     #2c2010;
+  --text-secondary:   rgba(44,32,16,.55);
+  --surface:          rgba(0,0,0,.04);
+  --surface-border:   rgba(0,0,0,.1);
+  --accent:           #a07828;
+}
+
+body.theme-light #bg {
+  background:
+    radial-gradient(ellipse 70% 50% at 25% 20%, rgba(220,200,160,.6) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 75%, rgba(200,180,140,.4) 0%, transparent 55%),
+    linear-gradient(160deg, #f0ebe0 0%, #e8e0d0 50%, #ede5d4 100%);
+  background-size: cover;
+}
+body.theme-light #bg::after { opacity: 0; }
+
+body.theme-light .nav-btn svg path,
+body.theme-light .nav-btn svg circle { stroke: rgba(44,32,16,.45); }
+body.theme-light .nav-btn.active svg path,
+body.theme-light .nav-btn.active svg circle { stroke: var(--clr-gold); }
+body.theme-light .nav-label { color: rgba(44,32,16,.5); }
+body.theme-light .nav-btn.active .nav-label { color: var(--clr-gold); }
+body.theme-light .bottom-nav { border-top-color: rgba(0,0,0,.1); }
+
+body.theme-light .card { background: rgba(255,255,255,.65); border-color: rgba(0,0,0,.09); }
+body.theme-light .settings-block-title { color: #a07828; }
+body.theme-light .font-opt { background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.1); }
+body.theme-light .font-opt.active { background: rgba(160,120,40,.15); border-color: rgba(160,120,40,.4); color: #2c2010; }
+body.theme-light .toggle { background: rgba(0,0,0,.12); }
+body.theme-light .toggle::after { background: rgba(44,32,16,.5); }
+body.theme-light .toggle.on { background: rgba(160,120,40,.5); }
+body.theme-light .toggle.on::after { background: #a07828; }
+body.theme-light .pill { background: rgba(0,0,0,.07); border-color: rgba(0,0,0,.15); color: rgba(44,32,16,.8); }
+body.theme-light .pill.active { background: rgba(160,120,40,.15); border-color: rgba(160,120,40,.4); color: #a07828; }
+body.theme-light #toast { background: rgba(245,240,230,.96); border-color: rgba(160,120,40,.3); color: #a07828; }
+body.theme-light .fav-item { background: linear-gradient(135deg, rgba(255,255,255,.7), rgba(220,200,160,.15)); border-color: rgba(160,120,40,.18); border-left-color: rgba(160,120,40,.4); }
+body.theme-light .fav-item:hover { background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(220,200,160,.25)); border-color: rgba(160,120,40,.4); }
+body.theme-light .sheet-verse-preview { background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.08); }
+body.theme-light .sheet-btn { background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.08); }
+body.theme-light .menu-logo { color: #a07828; }
+body.theme-light .menu-tagline { color: rgba(44,32,16,.5); }
+body.theme-light .menu-divider { background: rgba(0,0,0,.08); }
+body.theme-light .cat-toggle-btn { background: rgba(255,255,255,.7); border-color: rgba(160,120,40,.4); color: #a07828; }
+body.theme-light #catBanner { background: rgba(245,240,230,.97); border-color: rgba(160,120,40,.4); }
+
+/* Плавний перехід між темами */
+body,
+#screenFav, #screenMenu, #screenSettings,
+.bottom-nav, .bottom-sheet, .card,
+.fav-item, .pill, #toast {
+  transition-property: background, background-color, border-color, color;
+  transition-duration: .4s;
+  transition-timing-function: ease;
+}
+#bg { transition: background .6s ease, opacity .8s; }
+
+/* ─────────────────────────────────────
+   17. ПОВЗУНОК ТЕМИ
+───────────────────────────────────── */
+.theme-slider-icons {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 6px;
+  font-size: 17px;
+}
+.theme-slider-icons span { line-height: 1; }
+.theme-slider-label {
+  font-family: var(--font-ui); font-size: 12px;
+  color: var(--text-secondary); text-align: center;
+  letter-spacing: .5px; margin-top: 6px;
+}
+#themeSlider {
+  width: 100%; height: 4px;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  background: linear-gradient(to right,
+    #080c18 0%, #080c18 33%,
+    #18274a 33%, #18274a 66%,
+    #e8e0d0 66%, #e8e0d0 100%);
+  outline: none; cursor: pointer;
+}
+#themeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--clr-gold);
+  border: 2px solid rgba(255,255,255,.25);
+  box-shadow: 0 2px 8px rgba(0,0,0,.4);
+  cursor: pointer;
 }

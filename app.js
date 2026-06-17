@@ -146,6 +146,7 @@ const S = {
   sheet:    false,
   playMode: 'single', // 'single' = повтор одного треку, 'sequence' = по черзі
   shuffle:  false,    // перемішування при переході до наступного треку
+  theme:    0,        // 0 = темна, 1 = сутінок, 2 = світла
   // notifs: реалізується в наступному релізі
 };
 
@@ -215,6 +216,7 @@ function saveSettings() {
     autoBg:   S.autoBg,
     playMode: S.playMode,
     shuffle:  S.shuffle,
+    theme:    S.theme,
     bgUrl:    bgEl.style.backgroundImage.replace(/url\(['"]?|['"]?\)/g, '') || '',
   }));
 }
@@ -233,6 +235,7 @@ function loadSettings() {
     S.autoBg   = s.autoBg   ?? S.autoBg;
     S.playMode = s.playMode ?? S.playMode;
     S.shuffle  = s.shuffle  ?? S.shuffle;
+    S.theme    = s.theme    ?? S.theme;
 
     // Відновлюємо фон (якщо autoBg вимкнено але був вручну вибраний фон)
     if (!S.autoBg && s.bgUrl) {
@@ -889,6 +892,31 @@ $('tglAutoBg').addEventListener('click', function() {
 
 
 /* ─────────────────────────────────────
+   12b. ТЕМА (ТЕМНА / СУТІНОК / СВІТЛА)
+───────────────────────────────────── */
+const THEME_NAMES  = ['Темна', 'Сутінок', 'Світла'];
+const THEME_CLASSES = ['', 'theme-dim', 'theme-light'];
+
+function applyTheme(val) {
+  document.body.classList.remove('theme-dim', 'theme-light');
+  if (THEME_CLASSES[val]) document.body.classList.add(THEME_CLASSES[val]);
+  const lbl = $('themeLabel');
+  if (lbl) lbl.textContent = THEME_NAMES[val] || 'Темна';
+  const sl = $('themeSlider');
+  if (sl) sl.value = val;
+}
+
+const themeSlider = $('themeSlider');
+if (themeSlider) {
+  themeSlider.addEventListener('input', e => {
+    S.theme = +e.target.value;
+    applyTheme(S.theme);
+    saveSettings();
+  });
+}
+
+
+/* ─────────────────────────────────────
    13. СПОВІЩЕННЯ — БУДИЛЬНИКИ
 ───────────────────────────────────── */
 const ALARM_KEY = 'hv_alarms';
@@ -1091,6 +1119,7 @@ $('btnAlarmSave').addEventListener('click', () => {
    14. INIT
 ───────────────────────────────────── */
 loadSettings();
+applyTheme(S.theme ?? 0);
 
 // Відновлюємо UI налаштувань під збережений стан
 document.querySelectorAll('.font-opt').forEach(o =>
