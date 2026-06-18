@@ -1021,23 +1021,30 @@ body.theme-light .alarm-field label { color: #2c2010 !important; }
 body.theme-dim .t-label,
 body.theme-dim .screen-header .t-label { color: #e8dfc8 !important; }
 
-/* ── book/ref на головному екрані ── */
-body.theme-light #screenMain .verse-book,
-body.theme-light #screenMain #verseBook {
-  color: #a07828 !important;
+/* ── Світлий ореол навколо тексту вірша у light-темі ──
+   verseBook = #verseBook (.t-label), verseText = #verseText (.verse-text),
+   verseRef = #verseRef (.verse-ref .t-ui)                                 */
+body.theme-light #verseText {
   text-shadow:
-    0 0  5px rgba(255,252,242,.95),
-    0 0 10px rgba(255,248,230,.75),
-    0 0 20px rgba(255,245,215,.45);
-  opacity: 1 !important;
+    0 0  6px rgba(255,252,242,.95),
+    0 0 14px rgba(255,252,242,.85),
+    0 0 26px rgba(255,248,230,.65),
+    0 0 44px rgba(255,245,215,.40) !important;
 }
-body.theme-light #screenMain .verse-ref,
-body.theme-light #screenMain #verseRef  {
-  color: rgba(44,32,16,.6) !important;
+body.theme-light #verseBook {
+  color: #a07828 !important;
+  opacity: 1 !important;
   text-shadow:
-    0 0  5px rgba(255,252,242,.95),
-    0 0 10px rgba(255,248,230,.75),
-    0 0 20px rgba(255,245,215,.45);
+    0 0  5px rgba(255,252,242,.98),
+    0 0 12px rgba(255,248,230,.80),
+    0 0 24px rgba(255,245,215,.50) !important;
+}
+body.theme-light #verseRef {
+  color: rgba(44,32,16,.7) !important;
+  text-shadow:
+    0 0  5px rgba(255,252,242,.98),
+    0 0 12px rgba(255,248,230,.80),
+    0 0 24px rgba(255,245,215,.50) !important;
 }
 
 /* ── Нагадування екран у світлій темі ── */
