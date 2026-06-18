@@ -350,6 +350,16 @@ input[type=range]::-webkit-slider-thumb {
   letter-spacing: .8px;
 }
 
+/* Книга вірша (базовий стиль — якщо немає теми) */
+.verse-book {
+  font-family: var(--font-display);
+  font-size: clamp(9px, 2vw, 11px);
+  letter-spacing: 3px;
+  color: var(--clr-gold-lt);
+  opacity: .75;
+  text-transform: uppercase;
+}
+
 /* Підказка свайпу */
 .swipe-hint {
   position: absolute; bottom: 18px; left: 50%;
@@ -968,6 +978,31 @@ body.theme-dim .verse-ref   { color: rgba(232,223,200,.55) !important; }
 body.theme-light .verse-book { color: #a07828 !important; }
 body.theme-light .verse-ref  { color: rgba(44,32,16,.55) !important; }
 
+/* ── Світлий ореол навколо тексту вірша у light-темі ──
+   Замість обводки — кілька шарів кремово-білої тіні навкруг,
+   що створюють м'який "halo" і забезпечують читабельність
+   на будь-якому фоні (фото, кольоровий градієнт тощо).    */
+body.theme-light .verse-text {
+  text-shadow:
+    0 0  6px rgba(255,252,242,.92),
+    0 0 12px rgba(255,252,242,.80),
+    0 0 22px rgba(255,248,230,.60),
+    0 0 40px rgba(255,245,215,.35);
+}
+body.theme-light .verse-book {
+  text-shadow:
+    0 0  5px rgba(255,252,242,.95),
+    0 0 10px rgba(255,248,230,.75),
+    0 0 20px rgba(255,245,215,.45);
+  opacity: 1 !important;
+}
+body.theme-light .verse-ref {
+  text-shadow:
+    0 0  5px rgba(255,252,242,.95),
+    0 0 10px rgba(255,248,230,.75),
+    0 0 20px rgba(255,245,215,.45);
+}
+
 /* Текст на інших екранах (улюблені, меню, налаштування) */
 body.theme-light .fav-item-text { color: #1e1408 !important; }
 body.theme-light .fav-item-book { color: #a07828 !important; }
@@ -988,9 +1023,22 @@ body.theme-dim .screen-header .t-label { color: #e8dfc8 !important; }
 
 /* ── book/ref на головному екрані ── */
 body.theme-light #screenMain .verse-book,
-body.theme-light #screenMain #verseBook { color: #a07828 !important; }
+body.theme-light #screenMain #verseBook {
+  color: #a07828 !important;
+  text-shadow:
+    0 0  5px rgba(255,252,242,.95),
+    0 0 10px rgba(255,248,230,.75),
+    0 0 20px rgba(255,245,215,.45);
+  opacity: 1 !important;
+}
 body.theme-light #screenMain .verse-ref,
-body.theme-light #screenMain #verseRef  { color: rgba(44,32,16,.6) !important; }
+body.theme-light #screenMain #verseRef  {
+  color: rgba(44,32,16,.6) !important;
+  text-shadow:
+    0 0  5px rgba(255,252,242,.95),
+    0 0 10px rgba(255,248,230,.75),
+    0 0 20px rgba(255,245,215,.45);
+}
 
 /* ── Нагадування екран у світлій темі ── */
 body.theme-light .notif-time   { color: #a07828 !important; }
