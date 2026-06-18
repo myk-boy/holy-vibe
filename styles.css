@@ -1021,34 +1021,41 @@ body.theme-light .alarm-field label { color: #2c2010 !important; }
 body.theme-dim .t-label,
 body.theme-dim .screen-header .t-label { color: #e8dfc8 !important; }
 
-/* ── Outer Glow навколо тексту вірша у light-темі ── */
+/* ── Outer Glow (Photoshop-style) — світла тема ──
+   Щільна біла "підкладка" навколо кожної літери,
+   як наклейка: текст читається на будь-якому фоні. */
 body.theme-light #verseText {
   text-shadow:
-    0 0  2px rgba(255,250,235,1),
-    0 0  6px rgba(255,250,235,1),
-    0 0 12px rgba(255,248,225,.95),
-    0 0 20px rgba(255,245,210,.85),
-    0 0 32px rgba(255,242,200,.70),
-    0 0 48px rgba(255,240,190,.50) !important;
+    -1px -1px 0   rgba(255,255,255,.95),
+     1px -1px 0   rgba(255,255,255,.95),
+    -1px  1px 0   rgba(255,255,255,.95),
+     1px  1px 0   rgba(255,255,255,.95),
+     0    0   4px rgba(255,255,255,.98),
+     0    0   8px rgba(255,255,255,.90),
+     0    0  14px rgba(255,255,255,.70) !important;
 }
 body.theme-light #verseBook {
   color: #a07828 !important;
   opacity: 1 !important;
   text-shadow:
-    0 0  2px rgba(255,250,235,1),
-    0 0  6px rgba(255,250,235,1),
-    0 0 12px rgba(255,248,225,.95),
-    0 0 22px rgba(255,245,210,.80),
-    0 0 36px rgba(255,242,200,.60) !important;
+    -1px -1px 0   rgba(255,255,255,.95),
+     1px -1px 0   rgba(255,255,255,.95),
+    -1px  1px 0   rgba(255,255,255,.95),
+     1px  1px 0   rgba(255,255,255,.95),
+     0    0   4px rgba(255,255,255,.98),
+     0    0   8px rgba(255,255,255,.90),
+     0    0  14px rgba(255,255,255,.70) !important;
 }
 body.theme-light #verseRef {
-  color: rgba(44,32,16,.75) !important;
+  color: rgba(44,32,16,.85) !important;
   text-shadow:
-    0 0  2px rgba(255,250,235,1),
-    0 0  6px rgba(255,250,235,1),
-    0 0 12px rgba(255,248,225,.95),
-    0 0 22px rgba(255,245,210,.80),
-    0 0 36px rgba(255,242,200,.60) !important;
+    -1px -1px 0   rgba(255,255,255,.95),
+     1px -1px 0   rgba(255,255,255,.95),
+    -1px  1px 0   rgba(255,255,255,.95),
+     1px  1px 0   rgba(255,255,255,.95),
+     0    0   4px rgba(255,255,255,.98),
+     0    0   8px rgba(255,255,255,.90),
+     0    0  14px rgba(255,255,255,.70) !important;
 }
 
 /* ── Нагадування екран у світлій темі ── */
