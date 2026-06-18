@@ -100,7 +100,7 @@ async function fetchVerses() {
     if (typeof window._onVersesReady === 'function') window._onVersesReady();
   } catch (err) {
     console.error('verses.json не завантажився:', err);
-    showToast('⚠️ Не вдалося завантажити вірші');
+    showToast(t('toast_load_error'));
   }
 }
 
@@ -565,7 +565,7 @@ $('btnShare').addEventListener('click', () => {
   const v=cv(); if (!v) return; closeSheet();
   const txt = `«${v.text.replace(/\n/g,' ')}» — ${v.ref}`;
   if (navigator.share) navigator.share({text:txt}).catch(()=>{});
-  else { navigator.clipboard?.writeText(txt); showToast('📋 Вірш скопійовано'); }
+  else { navigator.clipboard?.writeText(txt); showToast(t('toast_copied')); }
 });
 
 
@@ -714,7 +714,7 @@ function playTrack(i) {
     })
     .catch(err => {
       console.warn('Audio error:', err);
-      showToast('⚠️ Не вдалося завантажити трек');
+      showToast(t('toast_track_error'));
     });
 }
 
@@ -749,11 +749,11 @@ function syncPlayerControlsUI() {
     const sequence = S.playMode === 'sequence';
     repeatBtn.textContent = sequence ? '🔁' : '🔂';
     repeatBtn.classList.toggle('active', sequence);
-    repeatBtn.title = sequence ? 'По черзі (клік — повтор треку)' : 'Повтор треку (клік — по черзі)';
+    repeatBtn.title = sequence ? t('toast_play_sequence') : t('toast_play_repeat');
   }
   if (shuffleBtn) {
     shuffleBtn.classList.toggle('active', S.shuffle);
-    shuffleBtn.title = S.shuffle ? 'Перемішування: увімкнено' : 'Перемішування: вимкнено';
+    shuffleBtn.title = S.shuffle ? t('toast_shuffle_on') : t('toast_shuffle_off');
   }
 }
 
@@ -762,7 +762,7 @@ $('btnRepeatMode')?.addEventListener('click', () => {
   if (S.playing >= 0) audioEl.loop = (S.playMode === 'single' && !S.shuffle);
   syncPlayerControlsUI();
   saveSettings();
-  showToast(S.playMode === 'sequence' ? '🔁 Відтворення по черзі' : '🔂 Повтор поточного треку');
+  showToast(S.playMode === 'sequence' ? t('toast_play_sequence') : t('toast_play_repeat'));
 });
 
 $('btnShuffle')?.addEventListener('click', () => {
@@ -770,7 +770,7 @@ $('btnShuffle')?.addEventListener('click', () => {
   if (S.playing >= 0) audioEl.loop = (S.playMode === 'single' && !S.shuffle);
   syncPlayerControlsUI();
   saveSettings();
-  showToast(S.shuffle ? '🔀 Перемішування увімкнено' : '🔀 Перемішування вимкнено');
+  showToast(S.shuffle ? t('toast_shuffle_on') : t('toast_shuffle_off'));
 });
 
 $('btnPrevTrack')?.addEventListener('click', () => prevTrack());
@@ -817,7 +817,7 @@ function buildBgGrid() {
         bgEl.dataset.photo = '0';
       }
       applyStyle();
-      showToast(url ? '🖼️ Фон змінено' : '🖼️ Фон прибрано');
+      showToast(url ? t('toast_bg_changed') : t('toast_bg_removed'));
       saveSettings();
     });
   });
@@ -845,7 +845,7 @@ $('bg').dataset.photo = '0';
 document.querySelectorAll('.font-opt').forEach(o =>
   o.addEventListener('click', () => {
     document.querySelectorAll('.font-opt').forEach(x=>x.classList.remove('active'));
-    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast('Шрифт змінено');
+    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast(t('toast_font_changed'));
   })
 );
 document.querySelectorAll('.color-dot').forEach(d =>
@@ -875,7 +875,7 @@ $('tglAutoBg').addEventListener('click', function() {
     applyAutoBg();
     applyStyle();
     saveSettings();
-    showToast('🖼️ Авто-фон увімкнено');
+    showToast(t('toast_autobg_on'));
   } else {
     // Вимикаємо — прибираємо фото-фон
     const bgEl = $('bg');
@@ -886,7 +886,7 @@ $('tglAutoBg').addEventListener('click', function() {
       t.classList.toggle('active', i === 0));
     applyStyle();
     saveSettings();
-    showToast('🖼️ Авто-фон вимкнено');
+    showToast(t('toast_autobg_off'));
   }
 });
 
