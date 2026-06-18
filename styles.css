@@ -987,3 +987,25 @@ body.theme-light .alarm-field label { color: #2c2010 !important; }
 
 body.theme-dim .t-label,
 body.theme-dim .screen-header .t-label { color: #e8dfc8 !important; }
+
+/* ── Вірш на головному екрані у світлій/сутінковій темі ── */
+body.theme-light #screenMain .verse-text,
+body.theme-light #screenMain #verseText {
+  color: #1a1008 !important;
+  text-shadow: 0 1px 4px rgba(255,255,255,.4) !important;
+}
+body.theme-light #screenMain .verse-book,
+body.theme-light #screenMain #verseBook { color: #a07828 !important; }
+body.theme-light #screenMain .verse-ref,
+body.theme-light #screenMain #verseRef  { color: rgba(44,32,16,.6) !important; }
+
+/* ── Нагадування екран у світлій темі ── */
+body.theme-light .notif-time   { color: #a07828 !important; }
+body.theme-light .notif-days,
+body.theme-light .notif-label,
+body.theme-light .notif-empty  { color: rgba(44,32,16,.6) !important; }
+body.theme-light .notif-item   { border-bottom-color: rgba(0,0,0,.08) !important; }
+body.theme-light #screenNotif  { background: var(--theme-screen-bg); }
+body.theme-light .alarm-time   { color: #1a1008 !important; }
+body.theme-light .alarm-label  { color: rgba(44,32,16,.7) !important; }
+body.theme-light .alarm-meta   { color: rgba(44,32,16,.5) !important; }

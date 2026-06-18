@@ -14,23 +14,50 @@
   <style>
     .day-btn {
       padding: 7px 11px; border-radius: 8px; font-size: 12px; cursor: pointer;
-      border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.5);
-      background: rgba(255,255,255,.05); user-select: none;
+      border: 1px solid var(--surface-border); color: var(--text-secondary);
+      background: var(--surface); user-select: none;
     }
     .day-btn.active {
-      border-color: rgba(201,168,76,.6); color: #c9a84c;
+      border-color: rgba(201,168,76,.6); color: var(--clr-gold);
       background: rgba(201,168,76,.15);
     }
     .alarm-item {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 12px 0; border-bottom: 1px solid var(--surface-border);
     }
     .alarm-item:last-child { border-bottom: none; }
-    .alarm-time { font-size: 26px; color: #f0e8d5; font-family: 'Cormorant Garamond', serif; }
-    .alarm-meta { font-size: 11px; color: rgba(255,255,255,.4); margin-top: 2px; }
-    .alarm-label { font-size: 13px; color: rgba(255,255,255,.7); margin-top: 1px; }
-    .alarm-del { color: rgba(255,80,80,.6); font-size: 18px; padding: 6px; cursor: pointer; }
+    .alarm-time  { font-size: 26px; color: var(--text-primary); font-family: 'Cormorant Garamond', serif; }
+    .alarm-meta  { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+    .alarm-label { font-size: 13px; color: var(--text-primary); opacity: .7; margin-top: 1px; }
+    .alarm-del   { color: rgba(255,80,80,.6); font-size: 18px; padding: 6px; cursor: pointer; }
     .alarm-toggle { transform: scale(0.85); }
+
+    /* Alarm modal */
+    #alarmModal { background: rgba(0,0,0,.65); }
+    .alarm-modal-inner {
+      background: var(--theme-sheet-bg);
+      border: 1px solid rgba(201,168,76,.25);
+      border-radius: 16px; padding: 24px;
+      width: min(340px,90vw); max-height: 85vh; overflow-y: auto;
+    }
+    .alarm-modal-title { font-size: 15px; color: var(--clr-gold-lt); margin-bottom: 18px; text-align: center; }
+    .alarm-field-label { font-size: 11px; color: var(--text-secondary); margin-bottom: 6px; }
+    .alarm-input {
+      width: 100%; padding: 10px 12px; box-sizing: border-box;
+      background: var(--surface); border: 1px solid var(--surface-border);
+      border-radius: 8px; color: var(--text-primary); font-size: 14px;
+    }
+    #alarmTime.alarm-input { font-size: 18px; }
+    .alarm-btn-cancel {
+      flex: 1; padding: 11px; border-radius: 10px; font-size: 14px; cursor: pointer;
+      background: var(--surface); border: 1px solid var(--surface-border);
+      color: var(--text-secondary);
+    }
+    .alarm-btn-save {
+      flex: 2; padding: 11px; border-radius: 10px; font-size: 14px; cursor: pointer; font-weight: 600;
+      background: rgba(201,168,76,.2); border: 1px solid rgba(201,168,76,.4);
+      color: var(--clr-gold-lt);
+    }
   </style>
 </head>
 <body>
@@ -154,8 +181,8 @@
         <div style="position:relative">
           <select id="langSelect" style="
             width:100%; padding:11px 14px; border-radius:10px;
-            background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
-            color:#f0e8d5; font-size:15px; font-family:'Nunito',sans-serif;
+            background:var(--surface); border:1px solid var(--surface-border);
+            color:var(--text-primary); font-size:15px; font-family:'Nunito',sans-serif;
             appearance:none; -webkit-appearance:none; cursor:pointer;
             background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22><path d=%22M1 1l5 5 5-5%22 stroke=%22%23c9a84c%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>');
             background-repeat:no-repeat; background-position:right 14px center;">
@@ -230,31 +257,24 @@
 
       <!-- Модалка редагування будильника -->
       <div id="alarmModal" style="display:none; position:fixed; inset:0; z-index:999;
-           background:rgba(0,0,0,.7); align-items:center; justify-content:center;">
-        <div style="background:#111827; border:1px solid rgba(201,168,76,.25); border-radius:16px;
-             padding:24px; width:min(340px,90vw); max-height:85vh; overflow-y:auto;">
-          <div style="font-size:15px; color:var(--clr-gold-lt); margin-bottom:18px; text-align:center;">
+           align-items:center; justify-content:center;">
+        <div class="alarm-modal-inner">
+          <div class="alarm-modal-title">
             <span data-i18n="alarm_modal_title">Налаштування нагадування</span>
           </div>
 
           <div style="margin-bottom:14px">
-            <div style="font-size:11px; color:rgba(255,255,255,.45); margin-bottom:6px;" data-i18n="alarm_name">Назва</div>
-            <input id="alarmLabel" type="text" placeholder="Ранкова молитва" data-i18n-placeholder="alarm_label_ph" maxlength="40" style="
-              width:100%; padding:10px 12px; background:rgba(255,255,255,.06);
-              border:1px solid rgba(255,255,255,.12); border-radius:8px;
-              color:#fff; font-size:14px; box-sizing:border-box;">
+            <div class="alarm-field-label" data-i18n="alarm_name">Назва</div>
+            <input id="alarmLabel" type="text" placeholder="Ранкова молитва" data-i18n-placeholder="alarm_label_ph" maxlength="40" class="alarm-input">
           </div>
 
           <div style="margin-bottom:14px">
-            <div style="font-size:11px; color:rgba(255,255,255,.45); margin-bottom:6px;" data-i18n="alarm_time">Час</div>
-            <input id="alarmTime" type="time" style="
-              width:100%; padding:10px 12px; background:rgba(255,255,255,.06);
-              border:1px solid rgba(255,255,255,.12); border-radius:8px;
-              color:#fff; font-size:18px; box-sizing:border-box;">
+            <div class="alarm-field-label" data-i18n="alarm_time">Час</div>
+            <input id="alarmTime" type="time" class="alarm-input" id="alarmTime">
           </div>
 
           <div style="margin-bottom:18px">
-            <div style="font-size:11px; color:rgba(255,255,255,.45); margin-bottom:8px;" data-i18n="alarm_days">Дні тижня</div>
+            <div class="alarm-field-label" data-i18n="alarm_days">Дні тижня</div>
             <div id="dayPicker" style="display:flex; gap:6px; justify-content:center; flex-wrap:wrap">
               <div class="day-btn active" data-day="-1" data-i18n="alarm_once">Один раз</div>
               <div class="day-btn" data-day="0" data-i18n="alarm_daily">Щодня</div>
@@ -269,12 +289,8 @@
           </div>
 
           <div style="display:flex; gap:10px">
-            <button id="btnAlarmCancel" style="flex:1; padding:11px; background:rgba(255,255,255,.06);
-              border:1px solid rgba(255,255,255,.12); border-radius:10px; color:rgba(255,255,255,.6);
-              font-size:14px; cursor:pointer;"><span data-i18n="alarm_cancel">Скасувати</span></button>
-            <button id="btnAlarmSave" style="flex:2; padding:11px; background:rgba(201,168,76,.2);
-              border:1px solid rgba(201,168,76,.4); border-radius:10px; color:var(--clr-gold-lt);
-              font-size:14px; cursor:pointer; font-weight:600;"><span data-i18n="alarm_save">Зберегти 🔔</span></button>
+            <button id="btnAlarmCancel" class="alarm-btn-cancel"><span data-i18n="alarm_cancel">Скасувати</span></button>
+            <button id="btnAlarmSave" class="alarm-btn-save"><span data-i18n="alarm_save">Зберегти 🔔</span></button>
           </div>
         </div>
       </div>
