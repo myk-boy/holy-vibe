@@ -276,11 +276,21 @@ function applyStyle() {
 
   // Тінь і обводка тексту
   if (isLight) {
-    // Світла тема: темна обводка + тінь щоб світлий текст читався на світлому фоні
-    verseTextEl.style.webkitTextStroke = '0.4px rgba(0,0,0,0.8)';
-    verseTextEl.style.textShadow = '0 1px 4px rgba(0,0,0,0.9), 0 2px 14px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.5)';
+    const darkStroke  = '0.4px rgba(0,0,0,0.8)';
+    const darkShadow  = '0 1px 4px rgba(0,0,0,0.9), 0 2px 14px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.5)';
+    const lightShadow = '0 1px 3px rgba(0,0,0,0.85), 0 2px 8px rgba(0,0,0,0.6)';
+    verseTextEl.style.webkitTextStroke = darkStroke;
+    verseTextEl.style.textShadow       = darkShadow;
+    verseBookEl.style.webkitTextStroke = '0.3px rgba(0,0,0,0.7)';
+    verseBookEl.style.textShadow       = lightShadow;
+    verseRefEl.style.webkitTextStroke  = '0.3px rgba(0,0,0,0.7)';
+    verseRefEl.style.textShadow        = lightShadow;
   } else {
     verseTextEl.style.webkitTextStroke = '';
+    verseBookEl.style.webkitTextStroke = '';
+    verseRefEl.style.webkitTextStroke  = '';
+    verseBookEl.style.textShadow = '';
+    verseRefEl.style.textShadow  = '';
     if (!S.shadow) {
       verseTextEl.style.textShadow = 'none';
     } else if (isPhoto) {
