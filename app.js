@@ -291,13 +291,7 @@ function applyStyle() {
     verseRefEl.style.webkitTextStroke  = '';
     verseBookEl.style.textShadow = '';
     verseRefEl.style.textShadow  = '';
-    if (!S.shadow) {
-      verseTextEl.style.textShadow = 'none';
-    } else if (isPhoto) {
-      verseTextEl.style.textShadow = '0 2px 4px rgba(0,0,0,1), 0 4px 40px rgba(0,0,0,.95), 0 0 80px rgba(0,0,0,.8)';
-    } else {
-      verseTextEl.style.textShadow = '0 2px 30px rgba(0,0,0,.8)';
-    }
+    verseTextEl.style.textShadow = S.shadow ? '0 2px 30px rgba(0,0,0,.8)' : 'none';
   }
 
   // Фон: показуємо тільки на головній (незалежно від зірочок)
