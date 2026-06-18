@@ -266,33 +266,28 @@ function applyStyle() {
   const isDim   = theme === 1;
   const isPhoto = $('bg').dataset.photo === '1';
 
-  // Колір тексту вірша через CSS-змінну (не inline style — уникаємо конфліктів)
-  if (isLight) {
-    const hex = (S.color || '#f0e8d5').replace('#','');
-    const r = parseInt(hex.slice(0,2),16)||0, g = parseInt(hex.slice(2,4),16)||0, b = parseInt(hex.slice(4,6),16)||0;
-    const lum = (0.299*r + 0.587*g + 0.114*b) / 255;
-    document.documentElement.style.setProperty('--verse-color', lum > 0.5 ? '#1a1008' : S.color);
-  } else {
-    document.documentElement.style.setProperty('--verse-color', S.color);
-  }
+  // Колір тексту — завжди колір юзера
+  document.documentElement.style.setProperty('--verse-color', S.color);
   verseTextEl.style.color = 'var(--verse-color)';
 
   verseTextEl.style.fontFamily = FONTS[S.font];
   const base = 18 + (S.size / 100) * 12;
   verseTextEl.style.fontSize = `clamp(${base-2}px,${(base*.45).toFixed(1)}vw,${base+4}px)`;
 
-  // Тінь тексту
-  if (!S.shadow && !isPhoto) {
-    verseTextEl.style.textShadow = 'none';
-  } else if (isLight && isPhoto) {
-    // Світла тема + фото: світла тінь для читабельності темного тексту
-    verseTextEl.style.textShadow = '0 0 20px rgba(255,255,255,.9), 0 2px 12px rgba(255,255,255,.7), 0 0 60px rgba(255,255,255,.5)';
-  } else if (isPhoto) {
-    verseTextEl.style.textShadow = '0 2px 4px rgba(0,0,0,1), 0 4px 40px rgba(0,0,0,.95), 0 0 80px rgba(0,0,0,.8)';
-  } else if (isLight) {
-    verseTextEl.style.textShadow = 'none';
+  // Тінь і обводка тексту
+  if (isLight) {
+    // Світла тема: темна обводка + тінь щоб світлий текст читався на світлому фоні
+    verseTextEl.style.webkitTextStroke = '0.4px rgba(0,0,0,0.8)';
+    verseTextEl.style.textShadow = '0 1px 4px rgba(0,0,0,0.9), 0 2px 14px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.5)';
   } else {
-    verseTextEl.style.textShadow = '0 2px 30px rgba(0,0,0,.8)';
+    verseTextEl.style.webkitTextStroke = '';
+    if (!S.shadow) {
+      verseTextEl.style.textShadow = 'none';
+    } else if (isPhoto) {
+      verseTextEl.style.textShadow = '0 2px 4px rgba(0,0,0,1), 0 4px 40px rgba(0,0,0,.95), 0 0 80px rgba(0,0,0,.8)';
+    } else {
+      verseTextEl.style.textShadow = '0 2px 30px rgba(0,0,0,.8)';
+    }
   }
 
   // Фон: показуємо тільки на головній (незалежно від зірочок)
