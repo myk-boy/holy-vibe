@@ -100,7 +100,7 @@ async function fetchVerses() {
     if (typeof window._onVersesReady === 'function') window._onVersesReady();
   } catch (err) {
     console.error('verses.json не завантажився:', err);
-    showToast(t('toast_load_error'));
+    showToast('⚠️ Не вдалося завантажити вірші');
   }
 }
 
@@ -146,7 +146,6 @@ const S = {
   sheet:    false,
   playMode: 'single', // 'single' = повтор одного треку, 'sequence' = по черзі
   shuffle:  false,    // перемішування при переході до наступного треку
-  theme:    0,        // 0 = темна, 1 = сутінок, 2 = світла
   // notifs: реалізується в наступному релізі
 };
 
@@ -216,7 +215,6 @@ function saveSettings() {
     autoBg:   S.autoBg,
     playMode: S.playMode,
     shuffle:  S.shuffle,
-    theme:    S.theme,
     bgUrl:    bgEl.style.backgroundImage.replace(/url\(['"]?|['"]?\)/g, '') || '',
   }));
 }
@@ -235,7 +233,6 @@ function loadSettings() {
     S.autoBg   = s.autoBg   ?? S.autoBg;
     S.playMode = s.playMode ?? S.playMode;
     S.shuffle  = s.shuffle  ?? S.shuffle;
-    S.theme    = s.theme    ?? S.theme;
 
     // Відновлюємо фон (якщо autoBg вимкнено але був вручну вибраний фон)
     if (!S.autoBg && s.bgUrl) {
@@ -261,37 +258,19 @@ function setSliderBg(el, val) {
    5. СТИЛЬ
 ───────────────────────────────────── */
 function applyStyle() {
-  const theme   = S.theme ?? 0;
-  const isLight = theme === 2;
-  const isDim   = theme === 1;
-  const isPhoto = $('bg').dataset.photo === '1';
-
-  // Колір тексту — завжди колір юзера
-  document.documentElement.style.setProperty('--verse-color', S.color);
-  verseTextEl.style.color = 'var(--verse-color)';
-
   verseTextEl.style.fontFamily = FONTS[S.font];
+  verseTextEl.style.color      = S.color;
   const base = 18 + (S.size / 100) * 12;
-  verseTextEl.style.fontSize = `clamp(${base-2}px,${(base*.45).toFixed(1)}vw,${base+4}px)`;
+  verseTextEl.style.fontSize   = `clamp(${base-2}px,${(base*.45).toFixed(1)}vw,${base+4}px)`;
 
-  // Тінь і обводка тексту — обводка-стікер тільки в світлій темі
-  if (isLight) {
-    const darkStroke  = '0.4px rgba(0,0,0,0.8)';
-    const darkShadow  = '0 1px 4px rgba(0,0,0,0.9), 0 2px 14px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.5)';
-    const lightShadow = '0 1px 3px rgba(0,0,0,0.85), 0 2px 8px rgba(0,0,0,0.6)';
-    verseTextEl.style.webkitTextStroke = darkStroke;
-    verseTextEl.style.textShadow       = darkShadow;
-    verseBookEl.style.webkitTextStroke = '0.3px rgba(0,0,0,0.7)';
-    verseBookEl.style.textShadow       = lightShadow;
-    verseRefEl.style.webkitTextStroke  = '0.3px rgba(0,0,0,0.7)';
-    verseRefEl.style.textShadow        = lightShadow;
+  // Тінь тексту — посилена на фото-фоні для контрасту
+  const isPhoto = $('bg').dataset.photo === '1';
+  if (!S.shadow) {
+    verseTextEl.style.textShadow = 'none';
+  } else if (isPhoto) {
+    verseTextEl.style.textShadow = '0 2px 4px rgba(0,0,0,1), 0 4px 40px rgba(0,0,0,.95), 0 0 80px rgba(0,0,0,.8)';
   } else {
-    verseTextEl.style.webkitTextStroke = '';
-    verseBookEl.style.webkitTextStroke = '';
-    verseRefEl.style.webkitTextStroke  = '';
-    verseBookEl.style.textShadow = '';
-    verseRefEl.style.textShadow  = '';
-    verseTextEl.style.textShadow = S.shadow ? '0 2px 30px rgba(0,0,0,.8)' : 'none';
+    verseTextEl.style.textShadow = '0 2px 30px rgba(0,0,0,.8)';
   }
 
   // Фон: показуємо тільки на головній (незалежно від зірочок)
@@ -583,7 +562,7 @@ $('btnShare').addEventListener('click', () => {
   const v=cv(); if (!v) return; closeSheet();
   const txt = `«${v.text.replace(/\n/g,' ')}» — ${v.ref}`;
   if (navigator.share) navigator.share({text:txt}).catch(()=>{});
-  else { navigator.clipboard?.writeText(txt); showToast(t('toast_copied')); }
+  else { navigator.clipboard?.writeText(txt); showToast('📋 Вірш скопійовано'); }
 });
 
 
@@ -732,7 +711,7 @@ function playTrack(i) {
     })
     .catch(err => {
       console.warn('Audio error:', err);
-      showToast(t('toast_track_error'));
+      showToast('⚠️ Не вдалося завантажити трек');
     });
 }
 
@@ -767,11 +746,11 @@ function syncPlayerControlsUI() {
     const sequence = S.playMode === 'sequence';
     repeatBtn.textContent = sequence ? '🔁' : '🔂';
     repeatBtn.classList.toggle('active', sequence);
-    repeatBtn.title = sequence ? t('toast_play_sequence') : t('toast_play_repeat');
+    repeatBtn.title = sequence ? 'По черзі (клік — повтор треку)' : 'Повтор треку (клік — по черзі)';
   }
   if (shuffleBtn) {
     shuffleBtn.classList.toggle('active', S.shuffle);
-    shuffleBtn.title = S.shuffle ? t('toast_shuffle_on') : t('toast_shuffle_off');
+    shuffleBtn.title = S.shuffle ? 'Перемішування: увімкнено' : 'Перемішування: вимкнено';
   }
 }
 
@@ -780,7 +759,7 @@ $('btnRepeatMode')?.addEventListener('click', () => {
   if (S.playing >= 0) audioEl.loop = (S.playMode === 'single' && !S.shuffle);
   syncPlayerControlsUI();
   saveSettings();
-  showToast(S.playMode === 'sequence' ? t('toast_play_sequence') : t('toast_play_repeat'));
+  showToast(S.playMode === 'sequence' ? '🔁 Відтворення по черзі' : '🔂 Повтор поточного треку');
 });
 
 $('btnShuffle')?.addEventListener('click', () => {
@@ -788,7 +767,7 @@ $('btnShuffle')?.addEventListener('click', () => {
   if (S.playing >= 0) audioEl.loop = (S.playMode === 'single' && !S.shuffle);
   syncPlayerControlsUI();
   saveSettings();
-  showToast(S.shuffle ? t('toast_shuffle_on') : t('toast_shuffle_off'));
+  showToast(S.shuffle ? '🔀 Перемішування увімкнено' : '🔀 Перемішування вимкнено');
 });
 
 $('btnPrevTrack')?.addEventListener('click', () => prevTrack());
@@ -835,7 +814,7 @@ function buildBgGrid() {
         bgEl.dataset.photo = '0';
       }
       applyStyle();
-      showToast(url ? t('toast_bg_changed') : t('toast_bg_removed'));
+      showToast(url ? '🖼️ Фон змінено' : '🖼️ Фон прибрано');
       saveSettings();
     });
   });
@@ -863,7 +842,7 @@ $('bg').dataset.photo = '0';
 document.querySelectorAll('.font-opt').forEach(o =>
   o.addEventListener('click', () => {
     document.querySelectorAll('.font-opt').forEach(x=>x.classList.remove('active'));
-    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast(t('toast_font_changed'));
+    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast('Шрифт змінено');
   })
 );
 document.querySelectorAll('.color-dot').forEach(d =>
@@ -893,7 +872,7 @@ $('tglAutoBg').addEventListener('click', function() {
     applyAutoBg();
     applyStyle();
     saveSettings();
-    showToast(t('toast_autobg_on'));
+    showToast('🖼️ Авто-фон увімкнено');
   } else {
     // Вимикаємо — прибираємо фото-фон
     const bgEl = $('bg');
@@ -904,35 +883,9 @@ $('tglAutoBg').addEventListener('click', function() {
       t.classList.toggle('active', i === 0));
     applyStyle();
     saveSettings();
-    showToast(t('toast_autobg_off'));
+    showToast('🖼️ Авто-фон вимкнено');
   }
 });
-
-
-/* ─────────────────────────────────────
-   12b. ТЕМА (ТЕМНА / СУТІНОК / СВІТЛА)
-───────────────────────────────────── */
-const THEME_NAMES  = ['Темна', 'Сутінок', 'Світла'];
-const THEME_CLASSES = ['', 'theme-dim', 'theme-light'];
-
-function applyTheme(val) {
-  document.body.classList.remove('theme-dim', 'theme-light');
-  if (THEME_CLASSES[val]) document.body.classList.add(THEME_CLASSES[val]);
-  const lbl = $('themeLabel');
-  if (lbl) lbl.textContent = THEME_NAMES[val] || 'Темна';
-  const sl = $('themeSlider');
-  if (sl) sl.value = val;
-  if (typeof applyStyle === 'function') applyStyle();
-}
-
-const themeSlider = $('themeSlider');
-if (themeSlider) {
-  themeSlider.addEventListener('input', e => {
-    S.theme = +e.target.value;
-    applyTheme(S.theme);
-    saveSettings();
-  });
-}
 
 
 /* ─────────────────────────────────────
@@ -1138,7 +1091,6 @@ $('btnAlarmSave').addEventListener('click', () => {
    14. INIT
 ───────────────────────────────────── */
 loadSettings();
-applyTheme(S.theme ?? 0);
 
 // Відновлюємо UI налаштувань під збережений стан
 document.querySelectorAll('.font-opt').forEach(o =>
