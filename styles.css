@@ -960,3 +960,30 @@ body,
   box-shadow: 0 2px 8px rgba(0,0,0,.4);
   cursor: pointer;
 }
+
+/* ── Примусовий контраст тексту (перекриває inline style з applyStyle) ── */
+body.theme-dim .verse-text  { color: #e8dfc8 !important; text-shadow: 0 1px 8px rgba(0,0,0,.5) !important; }
+body.theme-dim .verse-book  { color: rgba(201,168,76,.75) !important; }
+body.theme-dim .verse-ref   { color: rgba(232,223,200,.55) !important; }
+
+body.theme-light .verse-text { color: #1e1408 !important; text-shadow: none !important; }
+body.theme-light .verse-book { color: #a07828 !important; }
+body.theme-light .verse-ref  { color: rgba(44,32,16,.55) !important; }
+
+/* Текст на інших екранах (улюблені, меню, налаштування) */
+body.theme-light .fav-item-text { color: #1e1408 !important; }
+body.theme-light .fav-item-book { color: #a07828 !important; }
+body.theme-light .fav-item-ref  { color: rgba(44,32,16,.55) !important; }
+body.theme-light .t-label,
+body.theme-light .screen-header .t-label { color: #2c2010 !important; }
+body.theme-light .sheet-ai-text,
+body.theme-light .sheet-verse-text { color: #1e1408 !important; }
+body.theme-light .notif-item-name,
+body.theme-light .notif-item-time { color: #2c2010 !important; }
+body.theme-light .notif-soon-text { color: #2c2010 !important; }
+body.theme-light .music-track-name { color: #2c2010 !important; }
+body.theme-light .donate-title { color: #2c2010 !important; }
+body.theme-light .alarm-field label { color: #2c2010 !important; }
+
+body.theme-dim .t-label,
+body.theme-dim .screen-header .t-label { color: #e8dfc8 !important; }
