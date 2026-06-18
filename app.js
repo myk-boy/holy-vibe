@@ -746,11 +746,11 @@ function syncPlayerControlsUI() {
     const sequence = S.playMode === 'sequence';
     repeatBtn.textContent = sequence ? '🔁' : '🔂';
     repeatBtn.classList.toggle('active', sequence);
-    repeatBtn.title = sequence ? 'По черзі (клік — повтор треку)' : 'Повтор треку (клік — по черзі)';
+    repeatBtn.title = t('title_repeat');
   }
   if (shuffleBtn) {
     shuffleBtn.classList.toggle('active', S.shuffle);
-    shuffleBtn.title = S.shuffle ? 'Перемішування: увімкнено' : 'Перемішування: вимкнено';
+    shuffleBtn.title = t('title_shuffle');
   }
 }
 
@@ -759,7 +759,7 @@ $('btnRepeatMode')?.addEventListener('click', () => {
   if (S.playing >= 0) audioEl.loop = (S.playMode === 'single' && !S.shuffle);
   syncPlayerControlsUI();
   saveSettings();
-  showToast(S.playMode === 'sequence' ? '🔁 Відтворення по черзі' : '🔂 Повтор поточного треку');
+  showToast(S.playMode === 'sequence' ? t('toast_play_sequence') : t('toast_play_repeat'));
 });
 
 $('btnShuffle')?.addEventListener('click', () => {
@@ -767,7 +767,7 @@ $('btnShuffle')?.addEventListener('click', () => {
   if (S.playing >= 0) audioEl.loop = (S.playMode === 'single' && !S.shuffle);
   syncPlayerControlsUI();
   saveSettings();
-  showToast(S.shuffle ? '🔀 Перемішування увімкнено' : '🔀 Перемішування вимкнено');
+  showToast(S.shuffle ? t('toast_shuffle_on') : t('toast_shuffle_off'));
 });
 
 $('btnPrevTrack')?.addEventListener('click', () => prevTrack());
