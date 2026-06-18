@@ -337,7 +337,7 @@ input[type=range]::-webkit-slider-thumb {
   line-height: 1.75;
   font-weight: 300;
   letter-spacing: .02em;
-  color: var(--text-primary);
+  color: var(--verse-color, var(--text-primary));
   text-shadow: 0 2px 30px rgba(0, 0, 0, .8);
   transition: font-size .3s, color .3s, text-shadow .3s;
 }

@@ -266,19 +266,16 @@ function applyStyle() {
   const isDim   = theme === 1;
   const isPhoto = $('bg').dataset.photo === '1';
 
-  // Колір тексту:
-  // - Темна: колір юзера
-  // - Сутінок: колір юзера (CSS-змінні вже світліші)
-  // - Світла: колір юзера, але якщо він занадто світлий — примусово темний
+  // Колір тексту вірша через CSS-змінну (не inline style — уникаємо конфліктів)
   if (isLight) {
-    // Перевіряємо яскравість вибраного кольору
-    const hex = S.color.replace('#','');
-    const r = parseInt(hex.slice(0,2),16), g = parseInt(hex.slice(2,4),16), b = parseInt(hex.slice(4,6),16);
+    const hex = (S.color || '#f0e8d5').replace('#','');
+    const r = parseInt(hex.slice(0,2),16)||0, g = parseInt(hex.slice(2,4),16)||0, b = parseInt(hex.slice(4,6),16)||0;
     const lum = (0.299*r + 0.587*g + 0.114*b) / 255;
-    verseTextEl.style.color = lum > 0.5 ? '#1a1008' : S.color;
+    document.documentElement.style.setProperty('--verse-color', lum > 0.5 ? '#1a1008' : S.color);
   } else {
-    verseTextEl.style.color = S.color;
+    document.documentElement.style.setProperty('--verse-color', S.color);
   }
+  verseTextEl.style.color = 'var(--verse-color)';
 
   verseTextEl.style.fontFamily = FONTS[S.font];
   const base = 18 + (S.size / 100) * 12;
