@@ -261,17 +261,39 @@ function setSliderBg(el, val) {
    5. СТИЛЬ
 ───────────────────────────────────── */
 function applyStyle() {
-  verseTextEl.style.fontFamily = FONTS[S.font];
-  verseTextEl.style.color      = S.color;
-  const base = 18 + (S.size / 100) * 12;
-  verseTextEl.style.fontSize   = `clamp(${base-2}px,${(base*.45).toFixed(1)}vw,${base+4}px)`;
-
-  // Тінь тексту — посилена на фото-фоні для контрасту
+  const theme   = S.theme ?? 0;
+  const isLight = theme === 2;
+  const isDim   = theme === 1;
   const isPhoto = $('bg').dataset.photo === '1';
-  if (!S.shadow) {
+
+  // Колір тексту:
+  // - Темна: колір юзера
+  // - Сутінок: колір юзера (CSS-змінні вже світліші)
+  // - Світла: колір юзера, але якщо він занадто світлий — примусово темний
+  if (isLight) {
+    // Перевіряємо яскравість вибраного кольору
+    const hex = S.color.replace('#','');
+    const r = parseInt(hex.slice(0,2),16), g = parseInt(hex.slice(2,4),16), b = parseInt(hex.slice(4,6),16);
+    const lum = (0.299*r + 0.587*g + 0.114*b) / 255;
+    verseTextEl.style.color = lum > 0.5 ? '#1a1008' : S.color;
+  } else {
+    verseTextEl.style.color = S.color;
+  }
+
+  verseTextEl.style.fontFamily = FONTS[S.font];
+  const base = 18 + (S.size / 100) * 12;
+  verseTextEl.style.fontSize = `clamp(${base-2}px,${(base*.45).toFixed(1)}vw,${base+4}px)`;
+
+  // Тінь тексту
+  if (!S.shadow && !isPhoto) {
     verseTextEl.style.textShadow = 'none';
+  } else if (isLight && isPhoto) {
+    // Світла тема + фото: світла тінь для читабельності темного тексту
+    verseTextEl.style.textShadow = '0 0 20px rgba(255,255,255,.9), 0 2px 12px rgba(255,255,255,.7), 0 0 60px rgba(255,255,255,.5)';
   } else if (isPhoto) {
     verseTextEl.style.textShadow = '0 2px 4px rgba(0,0,0,1), 0 4px 40px rgba(0,0,0,.95), 0 0 80px rgba(0,0,0,.8)';
+  } else if (isLight) {
+    verseTextEl.style.textShadow = 'none';
   } else {
     verseTextEl.style.textShadow = '0 2px 30px rgba(0,0,0,.8)';
   }
@@ -904,6 +926,7 @@ function applyTheme(val) {
   if (lbl) lbl.textContent = THEME_NAMES[val] || 'Темна';
   const sl = $('themeSlider');
   if (sl) sl.value = val;
+  if (typeof applyStyle === 'function') applyStyle();
 }
 
 const themeSlider = $('themeSlider');

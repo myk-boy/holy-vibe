@@ -961,12 +961,10 @@ body,
   cursor: pointer;
 }
 
-/* ── Примусовий контраст тексту (перекриває inline style з applyStyle) ── */
-body.theme-dim .verse-text  { color: #e8dfc8 !important; text-shadow: 0 1px 8px rgba(0,0,0,.5) !important; }
+/* ── Примусовий контраст НЕ-verse елементів (book, ref, UI) ── */
 body.theme-dim .verse-book  { color: rgba(201,168,76,.75) !important; }
 body.theme-dim .verse-ref   { color: rgba(232,223,200,.55) !important; }
 
-body.theme-light .verse-text { color: #1e1408 !important; text-shadow: none !important; }
 body.theme-light .verse-book { color: #a07828 !important; }
 body.theme-light .verse-ref  { color: rgba(44,32,16,.55) !important; }
 
@@ -988,12 +986,7 @@ body.theme-light .alarm-field label { color: #2c2010 !important; }
 body.theme-dim .t-label,
 body.theme-dim .screen-header .t-label { color: #e8dfc8 !important; }
 
-/* ── Вірш на головному екрані у світлій/сутінковій темі ── */
-body.theme-light #screenMain .verse-text,
-body.theme-light #screenMain #verseText {
-  color: #1a1008 !important;
-  text-shadow: 0 1px 4px rgba(255,255,255,.4) !important;
-}
+/* ── book/ref на головному екрані ── */
 body.theme-light #screenMain .verse-book,
 body.theme-light #screenMain #verseBook { color: #a07828 !important; }
 body.theme-light #screenMain .verse-ref,
