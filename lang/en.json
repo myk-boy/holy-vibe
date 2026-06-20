@@ -107,7 +107,7 @@
     "toast_play_sequence": "🔁 Sequential playback",
     "toast_play_repeat": "🔂 Repeat current track",
     "toast_shuffle_on": "🔀 Shuffle on",
-	"notif_body": "Pause for a moment, read a verse, and pray from the heart. 🙏",
+    "notif_body": "Pause for a moment, read a verse, and pray from the heart. 🙏",
     "toast_shuffle_off": "🔀 Shuffle off"
   },
   "verses": [
@@ -213,7 +213,7 @@
     {
       "id": 12,
       "book": "Jeremiah",
-      "text": "i loved you\neternal love",
+      "text": "I loved you\nwith an everlasting love",
       "ref": "Jer. 31:3",
       "cat": "love",
       "ai": "Not \"I will love you if...\" and not \"I loved you until...\". Eternal love — without conditions, without end, without dependence on your actions. It is a foundation on which to stand.",
@@ -284,7 +284,7 @@
     },
     {
       "id": 20,
-      "book": "John",
+      "book": "1 John",
       "text": "There is no fear in love;\nbut perfect love casts out fear.",
       "ref": "1 John 4:18",
       "cat": "faith",
@@ -303,7 +303,7 @@
     {
       "id": 22,
       "book": "Philippians",
-      "text": "I can do everything in Tim\nWho strengthens me is in Christ.",
+      "text": "I can do everything in Him\nWho strengthens me is in Christ.",
       "ref": "Phil. 4:13",
       "cat": "strength",
       "ai": "Paul wrote this from prison. It's not about superhero omnipotence—it's about being able to get through any season with an inner source of strength that never runs dry.",
@@ -349,7 +349,7 @@
       "id": 27,
       "book": "Nehemiah",
       "text": "The joy of the Lord is your strength.",
-      "ref": "Eccl. 8:10",
+      "ref": "Neh. 8:10",
       "cat": "strength",
       "ai": "Joy here is not an emotion, but a spiritual state. It does not depend on the circumstances. When your joy is rooted in the Lord and not in the situation, nothing can take away your strength.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -387,7 +387,7 @@
       "text": "Hope is the anchor of the soul for us,\nreliable and durable.",
       "ref": "Heb. 6:19",
       "cat": "hope",
-      "ai": "An anchor doesn't save you from a storm—it keeps you in place during it. Hope in God does not promise quiet weather, it promises that you will not be swept into the open sea of ​​despair.",
+      "ai": "An anchor doesn't save you from a storm—it keeps you in place during it. Hope in God does not promise quiet weather, it promises that you will not be swept into the open sea of despair.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
     },
     {
@@ -412,7 +412,7 @@
       "id": 34,
       "book": "James",
       "text": "Prayer of faith\nheal the sick\nand the Lord will raise him up.",
-      "ref": "Acts 5:15",
+      "ref": "James 5:15",
       "cat": "healing",
       "ai": "The prayer of faith is not a manipulation of God, but a complete surrender to His power. When the mind says \"it's over\" and the body weakens, faith looks at Christ's wounds and knows: He will lift.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Meditation%20Impromptu%2001.mp3"
@@ -466,7 +466,7 @@
       "id": 40,
       "book": "Colossians",
       "text": "And let the peace of Christ reign\nin your hearts.",
-      "ref": "Num.. 3:15",
+      "ref": "Col. 3:15",
       "cat": "peace",
       "ai": "\"Reigns\" is like a judge at a competition. The world has the right to pronounce a verdict in your heart, to decide what stays and what goes out. Give him this power deliberately.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -637,7 +637,7 @@
       "id": 59,
       "book": "James",
       "text": "If any of you lack wisdom,\nlet him ask God\nWhich gives generously.",
-      "ref": "Acts 1:5",
+      "ref": "James 1:5",
       "cat": "hope",
       "ai": "God gives wisdom \"generously and without reproach.\" He doesn't sigh when you come again. He is happy with your question. A question is a form of trust.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -738,7 +738,7 @@
       "text": "My grace is enough for you,\nfor My strength is made perfect in weakness.",
       "ref": "2 Cor. 12:9",
       "cat": "peace",
-      "ai": "Pavlo asked to remove the \"thorn\". God replied, \"My grace is sufficient.\" Sometimes He does not remove the problem - He gives enough grace to live it with dignity.",
+      "ai": "Paul asked to remove the \"thorn\". God replied, \"My grace is sufficient.\" Sometimes He does not remove the problem - He gives enough grace to live it with dignity.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
     },
     {
@@ -923,7 +923,7 @@
     },
     {
       "id": 91,
-      "book": "Psalms",
+      "book": "Joshua",
       "text": "Take courage and hold on,\ndon't be afraid and don't be afraid\nfor the Lord your God is with you.",
       "ref": "Josh. 1:9",
       "cat": "victory",
@@ -978,7 +978,7 @@
     {
       "id": 97,
       "book": "Psalms",
-      "text": "The Lord is close to those who\nwho is heartbroken\nand will save those who are discouraged in spirit.",
+      "text": "The Lord is close to those\nwho is heartbroken\nand will save those who are discouraged in spirit.",
       "ref": "Ps. 34:19",
       "cat": "healing",
       "ai": "God is not far from those who suffer - He is closest there. A broken heart is not a distance from God, but the point of His maximum closeness to you.",
@@ -1031,7 +1031,7 @@
       "id": 103,
       "book": "Psalms",
       "text": "Lord, your mercy to the heavens, your truth to the clouds!",
-      "ref": "Psalm 35:6",
+      "ref": "Psalm 36:5",
       "cat": "love",
       "ai": "The grandeur of God's love covers all of humanity."
     },
@@ -1055,7 +1055,7 @@
       "id": 106,
       "book": "Psalms",
       "text": "The Lord is for me - I will not be afraid: what will man do to me?",
-      "ref": "Psalm 117:6",
+      "ref": "Psalm 118:6",
       "cat": "faith",
       "ai": "Knowing that God is on our side overcomes all human fear."
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "id": 109,
-      "book": "Genesis",
+      "book": "Exodus",
       "text": "...because I am the Lord, your Healer!",
       "ref": "Exodus 15:26",
       "cat": "healing",
@@ -1095,7 +1095,7 @@
       "id": 111,
       "book": "Psalms",
       "text": "I will saturate him with the length of days, and I will reveal My salvation to him!",
-      "ref": "Psalm 90:16",
+      "ref": "Psalm 91:16",
       "cat": "healing",
       "ai": "God promises not just a short survival, but a long, rich and quality life where you will see His glory."
     },
@@ -1103,7 +1103,7 @@
       "id": 112,
       "book": "Psalms",
       "text": "He sent His word and healed them,\nand saved their graves from them!",
-      "ref": "Psalm 106:20",
+      "ref": "Psalm 107:20",
       "cat": "healing",
       "ai": "God's Word has the speed of light and the power of a surgical instrument. When it comes, the disease recedes."
     },
@@ -1175,7 +1175,7 @@
       "id": 121,
       "book": "Malachi",
       "text": "And for you\nwho fears my name\nthe Sun of Truth and healing will rise in His rays, and you will go out and gallop like those well-fed calves!",
-      "ref": "Mal. 3:20",
+      "ref": "Mal. 4:2",
       "cat": "healing",
       "ai": "The rays of God's light burn away the disease and give you back your childlike joy, lightness and energy of movement."
     },
@@ -1246,14 +1246,14 @@
     {
       "id": 130,
       "book": "Jeremiah",
-      "text": "heal me\ngod\nand I will be healed, save me, and I will be saved, for You are my glory!",
+      "text": "heal me\nGod\nand I will be healed, save me, and I will be saved, for You are my glory!",
       "ref": "Jeremiah 17:14",
       "cat": "healing",
       "ai": "A prayer of complete surrender to God's power. Its healing leaves a permanent and irreversible result."
     },
     {
       "id": 131,
-      "book": "Acts",
+      "book": "Hosea",
       "text": "come on\nand return to the Lord\nbecause He cut - and He will heal us, He struck - and He will bind up our wounds!",
       "ref": "Hosea 6:1",
       "cat": "healing",
@@ -1453,7 +1453,7 @@
     },
     {
       "id": 156,
-      "book": "Mark",
+      "book": "Joshua",
       "text": "...be strong and brave? do not be afraid and do not be afraid,\nfor the Lord is with you...",
       "ref": "Joshua 1:9",
       "cat": "strength",
@@ -1471,7 +1471,7 @@
       "id": 158,
       "book": "Psalms",
       "text": "God! His way is immaculate,\nthe purified word of the Lord,\nHe is a shield for all who turn to Him!",
-      "ref": "Psalm 17:31",
+      "ref": "Psalm 18:30",
       "cat": "love",
       "ai": "God's Word passed all the tests for reliability. You are under reliable cover."
     },
@@ -1479,7 +1479,7 @@
       "id": 159,
       "book": "Psalms",
       "text": "There are many evils for the righteous, but the Lord delivers him from all of them!",
-      "ref": "Psalm 33:20",
+      "ref": "Psalm 34:19",
       "cat": "hope",
       "ai": "Problems can arise, but the key word here is \"from everyone\". No crisis will last forever."
     },
@@ -1487,7 +1487,7 @@
       "id": 160,
       "book": "Psalms",
       "text": "Put your longing on the Lord, and He will support you...",
-      "ref": "Psalm 54:23",
+      "ref": "Psalm 55:22",
       "cat": "victory",
       "ai": "Throw all the emotional burden, fears and worries on His shoulders. It will be easier for you to breathe."
     },
@@ -1495,7 +1495,7 @@
       "id": 161,
       "book": "Psalms",
       "text": "In God is my salvation and my glory, the rock of my strength...",
-      "ref": "Psalm 61:8",
+      "ref": "Psalm 62:7",
       "cat": "hope",
       "ai": "Your stability is fixed on the Eternal Rock, which cannot be shaken by any storm."
     },
@@ -1503,15 +1503,15 @@
       "id": 162,
       "book": "Psalms",
       "text": "My body and my heart are dying,\n— God is the rock of my heart and my destiny forever and ever!",
-      "ref": "Psalm 72:26",
+      "ref": "Psalm 73:26",
       "cat": "strength",
       "ai": "Even if your physical strength is at its limit, the inner core of God keeps your structure steadfast."
     },
     {
       "id": 163,
       "book": "Psalms",
-      "text": "on the day\nwhen i called\nYou heard me, encouraged me, poured strength into my soul!",
-      "ref": "Psalm 137:3",
+      "text": "on the day\nwhen I called\nYou heard me, encouraged me, poured strength into my soul!",
+      "ref": "Psalm 138:3",
       "cat": "strength",
       "ai": "Instant response to your sincere cry for help. A spiritual injection of strength."
     },
@@ -1933,7 +1933,7 @@
     },
     {
       "id": 216,
-      "book": "Genesis",
+      "book": "Exodus",
       "text": "And the Lord passed before his face,\nand said: Lord,\nThe Lord God is merciful and gracious, long-suffering, and abundant in mercy and truth...",
       "ref": "Exodus 34:6",
       "cat": "love",
@@ -2038,7 +2038,7 @@
     {
       "id": 229,
       "book": "Ephesians",
-      "text": "god\nrich in mercy\nbecause of His great love, with which He loved us, and we, who were dead in trespasses, made alive together with Christ",
+      "text": "God\nrich in mercy\nbecause of His great love, with which He loved us, and we, who were dead in trespasses, made alive together with Christ",
       "ref": "Ephesians 2:4-5",
       "cat": "love",
       "ai": "His love is so great that it spiritually resurrects a person."
@@ -2055,7 +2055,7 @@
       "id": 231,
       "book": "Psalms",
       "text": "For as the heavens are high above the earth, so great is His mercy to those who fear Him",
-      "ref": "Psalm 102:11",
+      "ref": "Psalm 103:11",
       "cat": "love",
       "ai": "The scale of God's love and mercy cannot be measured by human standards."
     },
@@ -2079,7 +2079,7 @@
       "id": 234,
       "book": "Psalms",
       "text": "Praise the Lord, for He is good, for His mercy endures forever",
-      "ref": "Psalm 135:1",
+      "ref": "Psalm 136:1",
       "cat": "hope",
       "ai": "A reminder that God's goodness and mercy endure forever."
     },
@@ -2094,8 +2094,8 @@
     {
       "id": 236,
       "book": "Psalms",
-      "text": "But you\ngod\nGod is generous and merciful, longsuffering and many-merciful and true",
-      "ref": "Psalm 85:15",
+      "text": "But you\nGod\nare generous and merciful, longsuffering and many-merciful and true",
+      "ref": "Psalm 86:15",
       "cat": "love",
       "ai": "God is in no hurry to punish, His nature is filled with patience and kindness."
     },
@@ -2143,7 +2143,7 @@
       "id": 242,
       "book": "Psalms",
       "text": "The Lord is my Shepherd, I will not lack anything",
-      "ref": "Psalm 22:1",
+      "ref": "Psalm 23:1",
       "cat": "victory",
       "ai": "As a good shepherd cares for his sheep, so God provides for all human needs."
     },
@@ -2167,7 +2167,7 @@
       "id": 245,
       "book": "Psalms",
       "text": "The Lord will protect you from all evil; the Lord will save your soul",
-      "ref": "Psalm 120:7-8",
+      "ref": "Psalm 121:7-8",
       "cat": "victory",
       "ai": "God's love acts as a reliable spiritual and physical shield."
     },
@@ -2175,7 +2175,7 @@
       "id": 246,
       "book": "Psalms",
       "text": "Because He commanded His Angels about you to guard you in all your ways",
-      "ref": "Psalm 90:11-12",
+      "ref": "Psalm 91:11-12",
       "cat": "victory",
       "ai": "God mobilizes heavenly forces to protect those He loves."
     },
@@ -2199,7 +2199,7 @@
       "id": 249,
       "book": "Psalms",
       "text": "As far as the east is from the west, so far has He removed our iniquities from us",
-      "ref": "Psalm 102:12",
+      "ref": "Psalm 103:12",
       "cat": "healing",
       "ai": "When God forgives, He never reminds a person of their sins again."
     },
@@ -2223,7 +2223,7 @@
       "id": 252,
       "book": "Psalms",
       "text": "He heals the brokenhearted and binds up their wounds",
-      "ref": "Psalm 146:3",
+      "ref": "Psalm 147:3",
       "cat": "healing",
       "ai": "God acts as a gentle physician to those who have experienced emotional or mental pain."
     },
@@ -2255,7 +2255,7 @@
       "id": 256,
       "book": "Psalms",
       "text": "The Lord is close to the brokenhearted, and He saves the humble in spirit",
-      "ref": "Psalm 33:19",
+      "ref": "Psalm 34:18",
       "cat": "healing",
       "ai": "When a person feels broken, God becomes closer to them than ever."
     },
@@ -2263,7 +2263,7 @@
       "id": 257,
       "book": "Psalms",
       "text": "Because You created my entrails, woven me in my mother's womb... I am wonderfully made",
-      "ref": "Psalm 138:13-14",
+      "ref": "Psalm 139:13-14",
       "cat": "love",
       "ai": "Each person is a unique masterpiece, thought out by God with love."
     },
@@ -2383,7 +2383,7 @@
       "id": 272,
       "book": "Psalms",
       "text": "You will show me the way of life: fullness of joy before Your face",
-      "ref": "Psalm 15:11",
+      "ref": "Psalm 16:11",
       "cat": "peace",
       "ai": "Being in God's presence fills a person with absolute joy."
     },
@@ -2393,7 +2393,7 @@
       "text": "May the Lord of peace himself give you peace always and in everything",
       "ref": "2 Thessalonians 3:16",
       "cat": "peace",
-      "ai": "God wants peace to accompany us in every area of ​​life."
+      "ai": "God wants peace to accompany us in every area of life."
     },
     {
       "id": 274,
@@ -2414,7 +2414,7 @@
     {
       "id": 276,
       "book": "Titus",
-      "text": "When the grace and humanity of our Savior appeared,\ngod\nHe saved us not by works of righteousness... but by His mercy",
+      "text": "When the grace and humanity of our Savior appeared,\nGod\nHe saved us not by works of righteousness... but by His mercy",
       "ref": "Titus 3:4-5",
       "cat": "hope",
       "ai": "The motive of our salvation was exclusively God's love for humanity."
@@ -2479,7 +2479,7 @@
       "id": 284,
       "book": "Psalms",
       "text": "For my father and my mother have forsaken me, but the Lord will receive me",
-      "ref": "Psalm (26):10",
+      "ref": "Ps. 27:10",
       "cat": "love",
       "ai": "Even if the closest people betray, God will never turn away."
     },
@@ -2615,7 +2615,7 @@
       "id": 301,
       "book": "Psalms",
       "text": "Yes, Your mercy and grace will accompany me all the days of my life",
-      "ref": "Psalm 22:6",
+      "ref": "Psalm 23:6",
       "cat": "hope",
       "ai": "God's kindness is not a temporary flash, it is a companion for a lifetime."
     },
@@ -2639,7 +2639,7 @@
       "id": 304,
       "book": "Psalms",
       "text": "And I will contemplate Your face in truth;\nwaking up\nI will be satisfied with Your image",
-      "ref": "Psalm 16:15",
+      "ref": "Psalm 17:15",
       "cat": "hope",
       "ai": "The highest reward of love is to see God face to face."
     },
@@ -2663,13 +2663,13 @@
       "id": 307,
       "book": "Psalms",
       "text": "The Lord is good to all, and His generosity is in all His works",
-      "ref": "Psalm 144:9",
+      "ref": "Psalm 145:9",
       "cat": "hope",
       "ai": "God's love is universal, it is open to everyone who lives on this earth."
     },
     {
       "id": 308,
-      "book": "Genesis",
+      "book": "Exodus",
       "text": "And you will serve the Lord,\nto your God\nand He will bless your bread and your water, and take sickness away from you. There will not be one that throws away fruit, and one that is barren in your land - I will make the number of your days complete",
       "ref": "Exodus 23:25-26",
       "cat": "healing",
@@ -2678,8 +2678,8 @@
     {
       "id": 309,
       "book": "Psalms",
-      "text": "god\nmy god\nI cried to You, and You healed me! Lord, You brought my soul out of Sheol, You revived me so that I would not go down to the grave",
-      "ref": "Psalm 29:3-4",
+      "text": "God\nmy God\nI cried to You, and You healed me! Lord, You brought my soul out of Sheol, You revived me so that I would not go down to the grave",
+      "ref": "Psalm 30:2-3",
       "cat": "healing",
       "ai": "When it seems that the situation is deadly and you already have one foot in the grave, God's call brings you back to life from the very bottom."
     },
@@ -2687,7 +2687,7 @@
       "id": 310,
       "book": "Psalms",
       "text": "He forgives all your sins, heals all your ailments",
-      "ref": "Psalm 102:3",
+      "ref": "Psalm 103:3",
       "cat": "healing",
       "ai": "The full package of God's services: total forgiveness of the soul plus total healing of the body. No disease is excluded from this list."
     },
@@ -2710,7 +2710,7 @@
     {
       "id": 313,
       "book": "Matthew",
-      "text": "And,\nhow did jesus come out\nHe saw many people, and had mercy on them, and healed their sick",
+      "text": "And,\nhow did Jesus come out\nHe saw many people, and had mercy on them, and healed their sick",
       "ref": "Matthew 14:14",
       "cat": "healing",
       "ai": "The driving force behind healing is God's mercy and compassion for your pain."
@@ -2799,7 +2799,7 @@
       "id": 324,
       "book": "Psalms",
       "text": "The Lord will comfort him on the bed of sickness, he will turn all his bed in his sickness",
-      "ref": "Psalm 40:4",
+      "ref": "Psalm 41:3",
       "cat": "healing",
       "ai": "Even in times of weakness, God personally cares for your comfort and transforms sickness into recovery."
     },
@@ -2846,7 +2846,7 @@
     {
       "id": 330,
       "book": "Isaiah",
-      "text": "And the resident will not say \"I'm sick!",
+      "text": "And the resident will not say \"I'm sick!\"",
       "ref": "Isaiah 33:24",
       "cat": "healing",
       "ai": "God's standard for His people is the complete eradication of the very concept of disease from the lexicon."
@@ -2975,7 +2975,7 @@
       "id": 346,
       "book": "Psalms",
       "text": "I will never forget Your commandments, because You revive me with them",
-      "ref": "Psalm 118:93",
+      "ref": "Psalm 119:93",
       "cat": "love",
       "ai": "God's commandments are instructions for the safe operation of your physical body."
     },
@@ -3015,7 +3015,7 @@
       "id": 351,
       "book": "Psalms",
       "text": "For You saved my soul from death, my eye from tears, my foot from stumbling",
-      "ref": "Psalm 115:8",
+      "ref": "Psalm 116:8",
       "cat": "victory",
       "ai": "God completely eliminates the consequences of crises, restoring stability to every step."
     },
@@ -3055,7 +3055,7 @@
       "id": 356,
       "book": "Psalms",
       "text": "God for us is protection and strength, help in the misfortunes that often happen",
-      "ref": "Psalm 45:2",
+      "ref": "Psalm 46:1",
       "cat": "love",
       "ai": "God is always there in critical moments. He is not late for a second."
     },
@@ -3063,7 +3063,7 @@
       "id": 357,
       "book": "Psalms",
       "text": "The Lord supports all the fallen, and straightens all the bent ones",
-      "ref": "Psalm 144:14",
+      "ref": "Psalm 145:14",
       "cat": "healing",
       "ai": "If illness or circumstances have bent you to the ground, God's hand is already here to straighten your posture."
     },
@@ -3270,7 +3270,7 @@
     {
       "id": 383,
       "book": "Revelation",
-      "text": "Ivan to seven churches,\nthat in Asia: grace to you and peace from Him,\nWho is, and Who was, and Who is to come...",
+      "text": "John to seven churches,\nthat in Asia: grace to you and peace from Him,\nWho is, and Who was, and Who is to come...",
       "ref": "Revelation 1:4",
       "cat": "grace",
       "ai": "The Book of Prophecy, despite all the terrible judgments and cataclysms, begins with the evangelical assurance of God's grace to His faithful Church."
@@ -3301,7 +3301,7 @@
     },
     {
       "id": 387,
-      "book": "Genesis",
+      "book": "Exodus",
       "text": "And the Lord spoke to Moses: Also this thing,\nwhich you were talking about\nI will do it, because you have found grace in My eyes, and I know you by name",
       "ref": "Exodus 33:17",
       "cat": "grace",
@@ -3311,7 +3311,7 @@
       "id": 388,
       "book": "Psalms",
       "text": "Because the sun and the shield are the Lord God! The Lord gives grace [grace] and glory,\ngood does not refuse those\nwho walks in integrity",
-      "ref": "Psalm 83:12",
+      "ref": "Psalm 84:11",
       "cat": "faith",
       "ai": "God as a source of provision. He unselfishly bestows His grace as light (sun) and protection (shield) for everyone who sincerely seeks to live righteously."
     },
@@ -3327,7 +3327,7 @@
       "id": 390,
       "book": "Psalms",
       "text": "You are better than the sons of men\nbeauty [grace] poured out on Your lips,\ntherefore God has blessed You forever",
-      "ref": "Psalm 44:3",
+      "ref": "Psalm 45:2",
       "cat": "grace",
       "ai": "A prophetic psalm about the Messiah-King. His speech and words are full of such grace and attractiveness that it sets Him apart from all the human race."
     },
@@ -3350,7 +3350,7 @@
     {
       "id": 393,
       "book": "Romans",
-      "text": "For when for the transgression of one death reigned through another,\neven more so those\nthose who accept the bounty of grace and the gift of righteousness will reign in life through Jesus Christ alone",
+      "text": "For when for the transgression of one death reigned through another,\neven more so those\nwho accept the bounty of grace and the gift of righteousness will reign in life through Jesus Christ alone",
       "ref": "Romans 5:17",
       "cat": "strength",
       "ai": "Our royal status. Through the bounty of grace, we are not just saved from hell, we are raised to the level of those who will \"reign\" with Christ in His eternal life."
@@ -3502,7 +3502,7 @@
     {
       "book": "James",
       "text": "draw near to God\nand He will draw near to you.",
-      "ref": "Acts 4:8",
+      "ref": "James 4:8",
       "cat": "promises",
       "ai": "One of the simplest and most profound promises of Scripture. The initiative is yours, but God always responds to approaches. You take a step - He takes a step towards you. The distance between you always shrinks as you move towards Him.",
       "id": 412
@@ -3606,7 +3606,7 @@
     {
       "book": "James",
       "text": "If any of you\nlack of wisdom\nlet him ask God\nWhich gives generously\nand does not reproach -\nand it will be given to him.",
-      "ref": "Acts 1:5",
+      "ref": "James 1:5",
       "cat": "promises",
       "ai": "\"Generously and does not reproach\" - God will not sigh when you ask again. He does not remind you how many times you have already asked. He just gives. Asking Him is a form of trust, and He responds to it with an open hand.",
       "id": 425
@@ -3821,7 +3821,7 @@
     },
     {
       "book": "John",
-      "text": "And everything you ask for\nin my name\ni will do that\nthat the Father may be glorified in the Son.",
+      "text": "And everything you ask for\nin my name\nI will do it\nso that the Father may be glorified in the Son.",
       "ref": "John 14:13",
       "cat": "promises",
       "ai": "\"In My Name\" is not a magic formula at the end of a prayer, but a prayer according to His character and will. To pray in the Name of Jesus is to pray as He would pray. This is not a limitation, but the key to making the right request.",
@@ -3829,7 +3829,7 @@
     },
     {
       "book": "Psalms",
-      "text": "Call upon Me in the day of trouble;\ni will set you free\nand you will glorify Me.",
+      "text": "Call upon Me in the day of trouble;\nI will set you free\nand you will glorify Me.",
       "ref": "Ps. 50:15",
       "cat": "promises",
       "ai": "God himself invites to call on the day of sorrow. Not \"when everything is good\" - namely in sorrow. He's ready for your 3 a.m. crisis call. Liberation is a promise, glory is a natural consequence.",
@@ -3968,7 +3968,7 @@
       "text": "I listened to you in my favorite time\nand on the day of salvation helped you.",
       "ref": "Isa. 49:8",
       "cat": "promises",
-      "ai": "The \"favorite time\" and the \"day of salvation\" - God works in His time, but He works. When He says \"Heared\" and \"Helped\" it is a declared promise. Waiting for God is not an empty expectation, but a confidence that He will come.",
+      "ai": "The \"favorite time\" and the \"day of salvation\" - God works in His time, but He works. When He says \"Heard\" and \"Helped\" it is a declared promise. Waiting for God is not an empty expectation, but a confidence that He will come.",
       "id": 470
     },
     {
@@ -4102,7 +4102,7 @@
     {
       "book": "Colossians",
       "text": "Where there is no Greek or Jew,\ncircumcision or uncircumcision\nbarbarian, hermit, slave, free,\nbut all and in all Christ.",
-      "ref": "Num.. 3:11",
+      "ref": "Col. 3:11",
       "cat": "promises",
       "ai": "In Christ, all barriers - national, social, cultural - disappear. This is the promise of a new reality. Not \"one must tolerate differences\", but \"in Christ we are already one\". The identity in Him surpasses all others.",
       "id": 487
@@ -4262,7 +4262,7 @@
     {
       "book": "Malachi",
       "text": "Bring the whole tithe\nin storage\nthat there may be food in my house,\nand test Me in this,\nsays the Lord of hosts:\nwill I not open the windows of heaven for you?\nand I will not shower you with blessings beyond measure.",
-      "ref": "Fig.. 3:10",
+      "ref": "Mal. 3:10",
       "cat": "promises",
       "ai": "The only verse in the Bible where God says \"test Me.\" It invites practical experience. Generosity toward God activates the promise of abundant blessing—not just material, but in all dimensions.",
       "id": 507
@@ -4296,7 +4296,7 @@
       "book": "Romans",
       "cat": "victory",
       "text": "What can we say about that?\nIf God is for us, then who is against us?",
-      "ref": "Rom.. 8:31",
+      "ref": "Rom. 8:31",
       "ai": "This is not a rhetorical question, it is a sentence. With the One who created the universe on your side, any force \"against\" becomes mathematically insignificant.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4341,7 +4341,7 @@
       "book": "James",
       "cat": "victory",
       "text": "Submit to God.\nHowever\nresist the devil\nand he will run away from you.",
-      "ref": "Acts 4:7",
+      "ref": "James 4:7",
       "ai": "Two verbs — and a whole strategy between them. First obedience to God (source of power), then opposition to the enemy (application of power). Consistency is important.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4368,7 +4368,7 @@
       "book": "Colossians",
       "cat": "victory",
       "text": "He disarmed the superiors and authorities\nand put them to ridicule,\ndefeating them on the cross.",
-      "ref": "Num.. 2:15",
+      "ref": "Col. 2:15",
       "ai": "\"Disarmed\" - literally \"undressed\". The cross is not defeat, but the complete disarmament of the enemy. What you fear has already lost its weapon.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4449,13 +4449,13 @@
       "book": "Deuteronomy",
       "cat": "victory",
       "text": "The Lord your God\nIt is He who fights for you.",
-      "ref": "Prov. Zak. 3:22",
+      "ref": "Deut. 3:22",
       "ai": "Moses says this before entering Canaan, a land yet to be conquered. God fights \"for you\" but through you. Your participation is needed, but the power is His.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
       "id": 529,
-      "book": "Genesis",
+      "book": "Exodus",
       "cat": "victory",
       "text": "The Lord is a man of battle;\nThe Lord is His name!",
       "ref": "Ex. 15:3",
@@ -4557,7 +4557,7 @@
       "book": "Deuteronomy",
       "cat": "victory",
       "text": "The Lord your God, who goes before you,\nHe will fight for you.",
-      "ref": "Prov. Zak. 1:30",
+      "ref": "Deut. 1:30",
       "ai": "\"Going before you\" — God does not wait for you to get into trouble. He is already there. You enter where He already is.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4575,7 +4575,7 @@
       "book": "Romans",
       "cat": "victory",
       "text": "Because I am convinced that neither death nor life...\nnor any other animal\ncannot separate us from the love of God.",
-      "ref": "Rom.. 8:38-39",
+      "ref": "Rom. 8:38-39",
       "ai": "Paul lists almost all possible \"enemies\" - and says: none. God's love is not a reward for behavior and does not depend on circumstances. This is absolute safety.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4779,7 +4779,7 @@
     },
     {
       "id": 565,
-      "book": "Luke",
+      "book": "Matthew",
       "cat": "faith",
       "text": "If you have faith like a mustard seed,\nthen say to this mountain: move from here to there,\nand she will pass.",
       "ref": "Mt. 17:20",
@@ -4828,7 +4828,7 @@
       "cat": "faith",
       "text": "By faith Abraham obeyed as he was called,\nto go to the place he was supposed to inherit;\nand went out, not knowing where he was going.",
       "ref": "Heb. 11:8",
-      "ai": "Avraham left without a GPS and without a route. Sometimes God only takes the first step, not the whole way. Movement in uncertainty is the essence of a step of faith.",
+      "ai": "Abraham left without a GPS and without a route. Sometimes God only takes the first step, not the whole way. Movement in uncertainty is the essence of a step of faith.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -4872,7 +4872,7 @@
       "book": "Romans",
       "cat": "faith",
       "text": "Because I am not ashamed of the gospel of Christ,\nbecause it is the power of God for salvation\nto everyone who believes.",
-      "ref": "Rom.. 1:16",
+      "ref": "Rom. 1:16",
       "ai": "\"Strength\" is the Greek \"dyunamis\", from which \"dynamite\". The gospel is not a silent hint about God. It is an explosive force that breaks the chains of sin, disease and death.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4881,7 +4881,7 @@
       "book": "Romans",
       "cat": "faith",
       "text": "The righteous will live by faith.",
-      "ref": "Rom.. 1:17",
+      "ref": "Rom. 1:17",
       "ai": "This verse changed Martin Luther and launched the Reformation. Not by deeds, not by rituals, but by faith. All righteousness before God is obtained by trust, not by achievement.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4890,7 +4890,7 @@
       "book": "Romans",
       "cat": "faith",
       "text": "Therefore, being justified by faith,\nwe have peace with God\nthrough our Lord Jesus Christ.",
-      "ref": "Rom.. 5:1",
+      "ref": "Rom. 5:1",
       "ai": "\"Peace with God\" is not an emotional state, but a legal status. The war is over. Justification by faith means: God is no longer against you. It's a foundation, not a feeling.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4926,8 +4926,8 @@
       "book": "James",
       "cat": "faith",
       "text": "So is faith, if it does not have works,\ndead in itself.",
-      "ref": "Acts 2:17",
-      "ai": "James is not contradicting Paul - he is talking about something else. Pavlo: things are not saved. James: true saving faith always produces works. A dead tree does not bear fruit.",
+      "ref": "James 2:17",
+      "ai": "James is not contradicting Paul - he is talking about something else. Paul: things are not saved. James: true saving faith always produces works. A dead tree does not bear fruit.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -4935,7 +4935,7 @@
       "book": "James",
       "cat": "faith",
       "text": "And the Scripture was fulfilled, which says:\nAbraham believed God\nand it is credited to him for righteousness.",
-      "ref": "Acts 2:23",
+      "ref": "James 2:23",
       "ai": "\"Credited\" is an accounting term: write to an account. God sees Abraham's trust and credits him with righteousness. Which he did not earn - but received as a loan.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4979,7 +4979,7 @@
       "id": 587,
       "book": "John",
       "cat": "faith",
-      "text": "If you try in Maine\nand my words shall be tested in you,\nask for what you want and it will happen to you.",
+      "text": "If you abide in Me\nand my words shall be tested in you,\nask for what you want and it will happen to you.",
       "ref": "John 15:7",
       "ai": "The condition of unlimited prayer is \"if you abide in Me.\" Deep abiding in Christ changes our desires. The true \"want\" of a mature disciple coincides with the will of the Father.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -5025,16 +5025,16 @@
       "book": "Romans",
       "cat": "faith",
       "text": "Because when you confess with your mouth,\nthat Jesus is Lord\nand you believe with your heart\nthat God raised Him from the dead - you will be saved.",
-      "ref": "Rom.. 10:9",
+      "ref": "Rom. 10:9",
       "ai": "Two dimensions of salvation: the heart (conviction) and the mouth (confession). Internal faith is incomplete without external testimony. True trust is looking for a way out.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
       "id": 593,
-      "book": "Revelation",
+      "book": "Romans",
       "cat": "faith",
       "text": "Therefore, faith comes from hearing,\nand hearing through the word of Christ.",
-      "ref": "Rom.. 10:17",
+      "ref": "Rom. 10:17",
       "ai": "A simple causal chain: Word → hearing → faith. If you want more faith, don't look for more emotions. Dive deeper into the Word.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5070,7 +5070,7 @@
       "book": "James",
       "cat": "faith",
       "text": "Consider it a great joy, my brothers,\nwhen you fall into various temptations,\nknowing that testing your faith\nproduces patience.",
-      "ref": "Acts 1:2-3",
+      "ref": "James 1:2-3",
       "ai": "James does not say \"enjoy the suffering.\" He says \"consider for joy\" - a conscious choice of perspective. Knowing about what is happening changes the attitude towards what is happening.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5079,7 +5079,7 @@
       "book": "James",
       "cat": "faith",
       "text": "But let him ask with faith,\nwithout doubting anything;\nfor he who doubts is like a wave of the sea.",
-      "ref": "Acts 1:6",
+      "ref": "James 1:6",
       "ai": "\"Doubt\" here is not intellectual skepticism, but dichotomy: sometimes I believe, sometimes I don't. Jacob describes a person without an anchor - he is thrown between trust and distrust depending on the circumstances.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5196,13 +5196,13 @@
       "book": "Romans",
       "cat": "peace",
       "text": "Therefore, being justified by faith,\nwe have peace with God\nthrough our Lord Jesus Christ.",
-      "ref": "Rom.. 5:1",
+      "ref": "Rom. 5:1",
       "ai": "Peace \"with God\" is not an emotional state, but a legal fact. The war is over. The cross is a peace agreement signed with the blood of Christ. Anxiety is forgetting that the contract has already been signed.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
       "id": 612,
-      "book": "Isaiah",
+      "book": "Ephesians",
       "cat": "peace",
       "text": "Because He is our peace.",
       "ref": "Eph. 2:14",
@@ -5240,7 +5240,7 @@
       "id": 616,
       "book": "Psalms",
       "cat": "peace",
-      "text": "I will lie down and fall asleep;\ni wake up\nfor the Lord supports me.",
+      "text": "I will lie down and fall asleep;\nI wake up\nfor the Lord supports me.",
       "ref": "Ps. 3:6",
       "ai": "David wrote this psalm while fleeing from his own son Absalom. Circumstances are worse than anywhere else. And all the same: I lie down and sleep. The peace that allows you to sleep while on the run is not human psychology.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -5349,7 +5349,7 @@
       "book": "Romans",
       "cat": "peace",
       "text": "If possible on your part,\nhave peace with all men.",
-      "ref": "Rom.. 12:18",
+      "ref": "Rom. 12:18",
       "ai": "\"If possible\" is a fair warning. Paul is not naive: peace does not always depend on you. But it is your responsibility to do everything that depends on you. The rest is not yours.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5358,7 +5358,7 @@
       "book": "Romans",
       "cat": "peace",
       "text": "Because the Kingdom of God is not food and drink,\nbut righteousness, and peace, and joy in the Holy Spirit.",
-      "ref": "Rom.. 14:17",
+      "ref": "Rom. 14:17",
       "ai": "Peace is not a pleasant bonus to spiritual life. It is included in the very definition of the Kingdom. Where God reigns, there is peace. Where there is no peace, God has not yet been invited to rule.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5367,7 +5367,7 @@
       "book": "Romans",
       "cat": "peace",
       "text": "May God fill you with hope\nwith all joy and peace in faith.",
-      "ref": "Rom.. 15:13",
+      "ref": "Rom. 15:13",
       "ai": "\"Fill\" - God wants to pour a little peace into your heart. He wants to fill to the brim. The capacity of the vessel is determined by your openness.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5385,7 +5385,7 @@
       "book": "Colossians",
       "cat": "peace",
       "text": "And the peace of Christ,\nto which you are called in one body,\nlet it reign in your hearts.",
-      "ref": "Num.. 3:15",
+      "ref": "Col. 3:15",
       "ai": "\"Called\" is not an option for the spiritually advanced. Everyone in the body of Christ is called to peace. Peace is not the privilege of some characters, but the vocation of every student.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5400,7 +5400,7 @@
     },
     {
       "id": 634,
-      "book": "1 Thessalonians",
+      "book": "2 Thessalonians",
       "cat": "peace",
       "text": "The Lord of peace himself\nmay he give you peace always\nand in everything.",
       "ref": "2 Thess. 3:16",
@@ -5421,7 +5421,7 @@
       "book": "James",
       "cat": "peace",
       "text": "The fruit of righteousness\nis sown in peace\nthose who make peace.",
-      "ref": "Acts 3:18",
+      "ref": "James 3:18",
       "ai": "Righteousness, sown in the soil of peace, bears fruit. Righteousness sown in conflict produces strife. The atmosphere in which you act determines the result. Peace is not only the goal, but also the ground.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5445,7 +5445,7 @@
     },
     {
       "id": 639,
-      "book": "Isaiah",
+      "book": "Jeremiah",
       "cat": "peace",
       "text": "For I know the thoughts that I think of you,\nsays the Lord\nthoughts of peace, not evil,\nto give you a future and hope.",
       "ref": "Jer. 29:11",
@@ -5529,7 +5529,7 @@
       "book": "Colossians",
       "cat": "peace",
       "text": "And through Him to reconcile everything for Himself,\nhaving made peace with the blood of His cross.",
-      "ref": "Num.. 1:20",
+      "ref": "Col. 1:20",
       "ai": "\"Having made peace\" - peace as a completed action. Not a negotiation process, not a conditional contract. The cross signed the peace agreement between heaven and earth once and for all.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5555,7 +5555,7 @@
       "id": 651,
       "book": "Psalms",
       "cat": "peace",
-      "text": "Great peace to those who\nwho loves your law\nand there is no obstacle for them.",
+      "text": "Great peace to those\nwho love your law\nand there is no obstacle for them.",
       "ref": "Ps. 119:165",
       "ai": "\"There is no obstacle\" - literally: there is no stumbling block. A person immersed in God's Word does not become invincible - but he stops stumbling over what used to fall.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -5625,7 +5625,7 @@
     },
     {
       "id": 659,
-      "book": "Isaiah",
+      "book": "Psalms",
       "cat": "peace",
       "text": "You will not be afraid of the night terror,\nno arrow that flies by day.",
       "ref": "Ps. 91:5",
@@ -5634,7 +5634,7 @@
     },
     {
       "id": 660,
-      "book": "Numbers",
+      "book": "John",
       "cat": "peace",
       "text": "And you will know the truth\nand the truth shall set you free.",
       "ref": "John 8:32",
@@ -5645,7 +5645,7 @@
       "id": 661,
       "book": "Romans",
       "text": "Justified foolishly by His grace,\nthrough redemption in Christ Jesus...",
-      "ref": "Rom.. 3:24",
+      "ref": "Rom. 3:24",
       "cat": "grace",
       "ai": "\"Stupid\" is the Greek \"dore'an,\" meaning free, certainly. God does not account. Justification is a legal verdict of \"not guilty\" that comes not by merit, but by the price of Calvary.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5698,7 +5698,7 @@
     {
       "id": 667,
       "book": "Psalms",
-      "text": "protect me god\nbecause I turn to You!",
+      "text": "protect me God\nbecause I turn to You!",
       "ref": "Ps. 16:1",
       "cat": "grace",
       "ai": "A short prayer behind which there is great trust. The one who \"resorts to God\" becomes an object of His protection. Grace begins with our free choice to come.",
@@ -5769,9 +5769,9 @@
     },
     {
       "id": 675,
-      "book": "Acts",
+      "book": "Hosea",
       "text": "Because I want a favor\nnot victims\nand the knowledge of God is more than a burnt offering!",
-      "ref": "Eph. 6:6",
+      "ref": "Hos. 6:6",
       "cat": "grace",
       "ai": "Jesus quotes this verse twice. God does not need your religious performance. He wants your heart. Affection is not a reward for rituals, but the result of a real relationship.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5816,7 +5816,7 @@
       "id": 680,
       "book": "James",
       "text": "But He gives greater grace,\nthat's why he says:\nGod resists the proud, but gives grace to the humble!",
-      "ref": "Acts 4:6",
+      "ref": "James 4:6",
       "cat": "grace",
       "ai": "Jacob quotes Proverbs. The spiritual gravity of God draws the humble. Not those who ostentatiously humiliate themselves, but those who honestly understand their dependence on Him.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5832,7 +5832,7 @@
     },
     {
       "id": 682,
-      "book": "Acts",
+      "book": "Daniel",
       "text": "Then he said to me:\nFear not, Daniel, for from the first day you set your heart to understand\nand humble yourself before your God,\nheard your words...",
       "ref": "Dan. 10:12",
       "cat": "grace",
@@ -5868,9 +5868,9 @@
     },
     {
       "id": 686,
-      "book": "2 Chronicles",
+      "book": "Nehemiah",
       "text": "But You are the God of forgiveness,\nkind and merciful\nlong-suffering and merciful...",
-      "ref": "Eccl. 9:17",
+      "ref": "Neh. 9:17",
       "cat": "grace",
       "ai": "Prayer-confession of restored Israel. Even after a long list of popular betrayals of God, His character remains unchanged. Grace is His essence, not a reaction to our behavior.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5962,14 +5962,14 @@
       "text": "For God so loved the world,\nwho gave His only begotten Son,\nthat whosoever believeth in Him should not perish...",
       "ref": "John 3:16",
       "cat": "grace",
-      "ai": "The heart of the Gospel. \"Yes\" - the Greek \"houtós\" - in such a special way. The measure of grace is not measured by words, but by the Person of the Son. The highest price for the most unworthy recipients.",
+      "ai": "The heart of the Gospel. \"Yes\" - the Greek \"houtos\" - in such a special way. The measure of grace is not measured by words, but by the Person of the Son. The highest price for the most unworthy recipients.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
     },
     {
       "id": 697,
       "book": "Romans",
       "text": "But God shows His love for us by\nthat Christ died for us\nwhen we were still sinners!",
-      "ref": "Rom.. 5:8",
+      "ref": "Rom. 5:8",
       "cat": "grace",
       "ai": "Grace works not \"after\" correction, but \"before\" it. God didn't wait for you to get better. He paid the ultimate price when you were still His enemy. This is the definition of unconditional love.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -6005,7 +6005,7 @@
       "id": 701,
       "book": "Colossians",
       "text": "...have come to know the grace of God in truth...",
-      "ref": "Num.. 1:6",
+      "ref": "Col. 1:6",
       "cat": "grace",
       "ai": "Grace can be \"known in truth\" - that is, not theoretically, but in the real experience of encountering the Gospel. Grace that you have not personally experienced is only a concept.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -6041,7 +6041,7 @@
       "id": 705,
       "book": "James",
       "text": "Every good gift and every good endowment\nthere is from above\nproceeds from the Father of the worlds...",
-      "ref": "Acts 1:17",
+      "ref": "James 1:17",
       "cat": "grace",
       "ai": "James describes God as the \"Father of the worlds\" from whom only good comes. Every moment of beauty, health, love or enlightenment is the percolation of His grace into the material world.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -6210,9 +6210,9 @@
     },
     {
       "id": 724,
-      "book": "Mark",
+      "book": "Joshua",
       "text": "Just be very strong and courageous,\nto keep and fulfill the whole law,\nwhat did Moses, My servant, command you...",
-      "ref": "Isa. Josh. 1:7",
+      "ref": "Josh. 1:7",
       "cat": "strength",
       "ai": "Strength and courage here are tied not to battle, but to faithfulness to the Word. The hardest struggle is not external, but internal: staying on the path day after day when no one can see it is difficult.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6221,7 +6221,7 @@
       "id": 725,
       "book": "Judges",
       "text": "And the Spirit of the Lord came upon him,\nand he judged Israel...",
-      "ref": "Judg.. 3:10",
+      "ref": "Judg. 3:10",
       "cat": "strength",
       "ai": "The first of the judges is Hophoniel. God gives power through His Spirit, not through human potential. Every real victory in Scripture begins with the phrase \"the Spirit of the Lord has come.\"",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6248,7 +6248,7 @@
       "id": 728,
       "book": "Nehemiah",
       "text": "...because the work is big and extensive,\nand we are scattered on the wall\nfar from each other.\nWhere only you will hear the sound of the trumpet,\ngather to us: our God will fight for us!",
-      "ref": "Eccl. 4:19-20",
+      "ref": "Neh. 4:19-20",
       "cat": "strength",
       "ai": "The wall of Jerusalem is being built under threat of attack. Nehemiah does not remove the danger - he changes the focus: \"Our God will fight.\" Realizing God as a Warrior transforms panic into organized action.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6264,7 +6264,7 @@
     },
     {
       "id": 730,
-      "book": "Proverbs",
+      "book": "2 Samuel",
       "text": "The Lord is my rock,\nmy fortress and my deliverer;\nMy God is my rock, I take refuge in Him...",
       "ref": "2 Sam. 22:2-3",
       "cat": "strength",
@@ -6309,7 +6309,7 @@
     },
     {
       "id": 735,
-      "book": "Acts",
+      "book": "Luke",
       "text": "...and the power of the Most High will overshadow you...",
       "ref": "Luke 1:35",
       "cat": "strength",
@@ -6401,14 +6401,14 @@
       "id": 745,
       "book": "Colossians",
       "text": "...strengthened with all strength\nby the power of His glory\nfor all patience and long-suffering with joy!",
-      "ref": "Num.. 1:11",
+      "ref": "Col. 1:11",
       "cat": "strength",
       "ai": "God's power is spent here not on spectacular miracles, but on patience and long-suffering \"with joy.\" The most imperceptible and most necessary strength is to endure a long, difficult journey without getting sour and bitter.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
     },
     {
       "id": 746,
-      "book": "1 Timothy",
+      "book": "2 Timothy",
       "text": "That's why I endure all this\nfor I know in whom I believe\nand certain that He can preserve\nmy confidant until that day.",
       "ref": "2 Tim. 1:12",
       "cat": "strength",
@@ -6437,7 +6437,7 @@
       "id": 749,
       "book": "James",
       "text": "Is there a sick person among you?...\nA prayer of faith will heal the sick,\nand the Lord will raise him up...",
-      "ref": "Acts 5:14-15",
+      "ref": "James 5:14-15",
       "cat": "strength",
       "ai": "Practical instruction of the early Church. God's power is available through congregational prayer. Jacob does not say \"if there is a will\" - he says \"he will heal.\" The body of believers is a space where His power becomes concrete and tangible.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6466,7 +6466,7 @@
       "text": "Don't be afraid!\nI am the First and the Last,\nand Alive!\nAnd I was dead, and behold, I am alive forever and ever!",
       "ref": "Rev. 1:17-18",
       "cat": "strength",
-      "ai": "Ivan fell on his face in horror. Jesus lays his hand and says, \"Do not be afraid.\" He who conquered death personally speaks to you about fear. The Risen Christ is the most powerful argument against any anxiety.",
+      "ai": "John fell on his face in horror. Jesus lays his hand and says, \"Do not be afraid.\" He who conquered death personally speaks to you about fear. The Risen Christ is the most powerful argument against any anxiety.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
     },
     {
@@ -6525,7 +6525,7 @@
     },
     {
       "id": 759,
-      "book": "Psalms",
+      "book": "Lamentations",
       "text": "The Lord is good to those who wait for Him,\nfor the soul that seeks Him!",
       "ref": "Lam. 3:25",
       "cat": "hope",
@@ -6561,20 +6561,20 @@
     },
     {
       "id": 763,
-      "book": "Isaiah",
+      "book": "Hosea",
       "text": "...and I will give her her vineyards from there,\nthe valley of Achor to the door of hope...",
-      "ref": "Eph. 2:15",
+      "ref": "Hos. 2:15",
       "cat": "hope",
       "ai": "\"Achor\" means \"failure, grief.\" God turns the valley of defeat into a \"door of hope.\" It is from the most painful place of your past that He can open the entrance to the new.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
     },
     {
       "id": 764,
-      "book": "Isaiah",
+      "book": "Revelation",
       "text": "I am Alpha and Omega, the beginning and the end.\nFor those who are thirsty\nI will give from the spring of living water freely.",
       "ref": "Rev. 21:6",
       "cat": "hope",
-      "ai": "God is both the beginning and the end of your hope. No situation is \"outside of Him\" ​​because He is both there and here. Hope in Him is not blind optimism, but trust in Him who holds the whole range of your existence.",
+      "ai": "God is both the beginning and the end of your hope. No situation is \"outside of Him\" because He is both there and here. Hope in Him is not blind optimism, but trust in Him who holds the whole range of your existence.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
     },
     {
@@ -6633,7 +6633,7 @@
     },
     {
       "id": 771,
-      "book": "Genesis",
+      "book": "Exodus",
       "text": "And the children of Israel groaned from work\nand shouted\nand their cry from work went down to God!\nAnd God heard their groaning...",
       "ref": "Ex. 2:23-24",
       "cat": "hope",
@@ -6642,9 +6642,9 @@
     },
     {
       "id": 772,
-      "book": "Mark",
+      "book": "Joshua",
       "text": "Not a single word fell\nof all kind words\nwhat did the Lord say to the house of Israel!\nEverything came true!",
-      "ref": "Isa. Josh. 21:45",
+      "ref": "Josh. 21:45",
       "cat": "hope",
       "ai": "Summary of the Book of Joshua: Not one word of God fell. Every promise fulfilled. This is not rhetoric, it is a documented fact. Hope in God is never an illusion: He always fulfills what He has promised.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6653,7 +6653,7 @@
       "id": 773,
       "book": "Nehemiah",
       "text": "The Lord is great and terrible!\nRemember the great and terrible Lord\nand fight for your brothers...",
-      "ref": "Eccl. 4:14",
+      "ref": "Neh. 4:14",
       "cat": "hope",
       "ai": "Nehemiah builds a wall under threat of attack — and his words become a source of hope for the entire nation. Remembering the greatness of God turns panic into courage. Hope is reborn when you remind yourself who your God is.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6662,7 +6662,7 @@
       "id": 774,
       "book": "Judges",
       "text": "The Lord returned to them\nand said:\nPeace to you!\nDon't be afraid, you won't die!",
-      "ref": "Judg.. 6:23",
+      "ref": "Judg. 6:23",
       "cat": "hope",
       "ai": "The words of the angel of the Lord to Gideon, who feels himself the least in the least tribe. Hope comes not through a change in circumstances, but through a personal encounter: \"Peace be with you.\" God speaks to those who fear.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6741,9 +6741,9 @@
     },
     {
       "id": 783,
-      "book": "Acts",
+      "book": "Hosea",
       "text": "Therefore, I will seduce her\nand I will lead her into the desert\nand I will speak to her heart...",
-      "ref": "Eph. 2:14",
+      "ref": "Hos. 2:14",
       "cat": "hope",
       "ai": "God leads an unfaithful wife into the desert — not for punishment, but for the restoration of the relationship. Sometimes God takes you to the \"wilderness\" precisely because there, without distractions, He can speak to your heart and renew hope.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6770,7 +6770,7 @@
       "id": 786,
       "book": "Malachi",
       "text": "But for you who fear My Name,\nthe sun of truth will rise\nand in His rays - healing...",
-      "ref": "Fig.. 4:2",
+      "ref": "Mal. 4:2",
       "cat": "hope",
       "ai": "The last book of the Old Testament ends on a note of hope. The \"Sun of Truth\" is an image of the Messiah. \"In His rays - healing.\" After a long prophetic silence - sunrise. There is always hope, even after the longest night.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6808,7 +6808,7 @@
       "text": "Jesus said to her:\nI am the resurrection and the life.\nWho believes in me\neven if he dies, he will live!",
       "ref": "John 11:25",
       "cat": "hope",
-      "ai": "Marfa misses Lazarus. Jesus doesn't just promise the resurrection as a future fact—He says, \"I am the resurrection.\" Hope is not in the event, but in the Person. As long as you are in Him, death is not the end.",
+      "ai": "Martha misses Lazarus. Jesus doesn't just promise the resurrection as a future fact—He says, \"I am the resurrection.\" Hope is not in the event, but in the Person. As long as you are in Him, death is not the end.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
     },
     {
@@ -6887,7 +6887,7 @@
       "id": 799,
       "book": "Colossians",
       "text": "...because of hope\nthat is stored up for you in heaven,\nwhich you have heard before\nin the word of truth of the Gospel...",
-      "ref": "Num.. 1:5",
+      "ref": "Col. 1:5",
       "cat": "hope",
       "ai": "Hope is \"stored\"—like a deposit protected against inflation, theft, and corrosion. The gospel is the news not only about the forgiveness of sins, but also about the indestructible reserve of the future that awaits you.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6896,7 +6896,7 @@
       "id": 800,
       "book": "Colossians",
       "text": "...Christ in you is the hope of glory!",
-      "ref": "Num.. 1:27",
+      "ref": "Col. 1:27",
       "cat": "hope",
       "ai": "One of Paul's most concise and powerful phrases. The hope of glory is not somewhere in the sky. It is \"in you\" - in the presence of Christ within. Where He lives, there lives hope.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6986,7 +6986,7 @@
       "id": 810,
       "book": "James",
       "text": "Be patient too,\nstrengthen your hearts\nbecause the coming of the Lord is near!",
-      "ref": "Acts 5:8",
+      "ref": "James 5:8",
       "cat": "hope",
       "ai": "The hope of Christ's return is practical, not abstract. She gives strength to endure today, because it is \"coming.\" The closer the morning is, the easier it is to survive the last hours of the night.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6997,7 +6997,7 @@
       "text": "And now, little children, abide in Him,\nso that we, when it appears,\nhad courage and were not ashamed before Him at His coming.",
       "ref": "1 John 2:28",
       "cat": "hope",
-      "ai": "The hope of meeting Christ forms a way of life now. \"Abide in Him\" ​​- don't worry about the coming, just live in relationship with Him. He who is in Him will have no reason to be ashamed.",
+      "ai": "The hope of meeting Christ forms a way of life now. \"Abide in Him\" - don't worry about the coming, just live in relationship with Him. He who is in Him will have no reason to be ashamed.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
     },
     {
@@ -7020,7 +7020,7 @@
     },
     {
       "id": 814,
-      "book": "Genesis",
+      "book": "Exodus",
       "cat": "victory",
       "text": "The Lord will fight for you\nand you keep quiet.",
       "ref": "Ex. 14:14",
@@ -7121,8 +7121,8 @@
       "id": 825,
       "book": "Romans",
       "cat": "victory",
-      "text": "Тож тепер нема жодного осуду\nto those who are in Christ Jesus.",
-      "ref": "Rom.. 8:1",
+      "text": "So now there is no condemnation\nto those who are in Christ Jesus.",
+      "ref": "Rom. 8:1",
       "ai": "\"None\" is the Greek \"uden\": zero, absolute zero. Not \"a little less condemnation.\" Victory over the guilt is not an improvement in the grade, but a complete removal of the sentence.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7164,7 +7164,7 @@
     },
     {
       "id": 830,
-      "book": "Mark",
+      "book": "Joshua",
       "cat": "victory",
       "text": "No man can stand before you\nall the day of your life;\nas I was with Moses\nI will do the same with you.",
       "ref": "Josh. 1:5",
@@ -7356,7 +7356,7 @@
       "book": "Romans",
       "cat": "faith",
       "text": "The righteous will live by faith.",
-      "ref": "Rom.. 1:17",
+      "ref": "Rom. 1:17",
       "ai": "Not \"righteous if he behaves well.\" The source of righteousness is not behavior, but trust. It overturns the whole logic of religion: first His righteousness, then your life from it.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7392,8 +7392,8 @@
       "book": "James",
       "cat": "faith",
       "text": "But let him ask with faith,\nnot in the least doubting;\nfor who doubts\nthat is like a sea wave.",
-      "ref": "Acts 1:6",
-      "ai": "\"Wave\" - ​​moves where the wind goes. Doubt is not the opposite of faith, it is the absence of an anchor. A prayer of faith is a prayer anchored in the character of the One to whom one prays.",
+      "ref": "James 1:6",
+      "ai": "\"Wave\" - moves where the wind goes. Doubt is not the opposite of faith, it is the absence of an anchor. A prayer of faith is a prayer anchored in the character of the One to whom one prays.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -7418,7 +7418,7 @@
       "id": 858,
       "book": "Hebrews",
       "cat": "faith",
-      "text": "Looking at the founder and executor of our faith,\njesus\nThat for the sake of the joy that lay before Him,\nendured the cross.",
+      "text": "Looking at the founder and executor of our faith,\nJesus\nThat for the sake of the joy that lay before Him,\nendured the cross.",
       "ref": "Heb. 12:2",
       "ai": "\"Looking\" is not a dreamy look, but a focus of attention. Founder and Finisher - Jesus begins and ends our faith. She is not our project - His.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -7443,7 +7443,7 @@
     },
     {
       "id": 861,
-      "book": "John",
+      "book": "1 John",
       "cat": "faith",
       "text": "Who believes in the Son of God,\nhas a certificate in itself.",
       "ref": "1 John 5:10",
@@ -7463,7 +7463,7 @@
       "id": 863,
       "book": "Mark",
       "cat": "faith",
-      "text": "And said to her:\nDonya, your faith saved you;\ngo in peace",
+      "text": "And said to her:\nDaughter, your faith saved you;\ngo in peace",
       "ref": "Mark 5:34",
       "ai": "For twelve years, the woman spent all her money on doctors. One touch of Jesus' clothes and He says: \"your faith.\" Not My power is your trust in My power.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -7491,7 +7491,7 @@
       "book": "Romans",
       "cat": "faith",
       "text": "Abraham did not waver in faith,\nwhen I thought about my body\n- already dead -\nbut strengthened in faith,\ngiving glory to God.",
-      "ref": "Rom.. 4:19-20",
+      "ref": "Rom. 4:19-20",
       "ai": "Abraham looked at the facts—and still chose to believe the promise. He did not ignore reality, but put God's word above it. Strong faith is not blind, but conscious.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7572,7 +7572,7 @@
       "book": "Colossians",
       "cat": "peace",
       "text": "And the peace of Christ\nlet it reign in your hearts.",
-      "ref": "Num.. 3:15",
+      "ref": "Col. 3:15",
       "ai": "\"Reigns\" is the Greek \"brabio\": to be a judge in a competition, to pass a verdict. The peace of Christ must be the judge between competing thoughts and emotions. Anxiety has no right to pass judgment in your heart.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7608,7 +7608,7 @@
       "book": "Romans",
       "cat": "peace",
       "text": "Because God's kingdom is not food and drink,\nbut righteousness, peace, and joy\nin the Holy Spirit.",
-      "ref": "Rom.. 14:17",
+      "ref": "Rom. 14:17",
       "ai": "Paul redefines God's Kingdom: it is not about rules, but about a state. Righteousness, peace, and joy are the fruits of the Spirit, not the results of effort. The kingdom is a way of being, not a to-do list.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7689,7 +7689,7 @@
       "book": "Romans",
       "cat": "love",
       "text": "God's love is poured out in our hearts\nthrough the Holy Spirit,\nthat is given to us",
-      "ref": "Rom.. 5:5",
+      "ref": "Rom. 5:5",
       "ai": "\"Spill\" is the Greek \"ekkehyutai\": poured out, like a liquid that fills the entire space. God's love for you is not a drop, not a portion. It is poured into the heart without measure.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7743,7 +7743,7 @@
       "book": "James",
       "cat": "healing",
       "text": "And the prayer of faith will save the sick,\nand the Lord will raise him up.",
-      "ref": "Acts 5:15",
+      "ref": "James 5:15",
       "ai": "\"Will save\" is the same Greek word \"sozo\" used for salvation. Healing and salvation in the New Testament are one and the same word. God does not divide body and soul into separate departments.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7771,7 +7771,7 @@
       "cat": "healing",
       "text": "I want\nclean yourself up",
       "ref": "Mark 1:41",
-      "ai": "The leper asked: \"If you want, you can.\" Jesus answered with two words: \"I will.\" This is His answer to all who doubt His desire to heal. He wants",
+      "ai": "The leper asked: \"If you want, you can.\" Jesus answered with two words: \"I will.\" This is His answer to all who doubt His desire to heal. He wants to heal.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -7860,7 +7860,7 @@
       "book": "Malachi",
       "cat": "healing",
       "text": "And for you who fear my name,\nthe sun of righteousness will rise\nwith healing in his wings.",
-      "ref": "Fig.. 4:2",
+      "ref": "Mal. 4:2",
       "ai": "\"In the wings\" is an image of a solar disk with \"arrows\" of rays. Healing is not in darkness or mystery. It comes with light. Where His presence descends, sickness recedes.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     }

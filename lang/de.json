@@ -25,9 +25,9 @@
     "lang_name": "Deutsch",
     "nav_word": "Wort",
     "nav_favs": "Favoriten",
-    "nav_menu": "Speisekarte",
+    "nav_menu": "Menü",
     "nav_settings": "Aussehen",
-    "cat_all": "Alle von ihnen",
+    "cat_all": "Alle",
     "swipe_hint": "nach oben wischen",
     "translation": "Übersetzung von Ohienko",
     "favs_title": "Lieblingsgedichte",
@@ -37,7 +37,7 @@
     "btn_share": "teilen",
     "ai_ref": "✦ Spirituelle Interpretation",
     "menu_logo": "WORT",
-    "menu_tagline": "Imprägnierung mit dem lebendigen Wort",
+    "menu_tagline": "Erfüllt vom lebendigen Wort",
     "music_title": "🎵 Gebetsmusik (CC)",
     "donate_title": "Unterstützen Sie das Projekt ❤️",
     "settings_title": "Design",
@@ -69,11 +69,11 @@
     "alarm_save": "Speichern 🔔",
     "day_mon": "Montag",
     "day_tue": "Dienstag",
-    "day_wed": "Heiraten",
+    "day_wed": "Mittwoch",
     "day_thu": "Donnerstag",
     "day_fri": "Freitag",
-    "day_sat": "Sa",
-    "day_sun": "Sonne",
+    "day_sat": "Samstag",
+    "day_sun": "Sonntag",
     "toast_loaded": "📖 {n} Gedichte heruntergeladen",
     "toast_copied": "📋 Das Gedicht ist kopiert",
     "toast_added_fav": "🤍 Zu den Favoriten hinzugefügt",
@@ -143,7 +143,7 @@
       "id": 6,
       "book": "JESAJA",
       "text": "Sie werden in völliger Ruhe bleiben\njemand, dessen Geist fest auf Dir ruht.",
-      "ref": "Ist. 26:3",
+      "ref": "Jes. 26:3",
       "cat": "peace",
       "ai": "Frieden ist nicht die Abwesenheit von Sorgen, sondern die Gegenwart Gottes in deinem Geist. Wenn Ihre Gedanken „fest auf Ihm ruhen“, kann die Angst keinen Platz haben, um Wurzeln zu schlagen.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -152,7 +152,7 @@
       "id": 7,
       "book": "NUMERI",
       "text": "Der Herr wird sein Angesicht zu dir erheben\nund werde dir Frieden geben.",
-      "ref": "Nr. 6:26 Uhr",
+      "ref": "Nr. 6:26",
       "cat": "peace",
       "ai": "Dieser uralte Segen klingt wie elterliche Zärtlichkeit. Der Herr schaut dich mit Liebe an – nicht mit Verurteilung – und in diesem Blick entsteht ein tiefer, unerschütterlicher Frieden.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -161,7 +161,7 @@
       "id": 8,
       "book": "1 JOHANNES",
       "text": "Gott ist Liebe und wer in der Liebe bleibt\ner bleibt in Gott.",
-      "ref": "1. Johannes 4:16 Uhr",
+      "ref": "1. Johannes 4:16",
       "cat": "love",
       "ai": "Liebe ist nicht nur eine Emotion Gottes, sie ist sein Wesen. Du kannst Ihn nicht dazu bringen, dich weniger durch deine Fehler und mehr durch deine Erfolge zu lieben. Du tauchst einfach in den Ozean der Liebe ein, der bereits da ist.",
       "audio_url": "https://archive.org/download/PianoMusic/07-Love%20lifted%20me.mp3"
@@ -179,7 +179,7 @@
       "id": 10,
       "book": "RÖMER",
       "text": "Nichts kann uns trennen\naus der Liebe Gottes\ndas ist in Christus Jesus, unserem Herrn.",
-      "ref": "Rm. 8:39 Uhr",
+      "ref": "Röm. 8:39",
       "cat": "love",
       "ai": "Es gibt keine Distanz zwischen dir und Gott, die er nicht überwinden kann. Deine Schuld, deine Krisen, deine Verzweiflung – nichts wird das konkrete Band seiner Liebe zu dir zerstören. Du bist für immer in Sicherheit.",
       "audio_url": "https://archive.org/download/PianoMusic/07-Love%20lifted%20me.mp3"
@@ -188,7 +188,7 @@
       "id": 11,
       "book": "OFFENBARUNG",
       "text": "Hier stehe ich an der Tür und klopfe.\nWenn jemand meine Stimme hört\nund werde die Tür öffnen – ich werde in ihn eintreten.",
-      "ref": "Um. 3:20",
+      "ref": "Offb. 3:20",
       "cat": "love",
       "ai": "Der Schöpfer des Universums bricht die Tür des Herzens niemals mit Gewalt auf. Er steht und klopft still wegen der Umstände, der Sehnsüchte der Seele. Er wartet auf Ihre bewusste Entscheidung, sich zu öffnen und ihn hereinzulassen.",
       "audio_url": "https://archive.org/download/PianoMusic/07-Love%20lifted%20me.mp3"
@@ -224,7 +224,7 @@
       "id": 15,
       "book": "JESAJA",
       "text": "Fürchte dich nicht, denn ich bin bei dir;\nSchau nicht voller Angst zurück, denn ich bin dein Gott.",
-      "ref": "Ist. 41:10",
+      "ref": "Jes. 41:10",
       "cat": "faith",
       "ai": "Angst verschwindet nicht durch eine Veränderung der Umstände – sie verschwindet aus dem Bewusstsein dessen, wer in der Nähe ist. Gott beseitigt das Schwierige nicht, Er hält deine Hand darin. Wenn der Allmächtige nahe ist, verliert die Angst an Gewicht.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -260,14 +260,14 @@
       "id": 19,
       "book": "1 PETRUS",
       "text": "Wirf alle deine Sorgen auf Ihn,\nweil er sich um dich kümmert.",
-      "ref": "1 Fr. 5:7",
+      "ref": "1 Petr. 5:7",
       "cat": "victory",
       "ai": "Das griechische Wort hier ist „gegossen“. Nicht „ordentlich gesteckt“, sondern wie ein schwerer Rucksack werfen. Gott bittet Sie nicht, es mit sich zu tragen. Er bittet dich, ihn gehen zu lassen – vollständig.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
       "id": 20,
-      "book": "JOHANNES",
+      "book": "1 JOHANNES",
       "text": "In der Liebe gibt es keine Angst;\naber vollkommene Liebe vertreibt die Angst.",
       "ref": "1. Johannes 4:18",
       "cat": "faith",
@@ -286,8 +286,8 @@
     {
       "id": 22,
       "book": "PHILIPPER",
-      "text": "Mit Tim kann ich alles machen\nWer mich stärkt, ist in Christus.",
-      "ref": "Fl. 4:13",
+      "text": "Alles vermag ich durch den, der mich stärkt,\nin Christus.",
+      "ref": "Phlp. 4:13",
       "cat": "strength",
       "ai": "Paulus schrieb dies aus dem Gefängnis. Es geht nicht um die Allmacht der Superhelden – es geht darum, jede Jahreszeit mit einer inneren Kraftquelle zu überstehen, die niemals versiegt.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -296,7 +296,7 @@
       "id": 23,
       "book": "JESAJA",
       "text": "Diejenigen, die ihre Hoffnung auf den Herrn setzen,\nwerden wieder zu Kräften kommen und ihre Flügel wie Adler ausbreiten.",
-      "ref": "Ist. 40:31",
+      "ref": "Jes. 40:31",
       "cat": "strength",
       "ai": "Sogar die Jungen und Starken fallen vor Müdigkeit. Aber wenn Sie „auf den Herrn warten“, findet ein übernatürlicher Austausch statt: Sie geben Ihre Schwäche und empfangen seine unerschöpfliche Energie.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -305,7 +305,7 @@
       "id": 24,
       "book": "EPHESER",
       "text": "Sei stark im Herrn\nund in der Macht seiner Macht.",
-      "ref": "Ef. 6:10 Uhr",
+      "ref": "Ef. 6:10",
       "cat": "strength",
       "ai": "Nicht die eigene Kraft, sondern die des Herrn. Es lindert den Druck, „stark genug zu sein“. Sie stellen einfach eine Verbindung zu einer Quelle her, der keine Grenzen gesetzt sind. Es steht Ihnen ab sofort zur Verfügung.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -332,7 +332,7 @@
       "id": 27,
       "book": "NEHEMIA",
       "text": "Die Freude am Herrn ist deine Stärke.",
-      "ref": "Ich nicht 8:10",
+      "ref": "Neh. 8:10",
       "cat": "strength",
       "ai": "Freude ist hier keine Emotion, sondern ein spiritueller Zustand. Es kommt nicht auf die Umstände an. Wenn Ihre Freude im Herrn verwurzelt ist und nicht in der Situation, kann Ihnen nichts die Kraft nehmen.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -350,7 +350,7 @@
       "id": 29,
       "book": "RÖMER",
       "text": "An alle, die Gott lieben,\nalles trägt zum Guten bei.",
-      "ref": "Rm. 8:28 Uhr",
+      "ref": "Röm. 8:28",
       "cat": "hope",
       "ai": "Gott ist in der Lage, selbst Chaos, Fehler und schmerzhafte Zeiten zu Gold zu schmelzen. Nicht alles, was passiert, ist gut. Aber Gott hat genug souveräne Macht, um beliebige Fragmente zu einem Meisterwerk zusammenzufügen.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -368,7 +368,7 @@
       "id": 31,
       "book": "HEBRÄER",
       "text": "Hoffnung ist für uns der Anker der Seele,\nzuverlässig und langlebig.",
-      "ref": "Hebräisch 6:19 Uhr",
+      "ref": "Hebr. 6:19",
       "cat": "hope",
       "ai": "Ein Anker rettet Sie nicht vor einem Sturm – er hält Sie währenddessen an Ort und Stelle. Die Hoffnung auf Gott verspricht kein ruhiges Wetter, sie verspricht, dass Sie nicht in das offene Meer der Verzweiflung gespült werden.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -395,7 +395,7 @@
       "id": 34,
       "book": "JAKOBUS",
       "text": "Gebet des Glaubens\ndie Kranken heilen\nund der Herr wird ihn auferwecken.",
-      "ref": "Als. 5:15",
+      "ref": "Jak. 5:15",
       "cat": "healing",
       "ai": "Das Glaubensgebet ist keine Manipulation Gottes, sondern eine völlige Hingabe an seine Macht. Wenn der Geist sagt: „Es ist vorbei“ und der Körper schwächer wird, schaut der Glaube auf die Wunden Christi und weiß: Er wird aufrichten.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Meditation%20Impromptu%2001.mp3"
@@ -422,7 +422,7 @@
       "id": 37,
       "book": "JESAJA",
       "text": "Aber Er nahm unsere Gebrechen auf sich\nund trugen unsere Krankheiten.",
-      "ref": "Ist. 53:4",
+      "ref": "Jes. 53:4",
       "cat": "healing",
       "ai": "Sieben Jahrhunderte vor Golgatha beschrieb der Prophet, was Jesus am Kreuz tat. Er hatte nicht nur aus der Ferne Mitleid mit dir – Er hat deinen Schmerz, deine Krankheit persönlich auf sich genommen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Meditation%20Impromptu%2001.mp3"
@@ -431,7 +431,7 @@
       "id": 38,
       "book": "1 PETRUS",
       "text": "Durch seine Wunden bist du geheilt.",
-      "ref": "1 Fr. 2:24",
+      "ref": "1 Petr. 2:24",
       "cat": "healing",
       "ai": "Die griechische Zeitform hier ist perfekt: „Du bist bereits geheilt.“ Nicht „es wird Heilung geben“ – das ist bereits der Fall. Das Kreuz ist eine vollendete Handlung. Ihre Aufgabe ist es, das zu bekommen, was bereits gekauft wurde.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Meditation%20Impromptu%2001.mp3"
@@ -449,7 +449,7 @@
       "id": 40,
       "book": "KOLOSSER",
       "text": "Und lass den Frieden Christi herrschen\nin euren Herzen.",
-      "ref": "Menge. 3:15",
+      "ref": "Kol. 3:15",
       "cat": "peace",
       "ai": "„Reigns“ ist wie ein Juror bei einem Wettbewerb. Die Welt hat das Recht, in Ihrem Herzen ein Urteil zu fällen und zu entscheiden, was bleibt und was verschwindet. Geben Sie ihm diese Macht bewusst.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -476,7 +476,7 @@
       "id": 43,
       "book": "1 JOHANNES",
       "text": "Wir lieben, weil Er uns zuerst geliebt hat.",
-      "ref": "1. Johannes 4:19 Uhr",
+      "ref": "1. Johannes 4:19",
       "cat": "love",
       "ai": "Unsere Fähigkeit zu lieben beruht auf seiner Liebe zu uns. Wenn es Ihnen schwerfällt, Menschen zu lieben, kehren Sie zur Quelle zurück. Erfülle dich mit seiner Liebe zu dir, und sie wird ganz natürlich auf andere überfließen.",
       "audio_url": "https://archive.org/download/PianoMusic/07-Love%20lifted%20me.mp3"
@@ -484,8 +484,8 @@
     {
       "id": 44,
       "book": "HEBRÄER",
-      "text": "Mit der Angst wurde durch Glauben umgegangen,\nEr baute eine Arche zur Rettung seines Hauses.",
-      "ref": "Hebräisch 11:7",
+      "text": "Durch Glauben baute Noah,\nals er göttliche Warnung empfing,\neine Arche zur Rettung seines Hauses.",
+      "ref": "Hebr. 11:7",
       "cat": "faith",
       "ai": "Noah baute eine Arche für den Regen, die noch nie jemand gesehen hatte. Wahrer Glaube ist Handeln angesichts der Angst, nicht die Abwesenheit von Angst. Er hatte Angst – und baute trotzdem.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -494,7 +494,7 @@
       "id": 45,
       "book": "MARKUS",
       "text": "Hab keine Angst, glaube einfach.",
-      "ref": "Mk. 5:36 Uhr",
+      "ref": "Mk. 5:36",
       "cat": "faith",
       "ai": "Dies sagte Jesus dem Vater, der über den Tod seiner Tochter informiert wurde. Im dunkelsten Moment keine langen Erklärungen, sondern eine einfache Aufgabe: glauben. Angst und Glaube können nicht gleichzeitig herrschen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -503,7 +503,7 @@
       "id": 46,
       "book": "MATTHÄUS",
       "text": "Wo ist euer Glaube, kleine Gläubige?",
-      "ref": "Berg 8:26 Uhr",
+      "ref": "Mt. 8:26",
       "cat": "faith",
       "ai": "Die Jünger waren mit Jesus im Sturm – und hatten dennoch Angst. Er verurteilte sie nicht, sondern fragte: Wo ist dein Glaube? Die Anwesenheit Christi in Ihrem „Boot“ verändert alles – wenn Sie daran glauben.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -521,7 +521,7 @@
       "id": 48,
       "book": "SACHARJA",
       "text": "Nicht durch Gewalt oder Macht,\nsondern durch meinen Geist, sagt der Herr.",
-      "ref": "Westen 4:6",
+      "ref": "Sach. 4:6",
       "cat": "strength",
       "ai": "Die größten Siege im Reich Gottes kommen nicht durch menschliche Stärke, sondern durch seinen Geist. Wenn Ihre Ressourcen nicht ausreichen, ist dies genau die Voraussetzung für sein Handeln.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -548,7 +548,7 @@
       "id": 51,
       "book": "RÖMER",
       "text": "Und lass dich vom Gott der Hoffnung erfüllen\nmit aller Freude und Frieden im Glauben.",
-      "ref": "Rm. 15:13",
+      "ref": "Röm. 15:13",
       "cat": "hope",
       "ai": "Gott wird hier „der Gott der Hoffnung“ genannt – das ist einer seiner Namen. Er ist die primäre Quelle der Hoffnung, nicht nur ihr Gegenstand. Um Hoffnung zu beten bedeutet, zu dem zu beten, der die Hoffnung selbst ist.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -584,7 +584,7 @@
       "id": 55,
       "book": "HEBRÄER",
       "text": "Das Wort Gottes ist lebendig und aktiv,\nschärfer als alles andere\nein zweischneidiges Schwert.",
-      "ref": "Hebräisch 4:12 Uhr",
+      "ref": "Hebr. 4:12",
       "cat": "peace",
       "ai": "Das Wort ist nicht nur ein Text, es lebt. Wenn Sie die Bibel lesen, passiert etwas in der spirituellen Dimension. Es geht tiefer als alle Gedanken und berührt dort, wo Sie wirklich sind.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -602,7 +602,7 @@
       "id": 57,
       "book": "JOHANNES",
       "text": "Wenn du bleibst\nin meinem Wort\ndann seid ihr wirklich meine Jünger.",
-      "ref": "IV. 8:31 Uhr",
+      "ref": "Joh. 8:31",
       "cat": "peace",
       "ai": "„Sein“ bedeutet nicht lesen, sondern innerlich leben. Das Wort ist keine Information für den Kopf, sondern eine Umgebung für die Seele. Der Unterschied zwischen jemandem, der etwas über Gott weiß, und jemandem, der Gott kennt.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -620,7 +620,7 @@
       "id": 59,
       "book": "JAKOBUS",
       "text": "Wenn es einem von euch an Weisheit mangelt,\nlass ihn Gott fragen\nWas großzügig gibt.",
-      "ref": "Als. 1:5",
+      "ref": "Jak. 1:5",
       "cat": "hope",
       "ai": "Gott gibt Weisheit „großzügig und ohne Vorwurf“. Er seufzt nicht, wenn du wiederkommst. Er ist mit Ihrer Frage zufrieden. Eine Frage ist eine Form des Vertrauens.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -638,7 +638,7 @@
       "id": 61,
       "book": "HEBRÄER",
       "text": "Der Glaube ist die Basis\nfür das, was wir hoffen\nBeweise für Dinge, die man nicht sieht.",
-      "ref": "Hebräisch 11:1",
+      "ref": "Hebr. 11:1",
       "cat": "strength",
       "ai": "Glaube ist keine Blindheit, sondern ein anderes Sehen. Sie sieht die Realität des Königreiches Gottes, das noch nicht physisch sichtbar ist. Dabei geht es nicht darum, die Fakten zu ignorieren, sondern darum, die höheren Fakten zu kennen.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -647,7 +647,7 @@
       "id": 62,
       "book": "MARKUS",
       "text": "Dem Gläubigen ist alles möglich.",
-      "ref": "Mk. 9:23 Uhr",
+      "ref": "Mk. 9:23",
       "cat": "strength",
       "ai": "Dies sagte Jesus dem Vater des kranken Kindes, als er sagte: „Wenn du kannst.“ Die Antwort Christi stellt die Frage auf den Kopf: Es geht nicht um meine Fähigkeiten, sondern um deinen Glauben. Der Glaube ist der Schlüssel, nicht seine Macht.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -656,7 +656,7 @@
       "id": 63,
       "book": "RÖMER",
       "text": "Deshalb kommt der Glaube vom Hören,\nund Hören durch das Wort Christi.",
-      "ref": "Rm. 10:17 Uhr",
+      "ref": "Röm. 10:17",
       "cat": "strength",
       "ai": "Der Glaube wird nicht von der Decke genommen. Es wächst durch regelmäßigen Kontakt mit dem Wort. Dies ist ein praktisches Rezept: Wenn Sie mehr Glauben wollen – mehr Wort. Lass ihn mit dir sprechen.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -674,7 +674,7 @@
       "id": 65,
       "book": "1 PETRUS",
       "text": "Aber du bist die auserwählte Rasse\nkönigliches Priestertum\nDie Menschen sind heilig.",
-      "ref": "1 Fr. 2:9",
+      "ref": "1 Petr. 2:9",
       "cat": "love",
       "ai": "Diese Worte wurden zu gewöhnlichen Menschen gesprochen – Fischern, Handwerkern, Sklaven. Gott sieht Sie nicht durch die Linse Ihrer Vergangenheit oder Ihres sozialen Status. Er sieht dich durch Christus.",
       "audio_url": "https://archive.org/download/PianoMusic/07-Love%20lifted%20me.mp3"
@@ -692,7 +692,7 @@
       "id": 67,
       "book": "2 KORINTHER",
       "text": "Deshalb ist jeder, der in Christus ist, eine neue Schöpfung;\ndas Alte ist vergangen, das Neue ist gekommen.",
-      "ref": "2 Kor. 5:17 Uhr",
+      "ref": "2 Kor. 5:17",
       "cat": "hope",
       "ai": "„Es wurde neu“ ist die Perfektform. Es ist bereits passiert. Ihre Vergangenheit definiert nicht Ihre Identität in Christus. Du bist bereits ein neuer Mensch – du wirst keiner werden, bist es aber schon.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -710,7 +710,7 @@
       "id": 69,
       "book": "RÖMER",
       "text": "Wo sich die Sünde vervielfachte,\ndort wurde die Gnade noch reichlicher.",
-      "ref": "Rm. 5:20",
+      "ref": "Röm. 5:20",
       "cat": "love",
       "ai": "Egal wie tief die Grube ist, die Gnade ist tiefer. Gott berechnet nicht, ob es „genug“ für dich sein wird. Es ist von Natur aus überflüssig.",
       "audio_url": "https://archive.org/download/PianoMusic/07-Love%20lifted%20me.mp3"
@@ -721,7 +721,7 @@
       "text": "Meine Gnade genügt dir,\ndenn meine Stärke wird in der Schwäche vollendet.",
       "ref": "2 Kor. 12:9",
       "cat": "peace",
-      "ai": "Pavlo bat darum, den „Dorn“ zu entfernen. Gott antwortete: „Meine Gnade ist ausreichend.“ Manchmal beseitigt Er das Problem nicht – Er gibt genug Gnade, um es in Würde zu leben.",
+      "ai": "Paulus bat darum, den „Dorn“ zu entfernen. Gott antwortete: „Meine Gnade ist ausreichend.“ Manchmal beseitigt Er das Problem nicht – Er gibt genug Gnade, um es in Würde zu leben.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
     },
     {
@@ -755,7 +755,7 @@
       "id": 74,
       "book": "1 THESSALONICHER",
       "text": "Vielen Dank für alles\ndenn das ist der Wille Gottes für euch in Christus Jesus.",
-      "ref": "1 Sol. 5:18",
+      "ref": "1. Thessalonicher 5:18",
       "cat": "peace",
       "ai": "„In allem“ ist nicht „für alles“. Gott bittet nicht um Dank für das Böse. Aber unter allen Umständen können Sie einen Grund zur Dankbarkeit finden. Es ist eine Praxis, die die Wahrnehmung der Realität verändert.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -791,7 +791,7 @@
       "id": 78,
       "book": "MICHA",
       "text": "Du wirst es in die Tiefen des Meeres werfen\nalle unsere Sünden.",
-      "ref": "Mich. 7:19 Uhr",
+      "ref": "Mich. 7:19",
       "cat": "love",
       "ai": "Sie in die Tiefen des Meeres zu werfen bedeutet nicht, sie auf ein Regal zu stellen, wo man sie bekommen kann. Es ist für immer. Gott erinnert Sie nicht daran, was er ins Meer geworfen hat. Nur schwimmt man manchmal auf ihnen zurück.",
       "audio_url": "https://archive.org/download/PianoMusic/07-Love%20lifted%20me.mp3"
@@ -800,7 +800,7 @@
       "id": 79,
       "book": "SPRÜCHE",
       "text": "Vertraue dem Herrn von ganzem Herzen\nund verlasse dich nicht auf deinen eigenen Verstand.\nErinnere dich auf all deinen Wegen an ihn,\nund Er wird dich führen.",
-      "ref": "Prov. 3:5-6",
+      "ref": "Spr. 3:5-6",
       "cat": "hope",
       "ai": "„Direkt“ bedeutet nicht, dass es keine Abzweigungen geben wird. Bedeutet, dass auch Kurven zum richtigen Weg gehören. Vertrauen bedeutet, den Navigator demjenigen zu übergeben, der den gesamten Weg sieht.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -818,7 +818,7 @@
       "id": 81,
       "book": "JESAJA",
       "text": "Und deine Ohren werden ein Wort von hinten hören,\nwas besagt: Das ist der Weg, geh auf ihm.",
-      "ref": "Ist. 30:21",
+      "ref": "Jes. 30:21",
       "cat": "hope",
       "ai": "Gott folgt dir und sagt: „hier“, „nicht dort“. Er schweigt nicht. Die Frage ist, ob wir ruhig genug sind, um seine Stimme hinter unseren eigenen Gedanken zu hören.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -863,7 +863,7 @@
       "id": 86,
       "book": "MATTHÄUS",
       "text": "Zuerst einmal suchen\nDas Reich Gottes und seine Wahrheit,\nund alles, was dir hinzugefügt wird.",
-      "ref": "Berg 6:33 Uhr",
+      "ref": "Mt. 6:33",
       "cat": "hope",
       "ai": "„Es wird hinzugefügt“ ist ein passiver Zustand: Du bekommst es nicht, aber es wird dir gegeben. Gott bietet einen Deal an: Du kümmerst dich um die Hauptsache – Er kümmert sich um den Rest. Priorisieren Sie richtig.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -872,7 +872,7 @@
       "id": 87,
       "book": "RÖMER",
       "text": "Wenn Gott für uns ist, wer ist dann gegen uns?",
-      "ref": "Rm. 8:31 Uhr",
+      "ref": "Röm. 8:31",
       "cat": "strength",
       "ai": "Paulus behauptet nicht, dass es keine Feinde gibt. Es stellt sich die Frage nach der Größenordnung. Wenn der Allmächtige auf Ihrer Seite ist, kann kein Widerstand entscheidend sein. Zahlen spielen keine Rolle.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -899,16 +899,16 @@
       "id": 90,
       "book": "JESAJA",
       "text": "Wird eine Frau ihr Baby vergessen?\nAber wenn sie es auch vergaß,\nIch werde dich nicht vergessen.",
-      "ref": "Ist. 49:15",
+      "ref": "Jes. 49:15",
       "cat": "love",
       "ai": "Gott wählt die intensivste menschliche Form der Liebe – die Liebe einer Mutter zu einem Säugling – und sagt: Meine Liebe zu dir ist sogar noch stärker. Du bist für ihn unvergesslich.",
       "audio_url": "https://archive.org/download/PianoMusic/07-Love%20lifted%20me.mp3"
     },
     {
       "id": 91,
-      "book": "PSALMEN",
+      "book": "JOSUA",
       "text": "Fass Mut und halte durch,\nHab keine Angst und hab keine Angst\ndenn der Herr, dein Gott, ist mit dir.",
-      "ref": "Navigation. 1:9",
+      "ref": "Jos. 1:9",
       "cat": "victory",
       "ai": "Dies ist kein Rat – es ist Gottes Befehl an Josua vor einer unmöglichen Aufgabe. Mut ist nicht die Abwesenheit von Angst, sondern die Entscheidung, trotz dieser Angst zu handeln und zu wissen, wer in der Nähe ist.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -917,7 +917,7 @@
       "id": 92,
       "book": "OFFENBARUNG",
       "text": "Ich bin das Alpha und das Omega\nErster und Letzter\nAnfang und Ende.",
-      "ref": "Um. 22:13",
+      "ref": "Offb. 22:13",
       "cat": "hope",
       "ai": "Gott deckt das gesamte Spektrum ab, vom Anfang bis zum Ende. Ihre Geschichte endet nicht dort, wo Sie denken. Er ist Omega: Das letzte Wort gehört immer Ihm, und dieses Wort ist der Sieg.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -935,7 +935,7 @@
       "id": 94,
       "book": "LUKAS",
       "text": "Fürchte dich nicht, kleine Herde,\ndenn dein Vater freut sich\nGib dir das Königreich.",
-      "ref": "Lk. 12:32 Uhr",
+      "ref": "Lk. 12:32",
       "cat": "victory",
       "ai": "„Kleine Herde“ ist ein Appell an diejenigen, die sich als Minderheit und unbedeutend fühlen. Gott ist nicht traurig über deine Zahl. Er freut sich, Ihnen das Königreich zu geben. Nicht verdienen – bekommen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -943,8 +943,8 @@
     {
       "id": 95,
       "book": "HEBRÄER",
-      "text": "Jesus Christus – gestern und heute\ndas gleiche, und die Augenlider.",
-      "ref": "Hebräisch 13:8",
+      "text": "Jesus Christus – gestern und heute\nderselbe, und in Ewigkeit.",
+      "ref": "Hebr. 13:8",
       "cat": "hope",
       "ai": "In einer Welt, in der sich alles ändert, ist Er unveränderlich. Dieser Jesus, der heilte, vergab, auferstanden ist – Er ist heute derselbe. Sein Charakter, seine Macht, seine Liebe sind unveränderlich.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -971,7 +971,7 @@
       "id": 98,
       "book": "2 CHRONIK",
       "text": "Wenn mein Volk sich demütigt,\nWas bei meinem Namen genannt wird\nIch werde vom Himmel hören und ihnen ihre Sünden vergeben\nund ich werde ihr Land heilen.",
-      "ref": "2 Chron. 7:14 Uhr",
+      "ref": "2 Chron. 7:14",
       "cat": "healing",
       "ai": "Heilung ist hier nicht nur persönlich, sondern auch sozial. Das Gebet und die Demut einzelner Menschen können die Atmosphäre ganzer Gemeinschaften und Völker verändern. Ihr Gebet hat mehr Wirkung als Sie denken.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Meditation%20Impromptu%2001.mp3"
@@ -980,7 +980,7 @@
       "id": 99,
       "book": "OFFENBARUNG",
       "text": "Und Gott wird jede Träne abwischen\naus ihren Augen\nund es wird keinen Tod mehr geben.",
-      "ref": "Um. 21:4",
+      "ref": "Offb. 21:4",
       "cat": "hope",
       "ai": "Das Ende der Geschichte ist keine Katastrophe. Es ist Gott, der persönlich jede Träne wegwischt. Das Wort „jeder“ bedeutet einzeln. Er erinnert sich an jeden deiner Schreie und wird selbst kommen, um ihn wegzuwischen.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -1438,7 +1438,7 @@
       "id": 156,
       "book": "JOSUA",
       "text": "...stark und mutig sein? Fürchte dich nicht und fürchte dich nicht,\ndenn der Herr ist mit dir...",
-      "ref": "Josua 1:9",
+      "ref": "Jos. 1:9",
       "cat": "strength",
       "ai": "Es erfordert Mut, Gottes Versprechen zu halten, wenn einem die Symptome offensichtlich ins Auge fallen."
     },
@@ -1446,7 +1446,7 @@
       "id": 157,
       "book": "NEHEMIA",
       "text": "...und sei nicht traurig, denn die Freude am Herrn ist deine Stärke!",
-      "ref": "Nehemia 8:10",
+      "ref": "Neh. 8:10",
       "cat": "love",
       "ai": "Freude wirkt als reine Treibstoffenergie für Ihr Immunsystem. Verbiete dir, traurig zu sein."
     },
@@ -1784,7 +1784,7 @@
       "text": "Denn durch Gnade,\nIch werde geben\nIch rate jedem von euch, nicht mehr von euch zu halten, als ihr denken solltet, sondern bescheiden zu denken ...",
       "ref": "Römer 12:3",
       "cat": "grace",
-      "ai": "Wiesel heilt Größenwahn. Die Erkenntnis, dass alles, was wir haben, von Gott geliehen ist, zwingt uns dazu, andere mit Respekt und Demut zu behandeln."
+      "ai": "Gnade heilt Größenwahn. Die Erkenntnis, dass alles, was wir haben, von Gott geliehen ist, zwingt uns dazu, andere mit Respekt und Demut zu behandeln."
     },
     {
       "id": 200,
@@ -2414,7 +2414,7 @@
       "id": 278,
       "book": "1 JOHANNES",
       "text": "Und das ist das Zeugnis:\nGott hat uns ewiges Leben gegeben,\nund dieses Leben ist in seinem Sohn.",
-      "ref": "1 Івана 5:11",
+      "ref": "1. Johannes 5:11",
       "cat": "hope",
       "ai": "Wenn wir Christus in unseren Herzen haben, haben wir bereits eine Garantie für die Ewigkeit."
     },
@@ -2422,7 +2422,7 @@
       "id": 279,
       "book": "JOHANNES",
       "text": "Wer mein Wort hört und an ihn glaubt,\nder mich geschickt hat\nhat ewiges Leben und kommt nicht zum Gericht",
-      "ref": "Івана 5:24",
+      "ref": "Joh. 5:24",
       "cat": "faith",
       "ai": "Gottes Liebe befreit den Gläubigen von der letzten Angst vor dem Gericht."
     },
@@ -2462,7 +2462,7 @@
       "id": 284,
       "book": "PSALMEN",
       "text": "Denn mein Vater und meine Mutter haben mich verlassen, aber der Herr wird mich aufnehmen",
-      "ref": "Psalm (26):10",
+      "ref": "Psalm 27:10",
       "cat": "love",
       "ai": "Selbst wenn die engsten Menschen verraten, wird Gott sich niemals abwenden."
     },
@@ -2494,7 +2494,7 @@
       "id": 288,
       "book": "SPRÜCHE",
       "text": "Der Name des Herrn ist ein starker Turm; der Gerechte flieht dorthin und ist in Sicherheit",
-      "ref": "Sprüche 18:10",
+      "ref": "Spr. 18:10",
       "cat": "love",
       "ai": "Die bloße Erwähnung Gottes und die Hinwendung zu ihm gibt Schutz."
     },
@@ -2790,7 +2790,7 @@
       "id": 325,
       "book": "SPRÜCHE",
       "text": "Sei nicht weise in deinen eigenen Augen,\nFürchte den Herrn und wende dich vom Bösen ab,\n- Es wird eine Medizin für Ihren Körper und ein Getränk für Ihre Knochen sein",
-      "ref": "Sprüche 3:7-8",
+      "ref": "Spr. 3:7-8",
       "cat": "healing",
       "ai": "Der Respekt vor Gottes Maßstäben und die Ablehnung eines sündigen Lebensstils sind die beste Präventivmedizin."
     },
@@ -2798,7 +2798,7 @@
       "id": 326,
       "book": "SPRÜCHE",
       "text": "mein Sohn\nHöre auf meine Worte\nneige dein Ohr zu meinen Sachen! ... Denn sie sind Leben für den, der sie findet, und für den ganzen Körper ist es Heilung",
-      "ref": "Sprüche 4:20-22",
+      "ref": "Spr. 4:20-22",
       "cat": "healing",
       "ai": "Gottes Wort ist eine Medizinkapsel. Wenn man es ins Herz versenkt, heilt es den gesamten Körper von Kopf bis Fuß."
     },
@@ -2806,7 +2806,7 @@
       "id": 327,
       "book": "SPRÜCHE",
       "text": "Das Licht der Augen erfreut das Herz, gute Nachrichten stärken die Knochen",
-      "ref": "Sprichwörter 15:30 Uhr",
+      "ref": "Sprichwörter 15:30",
       "cat": "healing",
       "ai": "Positive spirituelle Informationen stärken buchstäblich Ihr Knochensystem und Ihre Immunität."
     },
@@ -2814,7 +2814,7 @@
       "id": 328,
       "book": "SPRÜCHE",
       "text": "Angenehme Worte sind dichter Honig, süß für die Seele und Medizin für die Knochen",
-      "ref": "Sprüche 16:24",
+      "ref": "Spr. 16:24",
       "cat": "healing",
       "ai": "Ein gutes, ermutigendes Wort wirkt wie eine süße Medizin und stellt das Kräftegleichgewicht im Körper wieder her."
     },
@@ -2822,7 +2822,7 @@
       "id": 329,
       "book": "SPRÜCHE",
       "text": "Ein freudiges Herz heilt gut und ein deprimierter Geist trocknet die Knochen aus",
-      "ref": "Sprüche 17:22",
+      "ref": "Spr. 17:22",
       "cat": "healing",
       "ai": "Joy ist ein kostenloses und äußerst wirksames Medikament ohne Nebenwirkungen. Depression zerstört die Gesundheit."
     },
@@ -2941,7 +2941,7 @@
     {
       "id": 344,
       "book": "APOSTELGESCHICHTE",
-      "text": "damit die Kranken auch auf die Straße getragen wurden... damit,\nWie wird es Peter gehen?\nZumindest fiel sein Schatten auf einen von ihnen",
+      "text": "damit die Kranken auch auf die Straße getragen wurden... damit,\nwenn Petrus vorüberging,\nzumindest sein Schatten auf einen von ihnen fiel",
       "ref": "Apostelgeschichte 5:15",
       "cat": "healing",
       "ai": "Wenn Sie mit Gott erfüllt sind, wird Ihre Präsenz so dicht, dass selbst Ihr Schatten die Krankheit verdrängt."
@@ -2966,7 +2966,7 @@
       "id": 347,
       "book": "SPRÜCHE",
       "text": "...und ein treuer Botschafter ist wie Medizin",
-      "ref": "Sprüche 13:17",
+      "ref": "Spr. 13:17",
       "cat": "healing",
       "ai": "Die richtige Person am richtigen Ort zu sein bedeutet, sich selbst und anderen Gesundheit zu bringen."
     },
@@ -2974,7 +2974,7 @@
       "id": 348,
       "book": "SPRÜCHE",
       "text": "Ein zartes Herz bedeutet Leben für den Körper, aber Neid verrottet bis in die Knochen",
-      "ref": "Sprichwörter 14:30 Uhr",
+      "ref": "Sprichwörter 14:30",
       "cat": "love",
       "ai": "Emotionale Reinheit (Abwesenheit von Wut, Groll und Neid) schützt Ihr Skelett direkt vor der Zerstörung."
     },
@@ -3049,14 +3049,6 @@
       "ref": "Psalm 144:14",
       "cat": "healing",
       "ai": "Wenn Krankheit oder Umstände Sie zu Boden gedrückt haben, ist Gottes Hand bereits hier, um Ihre Haltung aufzurichten."
-    },
-    {
-      "id": 358,
-      "book": "PSALMEN",
-      "text": "Er heilt die gebrochenen Herzen und verbindet ihre Wunden",
-      "ref": "Psalm 147:3",
-      "cat": "love",
-      "ai": "Tiefgreifende mentale und physikalische Therapie. Vollständige Wiederherstellung der Integrität Ihrer Persönlichkeit."
     },
     {
       "id": 359,
@@ -3253,7 +3245,7 @@
     {
       "id": 383,
       "book": "OFFENBARUNG",
-      "text": "Ivan zu sieben Kirchen,\ndass in Asien: Gnade sei mit euch und Friede von Ihm,\nWer ist und wer war und wer kommen wird ...",
+      "text": "Johannes an die sieben Gemeinden\nin der Provinz Asien: Gnade sei mit euch und Friede von dem,\nder ist und der war und der kommt ...",
       "ref": "Offenbarung 1:4",
       "cat": "grace",
       "ai": "Das Buch der Prophezeiung beginnt trotz aller schrecklichen Urteile und Katastrophen mit der evangelischen Zusicherung der Gnade Gottes gegenüber seiner treuen Kirche."
@@ -3302,7 +3294,7 @@
       "id": 389,
       "book": "SPRÜCHE",
       "text": "Er verspottet die Spötter, aber den Demütigen schenkt er Gnade",
-      "ref": "Sprüche 3:34",
+      "ref": "Spr. 3:34",
       "cat": "grace",
       "ai": "Die alttestamentliche Wurzel des neutestamentlichen Zitats. Arroganz und Zynismus verschließen die Tür zu Gott, aber ein demütiges Herz zieht Gottes Gunst an."
     },
@@ -3437,7 +3429,7 @@
     {
       "book": "HEBRÄER",
       "text": "Ich werde dich nicht verlassen\nund ich werde dich nicht verlassen",
-      "ref": "Hebräisch 13:5",
+      "ref": "Hebr. 13:5",
       "cat": "promises",
       "ai": "Dieses Gelübde klingt in der griechischen Sprache doppelt so stark – wörtlich: „Ich werde niemals, niemals gehen.“ Gott sagt nicht nur: „Ich werde nicht aufgeben“ – Er betont es mit einer doppelten Verleugnung. Du wirst niemals allein sein.",
       "id": 406
@@ -3445,7 +3437,7 @@
     {
       "book": "JESAJA",
       "text": "Fürchte dich nicht, denn ich habe dich erlöst,\nrief dich bei deinem Namen:\nDu gehörst mir",
-      "ref": "Ist. 43:1",
+      "ref": "Jes. 43:1",
       "cat": "promises",
       "ai": "Drei Taten in einem Vers: erlöst, beim Namen gerufen, als sein erklärt. Gott kennt dich persönlich, nicht als einen von Millionen, sondern mit Namen. Du verlierst dich nicht in der Menge – du gehörst ihm.",
       "id": 407
@@ -3485,7 +3477,7 @@
     {
       "book": "JAKOBUS",
       "text": "Nähere dich Gott\nund er wird sich dir nähern.",
-      "ref": "Als. 4:8",
+      "ref": "Jak. 4:8",
       "cat": "promises",
       "ai": "Eine der einfachsten und tiefgreifendsten Verheißungen der Heiligen Schrift. Die Initiative liegt bei Ihnen, aber Gott reagiert immer auf Ansätze. Du machst einen Schritt – Er macht einen Schritt auf dich zu. Der Abstand zwischen euch verringert sich immer, wenn ihr euch Ihm nähert.",
       "id": 412
@@ -3501,7 +3493,7 @@
     {
       "book": "JESAJA",
       "text": "Wenn du das Wasser überquerst,\nIch werde bei dir sein\nund durch die Flüsse – sie werden dich nicht überschwemmen.",
-      "ref": "Ist. 43:2",
+      "ref": "Jes. 43:2",
       "cat": "promises",
       "ai": "Pass auf: nicht „Ich werde die Flüsse von deinem Weg entfernen“, sondern „Die Flüsse werden dich nicht überschwemmen.“ Gott verspricht keinen freien Weg – Er verspricht, dass Sie Hindernisse lebend überwinden werden. Der Unterschied ist riesig.",
       "id": 414
@@ -3517,7 +3509,7 @@
     {
       "book": "SPRÜCHE",
       "text": "Der Name des Herrn ist ein starker Turm:\nder Gerechte flieht hinein\nund findet Sicherheit.",
-      "ref": "Prov. 18:10",
+      "ref": "Spr. 18:10",
       "cat": "promises",
       "ai": "Die alte Festung könnte nicht eingenommen werden, wenn es den Soldaten gelingen würde, sich im Turm zu verstecken. Der Name des Herrn ist kein Zauberwort, sondern die Person Gottes, sein Charakter und seine Macht. Wenn Sie sich an ihn wenden, stehen Sie unter seinem Schutz.",
       "id": 416
@@ -3533,7 +3525,7 @@
     {
       "book": "JESAJA",
       "text": "keine Waffe\ngegen dich gefesselt, wird nicht widerstehen.",
-      "ref": "Ist. 54:17",
+      "ref": "Jes. 54:17",
       "cat": "promises",
       "ai": "Waffen können angekettet sein – der Feind bereitet sich möglicherweise vor, die Situation kann bedrohlich aussehen. Aber „nicht stehen bleiben“ ist Gottes Wort für das Ergebnis. Nicht immer ein einfacher Weg, aber ein garantiertes Ende für diejenigen, die Seine Diener sind.",
       "id": 418
@@ -3541,7 +3533,7 @@
     {
       "book": "RÖMER",
       "text": "Wenn Gott für uns ist –\nWer ist gegen uns?",
-      "ref": "Rm. 8:31 Uhr",
+      "ref": "Röm. 8:31",
       "cat": "promises",
       "ai": "Paulus behauptet nicht, dass es keine Feinde gibt. Es stellt sich die Frage nach der Größenordnung. Der allmächtige Gott ist auf Ihrer Seite – kein Widerstand kann entscheidend sein. Das ist kein Selbstvertrauen, das ist eine solide Grundlage.",
       "id": 419
@@ -3549,7 +3541,7 @@
     {
       "book": "PHILIPPER",
       "text": "Und mein Gott wird füllen\nalle Ihre Bedürfnisse\nnach seinem Reichtum an Herrlichkeit\nin Christus Jesus.",
-      "ref": "Fl. 4:19 Uhr",
+      "ref": "Fl. 4:19",
       "cat": "promises",
       "ai": "„Jedes Bedürfnis“ – nicht nur spirituell, nicht nur materiell. Und die Quelle richtet sich „nach seinem Reichtum“, nicht nach unseren Verdiensten. Gott versorgt uns aus seinen nie versiegenden Vorräten.",
       "id": 420
@@ -3565,7 +3557,7 @@
     {
       "book": "MATTHÄUS",
       "text": "Zuerst einmal suchen\nDas Reich Gottes und seine Wahrheit,\nund alles, was dir hinzugefügt wird.",
-      "ref": "Berg 6:33 Uhr",
+      "ref": "Mt. 6:33",
       "cat": "promises",
       "ai": "„Wird hinzugefügt“ ist passiv. Du bekommst nicht alles mit Gewalt, aber es wird dir gegeben. Gott bietet einen Deal an: Du machst die Hauptsache – Er kümmert sich um den Rest. Die richtigen Prioritäten offenbaren sein Anliegen.",
       "id": 422
@@ -3589,7 +3581,7 @@
     {
       "book": "JAKOBUS",
       "text": "Wenn einer von euch\nMangel an Weisheit\nlass ihn Gott fragen\nWas großzügig gibt\nund macht keine Vorwürfe -\nund es wird ihm gegeben.",
-      "ref": "Als. 1:5",
+      "ref": "Jak. 1:5",
       "cat": "promises",
       "ai": "„Großzügig und macht keine Vorwürfe“ – Gott wird nicht seufzen, wenn Sie noch einmal fragen. Er erinnert Sie nicht daran, wie oft Sie bereits gefragt haben. Er gibt einfach. Ihn zu fragen ist eine Form des Vertrauens, und Er antwortet darauf mit offener Hand.",
       "id": 425
@@ -3597,7 +3589,7 @@
     {
       "book": "SPRÜCHE",
       "text": "Vertraue dem Herrn von ganzem Herzen\nund verlasse dich nicht auf deinen eigenen Verstand.\nErinnere dich auf all deinen Wegen an ihn,\nund Er wird dich führen.",
-      "ref": "Prov. 3:5-6",
+      "ref": "Spr. 3:5-6",
       "cat": "promises",
       "ai": "„Direkt“ bedeutet nicht, dass es keine Kurven gibt. Bedeutet, dass auch Kurven zum richtigen Weg gehören. Gott verspricht keinen geraden Weg – Er verspricht, dass der Weg dahin führt, wo er hin muss.",
       "id": 426
@@ -3605,7 +3597,7 @@
     {
       "book": "JESAJA",
       "text": "Und deine Ohren werden das Wort hören\nauf der Rückseite steht:\nDas ist der Weg, nimm ihn\nwenn Sie nach rechts oder links abbiegen.",
-      "ref": "Ist. 30:21",
+      "ref": "Jes. 30:21",
       "cat": "promises",
       "ai": "Gott gibt nicht nur vor einer Entscheidung die Richtung vor, sondern auch nach einem Fehler. „Dahinter“ ist eine korrigierende Stimme. Er schweigt nicht, wenn du verloren bist. Er sagt: Nicht da, hier ist der richtige Weg.",
       "id": 427
@@ -3621,7 +3613,7 @@
     {
       "book": "JESAJA",
       "text": "Sie werden in völliger Ruhe bleiben\ndas\ndessen Geist fest auf Dir ruht,\ndenn er vertraut auf Dich.",
-      "ref": "Ist. 26:3",
+      "ref": "Jes. 26:3",
       "cat": "promises",
       "ai": "„Völliger Frieden“ ist eine Übersetzung des hebräischen Shalom Shalom, einem doppelten Wort. Vollständigkeit, Integrität, Fülle. Voraussetzung ist kein tadelloses Verhalten, sondern „festes Vertrauen“. Frieden ist das Ergebnis von Vertrauen, nicht von Leistung.",
       "id": 429
@@ -3645,7 +3637,7 @@
     {
       "book": "RÖMER",
       "text": "Und der Gott der Hoffnung\nLass dich davon erfüllen\nmit aller Freude und Frieden im Glauben.",
-      "ref": "Rm. 15:13",
+      "ref": "Röm. 15:13",
       "cat": "promises",
       "ai": "Paulus nennt Gott „den Gott der Hoffnung“ – das ist einer seiner Namen. Es füllt, nicht nur ermöglicht. Freude und Frieden sind hier nichts, was man durch Anstrengung erreicht, sondern etwas, das Gott selbst durch den Glauben mit einem erfüllt.",
       "id": 432
@@ -3653,7 +3645,7 @@
     {
       "book": "JESAJA",
       "text": "Diejenigen, die auf den Herrn hoffen\nKraft erneuern,\nwerden sich auf Flügeln erheben wie Adler;\nwird laufen und nicht müde werden,\nwird gehen und nicht müde werden.",
-      "ref": "Ist. 40:31",
+      "ref": "Jes. 40:31",
       "cat": "promises",
       "ai": "Sie werden „aufgerüstet“ – nicht nur das ursprüngliche Niveau wiederherstellen, sondern eine neue Stärke erhalten. Der Adlerflug ist ein Bild von Freiheit und Höhe über dem Problem. Diese Macht steht denen zur Verfügung, die auf den Herrn warten und sich nicht nur auf sich selbst verlassen.",
       "id": 433
@@ -3669,7 +3661,7 @@
     {
       "book": "SACHARJA",
       "text": "Nicht durch Gewalt oder Macht,\nund durch meinen Geist,\nsagt der Herr der Heerscharen.",
-      "ref": "Westen 4:6",
+      "ref": "Sach. 4:6",
       "cat": "promises",
       "ai": "Worte an Serubbabel vor der unmöglichen Aufgabe, den Tempel wieder aufzubauen. Gott sagt: nicht durch deine Kraft. Die größten Dinge des Königreichs werden nicht durch menschliche Kraft vollbracht, sondern durch Gottes Geist. Es lindert den Druck, „stark genug zu sein“.",
       "id": 435
@@ -3677,7 +3669,7 @@
     {
       "book": "EPHESER",
       "text": "Sei stark im Herrn\nund in der Macht seiner Macht.",
-      "ref": "Ef. 6:10 Uhr",
+      "ref": "Ef. 6:10",
       "cat": "promises",
       "ai": "„Stärken“ ist ein Verb, das einen Prozess impliziert. Dies ist kein einmaliger Kraftzuwachs, sondern eine ständige Stärkung der Beziehung zum Herrn. Die Quelle sind nicht unsere eigenen Reserven, sondern seine unerschöpfliche Kraft.",
       "id": 436
@@ -3733,7 +3725,7 @@
     {
       "book": "MICHA",
       "text": "Wer ist Gott wie Du?\nWer vergibt Unrecht?\nund geht am Verbrechen vorbei\nfür den Rest seines Erbes?\nEr behält seinen Zorn nicht für immer,\nweil er Barmherzigkeit bewundert.",
-      "ref": "Mich. 7:18 Uhr",
+      "ref": "Mich. 7:18",
       "cat": "promises",
       "ai": "Der Prophet fragt rhetorisch: Wer sonst vergibt so? Gott „hält“ den Zorn nicht für immer zurück – seine Natur neigt zur Barmherzigkeit. Er möchte mehr vergeben als verurteilen. Dies ist ein grundlegendes Merkmal seines Charakters.",
       "id": 443
@@ -3741,7 +3733,7 @@
     {
       "book": "JESAJA",
       "text": "Ich, Ich selbst,\nUm meinetwillen wische ich deine Sünden weg\nund ich werde mich nicht an deine Sünden erinnern.",
-      "ref": "Ist. 43:25",
+      "ref": "Jes. 43:25",
       "cat": "promises",
       "ai": "„Für mich selbst“ – nicht wegen deiner Verdienste, sondern wegen seiner Natur. Gott vergibt, weil er so ist, nicht weil du dir genug Mühe gegeben hast. „Ich werde mich nicht erinnern“ ist eine aktive Entscheidung, sich nicht zu erinnern. Du kannst loslassen, was Er bereits beiseite gelegt hat.",
       "id": 444
@@ -3757,7 +3749,7 @@
     {
       "book": "RÖMER",
       "text": "Alles trägt zum Guten bei\nan diejenigen, die Gott lieben\nder nach Seinem Ratschluss berufen ist.",
-      "ref": "Rm. 8:28 Uhr",
+      "ref": "Röm. 8:28",
       "cat": "promises",
       "ai": "„Alles“ beinhaltet Fehler, Verluste, schmerzhafte Phasen. Gott sagt nicht, dass alles in Ordnung ist. Er sagt, dass Er in der Lage ist, alles zum Guten zu verschmelzen. Dies ist das Versprechen eines souveränen Gottes, nicht eines gleichgültigen Beobachters.",
       "id": 446
@@ -3773,7 +3765,7 @@
     {
       "book": "OFFENBARUNG",
       "text": "Und Gott wird jede Träne abwischen\naus ihren Augen\nund der Tod wird nicht mehr sein;\nkein Weinen, kein Schreien, keine Schmerzen\nmehr wird es nicht geben.",
-      "ref": "Um. 21:4",
+      "ref": "Offb. 21:4",
       "cat": "promises",
       "ai": "Das Ende aller Geschichte ist keine Katastrophe, sondern Gott, der persönlich jede Träne wegwischt. „Every“ – Er erinnert sich an jeden deiner Schreie. Und Er selbst wird kommen, um es auszulöschen. Dies ist die letzte Verheißung, mit der die Bibel endet.",
       "id": 448
@@ -3829,7 +3821,7 @@
     {
       "book": "2 KORINTHER",
       "text": "Wenn jemand in Christus –\ndieses neue Tier;\ndas Alte ist weg\njetzt ist alles neu.",
-      "ref": "2 Kor. 5:17 Uhr",
+      "ref": "2 Kor. 5:17",
       "cat": "promises",
       "ai": "„Es wurde neu“ ist die Perfektform. Es ist bereits passiert. Sie „versuchen nicht, ein neuer Mensch zu werden“ – Sie sind bereits eins in Christus. Der Unterschied zwischen „Ich versuche besser zu werden“ und „Ich bin neu“. Das erste erschöpft, das zweite befreit.",
       "id": 455
@@ -3837,7 +3829,7 @@
     {
       "book": "RÖMER",
       "text": "Aber besiege das Böse nicht,\nund das Böse mit dem Guten überwinden.",
-      "ref": "Rm. 12:21 Uhr",
+      "ref": "Röm. 12:21",
       "cat": "promises",
       "ai": "Dieses Versprechen ist im Gebot verborgen. Das Gute triumphiert tatsächlich über das Böse – nicht nur moralisch, sondern auch praktisch. Gott hat das Prinzip des Sieges in seinem Wort verankert: Mit Gutem zu reagieren ist keine Schwäche, es ist die wirksamste Waffe.",
       "id": 456
@@ -3861,9 +3853,9 @@
     {
       "book": "JESAJA",
       "text": "Und wer wird aus dir herauskommen?\nwird alte Ruinen wieder aufbauen;\nDu wirst den Grundstein legen\nviele Generationen.",
-      "ref": "Ist. 58:12",
+      "ref": "Jes. 58:12",
       "cat": "promises",
-      "ai": "„Will rebuild the ruins“ ist ein Bild der Wiederherstellung dessen, was unwiederbringlich zerstört schien. Gott stellt nicht nur Sie persönlich wieder her – er kann durch Sie ganze Generationen wiederherstellen. Ihre Genesung muss weitergehen.",
+      "ai": "„Wird die Ruinen wieder aufbauen“ ist ein Bild der Wiederherstellung dessen, was unwiederbringlich zerstört schien. Gott stellt nicht nur Sie persönlich wieder her – er kann durch Sie ganze Generationen wiederherstellen. Ihre Genesung muss weitergehen.",
       "id": 459
     },
     {
@@ -3877,7 +3869,7 @@
     {
       "book": "JESAJA",
       "text": "Er wird den Müden Kraft geben\nund wird die Stärke der Machtlosen erhöhen.",
-      "ref": "Ist. 40:29",
+      "ref": "Jes. 40:29",
       "cat": "promises",
       "ai": "Dieses Versprechen richtet sich speziell an die Müden und Schwachen – nicht an diejenigen, die noch festhalten. Gott wartet nicht darauf, dass Sie sich von selbst erholen. Es gibt genau dann Kraft, wenn es am wenigsten ist – nicht nach, sondern im Moment der Erschöpfung.",
       "id": 461
@@ -3885,7 +3877,7 @@
     {
       "book": "JESAJA",
       "text": "Und alle deine Kinder werden es sein\nJünger des Herrn,\nund es wird großen Wohlstand geben\nIhre Kinder",
-      "ref": "Ist. 54:13",
+      "ref": "Jes. 54:13",
       "cat": "promises",
       "ai": "Dieses Versprechen gilt nicht nur für Ihr Privatleben, sondern erstreckt sich auch auf Ihre Kinder. Gott ist nicht auf eine Generation beschränkt. Das Gebet der Eltern beeinflusst das Schicksal der Kinder. Dies ist ein Versprechen für diejenigen, die für ihre Lieben beten.",
       "id": 462
@@ -3917,7 +3909,7 @@
     {
       "book": "1 KORINTHER",
       "text": "Wir haben den Geist Christi.",
-      "ref": "1 Kor. 2:16 Uhr",
+      "ref": "1 Kor. 2:16",
       "cat": "promises",
       "ai": "Das ist keine Metapher, es ist ein Versprechen. Durch den Heiligen Geist haben Sie Zugang zur Denkweise Christi. Sie können die Situation mit seinen Augen betrachten und sehen, was er sieht. Es ist ein Geschenk, das jedem Gläubigen zur Verfügung steht.",
       "id": 466
@@ -3925,7 +3917,7 @@
     {
       "book": "GENESIS",
       "text": "Es ist nicht gut für einen Mann, allein zu sein;\nIch werde ihm einen für ihn geeigneten Assistenten machen.",
-      "ref": "Genesis 2:18 Uhr",
+      "ref": "Genesis 2:18",
       "cat": "promises",
       "ai": "Gott selbst hat entschieden, dass Einsamkeit „nicht gut“ ist. Das ist seine Einschätzung, nicht menschlich. Er nennt das Problem nicht nur – er löst es. Das Bedürfnis nach Kommunikation und Nähe ist von Gott begründet und wird von Ihm bereitgestellt.",
       "id": 467
@@ -3949,7 +3941,7 @@
     {
       "book": "JESAJA",
       "text": "Ich habe dir in meiner Lieblingszeit zugehört\nund am Tag der Erlösung hat er dir geholfen.",
-      "ref": "Ist. 49:8",
+      "ref": "Jes. 49:8",
       "cat": "promises",
       "ai": "Die „Lieblingszeit“ und der „Tag des Heils“ – Gott wirkt zu seiner Zeit, aber er wirkt. Wenn er „hört“ und „geholfen“ sagt, ist das ein erklärtes Versprechen. Das Warten auf Gott ist keine leere Erwartung, sondern die Zuversicht, dass er kommen wird.",
       "id": 470
@@ -3965,7 +3957,7 @@
     {
       "book": "RÖMER",
       "text": "Weil ich das für Leid halte\nGegenwart\nwertlos\nim Vergleich zu zukünftigem Ruhm,\ndie sich in uns öffnen wird.",
-      "ref": "Rm. 8:18",
+      "ref": "Röm. 8:18",
       "cat": "promises",
       "ai": "Paulus schmälert das Leid nicht – er vergleicht das Ausmaß. Selbst das schwierigste Geschenk „ist nichts wert“ im Vergleich zu dem, was kommen wird. Dies ist keine Abwertung des Schmerzes, sondern eine Perspektive, die Kraft gibt, ihn durchzustehen.",
       "id": 472
@@ -3973,7 +3965,7 @@
     {
       "book": "2 KORINTHER",
       "text": "Weil es einfach und kurzlebig ist\nin hohem Maße übertrieben\nbereitet uns eine ewige Last der Herrlichkeit vor.",
-      "ref": "2 Kor. 4:17 Uhr",
+      "ref": "2 Kor. 4:17",
       "cat": "promises",
       "ai": "„Gewicht der Herrlichkeit“ ist ein Bild von etwas, das so wertvoll ist, dass es Masse und Greifbarkeit besitzt. Paul, der die Gefangenschaft und die Schläge überlebt hat, nennt es „leicht und von kurzer Dauer“. Das ist keine Gleichgültigkeit – es ist eine Vision einer ewigen Perspektive.",
       "id": 473
@@ -4005,7 +3997,7 @@
     {
       "book": "HEBRÄER",
       "text": "Wer versprochen hat, ist treu.",
-      "ref": "Hebräisch 10:23",
+      "ref": "Hebr. 10:23",
       "cat": "promises",
       "ai": "Kurz und deutlich. Gott hat Versprechen gegeben und Er ist treu. Nicht „normalerweise durchführen“, nicht „versuchen, eine Leistung zu erbringen“. Ganz einfach: treu. Dies ist die Grundlage, auf der jede andere Verheißung in der Bibel ruht.",
       "id": 477
@@ -4021,7 +4013,7 @@
     {
       "book": "HEBRÄER",
       "text": "Ich werde meine Gesetze festlegen\nin ihren Gedanken\nund ich werde sie schreiben\nauf ihren Herzen.",
-      "ref": "Hebräisch 8:10",
+      "ref": "Hebr. 8:10",
       "cat": "promises",
       "ai": "Der Unterschied zwischen dem Alten und dem Neuen Testament: Damals befand sich das Gesetz auf Steintafeln – draußen. Jetzt – im Herzen und im Kopf. Gehorsam wird zur Selbstverständlichkeit und nicht zum Zwang. Gott verändert die Motivation, nicht nur das Verhalten.",
       "id": 479
@@ -4045,7 +4037,7 @@
     {
       "book": "JESAJA",
       "text": "Um ihnen eine Krone statt Asche zu geben,\ndas Öl der Freude statt zu weinen,\nein Gewand des Lobes statt eines Geistes der Trauer.",
-      "ref": "Ist. 61:3",
+      "ref": "Jes. 61:3",
       "cat": "promises",
       "ai": "Drei Substitutionen: Asche → Krone, Weinen → Freude, Traurigkeit → Lob. Gott entfernt nicht nur das Negative – Er ersetzt es durch das Gegenteil des Positiven. Dabei geht es nicht darum, den Schmerz zu ignorieren, sondern um echte Transformation durch seine Gegenwart.",
       "id": 482
@@ -4053,7 +4045,7 @@
     {
       "book": "JOHANNES",
       "text": "Weil Gott die Welt so sehr liebte,\nder auch seinen eingeborenen Sohn gab,\ndass jeder, der an Ihn glaubt\nist nicht gestorben\naber hatte ewiges Leben.",
-      "ref": "IV. 3:16 Uhr",
+      "ref": "IV. 3:16",
       "cat": "promises",
       "ai": "„Jeder“ ohne Ausnahme. Keine „auserwählten Wenigen“ und nicht „gerecht genug“. Es gibt nur eine Bedingung: glauben. Das ewige Leben ist keine Belohnung für Leistung, sondern ein Geschenk durch den Glauben. Dies ist die zentrale Verheißung des gesamten Neuen Testaments.",
       "id": 483
@@ -4061,7 +4053,7 @@
     {
       "book": "RÖMER",
       "text": "Denn der Lohn der Sünde ist der Tod,\nund das Geschenk Gottes -\nDas Leben ist ewig\nin Christus Jesus, unserem Herrn.",
-      "ref": "Rm. 6:23 Uhr",
+      "ref": "Röm. 6:23",
       "cat": "promises",
       "ai": "Kontrast: Zahlung (verdient) vs. Geschenk (unverdient). Der Tod ist das, was wir verdienen. Ewiges Leben ist etwas, das Gott freiwillig schenkt. Niemand kann es verdienen, aber jeder kann es erhalten.",
       "id": 484
@@ -4085,7 +4077,7 @@
     {
       "book": "KOLOSSER",
       "text": "Wo kein Grieche und kein Jude ist,\nBeschneidung oder Unbeschnittenheit\nBarbar, Einsiedler, Sklave, frei,\nsondern alles und in allem Christus.",
-      "ref": "Menge. 3:11 Uhr",
+      "ref": "Kol. 3:11",
       "cat": "promises",
       "ai": "In Christus verschwinden alle Barrieren – nationale, soziale, kulturelle –. Das ist das Versprechen einer neuen Realität. Nicht „man muss Unterschiede tolerieren“, sondern „in Christus sind wir schon eins“. Die Identität in Ihm übertrifft alle anderen.",
       "id": 487
@@ -4109,7 +4101,7 @@
     {
       "book": "OFFENBARUNG",
       "text": "wer wird gewinnen\nDeshalb werde ich dich mit mir auf meinem Thron sitzen lassen,\nwie ich es überwunden habe\nund setzte sich mit meinem Vater auf seinen Thron.",
-      "ref": "Um. 3:21 Uhr",
+      "ref": "Offb. 3:21",
       "cat": "promises",
       "ai": "„Wer wird siegen?“ ist ein Versprechen an alle, nicht an die Auserwählten. Der Sieg liegt hier nicht über die Feinde, sondern über den eigenen Rückzug. Jesus hat gewonnen – und lädt Sie zum gleichen Sieg und zur gleichen Herrlichkeit ein.",
       "id": 490
@@ -4133,7 +4125,7 @@
     {
       "book": "HEBRÄER",
       "text": "Es bleibt also dabei\nein Sabbat der Ruhe für Gottes Volk.",
-      "ref": "Hebräisch 4:9",
+      "ref": "Hebr. 4:9",
       "cat": "promises",
       "ai": "Der Sabbat ist ein Bild der spirituellen Ruhe in Gott. Es gibt eine Ruhe, die Gott für sein Volk vorbereitet hat – nicht nur körperliche, sondern auch tiefe innere Ruhe. Sie sind eingeladen, jetzt im Glauben in diese Ruhe einzutreten.",
       "id": 493
@@ -4141,7 +4133,7 @@
     {
       "book": "HEBRÄER",
       "text": "Gott bestraft, wen er liebt\nund geißelt jeden Sohn,\nwas akzeptiert",
-      "ref": "Hebräisch 12:6",
+      "ref": "Hebr. 12:6",
       "cat": "promises",
       "ai": "Bildung ist ein Zeichen der Akzeptanz, nicht der Ablehnung. Wenn Gott schwierige Situationen zulässt, die den Charakter formen, ist das keine Bestrafung des Feindes, sondern eine Erziehung des Vaters. Herausfordernde Zeiten können ein Zeichen einer engen Beziehung zu ihm sein.",
       "id": 494
@@ -4189,7 +4181,7 @@
     {
       "book": "RÖMER",
       "text": "Wo sich die Sünde vervielfachte\nDie Gnade war dort über alle Maßen vorhanden.",
-      "ref": "Rm. 5:20",
+      "ref": "Röm. 5:20",
       "cat": "promises",
       "ai": "Keine Tiefe der Sünde kann die Höhe der Gnade übertreffen. Gott berechnet nicht, ob es für Sie „ausreicht“ – es ist von Natur aus überflüssig. Es befreit von dem Gedanken „Ich bin zu sündig, um vergeben zu werden.“",
       "id": 500
@@ -4197,7 +4189,7 @@
     {
       "book": "HEBRÄER",
       "text": "Weil Er ewig lebt,\nfür sie einzutreten.",
-      "ref": "Hebräisch 7:25",
+      "ref": "Hebr. 7:25",
       "cat": "promises",
       "ai": "Jesus betet gerade für dich. Er „betete“ nicht – sondern lebte, um Fürsprache zu leisten. Wenn Sie nicht wissen, wie man betet, betet Er für Sie. Wenn du vergisst – Er vergisst nicht. Es ist ein Versprechen ständiger Fürbitte.",
       "id": 501
@@ -4205,7 +4197,7 @@
     {
       "book": "RÖMER",
       "text": "Und auf die gleiche Weise hilft der Geist unserer Schwäche;\nweil wir nicht wissen, wofür wir beten sollen\nrichtig\naber der Geist selbst tritt für uns ein\nmit unaussprechlichen Seufzern.",
-      "ref": "Rm. 8:26 Uhr",
+      "ref": "Röm. 8:26",
       "cat": "promises",
       "ai": "Wenn es keine Worte gibt, tritt der Geist mit „unaussprechlichen Seufzern“ ein. Sie müssen nicht die richtigen Gebetsworte kennen. Der Geist selbst übersetzt Ihren Schmerz, Ihre Verwirrung, Ihr Schweigen in Gebete vor dem Vater.",
       "id": 502
@@ -4245,7 +4237,7 @@
     {
       "book": "MALEACHI",
       "text": "Bringen Sie den gesamten Zehnten\nim Lager\ndamit es in meinem Haus Essen gibt,\nund prüfe Mich darin,\nsagt der Herr der Heerscharen:\nWerde ich dir nicht die Fenster des Himmels öffnen?\nund ich werde dich nicht mit unermesslichen Segnungen überschütten.",
-      "ref": "Abb. 3:10",
+      "ref": "Mal. 3:10",
       "cat": "promises",
       "ai": "Der einzige Vers in der Bibel, in dem Gott sagt: „Prüfe mich.“ Es lädt zur praktischen Erfahrung ein. Großzügigkeit gegenüber Gott aktiviert die Verheißung reichlichen Segens – nicht nur materiell, sondern in allen Dimensionen.",
       "id": 507
@@ -4253,7 +4245,7 @@
     {
       "book": "OFFENBARUNG",
       "text": "Ich bin Alpha und Omega\nErster und Letzter\nAnfang und Ende.",
-      "ref": "Um. 22:13",
+      "ref": "Offb. 22:13",
       "cat": "promises",
       "ai": "Gott umfasst das gesamte Spektrum der Existenz – vom Anfang bis zum Ende. Ihre Geschichte beginnt in Ihm und endet in Ihm. Kein Moment Ihres Lebens liegt außerhalb seiner Reichweite. Er steht am Anfang und am Ende jeder Ihrer Situationen.",
       "id": 508
@@ -4261,15 +4253,15 @@
     {
       "book": "OFFENBARUNG",
       "text": "Hier komme ich bald\nund mein Lohn ist bei mir,\njedem nach seinem Werk zu vergelten.",
-      "ref": "Um. 22:12",
+      "ref": "Offb. 22:12",
       "cat": "promises",
       "ai": "Das letzte Versprechen Jesu in der Bibel handelt von seiner Wiederkunft. „Bald“ – nicht nur chronologisch, sondern auch im Sinne von „plötzlich, unerwartet“. In Erwartung Seines Kommens zu leben ist keine Passivität, sondern die aktivste spirituelle Position.",
       "id": 509
     },
     {
       "book": "OFFENBARUNG",
-      "text": "Wer will, der komme;\nund wer will\nLass das Leben dumm Wasser nehmen.",
-      "ref": "Um. 22:17",
+      "text": "Wer will, der komme;\nund wer will,\nnehme das Wasser des Lebens umsonst.",
+      "ref": "Offb. 22:17",
       "cat": "promises",
       "ai": "Das letzte Versprechen der Bibel ist eine kostenlose Einladung. „Dumm“ ist absolut kostenlos. Es gibt nur eine Bedingung: Verlangen und Wollen. Auch dieser Wunsch ist sein Geschenk. Wenn Sie Gott wollen, ist dies bereits ein Zeichen dafür, dass Er Sie ruft.",
       "id": 510
@@ -4279,7 +4271,7 @@
       "book": "RÖMER",
       "cat": "victory",
       "text": "Was können wir dazu sagen?\nWenn Gott für uns ist, wer ist dann gegen uns?",
-      "ref": "Rom. 8:31 Uhr",
+      "ref": "Röm. 8:31",
       "ai": "Das ist keine rhetorische Frage, es ist ein Satz. Mit dem Einen, der das Universum erschaffen hat, an Ihrer Seite wird jede Kraft „dagegen“ mathematisch bedeutungslos.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4297,7 +4289,7 @@
       "book": "2 KORINTHER",
       "cat": "victory",
       "text": "Sondern um Gott zu danken, der in Christus immer über uns triumphiert.",
-      "ref": "2 Kor. 2:14 Uhr",
+      "ref": "2 Kor. 2:14",
       "ai": "„Triumphe“ ist ein Bild eines römischen Triumphs, bei dem ein Feldherr einen siegreichen Marsch anführt. Wir sind keine Zuschauer – wir sind Teilnehmer seiner Prozession.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4306,7 +4298,7 @@
       "book": "EPHESER",
       "cat": "victory",
       "text": "Denn wir kämpfen nicht gegen Fleisch und Blut,\naber gegen die Vorgesetzten, gegen die Behörden...",
-      "ref": "Ef. 6:12 Uhr",
+      "ref": "Ef. 6:12",
       "ai": "Den Feind zu kennen ist der erste Schritt zum Sieg. Ihre Probleme haben spirituelle Wurzeln. Daher ist die spirituelle Waffe keine Metapher, sondern das einzig wirksame Werkzeug.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4315,7 +4307,7 @@
       "book": "EPHESER",
       "cat": "victory",
       "text": "Zieht die ganze Waffenrüstung Gottes an,\ndamit du den List des Teufels widerstehen kannst.",
-      "ref": "Ef. 6:11 Uhr",
+      "ref": "Ef. 6:11",
       "ai": "Gott bittet Sie nicht, zu gewinnen – Er bittet Sie, durchzuhalten. Der Unterschied ist grundlegend: Er hat die Schlacht bereits gewonnen. Ihre Aufgabe besteht nicht darin, Ihre Position aufzugeben.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4324,7 +4316,7 @@
       "book": "JAKOBUS",
       "cat": "victory",
       "text": "Unterwerfe dich Gott.\nAllerdings\nWiderstehe dem Teufel\nund er wird vor dir davonlaufen.",
-      "ref": "Als. 4:7",
+      "ref": "Jak. 4:7",
       "ai": "Zwei Verben – und eine ganze Strategie dazwischen. Zuerst Gehorsam gegenüber Gott (Quelle der Macht), dann Widerstand gegen den Feind (Anwendung von Macht). Konsistenz ist wichtig.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4342,7 +4334,7 @@
       "book": "OFFENBARUNG",
       "cat": "victory",
       "text": "Sie haben ihn besiegt\ndurch das Blut des Lammes\nund das Wort seines Zeugnisses.",
-      "ref": "Um. 12:11 Uhr",
+      "ref": "Offb. 12:11",
       "ai": "Die beiden Waffen des Sieges sind das Blut Christi (was er getan hat) und unser Zeugnis (was wir verkünden). Schweigen ist keine neutrale Position.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4351,7 +4343,7 @@
       "book": "KOLOSSER",
       "cat": "victory",
       "text": "Er entwaffnete die Vorgesetzten und Behörden\nund sie lächerlich machen,\nsie am Kreuz besiegen.",
-      "ref": "Menge. 2:15",
+      "ref": "Kol. 2:15",
       "ai": "„Entwaffnet“ – wörtlich „entkleidet“. Das Kreuz ist keine Niederlage, sondern die völlige Entwaffnung des Feindes. Was Sie fürchten, hat bereits seine Waffe verloren.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4360,7 +4352,7 @@
       "book": "LUKAS",
       "cat": "victory",
       "text": "Ich sah Satan wie einen Blitz vom Himmel schlafen.",
-      "ref": "Lk. 10:18 Uhr",
+      "ref": "Lk. 10:18",
       "ai": "Dies sagte Jesus, als die Jünger von ihrer Mission zurückkehrten. Unser Dienst ist kein Kampf um den Sieg. Dies ist eine Demonstration des bereits vollendeten Sturzes des Feindes.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4369,7 +4361,7 @@
       "book": "HEBRÄER",
       "cat": "victory",
       "text": "Mit Seinem Tod den Einen zerstören\nder die Macht über den Tod hatte, das heißt der Teufel.",
-      "ref": "Hebräisch 2:14 Uhr",
+      "ref": "Hebr. 2:14",
       "ai": "„Zerstören“ ist das griechische „katargeo“: handlungsunfähig machen, der Kraft berauben. Der Teufel existiert noch, aber die Macht des Todes wurde ihm bereits genommen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4405,7 +4397,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Keine Waffe, die gegen dich angekettet ist\nwird keinen Erfolg haben.",
-      "ref": "Ist. 54:17",
+      "ref": "Jes. 54:17",
       "ai": "Gott verspricht nicht die Abwesenheit von Waffen – Er verspricht ihre Ohnmacht. Der Feind kann Pläne gegen Sie „schmieden“. Es wird ihnen nicht gelingen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4414,7 +4406,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Siehe, alle, die gegen dich entbrannt sind,\nsie werden mit Schande bedeckt und beschämt werden.",
-      "ref": "Ist. 41:11",
+      "ref": "Jes. 41:11",
       "ai": "Das Ende derer, die gegen Gottes Kinder kämpfen, ist vorbestimmt. Du weißt nicht wie und wann, aber Er weiß es, und das reicht.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4432,7 +4424,7 @@
       "book": "DEUTERONOMIUM",
       "cat": "victory",
       "text": "Der Herr, dein Gott\nEr ist es, der für dich kämpft.",
-      "ref": "Pov. Zak. 3:22 Uhr",
+      "ref": "Dtn. 3:22",
       "ai": "Moses sagt dies, bevor er Kanaan betritt, ein Land, das noch erobert werden muss. Gott kämpft „für dich“, aber durch dich. Ihre Teilnahme ist erforderlich, aber die Macht liegt bei ihm.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4459,7 +4451,7 @@
       "book": "SACHARJA",
       "cat": "victory",
       "text": "Nicht durch Gewalt oder Macht,\nsondern durch meinen Geist, spricht der Herr der Heerscharen.",
-      "ref": "Westen 4:6",
+      "ref": "Sach. 4:6",
       "ai": "Serubbabel musste den Tempel ohne Armee und Ressourcen wieder aufbauen. Gott hat die Umstände nicht verändert – Er hat die Quelle der Macht verändert. Der Heilige Geist erweitert die menschlichen Fähigkeiten nicht – er ersetzt sie.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4487,7 +4479,7 @@
       "cat": "victory",
       "text": "Der Herr ist mit uns;\nHab keine Angst vor ihnen!",
       "ref": "Nr. 14:9",
-      "ai": "Caleb und Joshua sind einer der zwölf Spione. Sie sahen dieselben Riesen wie die anderen. Der Unterschied lag nicht im Stern, sondern darin, wen sie in die Gleichung einbezog.",
+      "ai": "Kaleb und Josua sind zwei der zwölf Kundschafter. Sie sahen dieselben Riesen wie die anderen. Der Unterschied lag nicht im Blickwinkel, sondern darin, wen sie in die Gleichung einbezogen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -4522,7 +4514,7 @@
       "book": "HEBRÄER",
       "cat": "victory",
       "text": "Deshalb sagen wir mutig:\nDer Herr ist mein Helfer,\nIch habe keine Angst: Was wird der Mensch mit mir machen?",
-      "ref": "Hebräisch 13:6",
+      "ref": "Hebr. 13:6",
       "ai": "„Kühn“ ist das griechische „parrhesia“: offen, ohne Angst. Der Sieg über die menschliche Angst ist keine Gleichgültigkeit gegenüber den Menschen, sondern die richtige Hierarchie: Gott ist größer.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4540,7 +4532,7 @@
       "book": "DEUTERONOMIUM",
       "cat": "victory",
       "text": "Der Herr, dein Gott, der vor dir geht\nDieser wird für dich kämpfen.",
-      "ref": "Pov. Zak. 1:30 Uhr",
+      "ref": "Dtn. 1:30",
       "ai": "„Vor dir gehen“ – Gott wartet nicht darauf, dass du in Schwierigkeiten gerätst. Er ist schon da. Du trittst dort ein, wo Er bereits ist.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4558,7 +4550,7 @@
       "book": "RÖMER",
       "cat": "victory",
       "text": "Weil ich überzeugt bin, dass weder Tod noch Leben...\nnoch irgendein anderes Tier\nkann uns nicht von der Liebe Gottes trennen.",
-      "ref": "Rom. 8:38-39",
+      "ref": "Röm. 8:38-39",
       "ai": "Paul zählt fast alle möglichen „Feinde“ auf – und sagt: keine. Gottes Liebe ist keine Belohnung für Verhalten und hängt nicht von den Umständen ab. Das ist absolute Sicherheit.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4576,7 +4568,7 @@
       "book": "OFFENBARUNG",
       "cat": "victory",
       "text": "Wer gewinnt, erbt es.\nund ich werde sein Gott sein,\nund er soll mein Sohn sein.",
-      "ref": "Um. 21:7",
+      "ref": "Offb. 21:7",
       "ai": "„Wins“ in Revelation ist kein Superheld. Er ist derjenige, der im Glauben bis zum Ende durchhält. Tägliche Treue ist Sieg.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4594,7 +4586,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Er gibt den Müden Kraft,\nund gibt den Machtlosen Macht.",
-      "ref": "Ist. 40:29",
+      "ref": "Jes. 40:29",
       "ai": "Gott gibt nicht den Starken Kraft – Er gibt sie den Müden. Die Voraussetzung für den Empfang ist nicht Ihre Bereitschaft, sondern Ihre Leere.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4603,7 +4595,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Diejenigen, die auf den Herrn warten\nKraft wiederherstellen\nwerden sich auf Flügeln wie Adler erheben.",
-      "ref": "Ist. 40:31",
+      "ref": "Jes. 40:31",
       "ai": "„Warten“ ist das alte hebräische „kavah“: zusammenweben, aneinanderreihen. Auf Gott zu warten ist keine Passivität, sondern ein aktiver Umgang mit der eigenen Schwäche und seiner Stärke.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4630,7 +4622,7 @@
       "book": "LUKAS",
       "cat": "victory",
       "text": "Siehe, ich gebe dir die Macht, auf Schlangen zu treten\nund Skorpione\nund der ganzen Kraft des Feindes,\nund nichts wird dir schaden.",
-      "ref": "Lk. 10:19 Uhr",
+      "ref": "Lk. 10:19",
       "ai": "„Ich gebe“ ist die Gegenwartsform. Er hat nicht „einmal gegeben“ und wird auch nicht „später geben“. Diese Kraft ist relevant, lebendig und jetzt verfügbar. Die Frage ist nur, ob Sie es verwenden.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4639,7 +4631,7 @@
       "book": "MARKUS",
       "cat": "victory",
       "text": "Und diejenigen, die glauben, werden von diesen Zeichen begleitet:\nIn meinem Namen werden sie Dämonen austreiben.",
-      "ref": "Herr 16:17",
+      "ref": "Mk. 16:17",
       "ai": "Jesus beschränkte dieses Versprechen nicht auf die Apostel. „Diejenigen, die glauben“ ist eine weit gefasste, offene Formulierung. Der Sieg über die Dunkelheit ist Teil des Grundpakets der Jüngerschaft.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4684,7 +4676,7 @@
       "book": "OFFENBARUNG",
       "cat": "victory",
       "text": "Hab keine Angst! Ich bin der Erste und der Letzte,\nund die Lebenden: Ich war tot,\naber hier lebe ich für immer und ewig.",
-      "ref": "Um. 1:17-18",
+      "ref": "Offb. 1:17-18",
       "ai": "Dies sagt Jesus zu Johannes, dem alten Gefangenen auf der Insel. Der Erste, der den Tod besiegt, sagt zu dir: „Fürchte dich nicht.“ Er weiß theoretisch nichts vom Tod.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4702,7 +4694,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Wenn du das Wasser überquerst, bin ich bei dir,\nund durch die Flüsse - sie werden dich nicht überschwemmen;\nWenn du durch das Feuer gehst, verbrennst du dich nicht.",
-      "ref": "Ist. 43:2",
+      "ref": "Jes. 43:2",
       "ai": "„Wann“ ist nicht „wenn“. Gott verspricht nicht, dass es kein Feuer geben wird. Er verspricht, dass du durch ihn hindurchgehen wirst. Der Sieg ist kein Umweg, sondern ein Übergang mit Ihm.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4720,7 +4712,7 @@
       "book": "OFFENBARUNG",
       "cat": "victory",
       "text": "Weine nicht!\nSiehe, der Löwe aus dem Stamm Juda hat gesiegt,\nWurzel Davids.",
-      "ref": "Um. 5:5",
+      "ref": "Offb. 5:5",
       "ai": "John weinte, weil es niemanden gab, der würdig war, das Buch zu öffnen. Aber der Sieger ist bereits da – und er steht da wie ein geschlachtetes Lamm. Der Sieg Christi entstand aus Opfern, nicht aus dem Schwert.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4729,7 +4721,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Glaube ist die Erfüllung dessen, was wir erhoffen,\nBeweise für unsichtbare Dinge.",
-      "ref": "Hebräisch 11:1",
+      "ref": "Hebr. 11:1",
       "ai": "Paulus gibt kein Bild, sondern eine rechtliche Definition. „Realisierung“ ist das griechische „Hypostase“: eine Eigentumsurkunde, ein Titel. Der Glaube ist ein bereits vorhandenes Dokument für etwas, das noch nicht sichtbar ist.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4738,7 +4730,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Ohne Glauben ist es unmöglich, Gott zu gefallen;\nfür jeden, der zu Gott kommt\nmuss glauben, dass Er es ist\nund der diejenigen belohnt, die ihn suchen.",
-      "ref": "Hebräisch 11:6",
+      "ref": "Hebr. 11:6",
       "ai": "Für eine Beziehung zu Gott sind zwei Dinge notwendig: dass er existiert und dass er gut ist. Ohne das Zweite führt das Erste zu keiner Beziehung – nur zur Angst.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4747,7 +4739,7 @@
       "book": "MARKUS",
       "cat": "faith",
       "text": "Dem Gläubigen ist alles möglich.",
-      "ref": "Herr 9:23 Uhr",
+      "ref": "Mk. 9:23",
       "ai": "Der Vater des kranken Jungen sagte: „Wenn du kannst.“ Jesus hat die Bedingung verschoben: Die Frage ist nicht seine Fähigkeit, sondern Ihr Glaube. Die Grenzen des Möglichen hängen davon ab, wem Sie vertrauen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4756,13 +4748,13 @@
       "book": "MARKUS",
       "cat": "faith",
       "text": "Ich glaube;\nhilf meinem Unglauben!",
-      "ref": "Herr 9:24 Uhr",
+      "ref": "Mk. 9:24",
       "ai": "Das ehrlichste Gebet im Neuen Testament. Gott lehnte den Vater nicht ab, weil er Zweifel zugab – im Gegenteil, es geschah ein Wunder. Teilweiser Glaube mit Ehrlichkeit ist besser als vorgetäuschtes Vertrauen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
       "id": 565,
-      "book": "LUKAS",
+      "book": "MATTHÄUS",
       "cat": "faith",
       "text": "Wenn du Glauben hast wie ein Senfkorn,\ndann sag zu diesem Berg: Gehe von hier nach dort,\nund sie wird bestehen.",
       "ref": "Mt. 17:20",
@@ -4774,7 +4766,7 @@
       "book": "MATTHÄUS",
       "cat": "faith",
       "text": "Möge es deinem Glauben entsprechend sein.",
-      "ref": "Berg 9:29 Uhr",
+      "ref": "Mt. 9:29",
       "ai": "Dies sagte Jesus zu den beiden Blinden. Nicht „nach Meinem Willen“ und nicht „nach euren Verdiensten“ – nach dem Glauben. Gott richtet sein Eingreifen oft auf unsere Erwartungen aus.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4783,7 +4775,7 @@
       "book": "LUKAS",
       "cat": "faith",
       "text": "Tochter, dein Glaube hat dich gerettet;\ngeh in Frieden",
-      "ref": "Lk. 8:48 Uhr",
+      "ref": "Lk. 8:48",
       "ai": "Eine Frau berührte in der Menge die Kleidung Jesu. Jesus fragte: „Wer hat berührt?“ Nicht weil er es nicht wusste, sondern weil sie offen ihren Glauben verkündete. Die öffentliche Aussage vervollständigt die Heilung.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4810,7 +4802,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Durch den Glauben gehorchte Abraham, wie er berufen wurde,\nan den Ort gehen, den er erben sollte;\nund ging hinaus, ohne zu wissen, wohin er wollte.",
-      "ref": "Hebräisch 11:8",
+      "ref": "Hebr. 11:8",
       "ai": "Avraham reiste ohne GPS und ohne Route ab. Manchmal macht Gott nur den ersten Schritt, nicht den ganzen Weg. Die Bewegung in der Ungewissheit ist die Essenz eines Glaubensschritts.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4819,7 +4811,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Durch den Glauben opferte Abraham Isaak,\nwenn man versucht ist\nmit der Begründung, dass Gott sogar von den Toten auferstehen kann.",
-      "ref": "Hebräisch 11:17, 19",
+      "ref": "Hebr. 11:17, 19",
       "ai": "Abraham verstand nicht, wie sich das Versprechen erfüllen würde, wenn Isaak starb. Aber er kannte den Charakter Gottes. Wenn die Logik endet, beginnt wahrer Glaube.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4828,7 +4820,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Durch den Glauben verließ Mose Ägypten,\nohne Angst vor dem Zorn des Königs,\nweil er festhielt, als ob er das Unsichtbare sah.",
-      "ref": "Hebräisch 11:27 Uhr",
+      "ref": "Hebr. 11:27",
       "ai": "„Halten, als ob Sie das Unsichtbare sehen würden“ ist eine wunderbare Formel. Moses hatte keine Wahl zwischen einem sichtbaren König und einem unsichtbaren Gott. Er wählte das Unsichtbare und besiegte das Sichtbare.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4837,7 +4829,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Durch den Glauben fielen die Mauern von Jericho,\nweil sie sieben Tage lang umgangen wurden.",
-      "ref": "Hebräisch 11:30 Uhr",
+      "ref": "Hebr. 11:30",
       "ai": "Sieben Kreise um die Mauer des Schweigens sind die lächerlichste Militärtaktik der Geschichte. Aber es war die Absurdität der Aufgabe, die hier getestet wurde: Befolgen Sie Befehle oder folgen Sie der Logik?",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4846,7 +4838,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Und all dies, bezeugt durch den Glauben,\nnicht erhalten, was versprochen wurde\nweil Gott etwas Besseres für uns geplant hat.",
-      "ref": "Hebräisch 11:39-40",
+      "ref": "Hebr. 11:39-40",
       "ai": "Die Helden aus Hebräer 11 starben, ohne die Verheißung für ihr Leben zu erhalten. Ihr Glaube war trotzdem real. Wahrer Glaube ist nicht an Bedingungen geknüpft: Ich glaube, wenn ich empfange.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4855,7 +4847,7 @@
       "book": "RÖMER",
       "cat": "faith",
       "text": "Weil ich mich des Evangeliums Christi nicht schäme,\ndenn es ist die Kraft Gottes zur Erlösung\nan alle, die glauben.",
-      "ref": "Rom. 1:16 Uhr",
+      "ref": "Röm. 1:16",
       "ai": "„Stärke“ ist das griechische „dyunamis“, woraus „Dynamit“ resultiert. Das Evangelium ist kein stiller Hinweis auf Gott. Es ist eine explosive Kraft, die die Ketten von Sünde, Krankheit und Tod sprengt.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4864,7 +4856,7 @@
       "book": "RÖMER",
       "cat": "faith",
       "text": "Die Gerechten werden im Glauben leben.",
-      "ref": "Rom. 1:17 Uhr",
+      "ref": "Röm. 1:17",
       "ai": "Dieser Vers veränderte Martin Luther und leitete die Reformation ein. Nicht durch Taten, nicht durch Rituale, sondern durch Glauben. Alle Gerechtigkeit vor Gott wird durch Vertrauen erlangt, nicht durch Leistung.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4873,7 +4865,7 @@
       "book": "RÖMER",
       "cat": "faith",
       "text": "Deshalb, gerechtfertigt durch den Glauben,\nwir haben Frieden mit Gott\ndurch unseren Herrn Jesus Christus.",
-      "ref": "Rom. 5:1",
+      "ref": "Röm. 5:1",
       "ai": "„Frieden mit Gott“ ist kein emotionaler Zustand, sondern ein rechtlicher Status. Der Krieg ist vorbei. Rechtfertigung durch Glauben bedeutet: Gott ist nicht mehr gegen dich. Es ist eine Grundlage, kein Gefühl.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4882,7 +4874,7 @@
       "book": "GALATER",
       "cat": "faith",
       "text": "Zu wissen, dass eine Person keine Ausreden erfindet\nper Gesetz,\nsondern durch den Glauben an Jesus Christus.",
-      "ref": "Gal. 2:16 Uhr",
+      "ref": "Gal. 2:16",
       "ai": "Paulus wiederholt diesen Gedanken dreimal in einem Vers – zur Betonung. Er kämpfte mit der Vorstellung, dass die Gnade durch Werke ergänzt werden müsse. Die Rechtfertigung kommt entweder vollständig von Gott – oder es ist überhaupt keine Rechtfertigung.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4909,8 +4901,8 @@
       "book": "JAKOBUS",
       "cat": "faith",
       "text": "So ist es mit dem Glauben, wenn er keine Werke hat,\nan sich tot.",
-      "ref": "Als. 2:17 Uhr",
-      "ai": "James widerspricht Paulus nicht – er spricht von etwas anderem. Pavlo: Dinge werden nicht gerettet. Jakobus: Wahrer rettender Glaube bringt immer Werke hervor. Ein toter Baum trägt keine Früchte.",
+      "ref": "Jak. 2:17",
+      "ai": "Jakobus widerspricht Paulus nicht – er spricht von etwas anderem. Paulus: Werke retten nicht. Jakobus: Wahrer rettender Glaube bringt immer Werke hervor. Ein toter Baum trägt keine Früchte.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -4918,7 +4910,7 @@
       "book": "JAKOBUS",
       "cat": "faith",
       "text": "Und die Schrift erfüllte sich, die besagt:\nAbraham glaubte Gott\nund es wird ihm als Gerechtigkeit zugeschrieben.",
-      "ref": "Als. 2:23",
+      "ref": "Jak. 2:23",
       "ai": "„Gutgeschrieben“ ist ein Buchhaltungsbegriff: auf ein Konto schreiben. Gott sieht Abrahams Vertrauen und schreibt ihm Gerechtigkeit zu. Was er nicht verdiente, sondern als Darlehen erhielt.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -4962,7 +4954,7 @@
       "id": 587,
       "book": "JOHANNES",
       "cat": "faith",
-      "text": "Wenn Sie es in Maine versuchen\nund meine Worte werden an dir geprüft,\nFragen Sie nach dem, was Sie wollen, und es wird Ihnen passieren.",
+      "text": "Wenn ihr in mir bleibt\nund meine Worte in euch bleiben,\nfragt nach dem, was ihr wollt, und es wird euch geschehen.",
       "ref": "IV. 15:7",
       "ai": "Die Bedingung für unbegrenztes Gebet ist: „Wenn ihr in Mir bleibt.“ Ein tiefes Verbleiben in Christus verändert unsere Wünsche. Der wahre „Wunsch“ eines reifen Jüngers stimmt mit dem Willen des Vaters überein.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -4972,7 +4964,7 @@
       "book": "JOHANNES",
       "cat": "faith",
       "text": "Weil Gott die Welt so sehr liebte,\nder seinen eingeborenen Sohn gab,\ndamit jeder, der an ihn glaubt, nicht verloren geht,\naber hatte ewiges Leben.",
-      "ref": "IV. 3:16 Uhr",
+      "ref": "IV. 3:16",
       "ai": "„Jeder, der glaubt“ – ohne Bedingungen, außer einer: Vertrauen. Kein perfektes Verhalten, keine makellose Theologie. Vertraue einfach dem Einen, den Gott gesandt hat.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5008,7 +5000,7 @@
       "book": "RÖMER",
       "cat": "faith",
       "text": "Denn wenn du mit deinem Mund gestehst,\ndass Jesus der Herr ist\nund du glaubst mit deinem Herzen\ndass Gott ihn von den Toten auferweckt hat – du wirst gerettet.",
-      "ref": "Rom. 10:9",
+      "ref": "Röm. 10:9",
       "ai": "Zwei Dimensionen der Erlösung: das Herz (Überzeugung) und der Mund (Bekenntnis). Der innere Glaube ist ohne äußeres Zeugnis unvollständig. Wahres Vertrauen sucht nach einem Ausweg.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5017,7 +5009,7 @@
       "book": "RÖMER",
       "cat": "faith",
       "text": "Deshalb kommt der Glaube vom Hören,\nund Hören durch das Wort Christi.",
-      "ref": "Rom. 10:17 Uhr",
+      "ref": "Röm. 10:17",
       "ai": "Eine einfache Kausalkette: Wort → Hören → Glaube. Wenn Sie mehr Glauben wollen, suchen Sie nicht nach mehr Emotionen. Tauchen Sie tiefer in das Wort ein.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5026,7 +5018,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Schauen Sie auf das Haupt und den Vollender des Glaubens – Jesus,\nWas für eine Freude, die vor Ihm stand,\ndas Kreuz ertragen",
-      "ref": "Hebräisch 12:2",
+      "ref": "Hebr. 12:2",
       "ai": "Wenn Ihr eigener Glaube schwächer wird, schauen Sie weg. Nicht auf das Problem, nicht auf den eigenen Zustand. Zu Jesus, der am Kreuz vorbeigegangen ist und durch das Kreuz hindurchgeschaut hat – zur Freude.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5035,7 +5027,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Deshalb haben wir, da wir eine solche Wolke von Zeugen um uns haben,\nlasst uns jede Last und Sünde abwerfen,\nDas verwirrt uns leicht\nund mit Geduld lasst uns das für uns vorbereitete Rennen laufen.",
-      "ref": "Hebräisch 12:1",
+      "ref": "Hebr. 12:1",
       "ai": "Die „Wolke der Zeugen“ ist kein zuschauendes Publikum. Das sind diejenigen, deren Aussage besagt: Sie können aufholen. Abraham, Moses und Noah sind lebende Beweise dafür, dass Distanz überwunden werden kann.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5044,7 +5036,7 @@
       "book": "1 PETRUS",
       "cat": "faith",
       "text": "Um deinen Glauben zu testen,\nteurer als vergängliches Gold,\ndas durch das Feuer offenbart wird\nwurde mit Lob bedacht.",
-      "ref": "1 Fr. 1:7",
+      "ref": "1 Petr. 1:7",
       "ai": "Gold wird durch Feuer gereinigt, weil es wertvoll ist. Wenn Gott Prüfungen zulässt, ist das kein Zeichen von Verlassenheit. Dies ist ein Zeichen dafür, dass Er weiß, dass im Inneren Gold ist.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5053,8 +5045,8 @@
       "book": "JAKOBUS",
       "cat": "faith",
       "text": "Betrachtet es als eine große Freude, meine Brüder,\nwenn du in verschiedene Versuchungen gerätst,\nWissen Sie, dass dies Ihren Glauben auf die Probe stellt\nerzeugt Geduld.",
-      "ref": "Als. 1:2-3",
-      "ai": "Jakobus sagt nicht: „Genieße das Leiden.“ Er sagt „consider for joy“ – eine bewusste Wahl der Perspektive. Das Wissen darüber, was geschieht, verändert die Einstellung gegenüber dem, was geschieht.",
+      "ref": "Jak. 1:2-3",
+      "ai": "Jakobus sagt nicht: „Genieße das Leiden.“ Er sagt „betrachte es als Freude“ – eine bewusste Wahl der Perspektive. Das Wissen darüber, was geschieht, verändert die Einstellung gegenüber dem, was geschieht.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -5062,7 +5054,7 @@
       "book": "JAKOBUS",
       "cat": "faith",
       "text": "Aber lass ihn mit Glauben fragen,\nohne an irgendetwas zu zweifeln;\nDenn wer zweifelt, ist wie eine Meereswelle.",
-      "ref": "Als. 1:6",
+      "ref": "Jak. 1:6",
       "ai": "„Zweifel“ ist hier kein intellektueller Skeptizismus, sondern Dichotomie: Manchmal glaube ich, manchmal nicht. Jacob beschreibt einen Menschen ohne Anker – er schwankt je nach den Umständen zwischen Vertrauen und Misstrauen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5071,7 +5063,7 @@
       "book": "1 PETRUS",
       "cat": "faith",
       "text": "Wen du liebst, ohne ihn zu sehen;\nan den du glaubst, obwohl du es jetzt nicht siehst,\nund freue dich mit unaussprechlicher und herrlicher Freude.",
-      "ref": "1 Fr. 1:8",
+      "ref": "1 Petr. 1:8",
       "ai": "Die ersten Leser des Petrus hatten Jesus noch nie mit eigenen Augen gesehen – und sie liebten ihn trotzdem. Glaube ist eine Beziehung ohne physische Präsenz, aber mit einer echten Erfahrung der Freude.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5089,7 +5081,7 @@
       "book": "MARKUS",
       "cat": "faith",
       "text": "Du musst an dein Herz glauben,\nund zweifle nicht.",
-      "ref": "Herr 11:23",
+      "ref": "Mk. 11:23",
       "ai": "Der Kontext ist ein verdorrter Feigenbaum nach den Worten Jesu. Er erklärt: kein besonderer Zauber, sondern ein Prinzip. Ein Wort, das zweifellos von Herzen kommt – und Berge versetzen. Das Herz ist hier wichtiger als die Zunge.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5125,7 +5117,7 @@
       "book": "SPRÜCHE",
       "cat": "faith",
       "text": "Vertraue dem Herrn von ganzem Herzen\nund verlasse dich nicht auf deinen eigenen Verstand.",
-      "ref": "Attribut 3:5",
+      "ref": "Spr. 3:5",
       "ai": "„Von ganzem Herzen“ – ohne Sicherungskopie des eigenen Plans. Vertrauen „80 %“ ist kein Vertrauen. Gott bittet nicht um einen Berater – Er bittet um jemanden, dem er vertrauen kann.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5134,7 +5126,7 @@
       "book": "SPRÜCHE",
       "cat": "faith",
       "text": "Erkenne Ihn auf all deinen Wegen an,\nund Er wird deine Wege ebnen.",
-      "ref": "Attribut 3:6",
+      "ref": "Spr. 3:6",
       "ai": "„Anerkennen“ ist das hebräische „yada“: in einer Beziehung genau wissen. Nicht nur das Wissen um Ihn. Üben Sie seine Gegenwart bei jeder Entscheidung – und erhalten Sie korrigierte Verhaltensweisen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5179,16 +5171,16 @@
       "book": "RÖMER",
       "cat": "peace",
       "text": "Deshalb, gerechtfertigt durch den Glauben,\nwir haben Frieden mit Gott\ndurch unseren Herrn Jesus Christus.",
-      "ref": "Rom. 5:1",
+      "ref": "Röm. 5:1",
       "ai": "Frieden „mit Gott“ ist kein emotionaler Zustand, sondern eine rechtliche Tatsache. Der Krieg ist vorbei. Das Kreuz ist ein Friedensvertrag, der mit dem Blut Christi unterzeichnet wurde. Angst bedeutet zu vergessen, dass der Vertrag bereits unterzeichnet wurde.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
       "id": 612,
-      "book": "JESAJA",
+      "book": "EPHESER",
       "cat": "peace",
       "text": "Weil Er unser Frieden ist.",
-      "ref": "Ef. 2:14 Uhr",
+      "ref": "Ef. 2:14",
       "ai": "Paulus sagt nicht: „Er gibt Frieden“ oder „Er lehrt Frieden“. Er sagt: „Er ist Frieden.“ Frieden ist kein Zustand, den man erreichen kann. Das ist die Person, mit der man zusammen sein kann.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5197,7 +5189,7 @@
       "book": "JESAJA",
       "cat": "peace",
       "text": "Weil uns ein Kind geboren wurde,\nUns wurde ein Sohn geschenkt...\nund Namen für ihn:\nEwiger Vater, Fürst des Friedens.",
-      "ref": "Ist. 9:5",
+      "ref": "Jes. 9:5",
       "ai": "Der „Fürst des Friedens“ ist die Schicht des Schaloms: der Herrscher des Friedens. Jesus kam nicht nur, um eine Friedensbotschaft zu überbringen. Er ist die Quelle und der Herrscher über die Natur des Friedens.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5206,7 +5198,7 @@
       "book": "JESAJA",
       "cat": "peace",
       "text": "Oh, wenn du auf meine Gebote hören würdest!\nDann wäre dein Frieden wie ein Fluss\nund deine Gerechtigkeit ist wie die Wellen des Meeres.",
-      "ref": "Ist. 48:18",
+      "ref": "Jes. 48:18",
       "ai": "Ein Fluss ist keine stehende Pfütze, sondern ein stetiger Fluss. Gott verspricht Frieden nicht als einmaliges Ereignis, sondern als kontinuierlichen Fluss. Bedingung: Zuhören, das heißt, im Einklang mit dem Wort leben.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5215,7 +5207,7 @@
       "book": "JESAJA",
       "cat": "peace",
       "text": "Frieden, Frieden in der Ferne und in der Nähe,\nspricht der Herr, und ich werde ihn heilen.",
-      "ref": "Ist. 57:19",
+      "ref": "Jes. 57:19",
       "ai": "„In die Ferne und in die Nähe“ – Paulus zitiert dies in Eph. 2:17, wo es um Heiden und Juden geht. Der Friede Gottes kennt keine geografischen oder kulturellen Grenzen. Er ist für alle da.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5241,7 +5233,7 @@
       "id": 618,
       "book": "PSALMEN",
       "cat": "peace",
-      "text": "Belohne den Herrn und vertraue auf ihn,\nund Er wird es tun.\nUnd wird wie Licht deine Gerechtigkeit hervorbringen.",
+      "text": "Befiehl dem Herrn deinen Weg\nund vertraue auf ihn,\nund Er wird es tun.\nUnd Er wird deine Gerechtigkeit wie das Licht hervorbringen.",
       "ref": "Ps. 37:5-6",
       "ai": "„Belohnungen“ – wörtlich: entfalten, öffnen. Öffne Gott dein Herz und deine Pläne. Frieden kommt, wenn du aufhörst, alles in deiner Faust zu halten und deine Handflächen öffnest.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
@@ -5269,7 +5261,7 @@
       "book": "SPRÜCHE",
       "cat": "peace",
       "text": "Ein ruhiges Herz bedeutet einen gesunden Körper.",
-      "ref": "Attribut 14:30 Uhr",
+      "ref": "Spr. 14:30",
       "ai": "Salomo schrieb dies vor dreitausend Jahren. Die moderne Psychosomatik hat bestätigt, dass chronische Angst das Immunsystem, das Herz und die Verdauung zerstört. Frieden ist nicht nur ein spirituelles, sondern auch ein physiologisches Gut.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5278,7 +5270,7 @@
       "book": "SPRÜCHE",
       "cat": "peace",
       "text": "Es ist besser, die Furcht des Herrn zu haben,\nals einen großen Schatz mit Angst davor.",
-      "ref": "Attribut 15:16",
+      "ref": "Spr. 15:16",
       "ai": "Salomo – der reichste Mann seiner Zeit – sagt: „Klein mit Frieden ist besser als groß mit Angst.“ Er kannte beide Zustände in- und auswendig. Frieden ist teurer als Eigentum.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5305,7 +5297,7 @@
       "book": "LUKAS",
       "cat": "peace",
       "text": "Geh in Frieden.",
-      "ref": "Lk. 7:50 Uhr",
+      "ref": "Lk. 7:50",
       "ai": "Jesus sagt dies zu der sündigen Frau, die zu seinen Füßen weinte. Kein Vortrag, keine Bedingungen. Vergebung und Frieden. Gottes Frieden geht immer mit Vergebung einher.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5323,7 +5315,7 @@
       "book": "LUKAS",
       "cat": "peace",
       "text": "Ehre sei Gott in der Höhe\nund Frieden auf Erden\nim Volk Seiner Gunst!",
-      "ref": "Lk. 2:14 Uhr",
+      "ref": "Lk. 2:14",
       "ai": "Engel singt bei der Geburt Jesu. Frieden auf Erden ist keine Utopie der fernen Zukunft. Er begleitete ihn zur Krippe in Bethlehem. Es beginnt nicht mit internationalen Verträgen, sondern mit dem Kind.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5332,7 +5324,7 @@
       "book": "RÖMER",
       "cat": "peace",
       "text": "Wenn möglich Ihrerseits,\nHab Frieden mit allen Menschen.",
-      "ref": "Rom. 12:18 Uhr",
+      "ref": "Röm. 12:18",
       "ai": "„Wenn möglich“ ist eine faire Warnung. Paul ist nicht naiv: Der Frieden hängt nicht immer von dir ab. Aber es liegt in Ihrer Verantwortung, alles zu tun, was von Ihnen abhängt. Der Rest gehört nicht dir.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5341,7 +5333,7 @@
       "book": "RÖMER",
       "cat": "peace",
       "text": "Weil das Reich Gottes nicht aus Essen und Trinken besteht,\nsondern Gerechtigkeit und Frieden und Freude im Heiligen Geist.",
-      "ref": "Rom. 14:17",
+      "ref": "Röm. 14:17",
       "ai": "Frieden ist kein angenehmer Bonus für das spirituelle Leben. Es ist in der Definition des Königreichs selbst enthalten. Wo Gott regiert, ist Frieden. Wo kein Frieden herrscht, ist Gott noch nicht zur Herrschaft eingeladen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5350,7 +5342,7 @@
       "book": "RÖMER",
       "cat": "peace",
       "text": "Möge Gott Sie mit Hoffnung erfüllen\nmit aller Freude und Frieden im Glauben.",
-      "ref": "Rom. 15:13",
+      "ref": "Röm. 15:13",
       "ai": "„Füllen“ – Gott möchte ein wenig Frieden in Ihr Herz gießen. Er will bis zum Rand füllen. Die Kapazität des Gefäßes wird durch Ihre Offenheit bestimmt.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5368,7 +5360,7 @@
       "book": "KOLOSSER",
       "cat": "peace",
       "text": "Und der Friede Christi,\nzu dem du in einem Körper berufen bist,\nLass es in deinen Herzen regieren.",
-      "ref": "Menge. 3:15",
+      "ref": "Kol. 3:15",
       "ai": "„Berufen“ ist für spirituell Fortgeschrittene keine Option. Jeder im Leib Christi ist zum Frieden berufen. Frieden ist nicht das Privileg einiger Charaktere, sondern die Berufung jedes Schülers.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5383,10 +5375,10 @@
     },
     {
       "id": 634,
-      "book": "1 THESSALONICHER",
+      "book": "2 THESSALONICHER",
       "cat": "peace",
       "text": "Der Herr des Friedens selbst\nMöge er dir immer Frieden geben\nund in allem.",
-      "ref": "2 Sol. 3:16 Uhr",
+      "ref": "2. Thessalonicher 3:16",
       "ai": "„Immer und in allem“ – ohne Ausnahmen zum Thema und ohne zeitliche Unterbrechungen. Das ist kein Stimmungsversprechen, sondern ein vom Äußeren unabhängiges Zustandsversprechen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5395,7 +5387,7 @@
       "book": "HEBRÄER",
       "cat": "peace",
       "text": "Suche Frieden mit allen\nund Heiligkeit\nohne die niemand den Herrn sehen wird.",
-      "ref": "Hebräisch 12:14 Uhr",
+      "ref": "Hebr. 12:14",
       "ai": "Frieden und Heiligkeit stehen hier Seite an Seite, wie ein unzertrennliches Paar. Die spirituelle Reife entscheidet nicht zwischen ihnen. Wahre Heiligkeit drückt sich in friedlichen Beziehungen aus. Frieden ist keine Schwäche, sondern Reife.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5404,7 +5396,7 @@
       "book": "JAKOBUS",
       "cat": "peace",
       "text": "Die Frucht der Gerechtigkeit\nwird in Frieden gesät\ndiejenigen, die Frieden schaffen.",
-      "ref": "Als. 3:18 Uhr",
+      "ref": "Jak. 3:18",
       "ai": "Gerechtigkeit, gesät in den Boden des Friedens, bringt Frucht. Im Konflikt gesäte Gerechtigkeit erzeugt Streit. Die Atmosphäre, in der Sie agieren, bestimmt das Ergebnis. Frieden ist nicht nur das Ziel, sondern auch der Boden.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5413,7 +5405,7 @@
       "book": "1 PETRUS",
       "cat": "peace",
       "text": "Denn wer will das Leben lieben?\nund gute Tage sehen...\nLass ihn Frieden suchen und ihm nachjagen.",
-      "ref": "1 Fr. 3:10-11",
+      "ref": "1 Petr. 3:10-11",
       "ai": "„Frau“ ist aktive Verfolgung. Frieden stellt sich nicht von selbst ein, wenn man passiv ist. Du musst ihm nachlaufen. Es ist eine Wahl, eine Anstrengung, eine Disziplin des Denkens – Tag für Tag.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5428,7 +5420,7 @@
     },
     {
       "id": 639,
-      "book": "JESAJA",
+      "book": "JEREMIA",
       "cat": "peace",
       "text": "Denn ich kenne die Gedanken, die ich an dich denke,\nsagt der Herr\nGedanken des Friedens, nicht des Bösen,\num dir eine Zukunft und Hoffnung zu geben.",
       "ref": "Jer. 29:11",
@@ -5458,7 +5450,7 @@
       "book": "HAGGAI",
       "cat": "peace",
       "text": "Der Ruhm dieses letzten Hauses\nwird größer sein als der erste,\nsagt der Herr der Heerscharen;\nund an diesem Ort werde ich Frieden geben.",
-      "ref": "Ag. 2:9",
+      "ref": "Hag. 2:9",
       "ai": "Gott verspricht Frieden als Präsenz an einem bestimmten Ort. Frieden ist keine Abstraktion. Er hängt an seiner Gegenwart. Wo Er ist, ist Schalom.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5476,7 +5468,7 @@
       "book": "MATTHÄUS",
       "cat": "peace",
       "text": "Denken Sie nicht, dass ich gekommen bin, um Frieden auf Erden zu geben;\nIch bin nicht gekommen, um Frieden zu geben, sondern um ein Schwert.",
-      "ref": "Mt. 10:34 Uhr",
+      "ref": "Mt. 10:34",
       "ai": "Eines der peinlichsten Gedichte. Jesus widerspricht sich nicht selbst – Er unterscheidet zwei Arten von Frieden. Versöhnlicher Frieden um den Preis der Wahrheit ist nicht der Friede Gottes. Manchmal spaltet die Hingabe an Ihn. Aber nur diese Spaltung führt zu wahrem Frieden.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5494,7 +5486,7 @@
       "book": "EPHESER",
       "cat": "peace",
       "text": "Und als er kam, verkündete er dir Frieden,\nfern und nah",
-      "ref": "Ef. 2:17 Uhr",
+      "ref": "Ef. 2:17",
       "ai": "„Gekommen“ – kam selbst. Gott hat keine Friedensbotschaft gesandt. Er kam persönlich und brachte Frieden in seinen Körper. Die Versöhnung kostete ihn keine Worte, sondern ihn selbst.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5512,7 +5504,7 @@
       "book": "KOLOSSER",
       "cat": "peace",
       "text": "Und durch Ihn alles für sich selbst zu versöhnen,\nnachdem er mit dem Blut seines Kreuzes Frieden geschlossen hatte.",
-      "ref": "Menge. 1:20",
+      "ref": "Kol. 1:20",
       "ai": "„Frieden gemacht haben“ – Frieden als vollendete Handlung. Kein Verhandlungsprozess, kein bedingter Vertrag. Das Kreuz unterzeichnete ein für alle Mal den Friedensvertrag zwischen Himmel und Erde.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5521,7 +5513,7 @@
       "book": "JESAJA",
       "cat": "peace",
       "text": "Die Strafe für unseren Frieden fiel auf ihn,\nund durch seine Wunden werden wir geheilt.",
-      "ref": "Ist. 53:5",
+      "ref": "Jes. 53:5",
       "ai": "Unser Frieden ist nicht umsonst. Es wird zu einem Preis gekauft. Er nahm alles auf sich, was unseren Frieden zerstörte: Sünde, Schuld, Angst, Krankheit. Nun, das sind seine Wunden – und unser Schalom.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5593,7 +5585,7 @@
       "book": "OFFENBARUNG",
       "cat": "peace",
       "text": "Und Gott wird jede Träne von ihren Augen wischen,\nund es wird keinen Tod mehr geben\nEs wird keine Trauer, kein Weinen und keinen Schmerz mehr geben.",
-      "ref": "Um. 21:4",
+      "ref": "Offb. 21:4",
       "ai": "Der ultimative Schalom. Kein Kompromiss zwischen Freude und Schmerz, sondern die vollständige Eliminierung von allem, was den Frieden zerstört. Gott selbst wischt die Tränen weg – nicht durch Delegation, sondern persönlich. Dies ist das letzte Bild seiner Fürsorge.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -5602,13 +5594,13 @@
       "book": "JESAJA",
       "cat": "peace",
       "text": "Eine gute Tat wird Frieden sein,\nund die Frucht der Wahrheit ist Frieden und Sicherheit für immer.",
-      "ref": "Ist. 32:17",
+      "ref": "Jes. 32:17",
       "ai": "Gerechtigkeit und Frieden sind keine Konkurrenten. Sie sind Ursache und Wirkung. Wo die Wahrheit lebt, wächst der Frieden. Dies ist ein Prinzip, das im Herzen, in der Familie und in der Gesellschaft wirkt.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
       "id": 659,
-      "book": "JESAJA",
+      "book": "PSALMEN",
       "cat": "peace",
       "text": "Du wirst keine Angst vor dem Nachtschrecken haben,\nKein Pfeil, der tagsüber fliegt.",
       "ref": "Ps. 91:5",
@@ -5617,18 +5609,18 @@
     },
     {
       "id": 660,
-      "book": "NUMERI",
+      "book": "JOHANNES",
       "cat": "peace",
       "text": "Und du wirst die Wahrheit erfahren\nund die Wahrheit wird dich befreien.",
-      "ref": "IV. 8:32 Uhr",
+      "ref": "Joh. 8:32",
       "ai": "Frieden und Wahrheit sind untrennbar miteinander verbunden. Angst beruht oft auf Lügen – falschen Überzeugungen über sich selbst, Gott und die Zukunft. Wenn die Wahrheit in den Geist eindringt, zerfallen die Lügen, die die Angst geschürt haben.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
       "id": 661,
       "book": "RÖMER",
-      "text": "Durch Seine Gnade törichterweise gerechtfertigt,\ndurch die Erlösung in Christus Jesus...",
-      "ref": "Rom. 3:24 Uhr",
+      "text": "Durch Seine Gnade umsonst gerechtfertigt,\ndurch die Erlösung in Christus Jesus...",
+      "ref": "Röm. 3:24",
       "cat": "grace",
       "ai": "„Dumm“ ist das griechische Wort „dore'an“, was sicherlich „frei“ bedeutet. Gott rechnet nicht. Die Rechtfertigung ist ein juristisches Urteil über „nicht schuldig“, das nicht durch Verdienste, sondern durch den Preis von Golgatha zustande kommt.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5637,7 +5629,7 @@
       "id": 662,
       "book": "HEBRÄER",
       "text": "Deshalb lasst uns mutig zum Thron der Gnade nähern,\ndass wir Barmherzigkeit erfahren und Gnade für rechtzeitige Hilfe finden!",
-      "ref": "Hebräisch 4:16 Uhr",
+      "ref": "Hebr. 4:16",
       "cat": "grace",
       "ai": "Nicht „Lasst uns würdig sein“, sondern „Lasst uns mutig handeln“. Ohienko übersetzt den himmlischen Thron Gottes als „Thron der Gnade“ – es ist kein Ort des Gerichts, sondern ein Ort der Hilfe. Kommen Sie mit jeder Belastung – zeitnahe Unterstützung ist garantiert.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5646,7 +5638,7 @@
       "id": 663,
       "book": "JESAJA",
       "text": "Ich habe dich bei deinem Namen genannt\nDu gehörst mir!",
-      "ref": "Ist. 43:1",
+      "ref": "Jes. 43:1",
       "cat": "grace",
       "ai": "Gottes intimste Aussage. Hier geht es nicht um die Menschen im Allgemeinen, sondern um einen direkten Appell an Sie persönlich. Von Gott benannt zu werden bedeutet, unter seiner souveränen Gnade zu stehen.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5709,7 +5701,7 @@
       "id": 670,
       "book": "MICHA",
       "text": "Wer ist Gott wie Du?\nder die Ungerechtigkeit vergibt und die Übertretung übergeht ...\nWeil Er Freundlichkeit liebt!",
-      "ref": "Mich. 7:18 Uhr",
+      "ref": "Mich. 7:18",
       "cat": "grace",
       "ai": "Der Prophet sagt nicht, dass Gott „erlaubt“, zu vergeben. Er sagt: Gott „liebt“ es, dies zu tun. Vergebung ist nicht seine Pflicht, sondern sein Vergnügen. Gnade zu zeigen liegt in der Natur des Schöpfers.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5718,7 +5710,7 @@
       "id": 671,
       "book": "SACHARJA",
       "text": "Und ich werde es über das Haus Davids gießen\nund auf den Bewohnern Jerusalems der Geist der Gnade und des Flehens ...",
-      "ref": "Westen 12:10",
+      "ref": "Sach. 12:10",
       "cat": "grace",
       "ai": "Prophezeiung über Pfingsten und Volksbekehrung. Der Heilige Geist wird hier der „Geist der Gnade“ genannt – derjenige, der Gottes Gunst in das menschliche Herz bringt und das Gebet weckt.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5727,7 +5719,7 @@
       "id": 672,
       "book": "JESAJA",
       "text": "...um den Gefangenen die Freilassung anzukündigen\nund Gefangene der Eröffnung des Gefängnisses",
-      "ref": "Ist. 61:1",
+      "ref": "Jes. 61:1",
       "cat": "grace",
       "ai": "Jesus zitiert diesen Vers in der Synagoge von Nazareth und sagt: „Heute ist es erfüllt.“ Gnade ist keine Theorie. Es handelt sich um die gezielte Befreiung bestimmter Personen aus bestimmten Fallen.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5754,7 +5746,7 @@
       "id": 675,
       "book": "HOSEA",
       "text": "Weil ich einen Gefallen möchte\nkeine Opfer\nund die Erkenntnis Gottes ist mehr als ein Brandopfer!",
-      "ref": "Wespe 6:6",
+      "ref": "Hos. 6:6",
       "cat": "grace",
       "ai": "Jesus zitiert diesen Vers zweimal. Gott braucht deine religiöse Leistung nicht. Er will dein Herz. Zuneigung ist keine Belohnung für Rituale, sondern das Ergebnis einer echten Beziehung.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5772,7 +5764,7 @@
       "id": 677,
       "book": "GALATER",
       "text": "Ich lehne die Gnade Gottes nicht ab,\ndenn wenn Gerechtigkeit durch das Gesetz kommt,\ndann ist Christus umsonst gestorben!",
-      "ref": "Gal. 2:21 Uhr",
+      "ref": "Gal. 2:21",
       "cat": "grace",
       "ai": "Pauls scharfes Argument. Wenn der Mensch sich aus eigener Kraft retten kann, war Golgatha ein tragischer Fehler. Die Verweigerung der Gnade um „religiöser Errungenschaften“ willen ist die größte Beleidigung für das Opfer Christi.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5790,16 +5782,16 @@
       "id": 679,
       "book": "HEBRÄER",
       "text": "siehe\ndamit niemand die Gnade Gottes verliert...",
-      "ref": "Hebräisch 12:15 Uhr",
+      "ref": "Hebr. 12:15",
       "cat": "grace",
-      "ai": "Eine Warnung an die gesamte Community. Bitterkeit, Groll und Unversöhnlichkeit sind spirituelle „Wurzeln“, die die Gnade im Herzen eines Menschen ersticken. Heilung erfordert keine Willenskraft, sondern eine bewusste Rückkehr zur Quelle der Bindung.",
+      "ai": "Eine Warnung an die gesamte Gemeinde. Bitterkeit, Groll und Unversöhnlichkeit sind spirituelle „Wurzeln“, die die Gnade im Herzen eines Menschen ersticken. Heilung erfordert keine Willenskraft, sondern eine bewusste Rückkehr zur Quelle der Bindung.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
     },
     {
       "id": 680,
       "book": "JAKOBUS",
       "text": "Aber Er gibt größere Gnade,\ndeshalb sagt er:\nGott widersteht den Stolzen, aber den Demütigen schenkt er Gnade!",
-      "ref": "Als. 4:6",
+      "ref": "Jak. 4:6",
       "cat": "grace",
       "ai": "Jakob zitiert Sprichwörter. Die geistliche Anziehungskraft Gottes zieht die Demütigen an. Nicht diejenigen, die sich demonstrativ erniedrigen, sondern diejenigen, die sich ihrer Abhängigkeit von Ihm ehrlich bewusst sind.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5808,7 +5800,7 @@
       "id": 681,
       "book": "1 PETRUS",
       "text": "Deshalb erobere die Lenden deines Geistes,\nSei nüchtern\nund verlasse dich ganz auf die Gnade,\ndie euch durch die Offenbarung Jesu Christi gebracht wird",
-      "ref": "1 Haustier. 1:13",
+      "ref": "1 Petr. 1:13",
       "cat": "grace",
       "ai": "Ein „nüchterner“ Geist lässt sich nicht von Sorgen und Ablenkungen mitreißen. Petrus fordert uns auf, unsere Hoffnung genau auf die Gnade zu richten, die die vollständige Offenbarung Christi bringen wird. Grace ist unser letztes Ziel.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5817,7 +5809,7 @@
       "id": 682,
       "book": "DANIEL",
       "text": "Dann sagte er zu mir:\nFürchte dich nicht, Daniel, denn vom ersten Tag an hast du dein Herz darauf gerichtet, es zu verstehen\nund demütige dich vor deinem Gott,\nhabe deine Worte gehört...",
-      "ref": "Dan. 10:12 Uhr",
+      "ref": "Dan. 10:12",
       "cat": "grace",
       "ai": "Der Engel antwortet Daniel: Dein Gebet wurde seit dem ersten Tag erhört. Gottes Gnade reagiert sofort – auch wenn die Antwort nicht immer sofort kommt. Es gibt einen spirituellen Kampf zwischen „gehört“ und „empfangen“, aber Gott wirkt.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5851,9 +5843,9 @@
     },
     {
       "id": 686,
-      "book": "2 CHRONIK",
+      "book": "NEHEMIA",
       "text": "Aber Du bist der Gott der Vergebung,\nfreundlich und barmherzig\nlangmütig und barmherzig...",
-      "ref": "Ich nicht 9:17 Uhr",
+      "ref": "Neh. 9:17",
       "cat": "grace",
       "ai": "Gebetsbekenntnis des wiederhergestellten Israels. Selbst nach einer langen Liste populärer Verrätereien an Gott bleibt sein Charakter unverändert. Gnade ist sein Wesen, keine Reaktion auf unser Verhalten.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5862,7 +5854,7 @@
       "id": 687,
       "book": "JESAJA",
       "text": "Suche den Herrn\nsolange er es sich erlaubt,\nrufe Ihn an, solange Er in der Nähe ist!",
-      "ref": "Ist. 55:6",
+      "ref": "Jes. 55:6",
       "cat": "grace",
       "ai": "Eine Einladung – und gleichzeitig eine Verfügbarkeitsgarantie. Gott „gibt sich, um gefunden zu werden“ – er stellt sich aktiv auf die Suche. Seine Gnade ist offen, aber sie erfordert unsere Annäherung an sie.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5871,16 +5863,16 @@
       "id": 688,
       "book": "JESAJA",
       "text": "Lass die Bösen seinen Weg verlassen,\nund der Gesetzlose seine Gedanken,\nund lass ihn zum Herrn zurückkehren,\nund er wird sich seiner erbarmen...",
-      "ref": "Ist. 55:7",
+      "ref": "Jes. 55:7",
       "cat": "grace",
-      "ai": "Die Struktur der Gnade im Alten Testament: gehen, zurückkehren, empfangen. Aber Vorsicht: Gott stellt keine Bedingungen für eine „ausreichende“ Reue. Das Wiesel wartet auf der ersten Stufe der Rückkehr.",
+      "ai": "Die Struktur der Gnade im Alten Testament: gehen, zurückkehren, empfangen. Aber Vorsicht: Gott stellt keine Bedingungen für eine „ausreichende“ Reue. Er wartet schon auf der ersten Stufe der Rückkehr.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
     },
     {
       "id": 689,
       "book": "JESAJA",
       "text": "Ich habe dich für eine Minute verlassen,\naber ich sammle dich mit großer Barmherzigkeit ...",
-      "ref": "Ist. 54:7",
+      "ref": "Jes. 54:7",
       "cat": "grace",
       "ai": "Bild von Vater und Kind. Selbst wenn es so aussieht, als hätte Gott „verlassen“, dann nur für einen Moment, aber seine Barmherzigkeit ist ewig. Der Schmerz ist vorübergehend. Gnade ist dauerhaft.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5889,7 +5881,7 @@
       "id": 690,
       "book": "JESAJA",
       "text": "Denn die Berge werden sich zurückziehen\nund die Hügel schwanken\naber meine Gnade wird nicht von dir weichen...",
-      "ref": "Ist. 54:10",
+      "ref": "Jes. 54:10",
       "cat": "grace",
       "ai": "Himmel und Erde sind instabil. Berge bewegen sich. Aber Gottes Gunst für Sie ist beständiger als die Geologie. Dies ist kein bildlicher Ausdruck, sondern ein wörtlicher Vergleich: Seine Treue übertrifft sogar physikalische Konstanten.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5907,7 +5899,7 @@
       "id": 692,
       "book": "JOHANNES",
       "text": "Und wer kommt zu mir\nIch werde ihn nicht vertreiben!",
-      "ref": "IV. 6:37 Uhr",
+      "ref": "IV. 6:37",
       "cat": "grace",
       "ai": "Die wichtigste Garantie für diejenigen, die an ihrer „Genügsamkeit“ für Gott zweifeln. Keine Bedingungen – einfach kommen. Jesus setzt eine Nullschwelle für den Eintritt in seine Gnade.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5918,16 +5910,16 @@
       "text": "Kommt alle zu mir, ihr Müden und Schwerbeladenen,\nund ich werde dich beruhigen!",
       "ref": "Mt. 11:28",
       "cat": "grace",
-      "ai": "Das griechische „anapauo“ bedeutet vollständige Genesung, nicht nur eine Pause. Jesus ruft nicht die Besten, nicht diejenigen, die bereits bereit sind, sondern „die Müden und Belasteten“. Weasel sucht diejenigen, die am schwierigsten sind.",
+      "ai": "Das griechische „anapauo“ bedeutet vollständige Genesung, nicht nur eine Pause. Jesus ruft nicht die Besten, nicht diejenigen, die bereits bereit sind, sondern „die Müden und Belasteten“. Er sucht gerade diejenigen, die am schwierigsten dran sind.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
     },
     {
       "id": 694,
       "book": "MARKUS",
       "text": "Er konnte nicht widerstehen und streckte seine Hand aus, berührte ihn und sagte zu ihm: Ich möchte gereinigt werden!",
-      "ref": "Mk. 1:41 Uhr",
+      "ref": "Mk. 1:41",
       "cat": "grace",
-      "ai": "Heilung des Aussätzigen. Jesus „konnte nicht anders“ – in manchen Manuskripten: „Erbarmung erweisend“. Das Wiesel steht nicht auf Distanz und hat keine Angst, Unreine zu berühren. Sie stellt den Kontakt her.",
+      "ai": "Heilung des Aussätzigen. Jesus „konnte nicht anders“ – in manchen Manuskripten: „Erbarmung erweisend“. Gott steht nicht auf Distanz und hat keine Angst, Unreine zu berühren. Er stellt den Kontakt her.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
     },
     {
@@ -5936,14 +5928,14 @@
       "text": "Und er stand auf und ging zu seinem Vater.\nSein Vater sah ihn von weitem\nund hatte Erbarmen...\nund lief und warf sich ihm um den Hals und küsste ihn",
       "ref": "Lk. 15:20",
       "cat": "grace",
-      "ai": "Das leuchtendste Bild der Gnade Gottes im gesamten Evangelium. Der Vater wartete nicht auf die Ankunft seines Sohnes. Er „lief“ – um sich zu treffen, ohne seinen Sohn in Schuldgefühle zu versetzen. Wiesel greift zuerst an.",
+      "ai": "Das leuchtendste Bild der Gnade Gottes im gesamten Evangelium. Der Vater wartete nicht auf die Ankunft seines Sohnes. Er „lief“ – um sich zu treffen, ohne seinen Sohn in Schuldgefühle zu versetzen. Gott ergreift zuerst die Initiative.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
     },
     {
       "id": 696,
       "book": "JOHANNES",
       "text": "Denn Gott hat die Welt so sehr geliebt,\nder seinen eingeborenen Sohn gab,\ndamit jeder, der an ihn glaubt, nicht verloren geht ...",
-      "ref": "IV. 3:16 Uhr",
+      "ref": "IV. 3:16",
       "cat": "grace",
       "ai": "Das Herzstück des Evangeliums. „Ja“ – das griechische „houtós“ – auf so besondere Weise. Das Maß der Gnade wird nicht an Worten gemessen, sondern an der Person des Sohnes. Der höchste Preis für die unwürdigsten Empfänger.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5952,7 +5944,7 @@
       "id": 697,
       "book": "RÖMER",
       "text": "Aber Gott zeigt seine Liebe zu uns durch\ndass Christus für uns gestorben ist\nals wir noch Sünder waren!",
-      "ref": "Rom. 5:8",
+      "ref": "Röm. 5:8",
       "cat": "grace",
       "ai": "Gnade wirkt nicht „nach“ der Korrektur, sondern „vor“ ihr. Gott hat nicht darauf gewartet, dass es dir besser geht. Er hat den höchsten Preis bezahlt, als du noch sein Feind warst. Dies ist die Definition von bedingungsloser Liebe.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -5988,7 +5980,7 @@
       "id": 701,
       "book": "KOLOSSER",
       "text": "...haben die Gnade Gottes in Wahrheit kennengelernt...",
-      "ref": "Menge. 1:6",
+      "ref": "Kol. 1:6",
       "cat": "grace",
       "ai": "Gnade kann „in Wahrheit erkannt“ werden – das heißt nicht theoretisch, sondern in der realen Erfahrung der Begegnung mit dem Evangelium. Gnade, die Sie nicht persönlich erfahren haben, ist nur ein Konzept.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -6015,7 +6007,7 @@
       "id": 704,
       "book": "HEBRÄER",
       "text": "Jesus Christus – gestern, heute\nund für immer gleich!",
-      "ref": "Hebräisch 13:8",
+      "ref": "Hebr. 13:8",
       "cat": "grace",
       "ai": "Die Unveränderlichkeit Jesu ist die Garantie für die Unveränderlichkeit seiner Gnade. Sie müssen nicht befürchten, dass Gott „seine Meinung ändert“, wenn es darum geht, freundlich zu Ihnen zu sein. Sein Charakter und seine Zuneigung sind eine Konstante des Universums.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -6024,7 +6016,7 @@
       "id": 705,
       "book": "JAKOBUS",
       "text": "Jede gute Gabe und jede gute Begabung\nes gibt von oben\ngeht vom Vater der Welten aus...",
-      "ref": "Als. 1:17 Uhr",
+      "ref": "Jak. 1:17",
       "cat": "grace",
       "ai": "Jakobus beschreibt Gott als den „Vater der Welten“, von dem nur Gutes kommt. Jeder Moment der Schönheit, Gesundheit, Liebe oder Erleuchtung ist das Eindringen Seiner Gnade in die materielle Welt.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -6044,14 +6036,14 @@
       "text": "Lass sie dir vervielfachen\nBarmherzigkeit und Frieden und Liebe!",
       "ref": "Judas 1:2",
       "cat": "grace",
-      "ai": "Jude's short epistle begins with a threefold blessing. Barmherzigkeit ist Gnade, die auf Schwäche reagiert. Frieden und Liebe sind seine Früchte. Alle drei stammen aus der Einen Quelle.",
+      "ai": "Der kurze Brief des Judas beginnt mit einem dreifachen Segen. Barmherzigkeit ist Gnade, die auf Schwäche reagiert. Frieden und Liebe sind seine Früchte. Alle drei stammen aus der Einen Quelle.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
     },
     {
       "id": 708,
       "book": "OFFENBARUNG",
       "text": "Möge die Gnade des Herrn Jesus mit allen sein!\nAmen!",
-      "ref": "Ankündigung 22:21",
+      "ref": "Offb. 22:21",
       "cat": "grace",
       "ai": "Der letzte Satz der gesamten Bibel. Vom „Anfang“ im Buch Genesis bis zum abschließenden „Amen“ ist das gesamte Buch eine Geschichte der Gnade. Gott schließt sein Wort mit der gleichen Sache ab, mit der er es eröffnet hat: seiner unveränderlichen Gunst.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -6060,7 +6052,7 @@
       "id": 709,
       "book": "SPRÜCHE",
       "text": "Eine freundliche Frau erlangt Ehre,\nund Vergewaltiger erwerben Reichtum!",
-      "ref": "Prov. 11:16 Uhr",
+      "ref": "Spr. 11:16",
       "cat": "grace",
       "ai": "Die Weisheit Salomos. „Gütig“ ist jemand, der im Geiste der Gunst Gottes lebt. Dieser Geist heiligt die Beziehungen, den Ruf und die Präsenz einer Person. Wahre Ehre entsteht aus Gnade, nicht aus Aggression.",
       "audio_url": "https://archive.org/download/PianoMusic/01-Amazing%20Grace.mp3"
@@ -6123,7 +6115,7 @@
       "id": 716,
       "book": "JESAJA",
       "text": "Fürchte dich nicht, denn ich bin bei dir;\nFürchte dich nicht, denn ich bin dein Gott!\nIch werde dich stärken und dir helfen\nund ich werde dich mit meiner gerechten rechten Hand unterstützen!",
-      "ref": "Ist. 41:10",
+      "ref": "Jes. 41:10",
       "cat": "strength",
       "ai": "Vier Verben hintereinander: Ich werde stärken, ich werde helfen, ich werde unterstützen, ich werde behalten. Gott verspricht nicht die Abwesenheit von Schwierigkeiten – Er verspricht seine Gegenwart und sein Handeln in ihnen. Dies ist kein Motivationszitat, sondern ein Testament.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6132,7 +6124,7 @@
       "id": 717,
       "book": "JESAJA",
       "text": "...sondern diejenigen, die auf den Herrn hoffen\nerneuert mit neuer Kraft...",
-      "ref": "Ist. 40:29",
+      "ref": "Jes. 40:29",
       "cat": "strength",
       "ai": "Kontext: Gott gibt den Schwachen Kraft. „Erfrischend“ ist nicht nur Ruhe, sondern ein qualitativ neues Energieniveau. Gott stellt nicht nur die ursprüngliche Ressource wieder her, er gibt auch mehr, als vor der Erschöpfung vorhanden war.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6141,7 +6133,7 @@
       "id": 718,
       "book": "JESAJA",
       "text": "Fürchte dich nicht, Wurm Jakob,\nMann von Israel!\nIch werde dir helfen, sagt der Herr...",
-      "ref": "Ist. 41:14",
+      "ref": "Jes. 41:14",
       "cat": "strength",
       "ai": "Gott wendet sich dem „Wurm“ zu – ein Bild äußerster Hilflosigkeit. Für ihn heißt es: Hab keine Angst. Es gibt keinen demütigenderen Zustand, in dem Gott seine Hilfe verweigern würde. Wenn Sie jetzt ein „Wurm“ sind, ist dieses Gedicht für Sie geschrieben.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6150,7 +6142,7 @@
       "id": 719,
       "book": "JESAJA",
       "text": "...bis ins hohe Alter bin ich derselbe,\nbis zu den grauen Haaren werde ich dich tragen;\nDas habe ich getan, und ich werde es tragen\nIch werde tragen und sparen!",
-      "ref": "Ist. 46:4",
+      "ref": "Jes. 46:4",
       "cat": "strength",
       "ai": "Gott wird mit der Zeit nicht müde von dir. Er „trägt“ dich – wie ein Kind getragen wird, das nicht mehr laufen kann. Gottes Macht wird durch Ihr Alter, die Anzahl der Probleme oder die Dauer der Krise nicht gemindert.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6168,7 +6160,7 @@
       "id": 721,
       "book": "HABAKUK",
       "text": "Der Herrgott ist meine Stärke!\nEr gibt mir Beine wie ein Reh\nund Er führt mich auf meinen Höhen!",
-      "ref": "Avak. 3:19 Uhr",
+      "ref": "Hab. 3:19",
       "cat": "strength",
       "ai": "Habakuk hatte gerade den wirtschaftlichen Zusammenbruch und die Hungersnot beschrieben – und plötzlich: „Der Herr ist meine Stärke!“ Hirschfüße rutschen an steilen Hängen nicht aus. Gott gibt nicht nur Kraft zum Überleben – Er gibt Kraft, genau dort aufzustehen, wo alle fallen.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6177,7 +6169,7 @@
       "id": 722,
       "book": "SACHARJA",
       "text": "Der Herr der Heerscharen wird sie beschützen ...\nund der Herr, ihr Gott, wird sie retten\nder Tag, an dem die Herde seines Volkes!",
-      "ref": "Westen 9:15-16",
+      "ref": "Sach. 9:15-16",
       "cat": "strength",
       "ai": "„Sabaot“ ist der Herr der Heerscharen. Dieser Name Gottes betont seine unbegrenzte Macht und Autorität über uns alle. Diejenigen, die er beschützt, sind seine Herde, jeder für sich. Eine unbesiegbare Armee ist auf Ihrer Seite.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6186,7 +6178,7 @@
       "id": 723,
       "book": "DEUTERONOMIUM",
       "text": "Sei stark und mutig!\nHab keine Angst und fürchte dich nicht vor ihnen,\ndenn der Herr, dein Gott, geht mit dir;\nDas wird dich nicht verlassen und wird dich nicht verlassen!",
-      "ref": "Zweiter 31:6",
+      "ref": "Dtn. 31:6",
       "cat": "strength",
       "ai": "Moses spricht dies zur ganzen Nation, bevor er das Gelobte Land betritt. Mut ist hier keine persönliche Eigenschaft, sondern das Ergebnis der bewussten Gegenwart Gottes. „Er geht mit dir“ ist die Basis für Stärke.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6195,7 +6187,7 @@
       "id": 724,
       "book": "JOSUA",
       "text": "Sei einfach sehr stark und mutig,\ndas ganze Gesetz zu halten und zu erfüllen,\nWas hat Moses, mein Diener, dir befohlen?",
-      "ref": "Ist. Navigation. 1:7",
+      "ref": "Jos. 1:7",
       "cat": "strength",
       "ai": "Stärke und Mut hängen hier nicht vom Kampf ab, sondern von der Treue zum Wort. Der härteste Kampf ist nicht äußerlich, sondern innerlich: Tag für Tag auf dem Weg zu bleiben, wenn niemand ihn sehen kann, ist schwierig.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6204,7 +6196,7 @@
       "id": 725,
       "book": "RICHTER",
       "text": "Und der Geist des Herrn kam über ihn,\nund er richtete Israel ...",
-      "ref": "Gericht. 3:10",
+      "ref": "Ri. 3:10",
       "cat": "strength",
       "ai": "Der erste der Richter ist Hophoniel. Gott gibt Kraft durch seinen Geist, nicht durch menschliches Potenzial. Jeder wirkliche Sieg in der Heiligen Schrift beginnt mit dem Satz „Der Geist des Herrn ist gekommen“.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6231,7 +6223,7 @@
       "id": 728,
       "book": "NEHEMIA",
       "text": "...weil die Arbeit groß und umfangreich ist,\nund wir sind an der Wand verstreut\nweit voneinander entfernt.\nWo nur du den Klang der Posaune hören wirst,\nKommt zu uns: Unser Gott wird für uns kämpfen!",
-      "ref": "Ich nicht 4:19-20",
+      "ref": "Neh. 4:19-20",
       "cat": "strength",
       "ai": "Die Mauer Jerusalems wird unter Androhung eines Angriffs gebaut. Nehemia beseitigt die Gefahr nicht – er ändert den Fokus: „Unser Gott wird kämpfen.“ Die Erkenntnis, dass Gott ein Krieger ist, verwandelt Panik in organisierte Aktion.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6247,7 +6239,7 @@
     },
     {
       "id": 730,
-      "book": "SPRÜCHE",
+      "book": "2 SAMUEL",
       "text": "Der Herr ist mein Fels,\nmeine Festung und mein Befreier;\nMein Gott ist mein Fels, ich nehme Zuflucht bei ihm ...",
       "ref": "2 Sam. 22:2-3",
       "cat": "strength",
@@ -6276,7 +6268,7 @@
       "id": 733,
       "book": "LUKAS",
       "text": "Die Macht des Herrn war gegenwärtig,\ndass Er heilen würde.",
-      "ref": "Lk. 5:17 Uhr",
+      "ref": "Lk. 5:17",
       "cat": "strength",
       "ai": "Eine Zeile, aber welche Dimensionen. Die Kraft Gottes ist keine ständige Hintergrundmusik. Sie ist „präsent“ – aktiv, konzentriert, einsatzbereit. Wenn Jesus lehrt und heilt, verlässt er sich nicht auf seine eigenen Ressourcen: Er ist der Kanal der Macht des Vaters.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6292,7 +6284,7 @@
     },
     {
       "id": 735,
-      "book": "APOSTELGESCHICHTE",
+      "book": "LUKAS",
       "text": "...und die Macht des Allerhöchsten wird dich überschatten...",
       "ref": "Lk. 1:35",
       "cat": "strength",
@@ -6321,7 +6313,7 @@
       "id": 738,
       "book": "RÖMER",
       "text": "...weil ich glaube, dass das Leid der Gegenwart\nbedeutet nichts gegen den Ruhm\nwas in uns erscheinen wird.",
-      "ref": "Rm. 8:18",
+      "ref": "Röm. 8:18",
       "cat": "strength",
       "ai": "Paul leugnet den Schmerz nicht. Er wiegt auf der Waage. Das Ergebnis: Gegenwärtiges Leid ist „nichts“ – nicht weil es unbedeutend ist, sondern weil die künftige Herrlichkeit es unendlich überwiegt. Es gibt Kraft zum Durchhalten.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6330,7 +6322,7 @@
       "id": 739,
       "book": "RÖMER",
       "text": "Weil das Reich Gottes nicht aus Essen und Trinken besteht,\nsondern Gerechtigkeit und Frieden und Freude im Heiligen Geist.",
-      "ref": "Rm. 14:17",
+      "ref": "Röm. 14:17",
       "cat": "strength",
       "ai": "Das Reich Gottes ist kein System von Regeln und Ritualen. Es ist ein innerer Zustand: Gerechtigkeit, Frieden, Freude. Alle drei sind Früchte des Geistes. Es wird nicht durch Anstrengung gewonnen, sondern durch das Bleiben in Ihm.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6339,7 +6331,7 @@
       "id": 740,
       "book": "1 KORINTHER",
       "text": "Und das Wort des Kreuzes für diejenigen, die verloren gehen\nist dumm\nFür uns, die wir gerettet werden, ist es Gottes Kraft!",
-      "ref": "1 Kor. 1:18 Uhr",
+      "ref": "1 Kor. 1:18",
       "cat": "strength",
       "ai": "Das gleiche Wort – zwei völlig unterschiedliche Reaktionen. Für diejenigen, die ihr Herz geöffnet haben: Das Kreuz ist kein Misserfolg, sondern der Eintrittspunkt der Kraft Gottes in die menschliche Existenz. Das Evangelium ist die mächtigste Kraft im Universum.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6357,7 +6349,7 @@
       "id": 742,
       "book": "EPHESER",
       "text": "...dass er dir geben kann\nnach dem Reichtum seiner Herrlichkeit,\ndurch seinen Geist im inneren Menschen fest gestärkt zu werden!",
-      "ref": "Ef. 3:16 Uhr",
+      "ref": "Ef. 3:16",
       "cat": "strength",
       "ai": "Das Gebet des Paulus für die Epheser. Der „innere Mensch“ ist nicht der Körper, nicht die Emotionen, sondern der Geist. Wahre Stärke wird von innen heraus durch den Geist aufgebaut. Äußere Stabilität ist eine Folge innerer Stärke.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6375,7 +6367,7 @@
       "id": 744,
       "book": "PHILIPPER",
       "text": "Und mein Gott wird alle deine Bedürfnisse erfüllen\nnach seinem Reichtum,\nmit Herrlichkeit in Christus Jesus!",
-      "ref": "Phlp. 4:19 Uhr",
+      "ref": "Phlp. 4:19",
       "cat": "strength",
       "ai": "Nicht „kann füllen“ – „wird füllen“. Ein Versprechen, keine Wahrscheinlichkeit. Paulus schreibt dies aus dem Gefängnis heraus, nicht aus Luxus. Er bezeugt: Gott versorgt nicht aus menschlichen Ressourcen, sondern aus seinem unerschöpflichen Reichtum.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6384,14 +6376,14 @@
       "id": 745,
       "book": "KOLOSSER",
       "text": "...gestärkt mit aller Kraft\ndurch die Kraft seiner Herrlichkeit\nfür alle Geduld und Langmut vor Freude!",
-      "ref": "Menge. 1:11 Uhr",
+      "ref": "Kol. 1:11",
       "cat": "strength",
       "ai": "Gottes Kraft wird hier nicht für spektakuläre Wunder aufgewendet, sondern für Geduld und Langmut „mit Freude“. Die unmerklichste und notwendigste Kraft besteht darin, eine lange, schwierige Reise zu überstehen, ohne sauer und bitter zu werden.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
     },
     {
       "id": 746,
-      "book": "1 TIMOTHEUS",
+      "book": "2 TIMOTHEUS",
       "text": "Deshalb ertrage ich das alles\ndenn ich weiß, an wen ich glaube\nund sicher, dass Er bewahren kann\nmein Vertrauter bis zu diesem Tag.",
       "ref": "2 Tim. 1:12",
       "cat": "strength",
@@ -6402,16 +6394,16 @@
       "id": 747,
       "book": "HEBRÄER",
       "text": "Deshalb haben wir es um uns herum\nso eine große Wolke von Zeugen,\nLasst uns jede Last wegwerfen...\nund wir werden mit Geduld laufen\nDas Rennen steht vor uns!",
-      "ref": "Hebräisch 12:1",
+      "ref": "Hebr. 12:1",
       "cat": "strength",
-      "ai": "Die Jewish Hall of Fame 11 ist eine Wolke von Zeugen. Alle sind bereits gelaufen. Jetzt sind sie Zuschauer Ihrer Distanz. Die Erkenntnis, dass Sie nicht der Erste und nicht der Einzige sind, gibt Ihnen die Kraft, den nächsten Schritt zu wagen.",
+      "ai": "Die „Ruhmeshalle des Glaubens“ in Hebräer 11 ist eine Wolke von Zeugen. Alle sind bereits gelaufen. Jetzt sind sie Zuschauer Ihrer Distanz. Die Erkenntnis, dass Sie nicht der Erste und nicht der Einzige sind, gibt Ihnen die Kraft, den nächsten Schritt zu wagen.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
     },
     {
       "id": 748,
       "book": "HEBRÄER",
       "text": "...Jesus anschauend,\nder Führer und Vollender des Glaubens,\nWas statt der Freude, die Ihm bereitet wurde\ntrug das Kreuz und verachtete die Schande ...",
-      "ref": "Hebräisch 12:2",
+      "ref": "Hebr. 12:2",
       "cat": "strength",
       "ai": "Das Rezept für Stärke ist „auf Jesus schauen“. Nicht auf die Umstände, nicht auf den eigenen Fortschritt, nicht auf das Beispiel eines anderen. Er ist für die „bereite Freude“ durchs Kreuz gegangen – und auch Sie haben etwas Erduldenswertes vor sich.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6420,7 +6412,7 @@
       "id": 749,
       "book": "JAKOBUS",
       "text": "Gibt es unter euch einen Kranken?...\nEin Gebet des Glaubens wird die Kranken heilen,\nund der Herr wird ihn auferwecken ...",
-      "ref": "Als. 5:14-15",
+      "ref": "Jak. 5:14-15",
       "cat": "strength",
       "ai": "Praktischer Unterricht der frühen Kirche. Gottes Kraft ist durch das Gemeinschaftsgebet verfügbar. Jakob sagt nicht „wenn es einen Willen gibt“ – er sagt: „Er wird heilen.“ Der Körper der Gläubigen ist ein Raum, in dem seine Macht konkret und greifbar wird.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6429,7 +6421,7 @@
       "id": 750,
       "book": "1 PETRUS",
       "text": "...die durch Gottes Kraft durch den Glauben beschützt werden\nfür die Erlösung\ndie zum letzten Mal zum Öffnen bereit ist.",
-      "ref": "1 Haustier. 1:5",
+      "ref": "1 Petr. 1:5",
       "cat": "strength",
       "ai": "„Schützt“ ist eine permanente Aktion. Ihr Heil wird nicht durch Ihre Stärke bewacht, sondern durch Seine. Du hältst dich nicht zusammen – du wirst von dem Einen gehalten, der das ganze Universum hält. Das ist radikale Sicherheit.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6447,16 +6439,16 @@
       "id": 752,
       "book": "OFFENBARUNG",
       "text": "Hab keine Angst!\nIch bin der Erste und der Letzte,\nund lebendig!\nUnd ich war tot, und siehe, ich lebe für immer und ewig!",
-      "ref": "Ankündigung 1:17-18",
+      "ref": "Offb. 1:17-18",
       "cat": "strength",
-      "ai": "Ivan fiel entsetzt auf sein Gesicht. Jesus legt seine Hand auf und sagt: „Fürchte dich nicht.“ Er, der den Tod persönlich besiegt hat, spricht zu Ihnen über die Angst. Der auferstandene Christus ist das stärkste Argument gegen jede Angst.",
+      "ai": "Johannes fiel entsetzt auf sein Gesicht. Jesus legt seine Hand auf und sagt: „Fürchte dich nicht.“ Er, der den Tod persönlich besiegt hat, spricht zu Ihnen über die Angst. Der auferstandene Christus ist das stärkste Argument gegen jede Angst.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
     },
     {
       "id": 753,
       "book": "OFFENBARUNG",
       "text": "Ich werde dem Sieger erlauben, mit Mir auf Meinem Thron zu sitzen,\nwie ich es überwunden habe\nund setzte sich mit meinem Vater auf seinen Thron.",
-      "ref": "Ankündigung 3:21 Uhr",
+      "ref": "Offb. 3:21",
       "cat": "strength",
       "ai": "Ein Versprechen für diejenigen, die „überwinden“. Der Gewinner in der Offenbarung ist nicht derjenige, der nicht gefallen ist, sondern derjenige, der nicht aufgegeben hat. Die ultimative Belohnung ist keine Medaille, sondern ein Platz neben Jesus. Dies ist das ultimative Ziel jeder Kraft.",
       "audio_url": "https://archive.org/download/PianoMusic/05-How%20great%20thou%20art.mp3"
@@ -6508,9 +6500,9 @@
     },
     {
       "id": 759,
-      "book": "PSALMEN",
+      "book": "KLAGELIEDER",
       "text": "Der Herr ist gütig zu denen, die auf ihn warten,\nfür die Seele, die Ihn sucht!",
-      "ref": "Schrei 3:25",
+      "ref": "Klage 3:25",
       "cat": "hope",
       "ai": "Jeremia spricht in seinen Klageliedern von einem „Suchenden“ und „einem, der wartet“ – zwei unterschiedliche Haltungen des Wartens. Beide empfangen Gott als „gut“. Es gibt keinen falschen Weg, auf Ihn zu warten – Hauptsache, das Herz ist Ihm zugewandt.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6537,7 +6529,7 @@
       "id": 762,
       "book": "JESAJA",
       "text": "Freue dich, Himmel, und freue dich, Erde,\nund ihr, Berge, durchbricht vor Freude!\nWeil der Herr sein Volk getröstet hat\nund erbarmte sich seiner Armen.",
-      "ref": "Ist. 49:13",
+      "ref": "Jes. 49:13",
       "cat": "hope",
       "ai": "Der Kontext ist die Rückkehr aus der Gefangenschaft. Der Prophet ruft die ganze Natur dazu auf, sich gemeinsam mit dem befreiten Volk zu freuen. Die erfüllte Hoffnung ist ein kosmisches Ereignis. Wenn Gott den Menschen wiederherstellt, freut sich das ganze Universum.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6546,16 +6538,16 @@
       "id": 763,
       "book": "JESAJA",
       "text": "...und ich werde ihr von dort aus ihre Weinberge geben,\ndas Tal von Achor bis zur Tür der Hoffnung ...",
-      "ref": "Wespe 2:15",
+      "ref": "Jes. 2:15",
       "cat": "hope",
       "ai": "„Achor“ bedeutet „Versagen, Trauer“. Gott verwandelt das Tal der Niederlage in eine „Tür der Hoffnung“. Vom schmerzhaftesten Ort Ihrer Vergangenheit aus kann Er den Zugang zum Neuen öffnen.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
     },
     {
       "id": 764,
-      "book": "JESAJA",
+      "book": "OFFENBARUNG",
       "text": "Ich bin Alpha und Omega, der Anfang und das Ende.\nFür diejenigen, die durstig sind\nIch werde aus der Quelle des lebendigen Wassers umsonst spenden.",
-      "ref": "Ankündigung 21:6",
+      "ref": "Offb. 21:6",
       "cat": "hope",
       "ai": "Gott ist sowohl der Anfang als auch das Ende Ihrer Hoffnung. Keine Situation liegt „außerhalb von Ihm“, denn Er ist sowohl da als auch hier. Die Hoffnung auf Ihn ist kein blinder Optimismus, sondern Vertrauen in Ihn, der die gesamte Bandbreite Ihrer Existenz innehat.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6573,7 +6565,7 @@
       "id": 766,
       "book": "SACHARJA",
       "text": "du auch\ndurch das Blut deines Bundes\nbefreite ihre Gefangenen aus dem Graben,\nwo es kein Wasser gibt!\nKehre zur Festung zurück\nGefangener der Hoffnung!",
-      "ref": "Westen 9:11-12",
+      "ref": "Sach. 9:11-12",
       "cat": "hope",
       "ai": "„Gefangen in der Hoffnung“ ist eines der schönsten Bilder der Bibel. Nicht Gefangene der Verzweiflung oder der Sünde, sondern der Hoffnung. Selbst im „Graben ohne Wasser“, selbst in der hoffnungslosesten Grube gibt es einen Grund zurückzukehren, denn da ist Einer, der wartet.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6591,7 +6583,7 @@
       "id": 768,
       "book": "RUT",
       "text": "Möge der Herr dir deine Tat vergelten,\nund möge dein voller Lohn vom Herrn kommen ...",
-      "ref": "Ruth. 2:12",
+      "ref": "Rut. 2:12",
       "cat": "hope",
       "ai": "Boas segnet Ruth, eine Ausländerin, eine Witwe ohne Rechte. Hoffnung entsteht hier nicht aus den eigenen Ressourcen, sondern aus dem Zeugnis einer anderen Person über Gott. Manchmal wird Hoffnung durch ein rechtzeitiges Wort entfacht.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6627,7 +6619,7 @@
       "id": 772,
       "book": "JOSUA",
       "text": "Kein einziges Wort fiel\naller lieben Worte\nWas sagte der Herr zum Haus Israel?\nAlles ist wahr geworden!",
-      "ref": "Ist. Navigation. 21:45",
+      "ref": "Jos. 21:45",
       "cat": "hope",
       "ai": "Zusammenfassung des Buches Josua: Nicht ein einziges Wort Gottes fiel. Jedes Versprechen erfüllt. Das ist keine Rhetorik, es ist eine dokumentierte Tatsache. Die Hoffnung auf Gott ist niemals eine Illusion: Er hält immer, was er versprochen hat.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6636,7 +6628,7 @@
       "id": 773,
       "book": "NEHEMIA",
       "text": "Der Herr ist groß und schrecklich!\nErinnere dich an den großen und schrecklichen Herrn\nund kämpfe für deine Brüder...",
-      "ref": "Ich nicht 4:14",
+      "ref": "Neh. 4:14",
       "cat": "hope",
       "ai": "Nehemia baut trotz der Gefahr eines Angriffs eine Mauer – und seine Worte werden zu einer Quelle der Hoffnung für die gesamte Nation. Die Erinnerung an die Größe Gottes verwandelt Panik in Mut. Die Hoffnung wird wiedergeboren, wenn du dich daran erinnerst, wer dein Gott ist.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6645,7 +6637,7 @@
       "id": 774,
       "book": "RICHTER",
       "text": "Der Herr kehrte zu ihnen zurück\nund sagte:\nFriede sei mit dir!\nHab keine Angst, du wirst nicht sterben!",
-      "ref": "Gericht. 6:23 Uhr",
+      "ref": "Ri. 6:23",
       "cat": "hope",
       "ai": "Die Worte des Engels des Herrn an Gideon, der sich im kleinsten Stamm als der Geringste fühlt. Hoffnung entsteht nicht durch eine Veränderung der Umstände, sondern durch eine persönliche Begegnung: „Friede sei mit dir.“ Gott spricht zu denen, die Angst haben.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6654,7 +6646,7 @@
       "id": 775,
       "book": "2 CHRONIK",
       "text": "Wenn sich mein Volk unterwirft,\nüber dem Mein Name genannt wird,\nund werde beten und mein Angesicht suchen,\nund wird sich von seinen bösen Wegen abwenden –\ndann werde ich vom Himmel hören...",
-      "ref": "2 Chron. 7:14 Uhr",
+      "ref": "2 Chron. 7:14",
       "cat": "hope",
       "ai": "Eine Formel der Hoffnung für das ganze Volk: gehorchen, beten, suchen, sich abwenden. Vier Schritte – und Gott verspricht, die Erde zu erhören, zu vergeben und zu heilen. Dieses Versprechen ist nicht abgelaufen.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6663,7 +6655,7 @@
       "id": 776,
       "book": "JESAJA",
       "text": "Hab keine Angst, ich habe dich zurückgekauft\nrief dich bei deinem Namen\nDu gehörst mir!",
-      "ref": "Ist. 43:1",
+      "ref": "Jes. 43:1",
       "cat": "hope",
       "ai": "Drei Taten Gottes: erlöst, berufen, sein Eigen genannt. Jedes ist ein Grund zur Hoffnung. Sie sind keine namenlose Nummer in der Warteschlange. Du bist benannt. Gott weiß, wer du bist und ruft dich persönlich an.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6672,7 +6664,7 @@
       "id": 777,
       "book": "JESAJA",
       "text": "...Ich werde einen neuen Himmel und eine neue Erde erschaffen,\nund an Ersteres erinnert man sich nicht\nund wird nicht zu Herzen gehen!",
-      "ref": "Ist. 65:17",
+      "ref": "Jes. 65:17",
       "cat": "hope",
       "ai": "Bei der Hoffnung geht es nicht nur darum, das wiederherzustellen, was war – es geht um etwas qualitativ Neues. Gott stellt das Zerstörte nicht wieder her, er erschafft. „Ich erinnere mich nicht“ ist keine Verschiebung, sondern die Fülle des Neuen, die jeden Schmerz überdeckt.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6681,7 +6673,7 @@
       "id": 778,
       "book": "JESAJA",
       "text": "Und der Herr, Gott, wird die Träne abwischen\naus jedem Gesicht...",
-      "ref": "Ist. 25:8",
+      "ref": "Jes. 25:8",
       "cat": "hope",
       "ai": "Persönlich – „von jedem Gesicht“. Die Tränen werden nicht „gänzlich verschwinden“ – aber Er wird sich jedem Einzelnen nähern und sie persönlich abwischen. Die Hoffnung auf eine endgültige Wiederherstellung ist das zarteste Versprechen der Heiligen Schrift.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6717,7 +6709,7 @@
       "id": 782,
       "book": "DANIEL",
       "text": "...Gott des Himmels wird das Königreich errichten,\nwas nie zerbröckelt...",
-      "ref": "Dan. 2:44 Uhr",
+      "ref": "Dan. 2:44",
       "cat": "hope",
       "ai": "Unter den mächtigsten irdischen Königreichen sieht Daniel, was sie überleben wird. Das Reich Gottes ist unerschütterlich, ewig. Die Hoffnung, dass es nicht scheitert, ist die einzig vernünftige Wette für einen ewigen Menschen.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6726,7 +6718,7 @@
       "id": 783,
       "book": "HOSEA",
       "text": "Deshalb werde ich sie verführen\nund ich werde sie in die Wüste führen\nund ich werde zu ihrem Herzen sprechen ...",
-      "ref": "Wespe 2:14 Uhr",
+      "ref": "Hos. 2:14",
       "cat": "hope",
       "ai": "Gott führt eine untreue Frau in die Wüste – nicht zur Strafe, sondern zur Wiederherstellung der Beziehung. Manchmal führt Gott Sie in die „Wildnis“, gerade weil er dort ohne Ablenkungen zu Ihrem Herzen sprechen und die Hoffnung erneuern kann.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6735,7 +6727,7 @@
       "id": 784,
       "book": "HABAKUK",
       "text": "Weil die Vision noch für eine gewisse Zeit besteht,\nund eilt bis zum Ende und wird nicht lügen.\nWenn es anhält, warten Sie darauf,\ndenn es wird kommen, es wird nicht aufgeschoben!",
-      "ref": "Avak. 2:3",
+      "ref": "Hab. 2:3",
       "cat": "hope",
       "ai": "Für den Propheten scheint es, dass Gott schweigt und nicht eingreift. Gottes Antwort: Ich habe Zeit. „Warten Sie auf ihn“ ist keine demütige Passivität, sondern ein bewusstes Zurückhalten der Hoffnung. Jedes Versprechen Gottes hat seine „bestimmte Zeit“.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6744,7 +6736,7 @@
       "id": 785,
       "book": "ZEFANJA",
       "text": "Der Herr, dein Gott, ist in deiner Mitte,\nEr ist ein Held, er rettet!\nEr freut sich über dich mit Freude,\nstill in seiner Liebe,\nfreut sich mit dir mit einem Freudenschrei!",
-      "ref": "Soph. 3:17 Uhr",
+      "ref": "Zeph. 3:17",
       "cat": "hope",
       "ai": "Eines der wärmsten Gottesporträts im gesamten Alten Testament. Er duldet dich nicht nur – Er freut sich über dich mit einem „Freudeschrei“. Hoffnung entsteht, wenn du erkennst: Gott ist auch jetzt noch von dir fasziniert.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6753,7 +6745,7 @@
       "id": 786,
       "book": "MALEACHI",
       "text": "Aber für euch, die meinen Namen fürchten,\nDie Sonne der Wahrheit wird aufgehen\nund in seinen Strahlen - Heilung...",
-      "ref": "Abb. 4:2",
+      "ref": "Mal. 4:2",
       "cat": "hope",
       "ai": "Das letzte Buch des Alten Testaments endet mit einer hoffnungsvollen Note. Die „Sonne der Wahrheit“ ist ein Bild des Messias. „In seinen Strahlen – Heilung.“ Nach langem prophetischem Schweigen – Sonnenaufgang. Es gibt immer Hoffnung, auch nach der längsten Nacht.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6816,7 +6808,7 @@
       "id": 793,
       "book": "RÖMER",
       "text": "...die Hoffnung wird sich nicht schämen,\nweil die Liebe Gottes in unseren Herzen ausgegossen ist\nDurch den Heiligen Geist, der uns gegeben ist.",
-      "ref": "Rm. 5:5",
+      "ref": "Röm. 5:5",
       "cat": "hope",
       "ai": "Die Hoffnung des Paulus basiert immer auf der Liebe Gottes, nicht auf günstigen Umständen. Diese Liebe wird „ausgegossen“ – das hebräische Bild für reichliches, übermäßiges Ausgießen. Es tropft nicht – es gießt.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6825,7 +6817,7 @@
       "id": 794,
       "book": "RÖMER",
       "text": "Möge Gott Sie mit Hoffnung erfüllen\nmit aller Freude und Frieden im Glauben,\ndass du voller Hoffnung bist\ndurch die Kraft des Heiligen Geistes!",
-      "ref": "Rm. 15:13",
+      "ref": "Röm. 15:13",
       "cat": "hope",
       "ai": "Gott wird hier „Gott der Hoffnung“ genannt – als Eigenname. Er ist eine Quelle, nicht nur ein Objekt der Hoffnung. „Überfüllt“ – Hoffnung ist nicht dosiert, sie geht über die Grenzen hinaus. Der Heilige Geist ist der Leiter dieser Hoffnung im menschlichen Herzen.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6852,7 +6844,7 @@
       "id": 797,
       "book": "EPHESER",
       "text": "...damit Sie wissen, welche Hoffnung es gibt\nSeine Berufung\nWas für ein Reichtum der Herrlichkeit seines Erbes\nin den Heiligen...",
-      "ref": "Ef. 1:18 Uhr",
+      "ref": "Ef. 1:18",
       "cat": "hope",
       "ai": "Paulus betet, dass die Augen des Herzens geöffnet werden, um Hoffnung zu sehen. Es ist nicht verborgen, nur für das bloße Auge unsichtbar. „Was ist die Hoffnung der Berufung“ – das heißt, die Tatsache, dass Sie von Gott berufen sind, ist ein Grund zur Hoffnung.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6870,7 +6862,7 @@
       "id": 799,
       "book": "KOLOSSER",
       "text": "...aus Hoffnung\ndas im Himmel für dich aufbewahrt ist,\nwas du schon einmal gehört hast\nim Wort der Wahrheit des Evangeliums...",
-      "ref": "Menge. 1:5",
+      "ref": "Kol. 1:5",
       "cat": "hope",
       "ai": "Hoffnung wird „gespeichert“ – wie eine Kaution, die vor Inflation, Diebstahl und Korrosion geschützt ist. Das Evangelium ist nicht nur die Nachricht von der Vergebung der Sünden, sondern auch von der unzerstörbaren Zukunftsreserve, die Sie erwartet.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6879,7 +6871,7 @@
       "id": 800,
       "book": "KOLOSSER",
       "text": "...Christus in dir ist die Hoffnung auf Herrlichkeit!",
-      "ref": "Menge. 1:27 Uhr",
+      "ref": "Kol. 1:27",
       "cat": "hope",
       "ai": "Einer der prägnantesten und kraftvollsten Sätze von Paulus. Die Hoffnung auf Ruhm ist nicht irgendwo in der Luft. Es ist „in dir“ – in der Gegenwart Christi im Inneren. Wo er lebt, da lebt Hoffnung.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6888,7 +6880,7 @@
       "id": 801,
       "book": "1 THESSALONICHER",
       "text": "...denn wir wissen, Brüder,\nIhre Wahl ist Gottes Geliebte!\nDenn unser Evangelium ist zu Ihnen gekommen\nnicht nur in Worten\nsondern auch in Kraft und im Heiligen Geist und in völliger Gewissheit ...",
-      "ref": "1 Sol. 1:4-5",
+      "ref": "1. Thessalonicher 1:4-5",
       "cat": "hope",
       "ai": "Hoffnung wird durch Überzeugung gestärkt. Paulus erinnert die Thessalonicher daran: Ihre Entscheidung Gottes ist real und dokumentiert. Wenn die Hoffnung schwindet, kehren Sie zum Anfang zurück – zu dem Moment, als Gott Ihr Herz berührte.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6897,7 +6889,7 @@
       "id": 802,
       "book": "1 THESSALONICHER",
       "text": "Was die Verstorbenen betrifft\nWir wollen nicht, dass ihr, Brüder, in Unwissenheit seid,\ndamit du nicht trauerst wie andere, die keine Hoffnung haben.",
-      "ref": "1 Sol. 4:13",
+      "ref": "1. Thessalonicher 4:13",
       "cat": "hope",
       "ai": "Paulus verbietet das Trauern nicht. Er verbietet es, zu trauern, „wie diejenigen, die keine Hoffnung haben“. Der Unterschied zwischen den beiden Arten von Trauer ist das Vorhandensein der Auferstehung. Unsere Traurigkeit ist durchdrungen von Zuversicht in das Treffen.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6906,7 +6898,7 @@
       "id": 803,
       "book": "2 THESSALONICHER",
       "text": "...Unser Herr Jesus Christus selbst\nund Gott, unser Vater,\nWer hat uns geliebt?\nund gab uns ewigen Trost und gute Hoffnung in der Gnade ...",
-      "ref": "2 Sol. 2:16 Uhr",
+      "ref": "2. Thessalonicher 2:16",
       "cat": "hope",
       "ai": "„Ewiger Trost“ und „gute Hoffnung“ sind wie Gnadengaben. Sie werden nicht gekauft oder verdient. Der Gott, der „uns geliebt“ hat, gibt sie, einfach weil er es ist. Hol es dir und mach weiter.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6933,7 +6925,7 @@
       "id": 806,
       "book": "1 PETRUS",
       "text": "Gepriesen sei der Gott und Vater unseres Herrn Jesus Christus,\nDas gemäß Seiner großen Barmherzigkeit\nzeugte uns wieder zu einer lebendigen Hoffnung\ndurch die Auferstehung Jesu Christi von den Toten!",
-      "ref": "1 Haustier. 1:3",
+      "ref": "1 Petr. 1:3",
       "cat": "hope",
       "ai": "„Lebendige Hoffnung“ ist das Gegenteil von tot, formell, kalt. Die Auferstehung Christi bringt Hoffnung hervor, die selbst lebendig ist – aktiv, warmherzig, fähig, sich heute zu verändern. Diese Hoffnung ist kein Relikt – sie pulsiert.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6942,7 +6934,7 @@
       "id": 807,
       "book": "1 PETRUS",
       "text": "...aber seien Sie immer vorbereitet\nGib jedem, der dich fragt, eine Antwort\nÜber die Hoffnung, die du hast...",
-      "ref": "1 Haustier. 3:15",
+      "ref": "1 Petr. 3:15",
       "cat": "hope",
       "ai": "Hoffnung sollte von außen so sichtbar sein, dass die Leute anfangen zu fragen. Keine aufgezwungene Predigt, sondern ein organisches Zeugnis. Wenn Ihre Hoffnung real ist, sehen die Menschen um Sie herum sie und möchten die Quelle kennen.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6951,7 +6943,7 @@
       "id": 808,
       "book": "HEBRÄER",
       "text": "Kommen wir nun zurück zu dem, was wir gesagt haben:\nwir haben so einen Hohepriester,\nDer sich zur Rechten des majestätischen Throns im Himmel setzte ...",
-      "ref": "Hebräisch 8:1",
+      "ref": "Hebr. 8:1",
       "cat": "hope",
       "ai": "Jesus ist unser Hohepriester im Himmel. Nicht das Erstere, nicht die Vergangenheit – ich sitze jetzt da und interveniere. Die Hoffnung hat einen lebendigen Mittler im himmlischen Allerheiligsten. Du bist nicht allein vor Gott.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6960,7 +6952,7 @@
       "id": 809,
       "book": "HEBRÄER",
       "text": "Lasst uns das Bekenntnis der Hoffnung festhalten,\nohne ins Stocken zu geraten\ndenn der, der versprochen hat, ist treu!",
-      "ref": "Hebräisch 10:23",
+      "ref": "Hebr. 10:23",
       "cat": "hope",
       "ai": "„Lasst uns festhalten“ ist bewusste Zurückhaltung. Unter Druck kann die Hoffnung scheitern. Der Autor sagt nicht „Spüre Hoffnung“, sondern „Halte durch“. Ein Willensakt, der durch die Tatsache gestützt wird: „Wer versprochen hat, ist treu.“",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6969,7 +6961,7 @@
       "id": 810,
       "book": "JAKOBUS",
       "text": "Sei auch geduldig,\nstärke deine Herzen\ndenn das Kommen des Herrn ist nahe!",
-      "ref": "Als. 5:8",
+      "ref": "Jak. 5:8",
       "cat": "hope",
       "ai": "Die Hoffnung auf die Wiederkunft Christi ist praktisch und nicht abstrakt. Sie gibt Kraft, heute durchzuhalten, denn es „kommt“. Je näher der Morgen rückt, desto einfacher ist es, die letzten Stunden der Nacht zu überstehen.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -6996,7 +6988,7 @@
       "id": 813,
       "book": "OFFENBARUNG",
       "text": "Und dann hörte ich eine große Stimme vom Thron, die sagte:\nHier ist die Wohnstätte Gottes bei den Menschen!\nUnd er wird bei ihnen wohnen...",
-      "ref": "Ansage 21:3",
+      "ref": "Offb. 21:3",
       "cat": "hope",
       "ai": "Die letzte Hoffnung der Bibel sind nicht Wolken und Harfen, sondern Gott unter den Menschen. „Gott wohnt bei den Menschen“ ist eine Rückkehr nach Eden, aber besser. Wir steigen nicht zu ihm auf – er kommt, um mit uns zu leben. Darauf ist die gesamte Menschheitsgeschichte ausgerichtet.",
       "audio_url": "https://archive.org/download/PianoMusic/02-Because%20he%20lives.mp3"
@@ -7033,7 +7025,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Fürchte dich nicht, denn ich bin bei dir;\nFürchte dich nicht, denn ich bin dein Gott:\nIch werde dich stärken und dir helfen.",
-      "ref": "Ist. 41:10",
+      "ref": "Jes. 41:10",
       "ai": "„Habe keine Angst“ und „habe keine Angst“ sind im Original zwei verschiedene Wörter: akute Angst und chronische Angst. Gott spricht beides an. Er bittet Sie nicht, keine Angst zu empfinden – er gibt Ihnen einen Grund, diese Angst loszulassen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7051,7 +7043,7 @@
       "book": "HEBRÄER",
       "cat": "victory",
       "text": "Er, da er ewig lebt,\nhat das ewige Priestertum.\nDaher kann Er diese vollständig retten\nder durch ihn zu Gott kommt.",
-      "ref": "Hebräisch 7:24-25",
+      "ref": "Hebr. 7:24-25",
       "ai": "„Ganz retten“ ist das griechische „panteles“: bis zum Ende, ganz, ohne Rest. Jesus rettet nicht teilweise. Es gibt keinen Winkel Ihrer Zerbrochenheit, den Seine Erlösung nicht erreicht.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7069,7 +7061,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Herr, unser Gott,\nweil andere Herrscher über uns herrschten,\naber durch Dich allein ehren wir Deinen Namen.",
-      "ref": "Ist. 26:13",
+      "ref": "Jes. 26:13",
       "ai": "Der Prophet gibt zu, dass es andere „Herren“ gab: Angst, Sünde, der Wille eines anderen. Aber das Endergebnis ist ein Name. Der Sieg ist, wenn nur Er über Ihr Herz herrscht.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7087,7 +7079,7 @@
       "book": "DEUTERONOMIUM",
       "cat": "victory",
       "text": "der Herr, dein Gott\nDieser wird vor dir gehen;\nEr wird diese Nationen vor dir vernichten.",
-      "ref": "Regionsordnung 31:3",
+      "ref": "Dtn. 31:3",
       "ai": "„Ich werde vor dir gehen“ – Gott schaut nicht von außen zu. Er tritt als Erster ein. Wenn Sie das Unbekannte betreten, betreten Sie die Stelle, an der Er bereits ist.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7105,7 +7097,7 @@
       "book": "RÖMER",
       "cat": "victory",
       "text": "Jetzt gibt es also keine Verurteilung\ndenen, die in Christus Jesus sind.",
-      "ref": "Rom. 8:1",
+      "ref": "Röm. 8:1",
       "ai": "„Keine“ ist das griechische „uden“: Null, absoluter Nullpunkt. Nicht „etwas weniger Verurteilung“. Der Sieg über die Schuld ist keine Verbesserung der Note, sondern eine vollständige Aufhebung der Strafe.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7123,7 +7115,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Aber der Herr ist der Richter zwischen uns,\nDer Herr ist der Gesetzgeber zwischen uns,\nDer Herr ist der König unter uns:\nEr wird uns retten.",
-      "ref": "Ist. 33:22",
+      "ref": "Jes. 33:22",
       "ai": "Drei Rollen – Richter, Gesetzgeber, König – und ein Satz: „wird retten“. Wenn Gott sowohl das Gesetz festlegt als auch danach richtet, hat er das Recht auf Vergebung. Und er nutzte dieses Recht.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7150,8 +7142,8 @@
       "book": "JOSUA",
       "cat": "victory",
       "text": "Kein Mann kann vor dir bestehen\nden ganzen Tag deines Lebens;\nwie ich bei Mose war\nIch werde das Gleiche mit dir tun.",
-      "ref": "Navigation. 1:5",
-      "ai": "Gott gab Navin keine neuen Fähigkeiten – Er gab Seine Gegenwart. Dieselbe Präsenz, die das Meer teilte. Du bekommst keine bessere Version deiner selbst, sondern denselben Gott.",
+      "ref": "Jos. 1:5",
+      "ai": "Gott gab Josua keine neuen Fähigkeiten – Er gab Seine Gegenwart. Dieselbe Präsenz, die das Meer teilte. Du bekommst keine bessere Version deiner selbst, sondern denselben Gott.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -7196,7 +7188,7 @@
       "cat": "victory",
       "text": "Der Herr beschützt dich vor allem Unheil,\nGott segne deine Seele.\nDer Herr bewacht deinen Ausgang und deinen Eingang\nvon jetzt an und für immer.",
       "ref": "Ps. 121:7-8",
-      "ai": "„Exit and Entry“ umfasst alles: sowohl den Aufbruch ins Unbekannte als auch die Rückkehr. Gott bewacht nicht nur einen Teil Ihres Weges. Er steht am Anfang jedes Schrittes und am Ende.",
+      "ai": "„Ausgang und Eingang“ umfasst alles: sowohl den Aufbruch ins Unbekannte als auch die Rückkehr. Gott bewacht nicht nur einen Teil Ihres Weges. Er steht am Anfang jedes Schrittes und am Ende.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -7213,7 +7205,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Ich werde Wasser über die Durstigen gießen\nund Bäche auf dem Trockenen:\nIch werde meinen Geist auf deinen Samen ausgießen.",
-      "ref": "Ist. 44:3",
+      "ref": "Jes. 44:3",
       "ai": "Gott wartet nicht darauf, dass du fruchtbarer Boden wirst. Er gießt das Trockene. Der Sieg des Geistes beginnt dort, wo Sie die größte Verwüstung spüren.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7231,7 +7223,7 @@
       "book": "DANIEL",
       "cat": "victory",
       "text": "Mein Gott hat seinen Engel geschickt\nund verschließt das Maul der Löwen,\nund sie haben mir keinen Schaden zugefügt.",
-      "ref": "Dan. 6:22 Uhr",
+      "ref": "Dan. 6:22",
       "ai": "Danylo betete nicht um Rettung aus der Grube – er betete sogar, als er wusste, dass die Grube da sein würde. Der Sieg kam nicht dadurch zustande, dass man der Grube aus dem Weg ging, sondern durch die Treue darin.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7267,7 +7259,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Meine rechte Hand gründete die Erde,\nund meine rechte Hand kreuzigte die Himmel –\nIch rufe sie, und sie stehen zusammen.",
-      "ref": "Ist. 48:13",
+      "ref": "Jes. 48:13",
       "ai": "Die Hand, die den Himmel hält, ist dieselbe Hand, die dich hält. Gottes Maßstab schmälert nicht seine Liebe zum Detail. Es hält den Kosmos und hält dich gleichzeitig.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7285,7 +7277,7 @@
       "book": "JESAJA",
       "cat": "victory",
       "text": "Hab keine Angst, ich habe dich zurückgekauft\nrief dich bei meinem Namen -\nDu gehörst mir!",
-      "ref": "Ist. 43:1",
+      "ref": "Jes. 43:1",
       "ai": "„Du gehörst mir“ ist keine besitzergreifende Haltung, sondern ein rechtlicher Schutz. Was Gott gehört, liegt in seiner Verantwortung. Dein Sieg ist garantiert, weil Er dich Sein genannt hat.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7294,7 +7286,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Der Glaube ist die Grundlage dessen, was wir uns erhoffen\nBeweis für Dinge, die man nicht sieht.",
-      "ref": "Hebräisch 11:1",
+      "ref": "Hebr. 11:1",
       "ai": "„Fundament“ ist das griechische „Hypostase“: wörtlich das, was darunter steht, das Fundament. Glaube ist kein Gefühl, sondern ein rechtliches Zeugnis einer Realität, die noch nicht mit den Augen gesehen werden kann.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7303,17 +7295,8 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Und ohne Glauben ist es unmöglich, Gott zu gefallen;\nfür jeden, der zu Gott kommt\nmuss glauben, dass Er es ist.",
-      "ref": "Hebräisch 11:6",
+      "ref": "Hebr. 11:6",
       "ai": "Bei „Zu gefallen“ geht es nicht nur um Gehorsam, es geht um Beziehungen. Gott sucht nicht nach Regelmachern, sondern nach denen, die auf seinen Charakter vertrauen. Vertrauen geht jedem Handeln voraus.",
-      "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
-    },
-    {
-      "id": 848,
-      "book": "MARKUS",
-      "cat": "faith",
-      "text": "Dem Gläubigen ist alles möglich.",
-      "ref": "Herr 9:23 Uhr",
-      "ai": "Jesus sagte dies zum Vater und bat um die Heilung seines Sohnes – und der Vater antwortete sofort: „Ich glaube, hilf meinem Unglauben!“. Das ehrlichste Gebet über den Glauben besteht darin, zuzugeben, wo es ihm mangelt.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -7321,7 +7304,7 @@
       "book": "MATTHÄUS",
       "cat": "faith",
       "text": "Durch deinen Glauben\nmöge es dir gelten",
-      "ref": "Berg 9:29 Uhr",
+      "ref": "Mt. 9:29",
       "ai": "Dies sagt Jesus zu zwei Blinden, die um Heilung baten. Er fragte nicht nach Verhalten oder Verdienst, sondern nur nach Glauben. Sein Niveau bestimmt, wie viel Sie bereit sind zu akzeptieren.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7332,15 +7315,6 @@
       "text": "Wenn du Glauben hättest\nwie ein Senfkorn\ndann würden sie zu diesem Maulbeerbaum sagen:\nBefreien Sie sich und fahren Sie zum Meer.",
       "ref": "Lk. 17:6",
       "ai": "Der Senfsamen ist der kleinste im Garten. Jesus spricht nicht von einem großen Maß an Glauben – Er spricht von Qualität: echtes, lebendiges Vertrauen ohne die Beimischung von Zweifeln.",
-      "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
-    },
-    {
-      "id": 851,
-      "book": "RÖMER",
-      "cat": "faith",
-      "text": "Die Gerechten werden im Glauben leben.",
-      "ref": "Rom. 1:17 Uhr",
-      "ai": "Nicht „gerecht, wenn er sich gut benimmt.“ Die Quelle der Gerechtigkeit ist nicht Verhalten, sondern Vertrauen. Es stellt die gesamte Logik der Religion auf den Kopf: zuerst seine Gerechtigkeit, dann Ihr Leben daraus.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -7375,7 +7349,7 @@
       "book": "JAKOBUS",
       "cat": "faith",
       "text": "Aber lass ihn mit Glauben fragen,\nnicht im geringsten zweifelnd;\ndenn wer zweifelt\ndas ist wie eine Meereswelle.",
-      "ref": "Als. 1:6",
+      "ref": "Jak. 1:6",
       "ai": "„Welle“ – bewegt sich dorthin, wohin der Wind geht. Zweifel ist nicht das Gegenteil von Glauben, sondern das Fehlen eines Ankers. Ein Glaubensgebet ist ein Gebet, das im Charakter desjenigen verankert ist, zu dem man betet.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7393,7 +7367,7 @@
       "book": "1 PETRUS",
       "cat": "faith",
       "text": "Dass die Prüfung deines Glaubens,\nkostbarer als vergängliches Gold,\ndas wird vom Feuer erforscht\nwurde als lobend befunden.",
-      "ref": "1 Fr. 1:7",
+      "ref": "1 Petr. 1:7",
       "ai": "Gold wird durch Feuer nicht zerstört – es wird gereinigt. Deine Schwierigkeiten lassen dich nicht schmelzen, um dich zu zerstören. Sie entdecken, was real ist. Feuergeprüfter Glaube ist kostbarer als jungfräulicher Glaube.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7402,7 +7376,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Mit Blick auf den Gründer und Vollstrecker unseres Glaubens,\nJesus\nUm der Freude willen, die vor Ihm lag,\ndas Kreuz ertragen.",
-      "ref": "Hebräisch 12:2",
+      "ref": "Hebr. 12:2",
       "ai": "„Schauen“ ist kein verträumter Blick, sondern ein Fokus der Aufmerksamkeit. Gründer und Vollender – Jesus beginnt und beendet unseren Glauben. Sie ist nicht unser Projekt – sein.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7420,13 +7394,13 @@
       "book": "SPRÜCHE",
       "cat": "faith",
       "text": "Vertraue dem Herrn von ganzem Herzen\nund verlassen Sie sich nicht auf Ihr eigenes Verständnis.",
-      "ref": "Attribut 3:5",
+      "ref": "Spr. 3:5",
       "ai": "„Von ganzem Herzen“ – nicht teilweise, nicht nach meinen eigenen Berechnungen. Der Geist ist ein Werkzeug, keine Quelle. Wenn Logik und Gottes Wort im Widerspruch stehen, wählt der Glaube das Wort.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
       "id": 861,
-      "book": "JOHANNES",
+      "book": "1 JOHANNES",
       "cat": "faith",
       "text": "Wer glaubt an den Sohn Gottes,\nhat ein Zertifikat in sich.",
       "ref": "1. Johannes 5:10",
@@ -7438,7 +7412,7 @@
       "book": "LUKAS",
       "cat": "faith",
       "text": "Hab keine Angst, glaube einfach\nund sie wird gerettet werden.",
-      "ref": "Lk. 8:50 Uhr",
+      "ref": "Lk. 8:50",
       "ai": "Jesus sagt dies zu Jairus – als sie kamen, um ihm zu sagen, dass seine Tochter gestorben war. Nach der Todesnachricht - „nur glauben“. Versuchen Sie es nicht noch einmal und sagen Sie nicht: „Vielleicht ist es noch nicht zu spät.“ Glauben Sie einfach.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7446,8 +7420,8 @@
       "id": 863,
       "book": "MARKUS",
       "cat": "faith",
-      "text": "Und sagte zu ihr:\nDonya, dein Glaube hat dich gerettet;\ngeh in Frieden",
-      "ref": "Herr 5:34 Uhr",
+      "text": "Und sagte zu ihr:\nTochter, dein Glaube hat dich gerettet;\ngeh in Frieden",
+      "ref": "Mk. 5:34",
       "ai": "Zwölf Jahre lang gab die Frau ihr ganzes Geld für Ärzte aus. Eine Berührung von Jesu Kleidung und er sagt: „Dein Glaube.“ Nicht meine Macht ist dein Vertrauen in meine Macht.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7465,7 +7439,7 @@
       "book": "JOHANNES",
       "cat": "faith",
       "text": "Wer glaubt an mich?\nwie es in den heiligen Schriften heißt\nFlüsse lebendigen Wassers\nwird aus seinem Inneren fließen.",
-      "ref": "IV. 7:38 Uhr",
+      "ref": "IV. 7:38",
       "ai": "„Inner“ ist ein altes hebräisches Wort für das innerste Selbst. Die Quelle lebendigen Wassers kommt nicht von außen, sondern von innen. Der Glaube offenbart in einem Menschen, was Gott dort hineingelegt hat.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7474,7 +7448,7 @@
       "book": "RÖMER",
       "cat": "faith",
       "text": "Abraham schwankte nicht im Glauben,\nals ich an meinen Körper dachte\n- schon tot -\naber gestärkt im Glauben,\nGott die Ehre geben.",
-      "ref": "Rom. 4:19-20",
+      "ref": "Röm. 4:19-20",
       "ai": "Abraham blickte auf die Fakten – und entschied sich dennoch, an die Verheißung zu glauben. Er ignorierte die Realität nicht, sondern stellte Gottes Wort über sie. Starker Glaube ist nicht blind, sondern bewusst.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7483,7 +7457,7 @@
       "book": "HEBRÄER",
       "cat": "faith",
       "text": "Durch den Glauben Noah, der die Botschaft erhalten hatte\nüber das, was noch nicht gesehen wird\nbereitete mit Furcht die Arche vor\nfür die Rettung seines Hauses.",
-      "ref": "Hebräisch 11:7",
+      "ref": "Hebr. 11:7",
       "ai": "Noah baute die Arche, als es keine Wolke gab. Nachbarn sahen einen verrückten Zimmermann. Er sah das Wort Gottes – realer als das Wetter. Äußerlich sinnlose Demut, die alle gerettet hat.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7519,7 +7493,7 @@
       "book": "JESAJA",
       "cat": "peace",
       "text": "Sie werden in vollkommener Ruhe bleiben\njemand, dessen Geist auf Dich gerichtet ist,\nweil er Dir vertraut.",
-      "ref": "Ist. 26:3",
+      "ref": "Jes. 26:3",
       "ai": "„Vollkommener Frieden“ ist das althebräische „shalom shalom“: Verdoppelung erhöht den Grad. Nicht nur Frieden, sondern völliger Frieden. Die Bedingung ist: „Der Geist ist etabliert.“ Frieden ist das Ergebnis der richtigen Konzentration.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7530,15 +7504,6 @@
       "text": "Ruhe im Herrn\nund vertraue auf Ihn.",
       "ref": "Ps. 37:7",
       "ai": "„Ruhe“ bedeutet wörtlich „sei still, sei still vor Gott.“ Keine Passivität, sondern eine bewusste Entscheidung, nicht mehr mit dem zu kämpfen, was in Seinen Händen liegt. Das ist eine andere Qualität der Stille – nicht leer, sondern erfüllt.",
-      "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
-    },
-    {
-      "id": 873,
-      "book": "MATTHÄUS",
-      "cat": "peace",
-      "text": "Gesegnete Friedensstifter,\ndenn sie werden Söhne Gottes genannt werden.",
-      "ref": "Mt. 5:9",
-      "ai": "„Friedensstifter“ sind nicht diejenigen, die Konflikte vermeiden, sondern diejenigen, die aktiv Frieden schaffen. Griechisch „eirenoPoios“: „jemand, der Frieden schafft.“ Äußerer Frieden erwächst aus innerem Frieden.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -7555,7 +7520,7 @@
       "book": "KOLOSSER",
       "cat": "peace",
       "text": "Und der Friede Christi\nLass es in deinen Herzen regieren.",
-      "ref": "Menge. 3:15",
+      "ref": "Kol. 3:15",
       "ai": "„Reigns“ ist das griechische „brabio“: Richter in einem Wettbewerb sein, ein Urteil fällen. Der Friede Christi muss der Richter zwischen konkurrierenden Gedanken und Gefühlen sein. Angst hat kein Recht, in deinem Herzen ein Urteil zu fällen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7582,7 +7547,7 @@
       "book": "JESAJA",
       "cat": "peace",
       "text": "Alle deine Kinder werden vom Herrn belehrt,\nund groß wird der Friede deiner Söhne sein.",
-      "ref": "Ist. 54:13",
+      "ref": "Jes. 54:13",
       "ai": "Frieden ist nicht nur eine persönliche Erfahrung, sondern auch ein Vermächtnis. Was Sie mit Gott im Inneren aufbauen, wird an die nächste Generation weitergegeben. Das beste friedvolle Erbe besteht darin, vom Herrn zu lernen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7591,7 +7556,7 @@
       "book": "RÖMER",
       "cat": "peace",
       "text": "Weil Gottes Reich nicht aus Essen und Trinken besteht,\nsondern Gerechtigkeit, Frieden und Freude\nim Heiligen Geist.",
-      "ref": "Rom. 14:17",
+      "ref": "Röm. 14:17",
       "ai": "Paulus definiert Gottes Reich neu: Es geht nicht um Regeln, sondern um einen Staat. Gerechtigkeit, Frieden und Freude sind die Früchte des Geistes, nicht das Ergebnis von Anstrengung. Das Königreich ist eine Seinsweise, keine To-Do-Liste.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7605,20 +7570,11 @@
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
-      "id": 881,
-      "book": "LUKAS",
-      "cat": "peace",
-      "text": "Geh in Frieden.",
-      "ref": "Lk. 7:50 Uhr",
-      "ai": "Dies sagte Jesus zu der Frau, die alle verurteilten. Drei Worte – und die ganze Last der Schande ist von dir genommen. „Frieden“ bedeutet nicht „Ich vergebe dir“, sondern „Gehe wie jemand, dem bereits vergeben wurde“. Frieden ist ein Status, keine Stimmung.",
-      "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
-    },
-    {
       "id": 882,
       "book": "2 THESSALONICHER",
       "cat": "peace",
       "text": "Und der Herr des Friedens selbst\nMöge er dir Frieden geben\nimmer und in jeder Hinsicht.",
-      "ref": "2 Sol. 3:16 Uhr",
+      "ref": "2. Thessalonicher 3:16",
       "ai": "„Immer und in jeder Hinsicht“ – zu jeder Zeit und in jeder Form. Frieden ist nicht an die Situation gebunden. Er ist an die Person gebunden – „Herr des Friedens“. Er ist die Quelle.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7627,7 +7583,7 @@
       "book": "HEBRÄER",
       "cat": "peace",
       "text": "Suche Frieden mit allen\nund Heiligkeit,\nohne die niemand den Herrn sehen wird.",
-      "ref": "Hebräisch 12:14 Uhr",
+      "ref": "Hebr. 12:14",
       "ai": "Frieden und Heiligkeit sind in einem Vers vereint. Nicht Opposition, sondern Einheit. Eine Person, die Frieden mit Gott hat, sucht natürlich Frieden mit Menschen. Das Innere kommt immer zum Vorschein.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7645,7 +7601,7 @@
       "book": "JESAJA",
       "cat": "peace",
       "text": "Denn so spricht der Herr:\nSiehe, ich sende ihr Frieden,\nwie ein Fluss",
-      "ref": "Ist. 66:12",
+      "ref": "Jes. 66:12",
       "ai": "„Wie ein Fluss“ – kein Tropfen, kein Bach. Ein Fluss ist ein unaufhörlicher, kraftvoller und unerschöpflicher Fluss. Der Friede, den Gott schenkt, ist nicht nutzlos.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7663,7 +7619,7 @@
       "book": "1 JOHANNES",
       "cat": "love",
       "text": "wir lieben\nweil Er uns zuerst geliebt hat.",
-      "ref": "1. Johannes 4:19 Uhr",
+      "ref": "1. Johannes 4:19",
       "ai": "Unsere Liebe ist nicht der Ausgangspunkt, sondern die Antwort. Du musst keine Liebe aus dir selbst erzeugen – du kannst nur die Liebe widerspiegeln, die dir zuerst begegnet ist.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7672,7 +7628,7 @@
       "book": "RÖMER",
       "cat": "love",
       "text": "Gottes Liebe strömt in unsere Herzen\ndurch den Heiligen Geist,\ndas ist uns gegeben",
-      "ref": "Rom. 5:5",
+      "ref": "Röm. 5:5",
       "ai": "„Verschütten“ ist das griechische „ekkehyutai“: ausgeschüttet, wie eine Flüssigkeit, die den gesamten Raum ausfüllt. Gottes Liebe zu dir ist kein Tropfen, kein Teil. Es wird ohne Maß ins Herz gegossen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7686,20 +7642,11 @@
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
-      "id": 890,
-      "book": "PSALMEN",
-      "cat": "healing",
-      "text": "Er heilt die gebrochenen Herzen\nund verbindet ihre Wunden.",
-      "ref": "Ps. 147:3",
-      "ai": "„Verbände“ ist das Bild eines Arztes, der eine Wunde sorgfältig und sorgfältig behandelt. Gott verkündet nicht nur Heilung – Er berührt den Ort des Schmerzes persönlich.",
-      "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
-    },
-    {
       "id": 891,
       "book": "JESAJA",
       "cat": "healing",
       "text": "Aber Er hat unsere Krankheit auf sich genommen\nund unsere Schmerzen ertragen.",
-      "ref": "Ist. 53:4",
+      "ref": "Jes. 53:4",
       "ai": "„Took“ und „carried“ sind aktive Verben. Jesus weiß nicht nur um deinen Schmerz. Er hob ihn auf und trug ihn. Deine Krankheit war bereits bei Ihm – bevor sie zu dir kam.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7708,7 +7655,7 @@
       "book": "JESAJA",
       "cat": "healing",
       "text": "Und durch seine Wunden werden wir geheilt.",
-      "ref": "Ist. 53:5",
+      "ref": "Jes. 53:5",
       "ai": "Vergangenheitsform – „geheilt“. Nicht „heilend“, nicht „heilend“. Die Heilung hat bereits in der Ewigkeit des Kreuzes stattgefunden. Es zu empfangen bedeutet, sich mit dem zu verbinden, was bereits getan wurde.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7717,7 +7664,7 @@
       "book": "MATTHÄUS",
       "cat": "healing",
       "text": "Er selbst hat unsere Leiden auf sich genommen\nund litt an Krankheiten.",
-      "ref": "Berg 8:17 Uhr",
+      "ref": "Mt. 8:17",
       "ai": "Matthäus zitiert Jesaja, nachdem Jesus viele geheilt hatte. Der Evangelist zeigt, dass jede Heilung keine Ausnahme, sondern die Erfüllung einer Verheißung ist. Das Kreuz und der Dienst der Heilung sind eine Realität.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7726,7 +7673,7 @@
       "book": "JAKOBUS",
       "cat": "healing",
       "text": "Und das Gebet des Glaubens wird die Kranken retten,\nund der Herr wird ihn auferwecken.",
-      "ref": "Als. 5:15",
+      "ref": "Jak. 5:15",
       "ai": "„Wird retten“ ist das gleiche griechische Wort „sozo“, das für Erlösung verwendet wird. Heilung und Erlösung sind im Neuen Testament ein und dasselbe Wort. Gott teilt Körper und Seele nicht in getrennte Abteilungen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7735,7 +7682,7 @@
       "book": "LUKAS",
       "cat": "healing",
       "text": "Und die Macht des Herrn war mit ihm\nzur Heilung",
-      "ref": "Lk. 5:17 Uhr",
+      "ref": "Lk. 5:17",
       "ai": "Dies ist nicht nur eine Tatsache der Vergangenheit. Derselbe Jesus, „derselbe gestern und heute“ und die gleiche Heilkraft bleiben relevant. Die Zeit verringert die Leistung nicht.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7753,8 +7700,8 @@
       "book": "MARKUS",
       "cat": "healing",
       "text": "Ich will\nMach dich sauber",
-      "ref": "Herr 1:41 Uhr",
-      "ai": "Der Aussätzige fragte: „Wenn du willst, kannst du.“ Jesus antwortete mit zwei Worten: „Das werde ich.“ Dies ist seine Antwort an alle, die an seinem Wunsch zu heilen zweifeln. Er will",
+      "ref": "Mk. 1:41",
+      "ai": "Der Aussätzige fragte: „Wenn du willst, kannst du.“ Jesus antwortete mit zwei Worten: „Das werde ich.“ Dies ist seine Antwort an alle, die an seinem Wunsch zu heilen zweifeln. Er will heilen.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
     {
@@ -7762,7 +7709,7 @@
       "book": "1 PETRUS",
       "cat": "healing",
       "text": "Durch seine Wunden wurdest du geheilt.",
-      "ref": "1 Fr. 2:24",
+      "ref": "1 Petr. 2:24",
       "ai": "Petrus wiederholt Jesaja bereits nach der Auferstehung – als eine Tatsache, die den Leser persönlich betrifft: „Ihr seid geheilt.“ Damals nicht Israel, aber jetzt du. Das Personalpronomen macht das Versprechen konkret.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7789,7 +7736,7 @@
       "book": "SPRÜCHE",
       "cat": "healing",
       "text": "Ein sanftes Wort ist ein Baum des Lebens,\naber ein böses Wort ist ein gebrochener Geist.",
-      "ref": "Attribut 15:4",
+      "ref": "Spr. 15:4",
       "ai": "Worte haben eine körperliche Wirkung. „Baum des Lebens“ ist ein Bild kontinuierlicher Nahrung. Was Sie zu sich selbst und anderen sagen, heilt oder zerstört. Sprache ist Medizin oder Gift.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7798,7 +7745,7 @@
       "book": "SPRÜCHE",
       "cat": "healing",
       "text": "Ein fröhliches Herz ist eine gute Medizin,\nund ein gebrochener Geist trocknet die Knochen aus.",
-      "ref": "Attribut 17:22",
+      "ref": "Spr. 17:22",
       "ai": "Solomon beschreibt die Psychosomatik Tausende Jahre vor der Medizin. Freude ist nicht nur eine Stimmung, sondern eine Physiologie. Gott hat den Körper so geschaffen, dass er dem Zustand des Geistes entspricht.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7816,7 +7763,7 @@
       "book": "JESAJA",
       "cat": "healing",
       "text": "Dann werden die Augen der Blinden geöffnet,\nund die Ohren der Tauben werden geöffnet.\nDann springt der Lahme wie ein Reh\nund die Zunge der Stummen wird singen.",
-      "ref": "Ist. 35:5-6",
+      "ref": "Jes. 35:5-6",
       "ai": "Jesaja beschreibt die Zeichen der messianischen Zeit – und Jesus las diese Passage in der Synagoge und sagte: „Heute ist es erfüllt.“ Heilung ist keine Ausnahme, sondern ein Zeichen dafür, dass das Königreich bereits gekommen ist.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7834,7 +7781,7 @@
       "book": "MARKUS",
       "cat": "healing",
       "text": "Und er zog in ganz Galiläa umher,\npredigten in ihren Synagogen\nund Dämonen austreiben.\nUnd viele geheilt.",
-      "ref": "Herr 1:39",
+      "ref": "Mk. 1:39",
       "ai": "Heilung ist kein separates, spezialisiertes Programm, sondern Teil der normalen Bewegung Jesu. Er blieb nicht für „Heilungssitzungen“ stehen – er ging einfach hin und die Heilung begleitete ihn.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     },
@@ -7843,7 +7790,7 @@
       "book": "MALEACHI",
       "cat": "healing",
       "text": "Und für euch, die meinen Namen fürchten,\ndie Sonne der Gerechtigkeit wird aufgehen\nmit Heilung in seinen Flügeln.",
-      "ref": "Abb. 4:2",
+      "ref": "Mal. 4:2",
       "ai": "„In den Flügeln“ ist ein Bild einer Sonnenscheibe mit „Pfeilen“ aus Strahlen. Heilung liegt nicht in der Dunkelheit oder im Mysterium. Es kommt mit Licht. Wo seine Gegenwart herabsteigt, verschwindet die Krankheit.",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolate.mp3"
     }
