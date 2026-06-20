@@ -7,6 +7,8 @@
 const SUPPORTED_LANGUAGES = [
   { code: 'uk', name: '🇺🇦 Українська' },
   { code: 'en', name: '🇬🇧 English'    },
+  { code: 'de', name: '🇩🇪 Deutsch'    },
+  { code: 'el', name: '🇬🇷 Ελληνικά'   },
 ];
 
 let currentLang = 'uk';
