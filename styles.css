@@ -338,18 +338,6 @@ body.skin-glass .verse-card {
     0 8px 48px rgba(0, 0, 0, .5);
 }
 
-/* Лапки перед текстом */
-body.skin-glass .verse-text::before {
-  content: '\❝';
-  display: block;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 10vw, 52px);
-  line-height: .6;
-  color: var(--clr-gold);
-  opacity: .7;
-  margin-bottom: 4px;
-}
-
 /* Підпис додатку знизу картки */
 body.skin-glass .verse-card::after {
   content: '✦ HOLY VIBE';
@@ -449,7 +437,6 @@ body.skin-glass .verse-card {
   transition: background .2s, border-color .2s;
 }
 .fav-item:hover { background: rgba(255, 255, 255, .07); border-color: var(--clr-gold-dim); }
-.fav-item-book { font-family: var(--font-display); font-size: 10px; letter-spacing: 2px; color: var(--accent); opacity: .7; margin-bottom: 7px; text-transform: uppercase; }
 .fav-item-text { font-size: clamp(14px, 3.5vw, 17px); line-height: 1.6; color: var(--text-primary); }
 .fav-item-ref  { font-family: var(--font-ui); font-size: 11px; color: var(--text-secondary); margin-top: 7px; }
 

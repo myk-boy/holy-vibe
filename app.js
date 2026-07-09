@@ -159,7 +159,6 @@ const DAYS_UK = ['Нд','Пн','Вт','Ср','Чт','Пт','Сб'];
 const $ = id => document.getElementById(id);
 
 const verseCard   = $('verseCard');
-const verseBookEl = $('verseBook');
 const verseTextEl = $('verseText');
 const verseRefEl  = $('verseRef');
 const heartBurst  = $('heartBurst');
@@ -334,14 +333,9 @@ function renderVerse(dir = 'up') {
   S.idx = Math.min(S.idx, Math.max(0, S.pool.length - 1));
   const v = cv(); if (!v) return;
   const write = () => {
-    verseBookEl.textContent = v.book;
     verseTextEl.innerHTML   = formatText(v.text);
-    verseRefEl.textContent  = (typeof currentLang === 'undefined' || currentLang === 'uk')
-      ? v.ref + ' · Переклад Огієнка'
-      : v.ref;
+    verseRefEl.textContent  = v.ref;
     if (S.autoBg) applyAutoBg();
-    // Якщо вірш має власне аудіо і глобальний плеєр не грає
-    updateVerseAudio(v);
   };
   if (!S.anim) { write(); return; }
   verseCard.classList.add(dir === 'up' ? 'out-up' : 'out-down');
@@ -351,23 +345,6 @@ function renderVerse(dir = 'up') {
     verseCard.classList.add('in');
     setTimeout(() => verseCard.classList.remove('in'), 400);
   }, 200);
-}
-
-/*
-  updateVerseAudio — автоматично вмикає аудіо з поля audio_url вірша,
-  але тільки якщо глобальний плеєр (трек з Меню) зараз не грає.
-  Якщо verse.audio_url відсутній — нічого не змінює.
-*/
-function updateVerseAudio(verse) {
-  if (S.playing >= 0) return;          // глобальний плеєр активний — не чіпаємо
-  if (!verse || !verse.audio_url) return; // немає аудіо у вірші
-  // Грає вже цей же трек — не перезапускаємо
-  if (audioEl.src === verse.audio_url && !audioEl.paused) return;
-  audioEl.src    = verse.audio_url;
-  audioEl.loop   = true;
-  audioEl.volume = S.vol / 100;
-  audioEl.play().catch(() => {}); // WebView може блокувати автоплей
-  S.verseAudioOn = true;
 }
 
 // Порядок категорій — будується динамічно з _categories у verses.json
@@ -583,7 +560,6 @@ function renderFavList() {
   }
   favList.innerHTML = S.favs.map(v => `
     <div class="fav-item">
-      <div class="fav-item-book">${v.book}</div>
       <div class="fav-item-text">${v.text.replace(/\n/g,' ').substring(0,80)}…</div>
       <div class="fav-item-ref t-ui">${v.ref}</div>
       <div class="fav-item-del" data-del="${v.id}">
@@ -605,7 +581,6 @@ function renderFavList() {
 /* ─────────────────────────────────────
    11. МУЗИКА — ГЛОБАЛЬНИЙ ПЛЕЄР
    Натискання на трек у Меню вмикає/вимикає глобальну фонову музику.
-   Якщо вірш мав своє аудіо (audio_url) — воно замовкає.
 
    Режими відтворення (S.playMode):
    - 'single'   — повторювати поточний трек (audioEl.loop = true)
