@@ -144,8 +144,9 @@ const S = {
   verseAudioOn: false, // чи грає аудіо з вірша
   vol:      60,
   sheet:    false,
-  playMode: 'single', // 'single' = повтор одного треку, 'sequence' = по черзі
-  shuffle:  false,    // перемішування при переході до наступного треку
+  playMode: 'single',
+  shuffle:  false,
+  glass:    false,    // скляний скін картки вірша
   // notifs: реалізується в наступному релізі
 };
 
@@ -215,6 +216,7 @@ function saveSettings() {
     autoBg:   S.autoBg,
     playMode: S.playMode,
     shuffle:  S.shuffle,
+    glass:    S.glass,
     bgUrl:    bgEl.style.backgroundImage.replace(/url\(['"]?|['"]?\)/g, '') || '',
   }));
 }
@@ -233,6 +235,7 @@ function loadSettings() {
     S.autoBg   = s.autoBg   ?? S.autoBg;
     S.playMode = s.playMode ?? S.playMode;
     S.shuffle  = s.shuffle  ?? S.shuffle;
+    S.glass    = s.glass    ?? S.glass;
 
     // Відновлюємо фон (якщо autoBg вимкнено але був вручну вибраний фон)
     if (!S.autoBg && s.bgUrl) {
@@ -864,6 +867,18 @@ function mkToggle(id,key) {
 mkToggle('tglShadow','shadow');
 mkToggle('tglAnim','anim');
 
+function applyGlass() {
+  document.body.classList.toggle('skin-glass', S.glass);
+}
+
+$('tglGlass').addEventListener('click', function() {
+  S.glass = !S.glass;
+  this.classList.toggle('on', S.glass);
+  applyGlass();
+  saveSettings();
+  showToast(S.glass ? '✦ Скляний стиль увімкнено' : '✦ Скляний стиль вимкнено');
+});
+
 $('tglAutoBg').addEventListener('click', function() {
   S.autoBg = !S.autoBg;
   this.classList.toggle('on', S.autoBg);
@@ -1100,6 +1115,8 @@ document.querySelectorAll('.color-dot').forEach(d =>
 $('tglShadow').classList.toggle('on', S.shadow);
 $('tglAnim').classList.toggle('on', S.anim);
 $('tglAutoBg').classList.toggle('on', S.autoBg);
+$('tglGlass').classList.toggle('on', S.glass);
+applyGlass();
 
 // Відновлюємо value слайдерів зі збереженого стану (інакше HTML дефолт "50" перезапише)
 fs.value = S.size;

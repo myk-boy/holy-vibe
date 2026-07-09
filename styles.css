@@ -320,8 +320,56 @@ input[type=range]::-webkit-slider-thumb {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Текст вірша */
-.verse-text {
+/* ─────────────────────────────────────
+   СКІН: СКЛЯНИЙ (glass skin)
+   Вмикається класом .skin-glass на <body>
+   Додає картку, лапки, glow-ефект і підпис додатку
+───────────────────────────────────── */
+body.skin-glass .verse-card {
+  background: rgba(15, 20, 40, .55);
+  border: 1px solid rgba(201, 168, 76, .22);
+  border-radius: 24px;
+  padding: 28px 26px 22px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 76, .08) inset,
+    0 0 40px rgba(201, 168, 76, .12),
+    0 8px 48px rgba(0, 0, 0, .5);
+}
+
+/* Лапки перед текстом */
+body.skin-glass .verse-text::before {
+  content: '\❝';
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 10vw, 52px);
+  line-height: .6;
+  color: var(--clr-gold);
+  opacity: .7;
+  margin-bottom: 4px;
+}
+
+/* Підпис додатку знизу картки */
+body.skin-glass .verse-card::after {
+  content: '✦ HOLY VIBE';
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(201, 168, 76, .4);
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* Пульсуючий glow по краю — дуже тихий */
+@keyframes glassGlow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(201,168,76,.08) inset, 0 0 40px rgba(201,168,76,.10), 0 8px 48px rgba(0,0,0,.5); }
+  50%       { box-shadow: 0 0 0 1px rgba(201,168,76,.14) inset, 0 0 55px rgba(201,168,76,.18), 0 8px 48px rgba(0,0,0,.5); }
+}
+body.skin-glass .verse-card {
+  animation: glassGlow 4s ease-in-out infinite;
+}
   font-size: clamp(20px, 5.5vw, 28px);
   line-height: 1.75;
   font-weight: 300;
