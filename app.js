@@ -1456,6 +1456,5 @@ $('btnShare').addEventListener('click', async () => {
   }
 
   // Запасний варіант: показуємо картинку на весь екран, щоб зберегти вручну (затиснути й зберегти)
-  const url = URL.createObjectURL(blob);
-  openShareImgOverlay(url);
+  openShareImgOverlay(canvas.toDataURL('image/png'));
 });
