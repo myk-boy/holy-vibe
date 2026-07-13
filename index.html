@@ -317,6 +317,15 @@
         </div>
         <span data-i18n="btn_share">Поділитися</span>
       </div>
+      <!-- УВАГА: підпис нижче без data-i18n — немає доступу до locale-файлів i18n.
+           Якщо хочеш переклад на інші 6 мов, додай ключ (напр. "btn_copy_text")
+           у кожен locale JSON і постав data-i18n="btn_copy_text" на span нижче. -->
+      <div class="sheet-btn" id="btnCopyText">
+        <div class="sheet-btn-ico">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="5.5" y="5.5" width="8" height="9.5" rx="1.3" stroke="#c9a84c" stroke-width="1.2"/><path d="M3.5 11V3.8A1.3 1.3 0 0 1 4.8 2.5H11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <span>Скопіювати текст</span>
+      </div>
     </div>
     <div class="ai-panel" id="aiPanel">
       <div class="ai-answer" id="aiAnswer"></div>
@@ -343,6 +352,19 @@
       </div>
       <div class="search-results" id="searchResults"></div>
     </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ПОДІЛИТИСЯ КАРТИНКОЮ — запасний екран.
+       Показується, тільки якщо нативний Share API
+       не зміг поділитися файлом напряму.
+       Можна видалити разом з JS-розділом "16. ПОДІЛИТИСЯ
+       КАРТИНКОЮ" в app.js та CSS-блоком "КАРТИНКА ВІРША".
+       ═══════════════════════════════════════════ -->
+  <div class="share-img-overlay" id="shareImgOverlay">
+    <div class="share-img-close" id="shareImgClose">✕</div>
+    <img id="shareImgPreview" class="share-img-preview" alt="Вірш">
+    <div class="share-img-hint">Затримайте картинку пальцем, щоб зберегти або переслати</div>
   </div>
 
   <div id="toast"></div>

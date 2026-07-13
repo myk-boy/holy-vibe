@@ -325,6 +325,36 @@ input[type=range]::-webkit-slider-thumb {
 .search-result-text mark { background: rgba(201,168,76,.35); color: #fff; border-radius: 2px; }
 .search-empty { text-align: center; color: rgba(255,255,255,.4); font-size: 13px; padding: 40px 20px; }
 
+/* ═══════════════════════════════════════════
+   КАРТИНКА ВІРША — запасний екран для "Поділитися".
+   Можна видалити весь цей блок разом з розділом
+   "16. ПОДІЛИТИСЯ КАРТИНКОЮ" в app.js
+   ═══════════════════════════════════════════ */
+.share-img-overlay {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(4,6,12,.96);
+  display: none; flex-direction: column; align-items: center; justify-content: center;
+  gap: 18px; padding: 24px;
+  opacity: 0; transition: opacity .2s ease;
+}
+.share-img-overlay.open { display: flex; opacity: 1; }
+.share-img-preview {
+  max-width: 100%; max-height: 72vh;
+  border-radius: 14px;
+  box-shadow: 0 10px 50px rgba(0,0,0,.6);
+}
+.share-img-hint {
+  font-family: var(--font-ui); font-size: 12.5px; letter-spacing: .3px;
+  color: rgba(255,255,255,.55); text-align: center;
+}
+.share-img-close {
+  position: absolute; top: max(20px, env(safe-area-inset-top)); right: 20px;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.08); color: rgba(255,255,255,.7);
+  font-size: 16px; cursor: pointer; user-select: none;
+}
+
 /* Смуга категорій */
 .cat-bar {
   display: flex; gap: 8px;

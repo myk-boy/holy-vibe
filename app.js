@@ -568,12 +568,8 @@ $('btnAI').addEventListener('click', () => {
   aiPanel.classList.add('visible');
 });
 
-$('btnShare').addEventListener('click', () => {
-  const v=cv(); if (!v) return; closeSheet();
-  const txt = `«${v.text.replace(/\n/g,' ')}» — ${v.ref}`;
-  if (navigator.share) navigator.share({text:txt}).catch(()=>{});
-  else { navigator.clipboard?.writeText(txt); showToast('📋 Вірш скопійовано'); }
-});
+// Обробник кнопки btnShare — див. розділ "16. ПОДІЛИТИСЯ КАРТИНКОЮ" в кінці файлу
+
 
 
 /* ─────────────────────────────────────
@@ -1217,4 +1213,249 @@ $('searchResults').addEventListener('click', e => {
   applyStyle();
   renderVerse();
   savePos();
+});
+
+
+/* ═══════════════════════════════════════════
+   16. ПОДІЛИТИСЯ КАРТИНКОЮ — можна повністю видалити
+   цей розділ і повернути старий текстовий btnShare-обробник
+   (простий приклад лишився в коментарі внизу розділу).
+   Якщо видаляєте — приберіть також:
+   - #shareImgOverlay в index.html
+   - CSS-блок "КАРТИНКА ВІРША" в styles.css
+   ═══════════════════════════════════════════ */
+const SHARE_W = 1080, SHARE_H = 1920;
+
+// Розбиває текст на рядки за максимальною шириною і малює по центру
+function drawWrappedCenteredText(ctx, text, cx, cy, maxWidth, lineHeight) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  for (const w of words) {
+    const test = line ? line + ' ' + w : w;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = w;
+    } else {
+      line = test;
+    }
+  }
+  if (line) lines.push(line);
+
+  const totalH = lines.length * lineHeight;
+  const startY = cy - totalH / 2 + lineHeight / 2;
+  lines.forEach((l, i) => ctx.fillText(l, cx, startY + i * lineHeight));
+  return totalH;
+}
+
+// Підбирає розмір шрифту так, щоб текст вірша вмістився у відведену висоту
+function fitVerseFontSize(ctx, text, maxWidth, maxHeight, family) {
+  let size = 64;
+  const minSize = 34;
+  while (size > minSize) {
+    ctx.font = `italic 300 ${size}px "${family}"`;
+    const words = text.split(' ');
+    let lines = 1, line = '';
+    for (const w of words) {
+      const test = line ? line + ' ' + w : w;
+      if (ctx.measureText(test).width > maxWidth && line) { lines++; line = w; }
+      else line = test;
+    }
+    const lineHeight = size * 1.32;
+    if (lines * lineHeight <= maxHeight) return { size, lineHeight };
+    size -= 2;
+  }
+  return { size: minSize, lineHeight: minSize * 1.32 };
+}
+
+// Завантажує зображення фону поточної картки (якщо є) для canvas
+function loadBgImageForShare() {
+  return new Promise(resolve => {
+    const bgUrl = ($('bg').style.backgroundImage || '').replace(/url\(['"]?|['"]?\)/g, '');
+    if (!bgUrl || $('bg').dataset.photo !== '1') { resolve(null); return; }
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload  = () => resolve(img);
+    img.onerror = () => resolve(null); // немає CORS чи фото — просто малюємо без нього
+    img.src = bgUrl;
+  });
+}
+
+async function buildShareCanvas(v) {
+  // Чекаємо, поки шрифти Google Fonts точно завантажені
+  try {
+    await Promise.all([
+      document.fonts.load('italic 300 64px "Cormorant Garamond"'),
+      document.fonts.load('500 40px "Cinzel"'),
+      document.fonts.load('600 26px "Nunito"'),
+    ]);
+  } catch { /* якщо не вдалось — малюємо системним serif/sans, не критично */ }
+
+  const canvas = document.createElement('canvas');
+  canvas.width = SHARE_W; canvas.height = SHARE_H;
+  const ctx = canvas.getContext('2d');
+
+  // ── Фон ──────────────────────────────────────────
+  const bgImg = await loadBgImageForShare();
+  if (bgImg) {
+    const scale = Math.max(SHARE_W / bgImg.width, SHARE_H / bgImg.height);
+    const w = bgImg.width * scale, h = bgImg.height * scale;
+    ctx.drawImage(bgImg, (SHARE_W - w) / 2, (SHARE_H - h) / 2, w, h);
+  } else {
+    const g = ctx.createLinearGradient(0, 0, SHARE_W * 0.3, SHARE_H);
+    g.addColorStop(0,   '#060a16');
+    g.addColorStop(0.5, '#09102a');
+    g.addColorStop(1,   '#050810');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, SHARE_W, SHARE_H);
+    // легкі золоті "зірочки"
+    ctx.fillStyle = 'rgba(201,168,76,.5)';
+    for (let i = 0; i < 40; i++) {
+      const x = Math.random() * SHARE_W, y = Math.random() * SHARE_H, r = Math.random() * 1.6 + .4;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+
+  // ── Затемнення для читабельності тексту ────────────
+  const overlay = ctx.createLinearGradient(0, 0, 0, SHARE_H);
+  overlay.addColorStop(0,    'rgba(6,8,16,.55)');
+  overlay.addColorStop(0.35, 'rgba(6,8,16,.35)');
+  overlay.addColorStop(0.65, 'rgba(6,8,16,.45)');
+  overlay.addColorStop(1,    'rgba(6,8,16,.75)');
+  ctx.fillStyle = overlay;
+  ctx.fillRect(0, 0, SHARE_W, SHARE_H);
+
+  // ── Декоративна риска зверху ────────────────────────
+  ctx.strokeStyle = 'rgba(201,168,76,.7)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(SHARE_W / 2 - 40, 230);
+  ctx.lineTo(SHARE_W / 2 + 40, 230);
+  ctx.stroke();
+
+  // ── Текст вірша ─────────────────────────────────────
+  const maxTextWidth  = SHARE_W - 160;
+  const maxTextHeight = 900;
+  const cleanText = v.text.replace(/\n/g, ' ').trim();
+  const { size, lineHeight } = fitVerseFontSize(ctx, cleanText, maxTextWidth, maxTextHeight, 'Cormorant Garamond');
+  ctx.font = `italic 300 ${size}px "Cormorant Garamond"`;
+  ctx.fillStyle = '#f4ecd8';
+  ctx.textAlign = 'center';
+  ctx.shadowColor = 'rgba(0,0,0,.9)';
+  ctx.shadowBlur = 30;
+  const usedH = drawWrappedCenteredText(ctx, cleanText, SHARE_W / 2, SHARE_H / 2 - 40, maxTextWidth, lineHeight);
+  ctx.shadowBlur = 0;
+
+  // ── Посилання на вірш ────────────────────────────────
+  ctx.font = '600 30px "Nunito"';
+  ctx.fillStyle = 'rgba(232,208,138,.95)';
+  ctx.fillText(v.ref.toUpperCase(), SHARE_W / 2, SHARE_H / 2 - 40 + usedH / 2 + 70);
+
+  // ── Нижня риска + логотип ────────────────────────────
+  ctx.strokeStyle = 'rgba(201,168,76,.5)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(SHARE_W / 2 - 30, SHARE_H - 150);
+  ctx.lineTo(SHARE_W / 2 + 30, SHARE_H - 150);
+  ctx.stroke();
+
+  ctx.font = '500 40px "Cinzel"';
+  ctx.fillStyle = 'rgba(232,208,138,.9)';
+  ctx.textAlign = 'center';
+  // Невеликий трекінг літер вручну (Canvas не підтримує letter-spacing напряму)
+  const logo = 'HOLY VIBE';
+  ctx.letterSpacing = '6px';
+  ctx.fillText(logo, SHARE_W / 2, SHARE_H - 95);
+  ctx.letterSpacing = '0px';
+
+  return canvas;
+}
+
+function canvasToBlob(canvas) {
+  return new Promise(resolve => canvas.toBlob(blob => resolve(blob), 'image/png', 0.95));
+}
+
+function openShareImgOverlay(blobUrl) {
+  $('shareImgPreview').src = blobUrl;
+  $('shareImgOverlay').classList.add('open');
+}
+$('shareImgClose').addEventListener('click', () => {
+  $('shareImgOverlay').classList.remove('open');
+});
+
+// Аварійний текстовий фолбек — той самий спосіб, що працював раніше
+function shareVerseAsTextFallback(v) {
+  const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
+  if (navigator.share) navigator.share({ text: txt }).catch(() => {});
+  else { navigator.clipboard?.writeText(txt); showToast('📋 Вірш скопійовано'); }
+}
+
+// Копіювання без діалогу "Поділитися" — просто одразу в буфер обміну
+function copyVerseText(v) {
+  const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(txt)
+      .then(() => showToast('📋 Вірш скопійовано'))
+      .catch(() => copyViaFallback(txt));
+  } else {
+    copyViaFallback(txt);
+  }
+}
+// Старий прийом через прихований textarea — на випадок, якщо Clipboard API
+// заблоковано у WebView (буває без https чи певних дозволів)
+function copyViaFallback(txt) {
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = txt;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('📋 Вірш скопійовано');
+  } catch {
+    showToast('⚠️ Не вдалося скопіювати');
+  }
+}
+
+$('btnCopyText').addEventListener('click', () => {
+  const v = cv(); if (!v) return;
+  closeSheet();
+  copyVerseText(v);
+});
+
+$('btnShare').addEventListener('click', async () => {
+  const v = cv(); if (!v) return;
+  closeSheet();
+  showToast('🖼️ Готуємо картинку…');
+
+  let blob = null;
+  try {
+    const canvas = await buildShareCanvas(v);
+    blob = await canvasToBlob(canvas);
+  } catch (err) {
+    console.error('Не вдалося згенерувати картинку вірша:', err);
+  }
+
+  // Не вдалося намалювати картинку (наприклад CORS на фото-фоні) — старий текстовий шлях
+  if (!blob) { shareVerseAsTextFallback(v); return; }
+
+  const file = new File([blob], 'holy-vibe-verse.png', { type: 'image/png' });
+  const caption = `${v.ref} · Holy Vibe`;
+
+  try {
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ files: [file], text: caption });
+      return;
+    }
+  } catch (err) {
+    // Людина сама закрила системне вікно "Поділитися" — це не помилка
+    if (err && err.name === 'AbortError') return;
+    console.warn('navigator.share з файлом не спрацював, показуємо картинку вручну:', err);
+  }
+
+  // Запасний варіант: показуємо картинку на весь екран, щоб зберегти вручну (затиснути й зберегти)
+  const url = URL.createObjectURL(blob);
+  openShareImgOverlay(url);
 });
