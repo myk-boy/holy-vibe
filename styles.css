@@ -465,6 +465,8 @@ body.skin-glass .verse-card::after {
 body.skin-glass .verse-card {
   animation: glassGlow 4s ease-in-out infinite;
 }
+
+.verse-text {
   font-size: clamp(20px, 5.5vw, 28px);
   line-height: 1.75;
   font-weight: 300;
