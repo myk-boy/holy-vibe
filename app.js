@@ -1469,7 +1469,7 @@ $('btnShare').addEventListener('click', async () => {
   //      відкриває справжнє системне меню "Поділитися") ──────────────
   if (window.AndroidBridge && typeof window.AndroidBridge.shareImage === 'function') {
     try {
-      window.AndroidBridge.shareImage(canvas.toDataURL('image/png'), 'holy-vibe-verse.png', caption);
+      window.AndroidBridge.shareImage(canvas.toDataURL('image/jpeg', 0.92), 'holy-vibe-verse.jpg', caption);
       return;
     } catch (err) {
       console.warn('AndroidBridge.shareImage не спрацював, пробуємо Web Share API:', err);
