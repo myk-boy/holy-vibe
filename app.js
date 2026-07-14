@@ -1269,8 +1269,23 @@ function fitVerseFontSize(ctx, text, maxWidth, maxHeight, family) {
 }
 
 // Завантажує зображення фону поточної картки (якщо є) для canvas
-function loadBgImageForShare() {
+// Захист від "вічного" очікування: якщо проміс не встиг за ms —
+// повертаємо fallback і йдемо далі, замість зависання назавжди.
+// (деякі збірки Android WebView інколи не викликають callback
+// document.fonts.load() чи canvas.toBlob() — це відомий глюк рушія)
+function withTimeout(promise, ms, fallback) {
   return new Promise(resolve => {
+    let done = false;
+    const timer = setTimeout(() => { if (!done) { done = true; resolve(fallback); } }, ms);
+    promise.then(
+      val => { if (!done) { done = true; clearTimeout(timer); resolve(val); } },
+      ()  => { if (!done) { done = true; clearTimeout(timer); resolve(fallback); } }
+    );
+  });
+}
+
+function loadBgImageForShare() {
+  return withTimeout(new Promise(resolve => {
     const bgUrl = ($('bg').style.backgroundImage || '').replace(/url\(['"]?|['"]?\)/g, '');
     if (!bgUrl || $('bg').dataset.photo !== '1') { resolve(null); return; }
     const img = new Image();
@@ -1278,18 +1293,20 @@ function loadBgImageForShare() {
     img.onload  = () => resolve(img);
     img.onerror = () => resolve(null); // немає CORS чи фото — просто малюємо без нього
     img.src = bgUrl;
-  });
+  }), 4000, null); // якщо фон не завантажився за 4с — малюємо без нього, а не висимо
 }
 
 async function buildShareCanvas(v) {
-  // Чекаємо, поки шрифти Google Fonts точно завантажені
-  try {
-    await Promise.all([
+  // Чекаємо, поки шрифти Google Fonts точно завантажені (максимум 1.5с —
+  // якщо WebView "підвисне" на цьому, все одно малюємо системним шрифтом)
+  await withTimeout(
+    Promise.all([
       document.fonts.load('italic 300 64px "Cormorant Garamond"'),
       document.fonts.load('500 40px "Cinzel"'),
       document.fonts.load('600 26px "Nunito"'),
-    ]);
-  } catch { /* якщо не вдалось — малюємо системним serif/sans, не критично */ }
+    ]).catch(() => null),
+    1500, null
+  );
 
   const canvas = document.createElement('canvas');
   canvas.width = SHARE_W; canvas.height = SHARE_H;
@@ -1372,7 +1389,12 @@ async function buildShareCanvas(v) {
 }
 
 function canvasToBlob(canvas) {
-  return new Promise(resolve => canvas.toBlob(blob => resolve(blob), 'image/png', 0.95));
+  // toBlob інколи "мовчить" (не викликає callback) на деяких Android WebView —
+  // якщо за 4с відповіді немає, вважаємо що не вдалось і йдемо в текстовий фолбек.
+  return withTimeout(
+    new Promise(resolve => canvas.toBlob(blob => resolve(blob), 'image/png', 0.95)),
+    4000, null
+  );
 }
 
 function openShareImgOverlay(blobUrl) {
@@ -1430,9 +1452,9 @@ $('btnShare').addEventListener('click', async () => {
   closeSheet();
   showToast('🖼️ Готуємо картинку…');
 
-  let blob = null;
+  let blob = null, canvas = null;
   try {
-    const canvas = await buildShareCanvas(v);
+    canvas = await buildShareCanvas(v);
     blob = await canvasToBlob(canvas);
   } catch (err) {
     console.error('Не вдалося згенерувати картинку вірша:', err);
@@ -1441,9 +1463,21 @@ $('btnShare').addEventListener('click', async () => {
   // Не вдалося намалювати картинку (наприклад CORS на фото-фоні) — старий текстовий шлях
   if (!blob) { shareVerseAsTextFallback(v); return; }
 
-  const file = new File([blob], 'holy-vibe-verse.png', { type: 'image/png' });
   const caption = `${v.ref} · Holy Vibe`;
 
+  // ── 1. Пріоритет: нативний Android-місток (стабільно працює в WebView,
+  //      відкриває справжнє системне меню "Поділитися") ──────────────
+  if (window.AndroidBridge && typeof window.AndroidBridge.shareImage === 'function') {
+    try {
+      window.AndroidBridge.shareImage(canvas.toDataURL('image/png'), 'holy-vibe-verse.png', caption);
+      return;
+    } catch (err) {
+      console.warn('AndroidBridge.shareImage не спрацював, пробуємо Web Share API:', err);
+    }
+  }
+
+  // ── 2. Звичайний браузер / iOS: Web Share API ───────────────────────
+  const file = new File([blob], 'holy-vibe-verse.png', { type: 'image/png' });
   try {
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       await navigator.share({ files: [file], text: caption });
@@ -1455,6 +1489,7 @@ $('btnShare').addEventListener('click', async () => {
     console.warn('navigator.share з файлом не спрацював, показуємо картинку вручну:', err);
   }
 
-  // Запасний варіант: показуємо картинку на весь екран, щоб зберегти вручну (затиснути й зберегти)
+  // ── 3. Останній запасний варіант: картинка на весь екран (data: URI,
+  //      щоб довге натискання "зберегти" реально працювало) ──────────
   openShareImgOverlay(canvas.toDataURL('image/png'));
 });
