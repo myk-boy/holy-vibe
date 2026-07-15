@@ -1226,8 +1226,19 @@ $('searchResults').addEventListener('click', e => {
    ═══════════════════════════════════════════ */
 const SHARE_W = 1080, SHARE_H = 1920;
 
-// Розбиває текст на рядки за максимальною шириною і малює по центру
-function drawWrappedCenteredText(ctx, text, cx, cy, maxWidth, lineHeight) {
+// Відповідність S.font (як в налаштуваннях) реальним назвам шрифтів для Canvas.
+// Це те саме, що FONTS вище, але без лапок/CSS-фолбеків — Canvas API
+// приймає лише "чисту" назву шрифту.
+const CANVAS_FONTS = {
+  cormorant: 'Cormorant Garamond',
+  georgia:   'Georgia',
+  nunito:    'Nunito'
+};
+
+// Розбиває текст на рядки за максимальною шириною — повертає масив рядків
+// (винесено окремо від малювання, щоб заздалегідь порахувати висоту
+// для скляної картки ДО того, як текст намальовано)
+function wrapTextLines(ctx, text, maxWidth) {
   const words = text.split(' ');
   const lines = [];
   let line = '';
@@ -1241,31 +1252,83 @@ function drawWrappedCenteredText(ctx, text, cx, cy, maxWidth, lineHeight) {
     }
   }
   if (line) lines.push(line);
+  return lines;
+}
 
+// Малює вже розбитий на рядки текст по центру
+function drawLinesCentered(ctx, lines, cx, cy, lineHeight) {
   const totalH = lines.length * lineHeight;
   const startY = cy - totalH / 2 + lineHeight / 2;
   lines.forEach((l, i) => ctx.fillText(l, cx, startY + i * lineHeight));
   return totalH;
 }
 
-// Підбирає розмір шрифту так, щоб текст вірша вмістився у відведену висоту
+// Підбирає розмір шрифту так, щоб текст вірша вмістився у відведену висоту.
+// Базовий розмір тепер трохи залежить від S.size — той самий повзунок
+// "Розмір тексту", що і на екрані, впливає і на картинку.
 function fitVerseFontSize(ctx, text, maxWidth, maxHeight, family) {
-  let size = 64;
-  const minSize = 34;
+  const sizeFactor = 0.72 + ((S.size ?? 50) / 100) * 0.56; // ≈ 0.72 .. 1.28
+  let size = Math.round(64 * sizeFactor);
+  const minSize = Math.max(28, Math.round(34 * sizeFactor));
+  let lines = [];
   while (size > minSize) {
-    ctx.font = `italic 300 ${size}px "${family}"`;
-    const words = text.split(' ');
-    let lines = 1, line = '';
-    for (const w of words) {
-      const test = line ? line + ' ' + w : w;
-      if (ctx.measureText(test).width > maxWidth && line) { lines++; line = w; }
-      else line = test;
-    }
+    ctx.font = `300 ${size}px "${family}"`;
+    lines = wrapTextLines(ctx, text, maxWidth);
     const lineHeight = size * 1.32;
-    if (lines * lineHeight <= maxHeight) return { size, lineHeight };
+    if (lines.length * lineHeight <= maxHeight) return { size, lineHeight, lines };
     size -= 2;
   }
-  return { size: minSize, lineHeight: minSize * 1.32 };
+  ctx.font = `300 ${minSize}px "${family}"`;
+  return { size: minSize, lineHeight: minSize * 1.32, lines: wrapTextLines(ctx, text, maxWidth) };
+}
+
+// Малює заокруглений прямокутник (шлях, без заливки/обведення)
+function roundedRectPath(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+// Імітує "скляну" картку (той самий CSS-скін .skin-glass .verse-card)
+// на канвасі: розмиває фон під панеллю і додає напівпрозору заливку
+// з золотою рамкою. Якщо ctx.filter (blur) не підтримується конкретним
+// WebView — тихо переходить на фолбек без розмиття, нічого не ламаючи.
+function drawGlassPanel(ctx, mainCanvas, x, y, w, h, r) {
+  if ('filter' in ctx) {
+    try {
+      const pad = 40;
+      const blurCanvas = document.createElement('canvas');
+      blurCanvas.width  = w + pad * 2;
+      blurCanvas.height = h + pad * 2;
+      const bctx = blurCanvas.getContext('2d');
+      bctx.filter = 'blur(22px)';
+      bctx.drawImage(
+        mainCanvas,
+        x - pad, y - pad, w + pad * 2, h + pad * 2,
+        0, 0, w + pad * 2, h + pad * 2
+      );
+      ctx.save();
+      roundedRectPath(ctx, x, y, w, h, r);
+      ctx.clip();
+      ctx.drawImage(blurCanvas, x - pad, y - pad);
+      ctx.restore();
+    } catch (err) {
+      console.warn('drawGlassPanel: розмиття не вдалося, малюю без нього:', err);
+    }
+  }
+
+  ctx.save();
+  roundedRectPath(ctx, x, y, w, h, r);
+  ctx.fillStyle = 'rgba(15,20,40,.55)';
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgba(201,168,76,.3)';
+  ctx.stroke();
+  ctx.restore();
 }
 
 // Завантажує зображення фону поточної картки (якщо є) для canvas
@@ -1297,11 +1360,15 @@ function loadBgImageForShare() {
 }
 
 async function buildShareCanvas(v) {
+  // Шрифт беремо з тих самих налаштувань, що і на екрані (S.font),
+  // а не хардкоджений Cormorant — щоб картинка відповідала вигляду додатку
+  const family = CANVAS_FONTS[S.font] || CANVAS_FONTS.cormorant;
+
   // Чекаємо, поки шрифти Google Fonts точно завантажені (максимум 1.5с —
   // якщо WebView "підвисне" на цьому, все одно малюємо системним шрифтом)
   await withTimeout(
     Promise.all([
-      document.fonts.load('italic 300 64px "Cormorant Garamond"'),
+      document.fonts.load(`300 64px "${family}"`),
       document.fonts.load('500 40px "Cinzel"'),
       document.fonts.load('600 26px "Nunito"'),
     ]).catch(() => null),
@@ -1354,19 +1421,41 @@ async function buildShareCanvas(v) {
   const maxTextWidth  = SHARE_W - 160;
   const maxTextHeight = 900;
   const cleanText = v.text.replace(/\n/g, ' ').trim();
-  const { size, lineHeight } = fitVerseFontSize(ctx, cleanText, maxTextWidth, maxTextHeight, 'Cormorant Garamond');
-  ctx.font = `italic 300 ${size}px "Cormorant Garamond"`;
-  ctx.fillStyle = '#f4ecd8';
   ctx.textAlign = 'center';
-  ctx.shadowColor = 'rgba(0,0,0,.9)';
-  ctx.shadowBlur = 30;
-  const usedH = drawWrappedCenteredText(ctx, cleanText, SHARE_W / 2, SHARE_H / 2 - 40, maxTextWidth, lineHeight);
+  const { size, lineHeight, lines } = fitVerseFontSize(ctx, cleanText, maxTextWidth, maxTextHeight, family);
+  const textCenterY = SHARE_H / 2 - 40;
+  const usedH = lines.length * lineHeight;
+
+  // Ширина найдовшого рядка — потрібна лише для розміру скляної картки
+  ctx.font = `300 ${size}px "${family}"`;
+  const maxLineW = lines.reduce((max, l) => Math.max(max, ctx.measureText(l).width), 0);
+
+  // ── Скляна картка позаду тексту (тільки якщо в налаштуваннях
+  //    увімкнено "Скляний стиль" — той самий S.glass, що і на екрані) ──
+  if (S.glass) {
+    const panelPadX = 70;
+    const panelW = Math.min(SHARE_W - 80, maxLineW + panelPadX * 2);
+    const panelTop = textCenterY - usedH / 2 - 80;
+    const panelBottom = textCenterY + usedH / 2 + 70 + 60;
+    drawGlassPanel(ctx, canvas, SHARE_W / 2 - panelW / 2, panelTop, panelW, panelBottom - panelTop, 44);
+  }
+
+  ctx.font = `300 ${size}px "${family}"`;
+  ctx.fillStyle = S.color || '#f4ecd8';
+  ctx.textAlign = 'center';
+  if (S.shadow) {
+    ctx.shadowColor = 'rgba(0,0,0,.9)';
+    ctx.shadowBlur = 30;
+  } else {
+    ctx.shadowBlur = 0;
+  }
+  drawLinesCentered(ctx, lines, SHARE_W / 2, textCenterY, lineHeight);
   ctx.shadowBlur = 0;
 
   // ── Посилання на вірш ────────────────────────────────
   ctx.font = '600 30px "Nunito"';
   ctx.fillStyle = 'rgba(232,208,138,.95)';
-  ctx.fillText(v.ref.toUpperCase(), SHARE_W / 2, SHARE_H / 2 - 40 + usedH / 2 + 70);
+  ctx.fillText(v.ref.toUpperCase(), SHARE_W / 2, textCenterY + usedH / 2 + 70);
 
   // ── Нижня риска + логотип ────────────────────────────
   ctx.strokeStyle = 'rgba(201,168,76,.5)';
