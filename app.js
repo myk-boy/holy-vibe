@@ -1494,6 +1494,37 @@ function canvasToBlob(canvas) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════
+// Міст назад із Java: раніше AndroidBridge.shareImage() був "вистрілив
+// і забув" — Java ловила всі свої помилки сама (try/catch) і просто їх
+// логувала, тому JS ніколи не дізнавався, що там усередині впало (саме
+// тому був "тост і тиша"). Тепер нативний код (після відповідного фіксу
+// в MainActivity.java) викликає це через evaluateJavascript і повідомляє
+// реальний результат. Якщо нативний код старий і нічого не викликає —
+// нас рятує withTimeout нижче, і ми просто йдемо у Web Share API.
+// ═══════════════════════════════════════════════════════════════════
+let _shareImageResolve = null;
+window.__onShareImageResult = function (success, errorMsg) {
+  if (_shareImageResolve) {
+    const resolve = _shareImageResolve;
+    _shareImageResolve = null;
+    resolve({ success: !!success, errorMsg: errorMsg || null });
+  }
+};
+
+function callAndroidShareImage(dataUrl, fileName, caption) {
+  return withTimeout(new Promise(resolve => {
+    _shareImageResolve = resolve;
+    try {
+      window.AndroidBridge.shareImage(dataUrl, fileName, caption);
+    } catch (err) {
+      // Синхронний виняток при самому виклику мосту (рідкість, але можливо)
+      _shareImageResolve = null;
+      resolve({ success: false, errorMsg: String(err) });
+    }
+  }), 6000, { success: false, errorMsg: 'timeout: нативний код не відповів за 6с' });
+}
+
 function openShareImgOverlay(blobUrl) {
   $('shareImgPreview').src = blobUrl;
   $('shareImgOverlay').classList.add('open');
@@ -1565,12 +1596,15 @@ $('btnShare').addEventListener('click', async () => {
   // ── 1. Пріоритет: нативний Android-місток (стабільно працює в WebView,
   //      відкриває справжнє системне меню "Поділитися") ──────────────
   if (window.AndroidBridge && typeof window.AndroidBridge.shareImage === 'function') {
-    try {
-      window.AndroidBridge.shareImage(canvas.toDataURL('image/jpeg', 0.92), 'holy-vibe-verse.jpg', caption);
-      return;
-    } catch (err) {
-      console.warn('AndroidBridge.shareImage не спрацював, пробуємо Web Share API:', err);
-    }
+    const result = await callAndroidShareImage(
+      canvas.toDataURL('image/jpeg', 0.92), 'holy-vibe-verse.jpg', caption
+    );
+    if (result.success) return;
+    // Раніше тут був "return" одразу після виклику, без перевірки результату —
+    // тому будь-яка тиха нативна помилка залишала користувача без реакції.
+    // Тепер при невдачі (або таймауті) не виходимо, а йдемо далі —
+    // у Web Share API чи, як останній варіант, показ картинки на весь екран.
+    console.warn('AndroidBridge.shareImage не спрацював, пробуємо Web Share API:', result.errorMsg);
   }
 
   // ── 2. Звичайний браузер / iOS: Web Share API ───────────────────────
