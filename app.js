@@ -397,9 +397,28 @@ function prevCat() {
   return CAT_ORDER[(i - 1 + CAT_ORDER.length) % CAT_ORDER.length];
 }
 
-function switchCat(catKey) {
+// catKey — куди перемикаємось.
+// resumeProgress — чи ставити S.idx на "перший непереглянутий вірш" (за замовчуванням так).
+//   Якщо false — ставимо в кінець пулу (потрібно, коли гортаємо НАЗАД в нову категорію,
+//   там логічно потрапити на останній вірш, а не знову на перший).
+function switchCat(catKey, resumeProgress = true) {
   S.cat  = catKey;
   S.pool = catKey === 'all' ? [...VERSES] : VERSES.filter(v => v.cat === catKey);
+
+  // ПРОГРЕС КАТЕГОРІЙ: продовжуємо з наступного непереглянутого вірша,
+  // а якщо всі вже переглянуті — починаємо категорію заново
+  if (resumeProgress) {
+    const seen = S.catProgress[catKey];
+    if (typeof seen === 'number' && seen + 1 < S.pool.length) {
+      S.idx = seen + 1;
+    } else {
+      S.idx = 0;
+      if (typeof seen === 'number') showToast('📖 Ви переглянули всі вірші цієї категорії — починаємо спочатку');
+    }
+  } else {
+    S.idx = Math.max(0, S.pool.length - 1);
+  }
+
   // Синхронізуємо UI пілюль і мітку кнопки
   const pill = document.querySelector(`.pill[data-cat="${catKey}"]`);
   document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
@@ -411,12 +430,12 @@ function next() {
     // Режим "Усі" — звичайна циклічність по всьому пулу
     S.idx = (S.idx + 1) % S.pool.length;
   } else {
-    // Режим категорії — перейти до наступної категорії після останнього вірша
+    // Режим категорії — перейти до наступної категорії після останнього вірша,
+    // продовжуючи з місця, де користувач зупинився минулого разу
     if (S.idx + 1 < S.pool.length) {
       S.idx++;
     } else {
       switchCat(nextCat());
-      S.idx = 0;
       showCatBanner($('catToggleLabel').textContent || S.cat);
     }
   }
@@ -431,8 +450,9 @@ function prev() {
     if (S.idx - 1 >= 0) {
       S.idx--;
     } else {
-      switchCat(prevCat());
-      S.idx = Math.max(0, S.pool.length - 1);
+      // Гортаємо назад у попередню категорію — потрапляємо на її останній вірш,
+      // а не знову на перший (так природніше при русі "назад")
+      switchCat(prevCat(), false);
       showCatBanner($('catToggleLabel').textContent || S.cat);
     }
   }
@@ -468,23 +488,11 @@ $('catToggleBtn').addEventListener('click', () => {
 
 $('catBar').addEventListener('click', e => {
   const p = e.target.closest('.pill'); if (!p) return;
-  document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
-  p.classList.add('active');
-  S.cat  = p.dataset.cat;
-  S.pool = S.cat === 'all' ? [...VERSES] : VERSES.filter(v => v.cat === S.cat);
 
-  // ПРОГРЕС КАТЕГОРІЙ: продовжуємо з наступного непереглянутого вірша,
-  // а якщо всі вже переглянуті — починаємо категорію заново
-  const seen = S.catProgress[S.cat];
-  if (typeof seen === 'number' && seen + 1 < S.pool.length) {
-    S.idx = seen + 1;
-  } else {
-    S.idx = 0;
-    if (typeof seen === 'number') showToast('📖 Ви переглянули всі вірші цієї категорії — починаємо спочатку');
-  }
+  // ПРОГРЕС КАТЕГОРІЙ: switchCat() сам ставить S.idx на наступний
+  // непереглянутий вірш (або на 0, якщо категорію переглянуто повністю)
+  switchCat(p.dataset.cat);
 
-  // Оновлюємо мітку кнопки
-  $('catToggleLabel').textContent = p.textContent;
   // Закриваємо панель після вибору
   catBarVisible = false;
   $('catBar').style.display = 'none';
