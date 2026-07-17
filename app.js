@@ -344,6 +344,12 @@ function applyAutoBg() {
 /* ─────────────────────────────────────
    6. РЕНДЕР ВІРША
 ───────────────────────────────────── */
+// Лічильник викликів renderVerse() — потрібен, щоб "застарілий" відкладений
+// запис (setTimeout нижче) не перезаписав щойно показаний вірш, якщо
+// користувач встиг швидко гортати/змінити категорію ще раз до спрацювання
+// попереднього таймера (гонка станів / race condition).
+let _renderSeq = 0;
+
 function renderVerse(dir = 'up') {
   S.idx = Math.min(S.idx, Math.max(0, S.pool.length - 1));
   const v = cv(); if (!v) return;
@@ -351,7 +357,13 @@ function renderVerse(dir = 'up') {
   // ПРОГРЕС КАТЕГОРІЙ: запам'ятовуємо, до якого вірша дійшли в поточній категорії
   recordCatProgress(S.cat, S.idx);
 
+  const mySeq = ++_renderSeq; // унікальна мітка саме цього виклику
+
   const write = () => {
+    // Якщо після цього виклику вже стартував новіший renderVerse()
+    // (швидкий свайп/зміна категорії) — цей застарілий запис ігноруємо,
+    // щоб не затерти новіший вірш старим текстом.
+    if (mySeq !== _renderSeq) return;
     verseTextEl.innerHTML   = formatText(v.text);
     verseRefEl.textContent  = v.ref;
     if (S.autoBg) applyAutoBg();
@@ -360,9 +372,12 @@ function renderVerse(dir = 'up') {
   verseCard.classList.add(dir === 'up' ? 'out-up' : 'out-down');
   setTimeout(() => {
     write();
+    if (mySeq !== _renderSeq) return; // застарілий цикл — класи анімації теж не чіпаємо
     verseCard.classList.remove('out-up','out-down');
     verseCard.classList.add('in');
-    setTimeout(() => verseCard.classList.remove('in'), 400);
+    setTimeout(() => {
+      if (mySeq === _renderSeq) verseCard.classList.remove('in');
+    }, 400);
   }, 200);
 }
 
