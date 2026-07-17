@@ -154,15 +154,33 @@ function applyI18n(ui) {
 
 /* ─────────────────────────────────────────────────────────
    ПІЛЮЛІ КАТЕГОРІЙ
+
+   ВАЖЛИВО: тут ми НЕ перебудовуємо самі пілюлі (data-cat) і
+   НЕ перевстановлюємо CAT_ORDER. Єдине джерело істини для
+   ключів/порядку категорій — verses.json, і будує їх лише
+   app.js (buildCatOrder/buildCatPills у fetchVerses()).
+
+   Раніше ця функція викликала buildCatPills()/buildCatOrder()
+   заново з даними мовного файлу — якщо категорії в lang/*.json
+   хоч трохи розходились із verses.json (інший порядок, застарілий
+   ключ), увесь catBar перебудовувався "криво": губився data-cat
+   поточної категорії, збивався CAT_ORDER, і код відкатувався на
+   пілюлю "Усі" — звідси і плутанина категорій/прогресу, і скидання
+   на "Усі" після перезапуску. Тепер ми лише перекладаємо ПІДПИСИ
+   на вже існуючих пілюлях, за співпадінням data-cat.
 ───────────────────────────────────────────────────────── */
 function refreshCatBar(categories, allLabel) {
-  if (typeof buildCatPills === 'function') buildCatPills(categories);
-  if (typeof buildCatOrder === 'function') buildCatOrder(categories);
-
-  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
   const allPill = document.querySelector('.pill[data-cat="all"]');
   if (allPill && allLabel) allPill.textContent = allLabel;
 
+  if (categories) {
+    Object.entries(categories).forEach(([key, label]) => {
+      const pill = document.querySelector(`.pill[data-cat="${key}"]`);
+      if (pill) pill.textContent = label;
+    });
+  }
+
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
   const activePill =
     document.querySelector(`.pill[data-cat="${window.S?.cat}"]`) ||
     document.querySelector('.pill[data-cat="all"]');
