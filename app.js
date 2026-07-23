@@ -1152,6 +1152,19 @@ fetchVerses();
 buildTrackList();
 fetchBackgrounds(); // завантажує backgrounds.json і будує грід фонів
 
+// Прогріваємо шрифти, потрібні для генерації картинки "Поділитися",
+// одразу при старті — щоб buildShareCanvas() у розділі 16 не чекав
+// document.fonts.load() при першому ж натисканні кнопки й не з'їдав
+// час, відведений Android-у на показ системного меню "Поділитися"
+// після жесту користувача.
+Promise.all([
+  document.fonts.load('300 64px "Cormorant Garamond"'),
+  document.fonts.load('300 64px "Georgia"'),
+  document.fonts.load('300 64px "Nunito"'),
+  document.fonts.load('500 40px "Cinzel"'),
+  document.fonts.load('600 26px "Nunito"'),
+]).catch(() => {});
+
 // Сповіщення — наступний реліз
 
 setTimeout(() => showToast(t('toast_swipe')),     1600);
@@ -1387,16 +1400,27 @@ async function buildShareCanvas(v) {
   // а не хардкоджений Cormorant — щоб картинка відповідала вигляду додатку
   const family = CANVAS_FONTS[S.font] || CANVAS_FONTS.cormorant;
 
-  // Чекаємо, поки шрифти Google Fonts точно завантажені (максимум 1.5с —
-  // якщо WebView "підвисне" на цьому, все одно малюємо системним шрифтом)
-  await withTimeout(
-    Promise.all([
-      document.fonts.load(`300 64px "${family}"`),
-      document.fonts.load('500 40px "Cinzel"'),
-      document.fonts.load('600 26px "Nunito"'),
-    ]).catch(() => null),
-    1500, null
-  );
+  // Шрифти вже мають бути прогріті через prewarmShareFonts() при старті
+  // додатку (див. розділ 14. INIT) — тут перевіряємо document.fonts.check()
+  // і чекаємо по-справжньому лише якщо чогось й досі бракує.
+  // ВАЖЛИВО: саме ця затримка (раніше фіксовані 1.5с щоразу) — головна
+  // причина того, що нативний виклик "Поділитися" запізнювався і Android
+  // встигав закрити вікно дозволеної взаємодії користувача (activity-start
+  // window), через що чузер не показувався і картинка просто зберігалась.
+  const fontsReady =
+    document.fonts.check(`300 64px "${family}"`) &&
+    document.fonts.check('500 40px "Cinzel"') &&
+    document.fonts.check('600 26px "Nunito"');
+  if (!fontsReady) {
+    await withTimeout(
+      Promise.all([
+        document.fonts.load(`300 64px "${family}"`),
+        document.fonts.load('500 40px "Cinzel"'),
+        document.fonts.load('600 26px "Nunito"'),
+      ]).catch(() => null),
+      1500, null
+    );
+  }
 
   const canvas = document.createElement('canvas');
   canvas.width = SHARE_W; canvas.height = SHARE_H;
@@ -1528,7 +1552,7 @@ window.__onShareImageResult = function (success, errorMsg) {
 };
 
 function callAndroidShareImage(dataUrl, fileName, caption) {
-  return withTimeout(new Promise(resolve => {
+  const p = new Promise(resolve => {
     _shareImageResolve = resolve;
     try {
       window.AndroidBridge.shareImage(dataUrl, fileName, caption);
@@ -1537,7 +1561,17 @@ function callAndroidShareImage(dataUrl, fileName, caption) {
       _shareImageResolve = null;
       resolve({ success: false, errorMsg: String(err) });
     }
-  }), 6000, { success: false, errorMsg: 'timeout: нативний код не відповів за 6с' });
+  });
+  return withTimeout(p, 6000, { success: false, errorMsg: 'timeout: нативний код не відповів за 6с' })
+    .then(result => {
+      // Якщо спрацював саме таймаут (а не сам проміс) — _shareImageResolve
+      // досі "висить" і вказує на цей виклик. Обов'язково скидаємо його,
+      // інакше пізній нативний коллбек (що прийде вже після таймауту)
+      // помилково зарезолвить проміс НАСТУПНОГО виклику "Поділитися" —
+      // саме це раніше могло непередбачувано ламати наступну спробу.
+      _shareImageResolve = null;
+      return result;
+    });
 }
 
 function openShareImgOverlay(blobUrl) {
@@ -1590,52 +1624,61 @@ $('btnCopyText').addEventListener('click', () => {
   copyVerseText(v);
 });
 
+let _shareInProgress = false;
 $('btnShare').addEventListener('click', async () => {
+  if (_shareInProgress) return; // ігноруємо повторний тап, поки вже йде генерація
   const v = cv(); if (!v) return;
   closeSheet();
   showToast('🖼️ Готуємо картинку…');
+  _shareInProgress = true;
 
-  let blob = null, canvas = null;
   try {
-    canvas = await buildShareCanvas(v);
-    blob = await canvasToBlob(canvas);
-  } catch (err) {
-    console.error('Не вдалося згенерувати картинку вірша:', err);
-  }
-
-  // Не вдалося намалювати картинку (наприклад CORS на фото-фоні) — старий текстовий шлях
-  if (!blob) { shareVerseAsTextFallback(v); return; }
-
-  const caption = `${v.ref} · Holy Vibe`;
-
-  // ── 1. Пріоритет: нативний Android-місток (стабільно працює в WebView,
-  //      відкриває справжнє системне меню "Поділитися") ──────────────
-  if (window.AndroidBridge && typeof window.AndroidBridge.shareImage === 'function') {
-    const result = await callAndroidShareImage(
-      canvas.toDataURL('image/jpeg', 0.92), 'holy-vibe-verse.jpg', caption
-    );
-    if (result.success) return;
-    // Раніше тут був "return" одразу після виклику, без перевірки результату —
-    // тому будь-яка тиха нативна помилка залишала користувача без реакції.
-    // Тепер при невдачі (або таймауті) не виходимо, а йдемо далі —
-    // у Web Share API чи, як останній варіант, показ картинки на весь екран.
-    console.warn('AndroidBridge.shareImage не спрацював, пробуємо Web Share API:', result.errorMsg);
-  }
-
-  // ── 2. Звичайний браузер / iOS: Web Share API ───────────────────────
-  const file = new File([blob], 'holy-vibe-verse.png', { type: 'image/png' });
-  try {
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({ files: [file], text: caption });
-      return;
+    let blob = null, canvas = null;
+    try {
+      canvas = await buildShareCanvas(v);
+      blob = await canvasToBlob(canvas);
+    } catch (err) {
+      console.error('Не вдалося згенерувати картинку вірша:', err);
     }
-  } catch (err) {
-    // Людина сама закрила системне вікно "Поділитися" — це не помилка
-    if (err && err.name === 'AbortError') return;
-    console.warn('navigator.share з файлом не спрацював, показуємо картинку вручну:', err);
-  }
 
-  // ── 3. Останній запасний варіант: картинка на весь екран (data: URI,
-  //      щоб довге натискання "зберегти" реально працювало) ──────────
-  openShareImgOverlay(canvas.toDataURL('image/png'));
+    // Не вдалося намалювати картинку (наприклад CORS на фото-фоні) — старий текстовий шлях
+    if (!blob) { shareVerseAsTextFallback(v); return; }
+
+    const caption = `${v.ref} · Holy Vibe`;
+
+    // ── 1. Пріоритет: нативний Android-місток (стабільно працює в WebView,
+    //      відкриває справжнє системне меню "Поділитися") ──────────────
+    if (window.AndroidBridge && typeof window.AndroidBridge.shareImage === 'function') {
+      const result = await callAndroidShareImage(
+        canvas.toDataURL('image/jpeg', 0.92), 'holy-vibe-verse.jpg', caption
+      );
+      if (result.success) return;
+      // Раніше тут був "return" одразу після виклику, без перевірки результату —
+      // тому будь-яка тиха нативна помилка залишала користувача без реакції.
+      // Тепер при невдачі (або таймауті) не виходимо, а йдемо далі —
+      // у Web Share API чи, як останній варіант, показ картинки на весь екран.
+      console.warn('AndroidBridge.shareImage не спрацював, пробуємо Web Share API:', result.errorMsg);
+    }
+
+    // ── 2. Звичайний браузер / iOS: Web Share API ───────────────────────
+    const file = new File([blob], 'holy-vibe-verse.png', { type: 'image/png' });
+    try {
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], text: caption });
+        return;
+      }
+    } catch (err) {
+      // Людина сама закрила системне вікно "Поділитися" — це не помилка
+      if (err && err.name === 'AbortError') return;
+      console.warn('navigator.share з файлом не спрацював, показуємо картинку вручну:', err);
+    }
+
+    // ── 3. Останній запасний варіант: картинка на весь екран (data: URI,
+    //      щоб довге натискання "зберегти" реально працювало) ──────────
+    openShareImgOverlay(canvas.toDataURL('image/png'));
+  } finally {
+    // Завжди звільняємо прапорець — незалежно від того, яким шляхом
+    // (успіх / фолбек / помилка) завершився цей виклик "Поділитися"
+    _shareInProgress = false;
+  }
 });
