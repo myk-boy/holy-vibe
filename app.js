@@ -1299,23 +1299,40 @@ function drawLinesCentered(ctx, lines, cx, cy, lineHeight) {
   return totalH;
 }
 
-// Підбирає розмір шрифту так, щоб текст вірша вмістився у відведену висоту.
-// Базовий розмір тепер трохи залежить від S.size — той самий повзунок
-// "Розмір тексту", що і на екрані, впливає і на картинку.
+// Підбирає розмір шрифту так, щоб текст вірша вмістився у відведену висоту,
+// і щоб картинка виглядала ТАК САМО, як вірш на екрані додатку.
+//
+// ВАЖЛИВО: раніше тут був довільний базовий розмір (64px), ніяк не пов'язаний
+// з тим, що реально показує applyStyle() на екрані — через це на збереженій
+// картинці текст був помітно дрібнішим і не заповнював висоту (лишалось
+// багато порожнього місця зверху й знизу), хоча на самому екрані (і на
+// скріншоті) текст виглядає великим і збалансованим.
+//
+// Тепер розмір рахуємо від ТІЄЇ Ж формули, що і на екрані:
+//   applyStyle(): base = 18 + (S.size/100)*12; fontSize = clamp(base-2, base*.45vw, base+4)
+// На типовій ширині екрана (~390px CSS) ця формула майже завжди впирається
+// у верхню межу clamp — тобто реальний розмір, який бачить користувач,
+// дорівнює (base + 4)px CSS. Масштабуємо це число під ширину
+// картинки-історії (SHARE_W), використовуючи умовну "еталонну" ширину
+// екрана як точку відліку — тоді пропорції картинки збігаються з екраном.
+const DEVICE_REF_WIDTH  = 390;   // умовна типова ширина екрана в CSS px
+const LINE_HEIGHT_RATIO = 1.75;  // той самий коефіцієнт, що й у CSS .verse-text
+
 function fitVerseFontSize(ctx, text, maxWidth, maxHeight, family) {
-  const sizeFactor = 0.72 + ((S.size ?? 50) / 100) * 0.56; // ≈ 0.72 .. 1.28
-  let size = Math.round(64 * sizeFactor);
-  const minSize = Math.max(28, Math.round(34 * sizeFactor));
+  const base = 18 + ((S.size ?? 50) / 100) * 12;
+  const cssFontSize = base + 4; // те, що реально бачить користувач (22..34px)
+  let size = Math.round(cssFontSize * (SHARE_W / DEVICE_REF_WIDTH));
+  const minSize = Math.max(36, Math.round(size * 0.55)); // нижня межа для дуже довгих віршів
   let lines = [];
   while (size > minSize) {
     ctx.font = `300 ${size}px "${family}"`;
     lines = wrapTextLines(ctx, text, maxWidth);
-    const lineHeight = size * 1.32;
+    const lineHeight = size * LINE_HEIGHT_RATIO;
     if (lines.length * lineHeight <= maxHeight) return { size, lineHeight, lines };
     size -= 2;
   }
   ctx.font = `300 ${minSize}px "${family}"`;
-  return { size: minSize, lineHeight: minSize * 1.32, lines: wrapTextLines(ctx, text, maxWidth) };
+  return { size: minSize, lineHeight: minSize * LINE_HEIGHT_RATIO, lines: wrapTextLines(ctx, text, maxWidth) };
 }
 
 // Малює заокруглений прямокутник (шлях, без заливки/обведення)
