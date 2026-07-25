@@ -180,9 +180,16 @@ function refreshCatBar(categories, allLabel) {
     });
   }
 
+  // ВАЖЛИВО: беремо S напряму, а НЕ через window.S — S оголошено як
+  // `const S = {...}` у app.js на верхньому рівні скрипта, тому воно НЕ
+  // стає властивістю window (на відміну від var), і window.S завжди
+  // undefined. Через це раніше activePill ніколи не знаходився за
+  // поточною категорією і завжди відкатувався на пілюлю "all" — саме
+  // тому підпис категорії скидався на "Усі" після перезапуску додатку.
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  const currentCat = (typeof S !== 'undefined' && S?.cat) || 'all';
   const activePill =
-    document.querySelector(`.pill[data-cat="${window.S?.cat}"]`) ||
+    document.querySelector(`.pill[data-cat="${currentCat}"]`) ||
     document.querySelector('.pill[data-cat="all"]');
   if (activePill) {
     activePill.classList.add('active');
