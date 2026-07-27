@@ -104,6 +104,10 @@ async function fetchVerses() {
     console.error('verses.json не завантажився:', err);
     showToast('⚠️ Не вдалося завантажити вірші');
     $('verseLoading')?.remove();
+    // Якщо вірші взагалі не завантажились — window._onVersesReady()
+    // (і, відповідно, hideSplash() з i18n.js) ніколи не викличеться.
+    // Прибираємо стартовий екран тут напряму, щоб він не завис назавжди.
+    if (typeof hideSplash === 'function') hideSplash();
   }
 }
 

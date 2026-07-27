@@ -122,10 +122,20 @@ async function loadLanguage(code) {
 
     showToast(t('toast_loaded', { n: VERSES.length }));
 
+    // Застосунок повністю готовий (вірші + переклад інтерфейсу
+    // застосовані) — можна прибирати стартовий екран (splash),
+    // див. index.html / hideSplash().
+    if (typeof hideSplash === 'function') hideSplash();
+
   } catch (err) {
     console.error('i18n: помилка завантаження', code, err);
     if (code !== 'uk') {
       await loadLanguage('uk');
+    } else {
+      // Навіть запасний варіант (uk) не завантажився — далі чекати
+      // нічого, тож прибираємо splash, щоб не тримати користувача
+      // на "вічному" екрані завантаження.
+      if (typeof hideSplash === 'function') hideSplash();
     }
   }
 }
@@ -215,12 +225,47 @@ function buildLanguageSelector() {
 
 
 /* ─────────────────────────────────────────────────────────
+   АВТОВИЗНАЧЕННЯ МОВИ ПРИСТРОЮ
+
+   Навмисно зроблено через navigator.language, а НЕ нативний
+   Android-код: WebView (Android) і WKWebView (iOS) обидва
+   коректно віддають мову системи через цей JS-API. Тобто
+   один і той самий код працює однаково на обох платформах —
+   нічого дублювати чи переписувати нативно не треба.
+
+   Спрацьовує лише при ПЕРШОМУ запуску, поки в localStorage
+   немає збереженого вибору користувача (hv_lang). Щойно мова
+   визначена — loadLanguage() сама зберігає її в localStorage
+   (див. вище), і надалі застосунок завжди підхоплює саме
+   збережений вибір, а не мову пристрою знову. Тобто якщо
+   користувач вручну перемкне мову — автовизначення більше
+   не втручається.
+
+   Якщо мова пристрою не входить у SUPPORTED_LANGUAGES —
+   тихо лишаємось на українській (дефолт, як і раніше).
+───────────────────────────────────────────────────────── */
+function detectDeviceLanguage() {
+  const raw =
+    navigator.language ||
+    (navigator.languages && navigator.languages[0]) ||
+    'uk';
+  const short = raw.toLowerCase().split('-')[0]; // напр. 'en-US' -> 'en'
+  const found = SUPPORTED_LANGUAGES.find(l => l.code === short);
+  return found ? found.code : 'uk';
+}
+
+
+/* ─────────────────────────────────────────────────────────
    ІНІЦІАЛІЗАЦІЯ
 ───────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   buildLanguageSelector();
 
-  const saved = localStorage.getItem('hv_lang') || 'uk';
+  // Якщо користувач ще ЖОДНОГО разу не обирав мову вручну —
+  // визначаємо мову пристрою. Якщо вибір вже колись зберігався —
+  // завжди пріоритет за ним (детект більше не втручається).
+  const savedLang = localStorage.getItem('hv_lang');
+  const saved = savedLang || detectDeviceLanguage();
 
   // Чекаємо поки verses.json завантажиться, потім завантажуємо мову
   // _onVersesReady викликається з app.js одразу після fetchVerses
