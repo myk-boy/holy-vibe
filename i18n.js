@@ -12,7 +12,7 @@
    але код для неї вже готовий на майбутнє. */
 const SUPPORTED_LANGUAGES = [
   { code: 'uk', name: '🇺🇦 Українська', enabled: true  },
-  { code: 'uk.hom', name: '🇺🇦 Українська. Хоменко', enabled: true  },
+  { code: 'uk.hom', name: '🇺🇦 Українська(Хоменко)', enabled: true  },
   { code: 'en', name: '🇬🇧 English',    enabled: true  },
   { code: 'de', name: '🇩🇪 Deutsch',    enabled: false  },
   { code: 'el', name: '🇬🇷 Ελληνικά',   enabled: false  },
