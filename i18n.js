@@ -4,12 +4,24 @@
    Вбудований UK словник — t() працює ОДРАЗУ при старті.
 ═══════════════════════════════════════════════════════════ */
 
+/* SUPPORTED_LANGUAGES — щоб додати нову мову: додай рядок сюди
+   (і поклади відповідний lang/{code}.json на GitHub). Щоб мова
+   ще НЕ з'являлась користувачам (наприклад, поки переклад не
+   готовий) — постав enabled: false. Вона просто не покажеться
+   в селекторі й не підхопиться автовизначенням мови пристрою,
+   але код для неї вже готовий на майбутнє. */
 const SUPPORTED_LANGUAGES = [
-  { code: 'uk', name: '🇺🇦 Українська' },
-  { code: 'en', name: '🇬🇧 English'    },
-  { code: 'de', name: '🇩🇪 Deutsch'    },
-  { code: 'el', name: '🇬🇷 Ελληνικά'   },
+  { code: 'uk', name: '🇺🇦 Українська', enabled: true  },
+  { code: 'en', name: '🇬🇧 English',    enabled: true  },
+  { code: 'de', name: '🇩🇪 Deutsch',    enabled: true  },
+  { code: 'el', name: '🇬🇷 Ελληνικά',   enabled: true  },
 ];
+
+// Мови, увімкнені для показу користувачу (enabled !== false —
+// тобто мова вважається увімкненою, якщо поле взагалі не вказане).
+function enabledLanguages() {
+  return SUPPORTED_LANGUAGES.filter(l => l.enabled !== false);
+}
 
 let currentLang = 'uk';
 
@@ -215,7 +227,22 @@ function refreshCatBar(categories, allLabel) {
 function buildLanguageSelector() {
   const sel = document.getElementById('langSelect');
   if (!sel) return;
-  sel.value = localStorage.getItem('hv_lang') || 'uk';
+
+  // Опції будуємо динамічно з SUPPORTED_LANGUAGES (лише enabled: true) —
+  // більше НЕ треба вручну дописувати <option> в index.html при додаванні
+  // мови. Вимкнені мови (enabled: false) сюди просто не потрапляють.
+  sel.innerHTML = '';
+  enabledLanguages().forEach(l => {
+    const opt = document.createElement('option');
+    opt.value = l.code;
+    opt.textContent = l.name;
+    sel.appendChild(opt);
+  });
+
+  const savedLang = localStorage.getItem('hv_lang');
+  const savedIsEnabled = savedLang && enabledLanguages().some(l => l.code === savedLang);
+  sel.value = savedIsEnabled ? savedLang : 'uk';
+
   sel.addEventListener('change', async (e) => {
     const lang = SUPPORTED_LANGUAGES.find(l => l.code === e.target.value);
     await loadLanguage(e.target.value);
@@ -241,8 +268,9 @@ function buildLanguageSelector() {
    користувач вручну перемкне мову — автовизначення більше
    не втручається.
 
-   Якщо мова пристрою не входить у SUPPORTED_LANGUAGES —
-   тихо лишаємось на українській (дефолт, як і раніше).
+   Якщо мова пристрою не входить у SUPPORTED_LANGUAGES, або входить,
+   але вимкнена (enabled: false) — тихо лишаємось на українській
+   (дефолт, як і раніше).
 ───────────────────────────────────────────────────────── */
 function detectDeviceLanguage() {
   const raw =
@@ -250,7 +278,7 @@ function detectDeviceLanguage() {
     (navigator.languages && navigator.languages[0]) ||
     'uk';
   const short = raw.toLowerCase().split('-')[0]; // напр. 'en-US' -> 'en'
-  const found = SUPPORTED_LANGUAGES.find(l => l.code === short);
+  const found = enabledLanguages().find(l => l.code === short);
   return found ? found.code : 'uk';
 }
 
@@ -261,11 +289,13 @@ function detectDeviceLanguage() {
 document.addEventListener('DOMContentLoaded', () => {
   buildLanguageSelector();
 
-  // Якщо користувач ще ЖОДНОГО разу не обирав мову вручну —
-  // визначаємо мову пристрою. Якщо вибір вже колись зберігався —
-  // завжди пріоритет за ним (детект більше не втручається).
+  // Якщо користувач ще ЖОДНОГО разу не обирав мову вручну — визначаємо
+  // мову пристрою. Якщо вибір вже колись зберігався І ця мова досі
+  // enabled — пріоритет за ним. Якщо збережена мова раптом вимкнена
+  // (enabled: false) — теж падаємо назад на автовизначення.
   const savedLang = localStorage.getItem('hv_lang');
-  const saved = savedLang || detectDeviceLanguage();
+  const savedIsEnabled = savedLang && enabledLanguages().some(l => l.code === savedLang);
+  const saved = savedIsEnabled ? savedLang : detectDeviceLanguage();
 
   // Чекаємо поки verses.json завантажиться, потім завантажуємо мову
   // _onVersesReady викликається з app.js одразу після fetchVerses
