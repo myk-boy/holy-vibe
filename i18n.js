@@ -12,10 +12,9 @@
    але код для неї вже готовий на майбутнє. */
 const SUPPORTED_LANGUAGES = [
   { code: 'uk', name: '🇺🇦 Українська', enabled: true  },
-  { code: 'uk.hom', name: '🇺🇦 Українська(Хоменко)', enabled: true  },
   { code: 'en', name: '🇬🇧 English',    enabled: true  },
-  { code: 'de', name: '🇩🇪 Deutsch',    enabled: false  },
-  { code: 'el', name: '🇬🇷 Ελληνικά',   enabled: false  },
+  { code: 'de', name: '🇩🇪 Deutsch',    enabled: true  },
+  { code: 'el', name: '🇬🇷 Ελληνικά',   enabled: true  },
 ];
 
 // Мови, увімкнені для показу користувачу (enabled !== false —
@@ -37,6 +36,7 @@ const UK_DEFAULT = {
   sheet_title: "Цей вірш", btn_explain: "Пояснити цей вірш", btn_share: "Поділитися",
   ai_ref: "✦ Духовне тлумачення",
   menu_logo: "СЛОВО", menu_tagline: "Просочення Живим Словом",
+  about_title: "Про переклади",
   music_title: "🎵 Молитовна музика (CC)",
   donate_title: "Підтримати проєкт ❤️",
   donate_privat: "Картка ПриватБанк", donate_copy: "Скопіювати картку 🟢",
