@@ -146,9 +146,13 @@ async function loadLanguage(code) {
     if (code !== 'uk') {
       await loadLanguage('uk');
     } else {
-      // Навіть запасний варіант (uk) не завантажився — далі чекати
-      // нічого, тож прибираємо splash, щоб не тримати користувача
-      // на "вічному" екрані завантаження.
+      // Навіть запасний варіант (uk) не завантажився — принаймні
+      // повертаємо вбудований український словник, щоб інтерфейс
+      // не залишався "застряглим" на попередній мові.
+      currentLang = 'uk';
+      window._currentUI = { ...UK_DEFAULT };
+      localStorage.setItem('hv_lang', 'uk');
+      applyI18n(window._currentUI);
       if (typeof hideSplash === 'function') hideSplash();
     }
   }
