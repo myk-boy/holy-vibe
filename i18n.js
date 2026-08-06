@@ -40,7 +40,7 @@ const UK_DEFAULT = {
   about_title: "Про переклади",
   music_title: "🎵 Молитовна музика (CC)",
   donate_title: "Підтримати проєкт ❤️",
-  donate_privat: "Картка ПриватБанк", donate_copy: "Скопіювати картку 🟢",
+  donate_privat: "Картка Ощадбанк", donate_copy: "Скопіювати картку 🟢",
   donate_copy_alert: "Номер картки скопійовано! 👍",
   settings_title: "Оформлення", settings_font: "Шрифт",
   settings_font_classic: "Класика", settings_font_tradition: "Традиція", settings_font_modern: "Сучасний",
