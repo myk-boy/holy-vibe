@@ -1,1 +1,37 @@
+name: Publish Web Bundle Release
 
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create zip of repo (excluding .git, .github, README.md)
+        run: |
+          zip -r holy-vibe-web.zip . \
+            -x ".git/*" \
+            -x ".github/*" \
+            -x "README.md"
+
+      - name: Generate build tag
+        id: tag
+        run: |
+          COUNT=$(git rev-list --count HEAD)
+          echo "tag=build-${COUNT}" >> "$GITHUB_OUTPUT"
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: ${{ steps.tag.outputs.tag }}
+          files: holy-vibe-web.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
