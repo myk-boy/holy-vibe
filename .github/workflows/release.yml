@@ -24,8 +24,7 @@ jobs:
       - name: Generate build tag
         id: tag
         run: |
-          COUNT=$(git rev-list --count HEAD)
-          echo "tag=build-${COUNT}" >> "$GITHUB_OUTPUT"
+          echo "tag=build-${{ github.run_number }}" >> "$GITHUB_OUTPUT"
 
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
