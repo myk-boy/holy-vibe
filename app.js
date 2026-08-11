@@ -24,15 +24,6 @@
 // VERSES завантажуються з verses.json (div. fetchVerses)
 const VERSES = [];
 
-/*
-  ГЛОБАЛЬНІ ФОНОВІ ТРЕКИ — у вкладці Меню.
-  Всі URL перевірені: прямі .mp3, без редиректів, без реєстрації.
-  Ліцензія: CC BY 3.0 — Kevin MacLeod (incompetech.com) або Public Domain (archive.org)
-  ---
-  ВАЖЛИВО ДЛЯ РОЗРОБНИКА:
-  Якщо трек не грає в WebView — завантаж mp3 локально в assets/audio/
-  і змінь src на відносний шлях: "audio/peace_piano.mp3"
-*/
 const TRACKS = [
   {
     name: "Soaking Prayer — Jesse Quinn",
@@ -50,8 +41,6 @@ const TRACKS = [
     license: "Jesse Quinn Media — used with permission"
   },
 ];
-
-
 
 // BACKGROUNDS завантажуються з backgrounds.json (div. fetchBackgrounds)
 const BACKGROUNDS = [{ name: "Без фону", url: "" }];
@@ -73,20 +62,16 @@ async function fetchVerses() {
     const loaded = data.verses || [];
     VERSES.push(...loaded);
 
-    // ── Динамічно будуємо пілюлі категорій з _categories ──────────────
     const categories = data._categories || {};
-    window._CATEGORIES_UK = categories; // для i18n.js — повернення на українську
+    window._CATEGORIES_UK = categories;
     buildCatOrder(categories);
     buildCatPills(categories);
-    // ───────────────────────────────────────────────────────────────────
 
-    // Відновлюємо збережену позицію
     const pos = loadPos();
     if (pos && pos.cat) {
       S.cat  = pos.cat;
       S.pool = pos.cat === 'all' ? [...VERSES] : VERSES.filter(v => v.cat === pos.cat);
       S.idx  = (pos.idx >= 0 && pos.idx < S.pool.length) ? pos.idx : 0;
-      // Синхронізуємо пілюлі і мітку
       const pill = document.querySelector(`.pill[data-cat="${pos.cat}"]`);
       document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
       if (pill) { pill.classList.add('active'); $('catToggleLabel').textContent = pill.textContent; }
@@ -96,17 +81,12 @@ async function fetchVerses() {
     }
 
     renderVerse();
-    // ЗАВАНТАЖЕННЯ: ховаємо індикатор — вірші вже готові (можна видалити цей рядок)
     $('verseLoading')?.remove();
-    // Повідомляємо i18n.js що вірші готові → завантажує збережену мову
     if (typeof window._onVersesReady === 'function') window._onVersesReady();
   } catch (err) {
     console.error('verses.json не завантажився:', err);
     showToast('⚠️ Не вдалося завантажити вірші');
     $('verseLoading')?.remove();
-    // Якщо вірші взагалі не завантажились — window._onVersesReady()
-    // (і, відповідно, hideSplash() з i18n.js) ніколи не викличеться.
-    // Прибираємо стартовий екран тут напряму, щоб він не завис назавжди.
     if (typeof hideSplash === 'function') hideSplash();
   }
 }
@@ -121,12 +101,10 @@ async function fetchBackgrounds() {
     const data = await res.json();
     const loaded = data.backgrounds || [];
     BACKGROUNDS.push(...loaded);
-    buildBgGrid(); // перебудовуємо грід після завантаження
-    // Якщо autoBg увімкнено — застосовуємо фон під поточний вірш
+    buildBgGrid();
     if (S.autoBg) applyAutoBg();
   } catch (err) {
     console.error('backgrounds.json не завантажився:', err);
-    // Якщо файл не знайдено — грід залишається з одним "Без фону"
   }
 }
 
@@ -139,7 +117,6 @@ const S = {
   pool:     [...VERSES],
   idx:      0,
   favs:     JSON.parse(localStorage.getItem('hv_fav') || '[]'),
-  // Прогрес перегляду по кожній категорії: { peace: 4, love: 6, ... } — індекс останнього переглянутого вірша
   catProgress: JSON.parse(localStorage.getItem('hv_cat_progress') || '{}'),
   font:     'cormorant',
   color:    '#f0e8d5',
@@ -147,16 +124,15 @@ const S = {
   iconSize: 50,
   shadow:   true,
   anim:     false,
-  stars:    true,  // залишаємо в стані для сумісності, але UI перемикач прибрано
-  autoBg:   false,   // автозміна фону з кожним віршем
-  playing:  -1,      // індекс глобального треку (-1 = не грає)
-  verseAudioOn: false, // чи грає аудіо з вірша
+  stars:    true,
+  autoBg:   false,
+  playing:  -1,
+  verseAudioOn: false,
   vol:      60,
   sheet:    false,
   playMode: 'single',
   shuffle:  false,
-  glass:    false,    // скляний скін картки вірша
-  // notifs: реалізується в наступному релізі
+  glass:    false,
 };
 
 const DAYS_UK = ['Нд','Пн','Вт','Ср','Чт','Пт','Сб'];
@@ -192,7 +168,6 @@ function showToast(msg) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
 }
 
-// Банер переходу між категоріями — більший, по центру екрану
 let catBannerTimer;
 function showCatBanner(catName) {
   const banner = $('catBanner');
@@ -210,7 +185,6 @@ function saveFavs()  { localStorage.setItem('hv_fav',    JSON.stringify(S.favs))
 function saveNotifs(){ localStorage.setItem('hv_notifs', JSON.stringify(S.notifs)); }
 function savePos()   { localStorage.setItem('hv_pos', JSON.stringify({ cat: S.cat, idx: S.idx })); }
 function saveCatProgress() { localStorage.setItem('hv_cat_progress', JSON.stringify(S.catProgress)); }
-// Фіксує, що користувач дійшов до вірша idx у категорії catKey (запам'ятовує лише найдальшу точку)
 function recordCatProgress(catKey, idx) {
   if (!catKey) return;
   const prev = S.catProgress[catKey];
@@ -255,7 +229,6 @@ function loadSettings() {
     S.shuffle  = s.shuffle  ?? S.shuffle;
     S.glass    = s.glass    ?? S.glass;
 
-    // Відновлюємо фон (якщо autoBg вимкнено але був вручну вибраний фон)
     if (!S.autoBg && s.bgUrl) {
       const bgEl = $('bg');
       bgEl.style.backgroundImage    = `url('${s.bgUrl}')`;
@@ -284,7 +257,6 @@ function applyStyle() {
   const base = 18 + (S.size / 100) * 12;
   verseTextEl.style.fontSize   = `clamp(${base-2}px,${(base*.45).toFixed(1)}vw,${base+4}px)`;
 
-  // Тінь тексту — посилена на фото-фоні для контрасту
   const isPhoto = $('bg').dataset.photo === '1';
   if (!S.shadow) {
     verseTextEl.style.textShadow = 'none';
@@ -294,14 +266,11 @@ function applyStyle() {
     verseTextEl.style.textShadow = '0 2px 30px rgba(0,0,0,.8)';
   }
 
-  // Фон: показуємо тільки на головній (незалежно від зірочок)
   const activeScreen = document.querySelector('.screen.active');
   const onMain = activeScreen && activeScreen.id === 'screenMain';
   $('bg').style.opacity = onMain ? '1' : '0';
-  // Зірочки — окремо через CSS клас
   $('bg').classList.toggle('no-stars', !S.stars);
 
-  // Pill кольори — адаптуємо до фото-фону
   const pillBg  = isPhoto ? 'rgba(0,0,0,0.55)' : 'var(--surface)';
   const pillBor = isPhoto ? 'rgba(0,0,0,0.3)'  : 'var(--surface-border)';
   const pillClr = isPhoto ? 'rgba(255,255,255,0.85)' : 'var(--text-secondary)';
@@ -315,7 +284,6 @@ function applyStyle() {
     p.style.textShadow  = isPhoto ? '0 1px 4px rgba(0,0,0,.8)' : 'none';
   });
 
-  // Розмір іконок навігації
   const iconPx = 20 + (S.iconSize / 100) * 16;
   document.querySelectorAll('.nav-btn svg').forEach(svg => {
     svg.style.width  = iconPx + 'px';
@@ -328,10 +296,6 @@ function applyStyle() {
 }
 
 
-/* ── Авто-фон: міняється разом з анімацією вірша ───────────────────
-   Фон просто ставиться в момент коли verseCard невидимий (між out і in).
-   Окремої анімації фону немає — він змінюється "за кадром".
-──────────────────────────────────────────────────────────────────── */
 function applyAutoBg() {
   if (!S.autoBg) return;
   const photoBgs = BACKGROUNDS.slice(1);
@@ -348,25 +312,17 @@ function applyAutoBg() {
 /* ─────────────────────────────────────
    6. РЕНДЕР ВІРША
 ───────────────────────────────────── */
-// Лічильник викликів renderVerse() — потрібен, щоб "застарілий" відкладений
-// запис (setTimeout нижче) не перезаписав щойно показаний вірш, якщо
-// користувач встиг швидко гортати/змінити категорію ще раз до спрацювання
-// попереднього таймера (гонка станів / race condition).
 let _renderSeq = 0;
 
 function renderVerse(dir = 'up') {
   S.idx = Math.min(S.idx, Math.max(0, S.pool.length - 1));
   const v = cv(); if (!v) return;
 
-  // ПРОГРЕС КАТЕГОРІЙ: запам'ятовуємо, до якого вірша дійшли в поточній категорії
   recordCatProgress(S.cat, S.idx);
 
-  const mySeq = ++_renderSeq; // унікальна мітка саме цього виклику
+  const mySeq = ++_renderSeq;
 
   const write = () => {
-    // Якщо після цього виклику вже стартував новіший renderVerse()
-    // (швидкий свайп/зміна категорії) — цей застарілий запис ігноруємо,
-    // щоб не затерти новіший вірш старим текстом.
     if (mySeq !== _renderSeq) return;
     verseTextEl.innerHTML   = formatText(v.text);
     verseRefEl.textContent  = v.ref;
@@ -376,7 +332,7 @@ function renderVerse(dir = 'up') {
   verseCard.classList.add(dir === 'up' ? 'out-up' : 'out-down');
   setTimeout(() => {
     write();
-    if (mySeq !== _renderSeq) return; // застарілий цикл — класи анімації теж не чіпаємо
+    if (mySeq !== _renderSeq) return;
     verseCard.classList.remove('out-up','out-down');
     verseCard.classList.add('in');
     setTimeout(() => {
@@ -385,16 +341,12 @@ function renderVerse(dir = 'up') {
   }, 200);
 }
 
-// Порядок категорій — будується динамічно з _categories у verses.json
-// Перший елемент завжди 'all', далі — ключі у тому порядку, як вони в JSON
 let CAT_ORDER = ['all'];
 
 function buildCatOrder(categories) {
   CAT_ORDER = ['all', ...Object.keys(categories)];
 }
 
-// Будує пілюлі catBar динамічно з об'єкта { key: 'Назва', ... }
-// Замінює весь вміст #catBar, зберігаючи першу пілюлю "Усі" активною
 function buildCatPills(categories) {
   const bar = $('catBar');
   if (!bar) return;
@@ -416,16 +368,10 @@ function prevCat() {
   return CAT_ORDER[(i - 1 + CAT_ORDER.length) % CAT_ORDER.length];
 }
 
-// catKey — куди перемикаємось.
-// resumeProgress — чи ставити S.idx на "перший непереглянутий вірш" (за замовчуванням так).
-//   Якщо false — ставимо в кінець пулу (потрібно, коли гортаємо НАЗАД в нову категорію,
-//   там логічно потрапити на останній вірш, а не знову на перший).
 function switchCat(catKey, resumeProgress = true) {
   S.cat  = catKey;
   S.pool = catKey === 'all' ? [...VERSES] : VERSES.filter(v => v.cat === catKey);
 
-  // ПРОГРЕС КАТЕГОРІЙ: продовжуємо з наступного непереглянутого вірша,
-  // а якщо всі вже переглянуті — починаємо категорію заново
   if (resumeProgress) {
     const seen = S.catProgress[catKey];
     if (typeof seen === 'number' && seen + 1 < S.pool.length) {
@@ -438,7 +384,6 @@ function switchCat(catKey, resumeProgress = true) {
     S.idx = Math.max(0, S.pool.length - 1);
   }
 
-  // Синхронізуємо UI пілюль і мітку кнопки
   const pill = document.querySelector(`.pill[data-cat="${catKey}"]`);
   document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
   if (pill) { pill.classList.add('active'); $('catToggleLabel').textContent = pill.textContent; }
@@ -446,11 +391,8 @@ function switchCat(catKey, resumeProgress = true) {
 
 function next() {
   if (S.cat === 'all') {
-    // Режим "Усі" — звичайна циклічність по всьому пулу
     S.idx = (S.idx + 1) % S.pool.length;
   } else {
-    // Режим категорії — перейти до наступної категорії після останнього вірша,
-    // продовжуючи з місця, де користувач зупинився минулого разу
     if (S.idx + 1 < S.pool.length) {
       S.idx++;
     } else {
@@ -469,8 +411,6 @@ function prev() {
     if (S.idx - 1 >= 0) {
       S.idx--;
     } else {
-      // Гортаємо назад у попередню категорію — потрапляємо на її останній вірш,
-      // а не знову на перший (так природніше при русі "назад")
       switchCat(prevCat(), false);
       showCatBanner($('catToggleLabel').textContent || S.cat);
     }
@@ -488,7 +428,6 @@ function goScreen(id) {
   $(id).classList.add('active');
   document.querySelectorAll('.nav-btn').forEach(b =>
     b.classList.toggle('active', b.dataset.screen === id));
-  // Фон тільки на головній
   $('bg').style.opacity = (id === 'screenMain') ? '1' : '0';
   if (id === 'screenFav')      renderFavList();
   if (id === 'screenSettings') renderNotifList();
@@ -496,7 +435,6 @@ function goScreen(id) {
 document.querySelectorAll('.nav-btn').forEach(b =>
   b.addEventListener('click', () => goScreen(b.dataset.screen)));
 
-// Тоглення панелі категорій
 let catBarVisible = false;
 $('catToggleBtn').addEventListener('click', () => {
   catBarVisible = !catBarVisible;
@@ -508,11 +446,8 @@ $('catToggleBtn').addEventListener('click', () => {
 $('catBar').addEventListener('click', e => {
   const p = e.target.closest('.pill'); if (!p) return;
 
-  // ПРОГРЕС КАТЕГОРІЙ: switchCat() сам ставить S.idx на наступний
-  // непереглянутий вірш (або на 0, якщо категорію переглянуто повністю)
   switchCat(p.dataset.cat);
 
-  // Закриваємо панель після вибору
   catBarVisible = false;
   $('catBar').style.display = 'none';
   $('catToggleBtn').classList.remove('open');
@@ -595,9 +530,6 @@ $('btnAI').addEventListener('click', () => {
   aiPanel.classList.add('visible');
 });
 
-// Обробник кнопки btnShare — див. розділ "16. ПОДІЛИТИСЯ КАРТИНКОЮ" в кінці файлу
-
-
 
 /* ─────────────────────────────────────
    10. УЛЮБЛЕНІ
@@ -633,19 +565,7 @@ function renderFavList() {
 
 /* ─────────────────────────────────────
    11. МУЗИКА — ГЛОБАЛЬНИЙ ПЛЕЄР
-   Натискання на трек у Меню вмикає/вимикає глобальну фонову музику.
-
-   Режими відтворення (S.playMode):
-   - 'single'   — повторювати поточний трек (audioEl.loop = true)
-   - 'sequence' — після завершення треку грати наступний по черзі
-   Кнопка шафл (S.shuffle) — при переході обирає випадковий трек
-   (працює разом з режимом 'sequence' або одна, незалежно від 'single').
 ───────────────────────────────────── */
-/* ── Media Session API ──────────────────────────────────────────────
-   Реєструємо активну медіа-сесію для ОС, щоб Android/iOS не вбивав
-   фонове відтворення й показував плашку у шторці повідомлень.
-   Обов'язково оновлюємо metadata при кожній зміні треку.
-──────────────────────────────────────────────────────────────────── */
 function updateMediaSession(track) {
   if (!('mediaSession' in navigator)) return;
   navigator.mediaSession.metadata = new MediaMetadata({
@@ -667,7 +587,6 @@ function updateMediaSession(track) {
   setHandler('pause', () => {
     audioEl.pause();
     navigator.mediaSession.playbackState = 'paused';
-    // Не скидаємо S.playing — лише пауза, не зупинка
   });
   setHandler('stop',  () => {
     stopTrack();
@@ -676,15 +595,6 @@ function updateMediaSession(track) {
   setHandler('nexttrack',     () => nextTrack());
   setHandler('previoustrack', () => prevTrack());
 }
-
-/* ── НЕ зупиняємо аудіо при згортанні / блокуванні екрану ──────────
-   Старий код робив audioEl.pause() — прибрали.
-   Браузер/WebView сам продовжує відтворення поки є активна
-   MediaSession. Якщо потрібно справді зупиняти — розкоментуй.
-──────────────────────────────────────────────────────────────────── */
-// document.addEventListener('visibilitychange', () => {
-//   if (document.hidden && S.playing >= 0) audioEl.pause();
-// });
 
 function buildTrackList() {
   const container = $('trackList'); if (!container) return;
@@ -707,7 +617,6 @@ function buildTrackList() {
   syncPlayerControlsUI();
 }
 
-// Прибирає виділення треку i у списку
 function clearTrackUI(i) {
   if (i < 0) return;
   $(`track${i}`)?.classList.remove('playing');
@@ -715,18 +624,15 @@ function clearTrackUI(i) {
   const ico = $(`ico${i}`); if (ico) ico.textContent = '▶';
 }
 
-// Запускає трек за індексом
 function playTrack(i) {
   if (!TRACKS.length) return;
-  i = ((i % TRACKS.length) + TRACKS.length) % TRACKS.length; // циклічно
+  i = ((i % TRACKS.length) + TRACKS.length) % TRACKS.length;
   const t = TRACKS[i];
 
   clearTrackUI(S.playing);
 
   S.verseAudioOn = false;
   audioEl.src    = t.src;
-  // loop = true тільки в режимі "повтор треку" без шафлу;
-  // інакше перехід до наступного контролюємо самі (подія 'ended')
   audioEl.loop   = (S.playMode === 'single' && !S.shuffle);
   audioEl.volume = S.vol / 100;
   audioEl.play()
@@ -746,7 +652,6 @@ function playTrack(i) {
     });
 }
 
-// Повна зупинка глобального плеєра
 function stopTrack() {
   audioEl.pause();
   clearTrackUI(S.playing);
@@ -754,7 +659,6 @@ function stopTrack() {
   S.verseAudioOn = false;
 }
 
-// Наступний/попередній індекс з урахуванням шафлу
 function getAdjacentTrackIndex(current, dir) {
   if (TRACKS.length <= 1) return current < 0 ? 0 : current;
   if (S.shuffle) {
@@ -769,7 +673,6 @@ function getAdjacentTrackIndex(current, dir) {
 function nextTrack() { playTrack(getAdjacentTrackIndex(S.playing, 1)); }
 function prevTrack() { playTrack(getAdjacentTrackIndex(S.playing, -1)); }
 
-// Синхронізує іконки кнопок режиму повтору і шафлу з S
 function syncPlayerControlsUI() {
   const repeatBtn  = $('btnRepeatMode');
   const shuffleBtn = $('btnShuffle');
@@ -806,9 +709,6 @@ $('btnNextTrack')?.addEventListener('click', () => nextTrack());
 
 audioEl.volume = S.vol / 100;
 
-// Трек завершився:
-// - 'single' без шафлу — audioEl.loop=true вже подбав про повтор (це лише запасний варіант)
-// - інакше — переходимо до наступного (по черзі або випадково)
 audioEl.addEventListener('ended', () => {
   if (S.playing < 0) return;
   if (S.playMode === 'single' && !S.shuffle) {
@@ -850,7 +750,6 @@ function buildBgGrid() {
     });
   });
 
-  // Відновлюємо активний thumb після перезапуску
   const bgEl = $('bg');
   const currentUrl = bgEl.style.backgroundImage.replace(/url\(['"]?|['"]?\)/g, '');
   if (currentUrl) {
@@ -911,17 +810,14 @@ $('tglAutoBg').addEventListener('click', function() {
   S.autoBg = !S.autoBg;
   this.classList.toggle('on', S.autoBg);
   if (S.autoBg) {
-    // Вмикаємо — одразу міняємо фон під поточний вірш
     applyAutoBg();
     applyStyle();
     saveSettings();
     showToast('🖼️ Авто-фон увімкнено');
   } else {
-    // Вимикаємо — прибираємо фото-фон
     const bgEl = $('bg');
     bgEl.style.backgroundImage = '';
     bgEl.dataset.photo = '0';
-    // Скидаємо активний thumb у гриді на "Без фону"
     document.querySelectorAll('.bg-thumb').forEach((t,i) =>
       t.classList.toggle('active', i === 0));
     applyStyle();
@@ -936,7 +832,7 @@ $('tglAutoBg').addEventListener('click', function() {
 ───────────────────────────────────── */
 const ALARM_KEY = 'hv_alarms';
 let alarms = [];
-let editingAlarmId = null; // null = новий, число = редагування
+let editingAlarmId = null;
 
 function loadAlarms() {
   try { alarms = JSON.parse(localStorage.getItem(ALARM_KEY) || '[]'); } catch { alarms = []; }
@@ -987,7 +883,6 @@ function renderNotifList() {
     </div>`;
   }).join('');
 
-  // Toggle active
   list.querySelectorAll('[data-toggle]').forEach(el =>
     el.addEventListener('click', () => {
       const id = +el.dataset.toggle;
@@ -1000,7 +895,6 @@ function renderNotifList() {
     })
   );
 
-  // Delete
   list.querySelectorAll('[data-del]').forEach(el =>
     el.addEventListener('click', e => {
       e.stopPropagation();
@@ -1014,14 +908,12 @@ function renderNotifList() {
   );
 }
 
-// ── Модалка ──────────────────────────────────────────────────────────
 function openAlarmModal(editId = null) {
   editingAlarmId = editId;
   const modal = $('alarmModal');
   const timeInput = $('alarmTime');
   const labelInput = $('alarmLabel');
 
-  // Скидаємо дні
   document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
 
   if (editId !== null) {
@@ -1043,7 +935,7 @@ function openAlarmModal(editId = null) {
   } else {
     timeInput.value = '08:00';
     labelInput.value = '';
-    document.querySelector('.day-btn[data-day="-1"]').classList.add('active'); // дефолт — один раз
+    document.querySelector('.day-btn[data-day="-1"]').classList.add('active');
   }
 
   modal.style.display = 'flex';
@@ -1058,21 +950,17 @@ document.querySelectorAll('.day-btn').forEach(btn =>
   btn.addEventListener('click', () => {
     const day = +btn.dataset.day;
     if (day === -1 || day === 0) {
-      // "Один раз" або "Щодня" — знімаємо все, вибираємо тільки цю
       document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     } else {
-      // Конкретний день — знімаємо "Один раз" і "Щодня"
       document.querySelector('.day-btn[data-day="-1"]').classList.remove('active');
       document.querySelector('.day-btn[data-day="0"]').classList.remove('active');
       btn.classList.toggle('active');
       const selected = document.querySelectorAll('.day-btn.active').length;
-      // Якщо всі 7 днів — переключаємо на "Щодня"
       if (selected === 7) {
         document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
         document.querySelector('.day-btn[data-day="0"]').classList.add('active');
       }
-      // Якщо нічого — повертаємо "Один раз"
       if (selected === 0) {
         document.querySelector('.day-btn[data-day="-1"]').classList.add('active');
       }
@@ -1095,30 +983,27 @@ $('btnAlarmSave').addEventListener('click', () => {
     [...document.querySelectorAll('.day-btn.active')]
       .map(b => +b.dataset.day).filter(d => d > 0);
 
-  // Отримуємо актуальний переклад сповіщення через функцію t()
   const bodyText = t('notif_body');
 
   if (editingAlarmId !== null) {
-    // Оновлюємо існуючий
     const alarm = alarms.find(a => a.id === editingAlarmId);
     if (alarm) {
       alarm.hour   = h;
       alarm.minute = m;
       alarm.days   = days;
       alarm.label  = $('alarmLabel').value.trim() || t('alarm_modal_title');
-      alarm.notif_body = bodyText; // <-- Додали сюди для оновлення існуючого
+      alarm.notif_body = bodyText;
       alarm.active = true;
     }
   } else {
-    // Новий
-    const newId = Date.now() % 100000; // унікальний id до 5 цифр
+    const newId = Date.now() % 100000;
     alarms.push({ 
       id: newId, 
       hour: h, 
       minute: m, 
       days, 
       label: $('alarmLabel').value.trim() || t('alarm_modal_title'), 
-      notif_body: bodyText, // <-- Додали сюди для нового сповіщення
+      notif_body: bodyText,
       active: true 
     });
   }
@@ -1135,7 +1020,6 @@ $('btnAlarmSave').addEventListener('click', () => {
 ───────────────────────────────────── */
 loadSettings();
 
-// Відновлюємо UI налаштувань під збережений стан
 document.querySelectorAll('.font-opt').forEach(o =>
   o.classList.toggle('active', o.dataset.font === S.font));
 document.querySelectorAll('.color-dot').forEach(d =>
@@ -1146,7 +1030,6 @@ $('tglAutoBg').classList.toggle('on', S.autoBg);
 $('tglGlass').classList.toggle('on', S.glass);
 applyGlass();
 
-// Відновлюємо value слайдерів зі збереженого стану (інакше HTML дефолт "50" перезапише)
 fs.value = S.size;
 is.value = S.iconSize;
 applyStyle();
@@ -1154,13 +1037,8 @@ setSliderBg(fs, S.size);
 setSliderBg(is, S.iconSize);
 fetchVerses();
 buildTrackList();
-fetchBackgrounds(); // завантажує backgrounds.json і будує грід фонів
+fetchBackgrounds();
 
-// Прогріваємо шрифти, потрібні для генерації картинки "Поділитися",
-// одразу при старті — щоб buildShareCanvas() у розділі 16 не чекав
-// document.fonts.load() при першому ж натисканні кнопки й не з'їдав
-// час, відведений Android-у на показ системного меню "Поділитися"
-// після жесту користувача.
 Promise.all([
   document.fonts.load('300 64px "Cormorant Garamond"'),
   document.fonts.load('300 64px "Georgia"'),
@@ -1169,17 +1047,12 @@ Promise.all([
   document.fonts.load('600 26px "Nunito"'),
 ]).catch(() => {});
 
-// Сповіщення — наступний реліз
-
 setTimeout(() => showToast(t('toast_swipe')),     1600);
 setTimeout(() => showToast(t('toast_longpress')), 4800);
 
 
 /* ═══════════════════════════════════════════
-   15. ПОШУК — можна повністю видалити цей розділ.
-   Якщо видаляєте — приберіть також:
-   - кнопку #searchToggleBtn і div #searchOverlay в index.html
-   - CSS-блок "ПОШУК" в styles.css
+   15. ПОШУК
    ═══════════════════════════════════════════ */
 function escapeHtml(str) {
   return str.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
@@ -1235,7 +1108,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && $('searchOverlay').classList.contains('open')) closeSearch();
 });
 
-// Клік на результат — переходимо до вірша в загальному списку "Усі"
 $('searchResults').addEventListener('click', e => {
   const item = e.target.closest('.search-result-item'); if (!item) return;
   const id = +item.dataset.id;
@@ -1257,27 +1129,16 @@ $('searchResults').addEventListener('click', e => {
 
 
 /* ═══════════════════════════════════════════
-   16. ПОДІЛИТИСЯ КАРТИНКОЮ — можна повністю видалити
-   цей розділ і повернути старий текстовий btnShare-обробник
-   (простий приклад лишився в коментарі внизу розділу).
-   Якщо видаляєте — приберіть також:
-   - #shareImgOverlay в index.html
-   - CSS-блок "КАРТИНКА ВІРША" в styles.css
+   16. ПОДІЛИТИСЯ КАРТИНКОЮ
    ═══════════════════════════════════════════ */
 const SHARE_W = 1080, SHARE_H = 1920;
 
-// Відповідність S.font (як в налаштуваннях) реальним назвам шрифтів для Canvas.
-// Це те саме, що FONTS вище, але без лапок/CSS-фолбеків — Canvas API
-// приймає лише "чисту" назву шрифту.
 const CANVAS_FONTS = {
   cormorant: 'Cormorant Garamond',
   georgia:   'Georgia',
   nunito:    'Nunito'
 };
 
-// Розбиває текст на рядки за максимальною шириною — повертає масив рядків
-// (винесено окремо від малювання, щоб заздалегідь порахувати висоту
-// для скляної картки ДО того, як текст намальовано)
 function wrapTextLines(ctx, text, maxWidth) {
   const words = text.split(' ');
   const lines = [];
@@ -1295,7 +1156,6 @@ function wrapTextLines(ctx, text, maxWidth) {
   return lines;
 }
 
-// Малює вже розбитий на рядки текст по центру
 function drawLinesCentered(ctx, lines, cx, cy, lineHeight) {
   const totalH = lines.length * lineHeight;
   const startY = cy - totalH / 2 + lineHeight / 2;
@@ -1303,30 +1163,14 @@ function drawLinesCentered(ctx, lines, cx, cy, lineHeight) {
   return totalH;
 }
 
-// Підбирає розмір шрифту так, щоб текст вірша вмістився у відведену висоту,
-// і щоб картинка виглядала ТАК САМО, як вірш на екрані додатку.
-//
-// ВАЖЛИВО: раніше тут був довільний базовий розмір (64px), ніяк не пов'язаний
-// з тим, що реально показує applyStyle() на екрані — через це на збереженій
-// картинці текст був помітно дрібнішим і не заповнював висоту (лишалось
-// багато порожнього місця зверху й знизу), хоча на самому екрані (і на
-// скріншоті) текст виглядає великим і збалансованим.
-//
-// Тепер розмір рахуємо від ТІЄЇ Ж формули, що і на екрані:
-//   applyStyle(): base = 18 + (S.size/100)*12; fontSize = clamp(base-2, base*.45vw, base+4)
-// На типовій ширині екрана (~390px CSS) ця формула майже завжди впирається
-// у верхню межу clamp — тобто реальний розмір, який бачить користувач,
-// дорівнює (base + 4)px CSS. Масштабуємо це число під ширину
-// картинки-історії (SHARE_W), використовуючи умовну "еталонну" ширину
-// екрана як точку відліку — тоді пропорції картинки збігаються з екраном.
-const DEVICE_REF_WIDTH  = 390;   // умовна типова ширина екрана в CSS px
-const LINE_HEIGHT_RATIO = 1.75;  // той самий коефіцієнт, що й у CSS .verse-text
+const DEVICE_REF_WIDTH  = 390;
+const LINE_HEIGHT_RATIO = 1.75;
 
 function fitVerseFontSize(ctx, text, maxWidth, maxHeight, family) {
   const base = 18 + ((S.size ?? 50) / 100) * 12;
-  const cssFontSize = base + 4; // те, що реально бачить користувач (22..34px)
+  const cssFontSize = base + 4;
   let size = Math.round(cssFontSize * (SHARE_W / DEVICE_REF_WIDTH));
-  const minSize = Math.max(36, Math.round(size * 0.55)); // нижня межа для дуже довгих віршів
+  const minSize = Math.max(36, Math.round(size * 0.55));
   let lines = [];
   while (size > minSize) {
     ctx.font = `300 ${size}px "${family}"`;
@@ -1339,7 +1183,6 @@ function fitVerseFontSize(ctx, text, maxWidth, maxHeight, family) {
   return { size: minSize, lineHeight: minSize * LINE_HEIGHT_RATIO, lines: wrapTextLines(ctx, text, maxWidth) };
 }
 
-// Малює заокруглений прямокутник (шлях, без заливки/обведення)
 function roundedRectPath(ctx, x, y, w, h, r) {
   ctx.beginPath();
   ctx.moveTo(x + r, y);
@@ -1350,10 +1193,6 @@ function roundedRectPath(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
-// Імітує "скляну" картку (той самий CSS-скін .skin-glass .verse-card)
-// на канвасі: розмиває фон під панеллю і додає напівпрозору заливку
-// з золотою рамкою. Якщо ctx.filter (blur) не підтримується конкретним
-// WebView — тихо переходить на фолбек без розмиття, нічого не ламаючи.
 function drawGlassPanel(ctx, mainCanvas, x, y, w, h, r) {
   if ('filter' in ctx) {
     try {
@@ -1388,11 +1227,6 @@ function drawGlassPanel(ctx, mainCanvas, x, y, w, h, r) {
   ctx.restore();
 }
 
-// Завантажує зображення фону поточної картки (якщо є) для canvas
-// Захист від "вічного" очікування: якщо проміс не встиг за ms —
-// повертаємо fallback і йдемо далі, замість зависання назавжди.
-// (деякі збірки Android WebView інколи не викликають callback
-// document.fonts.load() чи canvas.toBlob() — це відомий глюк рушія)
 function withTimeout(promise, ms, fallback) {
   return new Promise(resolve => {
     let done = false;
@@ -1411,23 +1245,14 @@ function loadBgImageForShare() {
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.onload  = () => resolve(img);
-    img.onerror = () => resolve(null); // немає CORS чи фото — просто малюємо без нього
+    img.onerror = () => resolve(null);
     img.src = bgUrl;
-  }), 4000, null); // якщо фон не завантажився за 4с — малюємо без нього, а не висимо
+  }), 4000, null);
 }
 
 async function buildShareCanvas(v) {
-  // Шрифт беремо з тих самих налаштувань, що і на екрані (S.font),
-  // а не хардкоджений Cormorant — щоб картинка відповідала вигляду додатку
   const family = CANVAS_FONTS[S.font] || CANVAS_FONTS.cormorant;
 
-  // Шрифти вже мають бути прогріті через prewarmShareFonts() при старті
-  // додатку (див. розділ 14. INIT) — тут перевіряємо document.fonts.check()
-  // і чекаємо по-справжньому лише якщо чогось й досі бракує.
-  // ВАЖЛИВО: саме ця затримка (раніше фіксовані 1.5с щоразу) — головна
-  // причина того, що нативний виклик "Поділитися" запізнювався і Android
-  // встигав закрити вікно дозволеної взаємодії користувача (activity-start
-  // window), через що чузер не показувався і картинка просто зберігалась.
   const fontsReady =
     document.fonts.check(`300 64px "${family}"`) &&
     document.fonts.check('500 40px "Cinzel"') &&
@@ -1447,7 +1272,6 @@ async function buildShareCanvas(v) {
   canvas.width = SHARE_W; canvas.height = SHARE_H;
   const ctx = canvas.getContext('2d');
 
-  // ── Фон ──────────────────────────────────────────
   const bgImg = await loadBgImageForShare();
   if (bgImg) {
     const scale = Math.max(SHARE_W / bgImg.width, SHARE_H / bgImg.height);
@@ -1460,7 +1284,6 @@ async function buildShareCanvas(v) {
     g.addColorStop(1,   '#050810');
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, SHARE_W, SHARE_H);
-    // легкі золоті "зірочки"
     ctx.fillStyle = 'rgba(201,168,76,.5)';
     for (let i = 0; i < 40; i++) {
       const x = Math.random() * SHARE_W, y = Math.random() * SHARE_H, r = Math.random() * 1.6 + .4;
@@ -1468,7 +1291,6 @@ async function buildShareCanvas(v) {
     }
   }
 
-  // ── Затемнення для читабельності тексту ────────────
   const overlay = ctx.createLinearGradient(0, 0, 0, SHARE_H);
   overlay.addColorStop(0,    'rgba(6,8,16,.55)');
   overlay.addColorStop(0.35, 'rgba(6,8,16,.35)');
@@ -1477,7 +1299,6 @@ async function buildShareCanvas(v) {
   ctx.fillStyle = overlay;
   ctx.fillRect(0, 0, SHARE_W, SHARE_H);
 
-  // ── Декоративна риска зверху ────────────────────────
   ctx.strokeStyle = 'rgba(201,168,76,.7)';
   ctx.lineWidth = 2;
   ctx.beginPath();
@@ -1485,7 +1306,6 @@ async function buildShareCanvas(v) {
   ctx.lineTo(SHARE_W / 2 + 40, 230);
   ctx.stroke();
 
-  // ── Текст вірша ─────────────────────────────────────
   const maxTextWidth  = SHARE_W - 160;
   const maxTextHeight = 900;
   const cleanText = v.text.replace(/\n/g, ' ').trim();
@@ -1494,12 +1314,9 @@ async function buildShareCanvas(v) {
   const textCenterY = SHARE_H / 2 - 40;
   const usedH = lines.length * lineHeight;
 
-  // Ширина найдовшого рядка — потрібна лише для розміру скляної картки
   ctx.font = `300 ${size}px "${family}"`;
   const maxLineW = lines.reduce((max, l) => Math.max(max, ctx.measureText(l).width), 0);
 
-  // ── Скляна картка позаду тексту (тільки якщо в налаштуваннях
-  //    увімкнено "Скляний стиль" — той самий S.glass, що і на екрані) ──
   if (S.glass) {
     const panelPadX = 70;
     const panelW = Math.min(SHARE_W - 80, maxLineW + panelPadX * 2);
@@ -1520,12 +1337,10 @@ async function buildShareCanvas(v) {
   drawLinesCentered(ctx, lines, SHARE_W / 2, textCenterY, lineHeight);
   ctx.shadowBlur = 0;
 
-  // ── Посилання на вірш ────────────────────────────────
   ctx.font = '600 30px "Nunito"';
   ctx.fillStyle = 'rgba(232,208,138,.95)';
   ctx.fillText(v.ref.toUpperCase(), SHARE_W / 2, textCenterY + usedH / 2 + 70);
 
-  // ── Нижня риска + логотип ────────────────────────────
   ctx.strokeStyle = 'rgba(201,168,76,.5)';
   ctx.lineWidth = 1.5;
   ctx.beginPath();
@@ -1536,7 +1351,6 @@ async function buildShareCanvas(v) {
   ctx.font = '500 40px "Cinzel"';
   ctx.fillStyle = 'rgba(232,208,138,.9)';
   ctx.textAlign = 'center';
-  // Невеликий трекінг літер вручну (Canvas не підтримує letter-spacing напряму)
   const logo = 'HOLY VIBE';
   ctx.letterSpacing = '6px';
   ctx.fillText(logo, SHARE_W / 2, SHARE_H - 95);
@@ -1546,23 +1360,12 @@ async function buildShareCanvas(v) {
 }
 
 function canvasToBlob(canvas) {
-  // toBlob інколи "мовчить" (не викликає callback) на деяких Android WebView —
-  // якщо за 4с відповіді немає, вважаємо що не вдалось і йдемо в текстовий фолбек.
   return withTimeout(
     new Promise(resolve => canvas.toBlob(blob => resolve(blob), 'image/png', 0.95)),
     4000, null
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════
-// Міст назад із Java: раніше AndroidBridge.shareImage() був "вистрілив
-// і забув" — Java ловила всі свої помилки сама (try/catch) і просто їх
-// логувала, тому JS ніколи не дізнавався, що там усередині впало (саме
-// тому був "тост і тиша"). Тепер нативний код (після відповідного фіксу
-// в MainActivity.java) викликає це через evaluateJavascript і повідомляє
-// реальний результат. Якщо нативний код старий і нічого не викликає —
-// нас рятує withTimeout нижче, і ми просто йдемо у Web Share API.
-// ═══════════════════════════════════════════════════════════════════
 let _shareImageResolve = null;
 window.__onShareImageResult = function (success, errorMsg) {
   if (_shareImageResolve) {
@@ -1572,24 +1375,38 @@ window.__onShareImageResult = function (success, errorMsg) {
   }
 };
 
+// ═══════════════════════════════════════════════════════════════════
+// ФІКС ТАЙМАУТУ "ПОДІЛИТИСЯ":
+// Раніше тут стояло withTimeout(p, 6000, ...) — 6 секунд. Але
+// AndroidBridge.shareImage() на нативній стороні насправді чекає, поки
+// користувач ВРУЧНУ обере застосунок у системному вікні "Поділитися"
+// (або закриє його) — і лише ПІСЛЯ цього викликає назад
+// window.__onShareImageResult(...). Тобто це не "технічний" виклик, що
+// має завершитись миттєво, а весь час взаємодії користувача з системним
+// чузером, що може тривати довше 6 секунд.
+// Через це JS передчасно вирішував, що нативний код "завис", ще до
+// того як користувач взагалі встиг щось обрати — і сам перемикався на
+// текстовий фолбек ("Вірш скопійовано"), хоча картинка насправді
+// генерувалась і шеринг міг спрацювати штатно.
+// Збільшуємо запас часу очікування до 120 секунд — цього достатньо,
+// щоб користувач спокійно обрав застосунок, а таймаут і далі лишається
+// як страховка на випадок, якщо нативний код справді ніколи не
+// відповість (наприклад, старий APK без коллбека).
+// ═══════════════════════════════════════════════════════════════════
+const SHARE_IMAGE_TIMEOUT_MS = 120000;
+
 function callAndroidShareImage(dataUrl, fileName, caption) {
   const p = new Promise(resolve => {
     _shareImageResolve = resolve;
     try {
       window.AndroidBridge.shareImage(dataUrl, fileName, caption);
     } catch (err) {
-      // Синхронний виняток при самому виклику мосту (рідкість, але можливо)
       _shareImageResolve = null;
       resolve({ success: false, errorMsg: String(err) });
     }
   });
-  return withTimeout(p, 6000, { success: false, errorMsg: 'timeout: нативний код не відповів за 6с' })
+  return withTimeout(p, SHARE_IMAGE_TIMEOUT_MS, { success: false, errorMsg: `timeout: нативний код не відповів за ${SHARE_IMAGE_TIMEOUT_MS / 1000}с` })
     .then(result => {
-      // Якщо спрацював саме таймаут (а не сам проміс) — _shareImageResolve
-      // досі "висить" і вказує на цей виклик. Обов'язково скидаємо його,
-      // інакше пізній нативний коллбек (що прийде вже після таймауту)
-      // помилково зарезолвить проміс НАСТУПНОГО виклику "Поділитися" —
-      // саме це раніше могло непередбачувано ламати наступну спробу.
       _shareImageResolve = null;
       return result;
     });
@@ -1603,14 +1420,12 @@ $('shareImgClose').addEventListener('click', () => {
   $('shareImgOverlay').classList.remove('open');
 });
 
-// Аварійний текстовий фолбек — той самий спосіб, що працював раніше
 function shareVerseAsTextFallback(v) {
   const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
   if (navigator.share) navigator.share({ text: txt }).catch(() => {});
   else { navigator.clipboard?.writeText(txt); showToast('📋 Вірш скопійовано'); }
 }
 
-// Копіювання без діалогу "Поділитися" — просто одразу в буфер обміну
 function copyVerseText(v) {
   const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
   if (navigator.clipboard?.writeText) {
@@ -1621,8 +1436,6 @@ function copyVerseText(v) {
     copyViaFallback(txt);
   }
 }
-// Старий прийом через прихований textarea — на випадок, якщо Clipboard API
-// заблоковано у WebView (буває без https чи певних дозволів)
 function copyViaFallback(txt) {
   try {
     const ta = document.createElement('textarea');
@@ -1647,7 +1460,7 @@ $('btnCopyText').addEventListener('click', () => {
 
 let _shareInProgress = false;
 $('btnShare').addEventListener('click', async () => {
-  if (_shareInProgress) return; // ігноруємо повторний тап, поки вже йде генерація
+  if (_shareInProgress) return;
   const v = cv(); if (!v) return;
   closeSheet();
   showToast('🖼️ Готуємо картинку…');
@@ -1662,26 +1475,18 @@ $('btnShare').addEventListener('click', async () => {
       console.error('Не вдалося згенерувати картинку вірша:', err);
     }
 
-    // Не вдалося намалювати картинку (наприклад CORS на фото-фоні) — старий текстовий шлях
     if (!blob) { shareVerseAsTextFallback(v); return; }
 
     const caption = `${v.ref} · Holy Vibe`;
 
-    // ── 1. Пріоритет: нативний Android-місток (стабільно працює в WebView,
-    //      відкриває справжнє системне меню "Поділитися") ──────────────
     if (window.AndroidBridge && typeof window.AndroidBridge.shareImage === 'function') {
       const result = await callAndroidShareImage(
         canvas.toDataURL('image/jpeg', 0.92), 'holy-vibe-verse.jpg', caption
       );
       if (result.success) return;
-      // Раніше тут був "return" одразу після виклику, без перевірки результату —
-      // тому будь-яка тиха нативна помилка залишала користувача без реакції.
-      // Тепер при невдачі (або таймауті) не виходимо, а йдемо далі —
-      // у Web Share API чи, як останній варіант, показ картинки на весь екран.
       console.warn('AndroidBridge.shareImage не спрацював, пробуємо Web Share API:', result.errorMsg);
     }
 
-    // ── 2. Звичайний браузер / iOS: Web Share API ───────────────────────
     const file = new File([blob], 'holy-vibe-verse.png', { type: 'image/png' });
     try {
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
@@ -1689,17 +1494,12 @@ $('btnShare').addEventListener('click', async () => {
         return;
       }
     } catch (err) {
-      // Людина сама закрила системне вікно "Поділитися" — це не помилка
       if (err && err.name === 'AbortError') return;
       console.warn('navigator.share з файлом не спрацював, показуємо картинку вручну:', err);
     }
 
-    // ── 3. Останній запасний варіант: картинка на весь екран (data: URI,
-    //      щоб довге натискання "зберегти" реально працювало) ──────────
     openShareImgOverlay(canvas.toDataURL('image/png'));
   } finally {
-    // Завжди звільняємо прапорець — незалежно від того, яким шляхом
-    // (успіх / фолбек / помилка) завершився цей виклик "Поділитися"
     _shareInProgress = false;
   }
 });
