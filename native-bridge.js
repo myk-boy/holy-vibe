@@ -105,26 +105,23 @@
           }
 
           var toSchedule = alarms
-            .filter(function (a) { return a.active !== false; })
-            .map(function (a) {
-              return {
-                id: a.id,
-                title: a.label || 'Час молитви 🙏',
-                body: a.notif_body || '',
-                channelId: NOTIF_CHANNEL_ID,
-                // Поле sound тут стосується лише Android < 8 (на 8+ звук
-                // бере з каналу вище через channelId) — так само не
-                // вказуємо 'default' як ім'я файлу, щоб не ловити ту ж
-                // саму помилку на старих пристроях.
-                // allowWhileIdle: намагається доставити точно вчасно навіть
-                // у режимі Doze (енергозбереження Android) — без цього
-                // система може відкласти показ на кілька хвилин.
-                allowWhileIdle: true,
-                schedule: a.days === 'once'
-                  ? { at: nextTime(a.hour, a.minute) }
-                  : { on: { hour: a.hour, minute: a.minute }, every: 'day' },
-              };
-            });
+  .filter(function (a) { return a.active !== false; })
+  .map(function (a) {
+    return {
+      id: a.id,
+      title: a.label || 'Час молитви 🙏',
+      body: a.notif_body || '',
+      channelId: NOTIF_CHANNEL_ID,
+      // sound: для Android 8+ ігнорується (звук бере з каналу вище через
+      // channelId), АЛЕ для iOS це єдиний спосіб задати звук — там канали
+      // не підтримуються (createChannel unimplemented), тому поле лишаємо.
+      sound: 'notification.wav',
+      allowWhileIdle: true,
+      schedule: a.days === 'once'
+        ? { at: nextTime(a.hour, a.minute) }
+        : { on: { hour: a.hour, minute: a.minute }, every: 'day' },
+    };
+  });
           if (toSchedule.length) {
             await LocalNotifications.schedule({ notifications: toSchedule });
           }
