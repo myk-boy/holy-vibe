@@ -323,24 +323,25 @@
       <div class="card settings-block">
         <div class="settings-block-title" data-i18n="settings_extra">Додатково</div>
         <div class="toggle-row"><span data-i18n="toggle_shadow">Тінь тексту</span><div class="toggle on" id="tglShadow"></div></div>
-        <div class="toggle-row"><span data-i18n="toggle_anim">Анімація переходу</span><div class="toggle" id="tglAnim"></div></div>
+        <div class="toggle-row" style="display:none"><span data-i18n="toggle_anim">Анімація переходу</span><div class="toggle" id="tglAnim"></div></div>
         <div class="toggle-row"><span data-i18n="toggle_autobg">Фон змінюється з віршем</span><div class="toggle" id="tglAutoBg"></div></div>
         <div class="toggle-row"><span data-i18n="toggle_glass">✦ Скляний стиль</span><div class="toggle" id="tglGlass"></div></div>
       </div>
-      <!-- TODO: notifications frozen until v1.1 — hidden from UI, do not remove markup -->
-<div class="card settings-block" id="notifBlock" style="display:none">
-  <div class="settings-block-title" data-i18n="notif_title">🔔 Нагадування для молитви</div>
-  ...
-</div>
- 
-      <button id="btnAddAlarm" style="
+      
+     <!-- TODO: notifications frozen until v1.1 — hidden from UI, do not remove markup -->
+      <div class="card settings-block" id="notifBlock" style="display:none">
+        <div class="settings-block-title" data-i18n="notif_title">🔔 Нагадування для молитви</div>
+
+        <div id="alarmList" style="margin-bottom:12px"></div>
+
+        <button id="btnAddAlarm" style="
           width:100%; padding:11px; border:1px dashed rgba(201,168,76,.4);
           background:rgba(201,168,76,.07); color:var(--clr-gold-lt);
           border-radius:10px; font-size:14px; cursor:pointer; letter-spacing:.5px;">
           <span data-i18n="notif_add">+ Додати нагадування</span>
         </button>
       </div>
-
+      
       <!-- Модалка редагування будильника -->
       <div id="alarmModal" style="display:none; position:fixed; inset:0; z-index:999;
            background:rgba(0,0,0,.7); align-items:center; justify-content:center;">
