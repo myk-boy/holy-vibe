@@ -24,7 +24,7 @@
   // каналу з таким id ще нема, і створює його заново, вже з правильними
   // параметрами. Якщо в майбутньому знадобиться змінити канал ще раз —
   // просто підвищуйте суфікс (_v3, _v4, ...).
-  var NOTIF_CHANNEL_ID = 'holy_vibe_prayer_v2';
+  var NOTIF_CHANNEL_ID = 'holy_vibe_prayer_v3';
 
   window.AndroidBridge = {
 
@@ -99,6 +99,7 @@
               visibility: 1,
               vibration: true,
               lights: true,
+			  sound: 'notification'
             });
           } catch (chErr) {
             console.warn('createChannel error', chErr);
