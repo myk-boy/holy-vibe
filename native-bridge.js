@@ -164,10 +164,24 @@
   }
 
   if (LocalNotifications && LocalNotifications.requestPermissions) {
-    LocalNotifications.requestPermissions().catch(function (e) {
+  LocalNotifications.requestPermissions()
+    .then(function () {
+      if (LocalNotifications.changeExactNotificationSetting) {
+        LocalNotifications.checkExactNotificationSetting()
+          .then(function (res) {
+            if (res && res.exact_alarm !== 'granted') {
+              return LocalNotifications.changeExactNotificationSetting();
+            }
+          })
+          .catch(function (e) {
+            console.warn('checkExactNotificationSetting error', e);
+          });
+      }
+    })
+    .catch(function (e) {
       console.warn('requestPermissions error', e);
     });
-  }
+}
 
   document.addEventListener('click', function (e) {
     var link = e.target.closest && e.target.closest('a[href]');
