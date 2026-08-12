@@ -71,13 +71,18 @@
     scheduleNotifications: function (jsonAlarms) {
       (async function () {
         try {
+          // TODO: notifications frozen until v1.1 — do not create channel / schedule
+          // remove this line when AlarmPlugin.java native work is done
+          return;
+
           if (!LocalNotifications) throw new Error('LocalNotifications plugin недоступний');
           var alarms = JSON.parse(jsonAlarms);
 
-          var perm = await LocalNotifications.checkPermissions();
-          if (perm.display !== 'granted') {
-            await LocalNotifications.requestPermissions();
-          }
+          // TODO: notifications frozen until v1.1 — skip permission prompt
+          // var perm = await LocalNotifications.checkPermissions();
+          // if (perm.display !== 'granted') {
+          //   await LocalNotifications.requestPermissions();
+          // }
 
           // КАНАЛ СПОВІЩЕНЬ — без нього Android 8+ показує сповіщення
           // тихою рядковою "шторкою", без звуку й без пробудження екрана,
@@ -163,20 +168,26 @@
     return d;
   }
 
-  if (LocalNotifications && LocalNotifications.requestPermissions) {
-  LocalNotifications.requestPermissions()
-    .then(function () {
-      if (LocalNotifications.changeExactNotificationSetting) {
-        LocalNotifications.checkExactNotificationSetting()
-          .then(function (res) {
-            if (res && res.exact_alarm !== 'granted') {
-              return LocalNotifications.changeExactNotificationSetting();
-            }
-          })
-          .catch(function (e) {
-            console.warn('checkExactNotificationSetting error', e);
-          });
-      }
+  // TODO: notifications frozen until v1.1 — no permission prompts for now
+  // if (LocalNotifications && LocalNotifications.requestPermissions) {
+  // LocalNotifications.requestPermissions()
+  //   .then(function () {
+  //     if (LocalNotifications.changeExactNotificationSetting) {
+  //       LocalNotifications.checkExactNotificationSetting()
+  //         .then(function (res) {
+  //           if (res && res.exact_alarm !== 'granted') {
+  //             return LocalNotifications.changeExactNotificationSetting();
+  //           }
+  //         })
+  //         .catch(function (e) {
+  //           console.warn('checkExactNotificationSetting error', e);
+  //         });
+  //     }
+  //   })
+  //   .catch(function (e) {
+  //     console.warn('requestPermissions error', e);
+  //   });
+  // }
     })
     .catch(function (e) {
       console.warn('requestPermissions error', e);
