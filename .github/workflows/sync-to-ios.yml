@@ -7,6 +7,11 @@ on:
     paths:
       - 'Releases/**'
 
+# Запобігає конфліктам, якщо робиться кілька пушів поспіль
+concurrency:
+  group: sync-to-ios
+  cancel-in-progress: true
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -20,18 +25,24 @@ jobs:
         run: |
           git config --global user.name "GitHub Sync Bot"
           git config --global user.email "bot@github.com"
-          
-          # Клонуємо iOS-репозиторій
-          git clone https://x-access-token:${API_TOKEN_GITHUB}@github.com/myk-boy/holy-vibe-capacitor-ios.git ios-repo
-          
-          # Очищаємо папку www в iOS-проєкті та копіюємо свіжий реліз
-          rm -rf ios-repo/www/*
-          cp -R Releases/* ios-repo/www/
-          
-          # Пушимо зміни в iOS репозиторій
+
+          # Клонуємо тільки останній коміт гілки main
+          git clone --depth 1 --branch main \
+            https://x-access-token:${API_TOKEN_GITHUB}@github.com/myk-boy/holy-vibe-capacitor-ios.git ios-repo
+
+          # Створюємо папку www (якщо відсутня) та повністю її очищаємо
+          mkdir -p ios-repo/www
+          find ios-repo/www -mindepth 1 -delete
+
+          # Копіюємо вміст Releases (включно з прихованими файлами)
+          cp -R Releases/. ios-repo/www/
+
+          # Коммітимо та пушимо зміни
           cd ios-repo
           git add .
           if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-sync release update from main repository"
+            git commit -m "Auto-sync release update from ${{ github.repository }}@${{ github.sha }}"
             git push origin main
+          else
+            echo "No changes to sync."
           fi
