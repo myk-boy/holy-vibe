@@ -1,8 +1,13 @@
-name: Publish Web Bundle Release
+name: Publish Web Bundle Release and Sync to iOS
 
 on:
   push:
     branches: [main]
+
+# Запобігає конфліктам, якщо ти швидко зробиш кілька правок поспіль
+concurrency:
+  group: web-release-sync
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -14,6 +19,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      # 1. ТВОЯ УЛЮБЛЕНА "МАГІЯ": Створюємо zip-архів для релізу (як і раніше)
       - name: Create zip of repo (excluding .git, .github, README.md)
         run: |
           zip -r holy-vibe-web.zip . \
@@ -26,6 +32,7 @@ jobs:
         run: |
           echo "tag=build-${{ github.run_number }}" >> "$GITHUB_OUTPUT"
 
+      # 2. Публікуємо zip-файл у GitHub Release (щоб ти міг завантажити на телефон)
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -34,3 +41,38 @@ jobs:
           files: holy-vibe-web.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 3. НОВА "МАГІЯ": Автоматично оновлюємо iOS-репозиторій
+      - name: Sync Web Files to iOS Repo
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.AUTO_SYNC_TOKEN }}
+        run: |
+          git config --global user.name "GitHub Sync Bot"
+          git config --global user.email "bot@github.com"
+
+          # Клонуємо iOS-репозиторій
+          git clone --depth 1 --branch main \
+            https://x-access-token:${API_TOKEN_GITHUB}@github.com/myk-boy/holy-vibe-capacitor-ios.git ios-repo
+
+          # Гарантуємо існування папки www та повністю очищаємо її від старих файлів
+          mkdir -p ios-repo/www
+          find ios-repo/www -mindepth 1 -delete
+
+          # Копіюємо всі веб-файли з кореня в папку www/ iOS-проєкту
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='README.md' \
+            --exclude='holy-vibe-web.zip' \
+            --exclude='ios-repo' \
+            ./ ios-repo/www/
+
+          # Пушимо зміни в iOS-репозиторій
+          cd ios-repo
+          git add .
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Auto-sync web code from build-${{ github.run_number }}"
+            git push origin main
+          else
+            echo "No changes to sync."
+          fi
