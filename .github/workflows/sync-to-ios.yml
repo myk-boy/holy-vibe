@@ -1,0 +1,37 @@
+name: Sync Web Release to iOS Repo
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Releases/**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Sync Releases folder to iOS repository
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.AUTO_SYNC_TOKEN }}
+        run: |
+          git config --global user.name "GitHub Sync Bot"
+          git config --global user.email "bot@github.com"
+          
+          # Клонуємо iOS-репозиторій
+          git clone https://x-access-token:${API_TOKEN_GITHUB}@github.com/myk-boy/holy-vibe-capacitor-ios.git ios-repo
+          
+          # Очищаємо папку www в iOS-проєкті та копіюємо свіжий реліз
+          rm -rf ios-repo/www/*
+          cp -R Releases/* ios-repo/www/
+          
+          # Пушимо зміни в iOS репозиторій
+          cd ios-repo
+          git add .
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Auto-sync release update from main repository"
+            git push origin main
+          fi
