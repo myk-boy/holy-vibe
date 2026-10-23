@@ -40,7 +40,7 @@ const UK_DEFAULT = {
   about_title: "Про переклади",
   music_title: "🎵 Молитовна музика (CC)",
   donate_title: "Підтримати проєкт ❤️",
-  donate_privat: "Картка Ощадбанк", donate_copy: "Скопіювати картку 🟢",
+  donate_privat: "Картка ПриватБанк", donate_copy: "Скопіювати картку 🟢",
   donate_copy_alert: "Номер картки скопійовано! 👍",
   settings_title: "Оформлення", settings_font: "Шрифт",
   settings_font_classic: "Класика", settings_font_tradition: "Традиція", settings_font_modern: "Сучасний",
@@ -110,6 +110,8 @@ async function loadLanguage(code) {
       : { ...UK_DEFAULT, ...(data.ui || {}) }; // фолбек на UK якщо ключ відсутній
 
     localStorage.setItem('hv_lang', code);
+    // Поточна мова → властивість користувача (враховує і автовизначення мови пристрою)
+    if (typeof trackUserProps === 'function') trackUserProps({ app_language: code });
 
     // Вірші: для UK не чіпаємо (вже з verses.json), для інших замінюємо
     if (code !== 'uk' && data.verses && data.verses.length) {
@@ -252,6 +254,8 @@ function buildLanguageSelector() {
   sel.addEventListener('change', async (e) => {
     const lang = SUPPORTED_LANGUAGES.find(l => l.code === e.target.value);
     await loadLanguage(e.target.value);
+    // Ручне перемикання мови користувачем
+    if (typeof trackLanguageSelect === 'function') trackLanguageSelect(e.target.value);
     showToast(lang?.name || e.target.value);
   });
 }
