@@ -904,3 +904,13 @@ body.skin-glass .verse-card {
   font-size: 12px; color: var(--text-secondary);
   display: block; margin-top: 4px; line-height: 1.5;
 }
+
+/* =====================================
+   ВИПРАВЛЕННЯ СИНЬОГО ЕКРАНУ НА iOS (TestFlight)
+   ===================================== */
+.verse-card, .verse-text, .verse-ref {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
