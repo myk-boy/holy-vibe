@@ -54,7 +54,7 @@ const TRACKS = [
 
 
 // BACKGROUNDS завантажуються з backgrounds.json (div. fetchBackgrounds)
-const BACKGROUNDS = [{ name: "Без фону", url: "" }];
+const BACKGROUNDS = [{ name: "No background", url: "" }];
 
 const FONTS = {
   cormorant: "'Cormorant Garamond', serif",
@@ -102,7 +102,7 @@ async function fetchVerses() {
     if (typeof window._onVersesReady === 'function') window._onVersesReady();
   } catch (err) {
     console.error('verses.json не завантажився:', err);
-    showToast('⚠️ Не вдалося завантажити вірші');
+    showToast(tr('toast_verses_failed', '⚠️ Failed to load verses'));
     $('verseLoading')?.remove();
     // Якщо вірші взагалі не завантажились — window._onVersesReady()
     // (і, відповідно, hideSplash() з i18n.js) ніколи не викличеться.
@@ -184,6 +184,15 @@ const audioEl     = $('audioEl');
 /* ─────────────────────────────────────
    4. УТИЛІТИ
 ───────────────────────────────────── */
+// Безпечний переклад: бере рядок з активного мовного файлу, а якщо ключа
+// немає — повертає англійський запасний текст (щоб не світилась українська).
+function tr(key, fb) {
+  try {
+    if (typeof t === 'function') { const v = t(key); if (v && v !== key) return v; }
+  } catch (e) { /* ігноруємо */ }
+  return fb;
+}
+
 let toastTimer;
 function showToast(msg) {
   toast.textContent = msg;
@@ -413,7 +422,7 @@ function buildCatPills(categories) {
   const bar = $('catBar');
   if (!bar) return;
   const pills = [
-    `<div class="pill active" data-cat="all">Усі</div>`,
+    `<div class="pill active" data-cat="all" data-i18n="cat_all">${tr('cat_all', 'All')}</div>`,
     ...Object.entries(categories).map(
       ([key, label]) => `<div class="pill" data-cat="${key}">${label}</div>`
     )
@@ -446,7 +455,7 @@ function switchCat(catKey, resumeProgress = true) {
       S.idx = seen + 1;
     } else {
       S.idx = 0;
-      if (typeof seen === 'number') showToast('📖 Ви переглянули всі вірші цієї категорії — починаємо спочатку');
+      if (typeof seen === 'number') showToast(tr('toast_cat_restart', '📖 You have seen all verses in this category — starting over'));
     }
   } else {
     S.idx = Math.max(0, S.pool.length - 1);
@@ -671,7 +680,7 @@ function updateMediaSession(track) {
   navigator.mediaSession.metadata = new MediaMetadata({
     title:  track ? track.name : 'Holy Vibe',
     artist: 'Holy Vibe App',
-    album:  'Молитовна музика',
+    album:  tr('media_album', 'Prayer music'),
     artwork: [
       { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
       { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
@@ -763,7 +772,7 @@ function playTrack(i) {
     })
     .catch(err => {
       console.warn('Audio error:', err);
-      showToast('⚠️ Не вдалося завантажити трек');
+      showToast(tr('toast_track_failed', '⚠️ Failed to load the track'));
     });
 }
 
@@ -868,7 +877,7 @@ function buildBgGrid() {
         bgEl.dataset.photo = '0';
       }
       applyStyle();
-      showToast(url ? '🖼️ Фон змінено' : '🖼️ Фон прибрано');
+      showToast(url ? tr('toast_bg_changed', '🖼️ Background changed') : tr('toast_bg_removed', '🖼️ Background removed'));
       saveSettings();
       const bgIdx = [...container.querySelectorAll('.bg-thumb')].indexOf(thumb);
       trackBackgroundSelect(BACKGROUNDS[bgIdx]?.name || 'unknown', bgIdx === 0);
@@ -898,7 +907,7 @@ $('bg').dataset.photo = '0';
 document.querySelectorAll('.font-opt').forEach(o =>
   o.addEventListener('click', () => {
     document.querySelectorAll('.font-opt').forEach(x=>x.classList.remove('active'));
-    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast('Шрифт змінено');
+    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast(tr('toast_font_changed', 'Font changed'));
     trackFontSelect(o.dataset.font, o.dataset.font === 'cormorant');
   })
 );
@@ -932,7 +941,7 @@ $('tglGlass').addEventListener('click', function() {
   applyGlass();
   saveSettings();
   trackGlassStyleToggle(S.glass);
-  showToast(S.glass ? '✦ Скляний стиль увімкнено' : '✦ Скляний стиль вимкнено');
+  showToast(S.glass ? tr('toast_glass_on', '✦ Glass style on') : tr('toast_glass_off', '✦ Glass style off'));
 });
 
 $('tglAutoBg').addEventListener('click', function() {
@@ -944,7 +953,7 @@ $('tglAutoBg').addEventListener('click', function() {
     applyStyle();
     saveSettings();
     trackBackgroundAutoChange();
-    showToast('🖼️ Авто-фон увімкнено');
+    showToast(tr('toast_autobg_on', '🖼️ Auto background on'));
   } else {
     // Вимикаємо — прибираємо фото-фон
     const bgEl = $('bg');
@@ -955,7 +964,7 @@ $('tglAutoBg').addEventListener('click', function() {
       t.classList.toggle('active', i === 0));
     applyStyle();
     saveSettings();
-    showToast('🖼️ Авто-фон вимкнено');
+    showToast(tr('toast_autobg_off', '🖼️ Auto background off'));
   }
 });
 
@@ -1233,7 +1242,7 @@ function runSearch(query) {
   ).slice(0, 50);
 
   if (!matches.length) {
-    box.innerHTML = `<div class="search-empty">Нічого не знайдено</div>`;
+    box.innerHTML = `<div class="search-empty">${tr('search_empty', 'Nothing found')}</div>`;
     return;
   }
 
@@ -1640,7 +1649,7 @@ $('shareImgClose').addEventListener('click', () => {
 function shareVerseAsTextFallback(v) {
   const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
   if (navigator.share) navigator.share({ text: txt }).catch(() => {});
-  else { navigator.clipboard?.writeText(txt); showToast('📋 Вірш скопійовано'); }
+  else { navigator.clipboard?.writeText(txt); showToast(tr('toast_verse_copied', '📋 Verse copied')); }
 }
 
 // Копіювання без діалогу "Поділитися" — просто одразу в буфер обміну
@@ -1648,7 +1657,7 @@ function copyVerseText(v) {
   const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(txt)
-      .then(() => showToast('📋 Вірш скопійовано'))
+      .then(() => showToast(tr('toast_verse_copied', '📋 Verse copied')))
       .catch(() => copyViaFallback(txt));
   } else {
     copyViaFallback(txt);
@@ -1666,9 +1675,9 @@ function copyViaFallback(txt) {
     ta.focus(); ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    showToast('📋 Вірш скопійовано');
+    showToast(tr('toast_verse_copied', '📋 Verse copied'));
   } catch {
-    showToast('⚠️ Не вдалося скопіювати');
+    showToast(tr('toast_copy_failed', '⚠️ Could not copy'));
   }
 }
 
@@ -1685,7 +1694,7 @@ $('btnShare').addEventListener('click', async () => {
   const v = cv(); if (!v) return;
   closeSheet();
   trackVerseShared(v.cat, v.id);
-  showToast('🖼️ Готуємо картинку…');
+  showToast(tr('toast_preparing_image', '🖼️ Preparing image…'));
   _shareInProgress = true;
 
   try {
