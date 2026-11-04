@@ -15,11 +15,11 @@
     "id": "Unique number (integer, do not repeat)",
     "text": "Verse text. \\n = new line",
     "ref": "Reference, e.g. 'Ps. 23:1'",
-    "cat": "Category: peace | love | fear | strength | hope | healing",
+    "cat": "Category: peace | love | faith | victory | strength | hope | healing | grace | promises",
     "ai": "Short spiritual reflection (2-4 sentences)"
   },
   "ui": {
-    "_comment": "Рядки інтерфейсу. При перекладі — перекладай тільки значення, не ключі.",
+    "_comment": "UI strings. When translating, translate only the values, not the keys.",
     "lang_code": "en",
     "lang_name": "English",
     "nav_word": "Word",
