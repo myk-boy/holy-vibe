@@ -102,7 +102,7 @@ async function fetchVerses() {
     if (typeof window._onVersesReady === 'function') window._onVersesReady();
   } catch (err) {
     console.error('verses.json не завантажився:', err);
-    showToast(tr('toast_verses_failed', '⚠️ Failed to load verses'));
+    showToast(tr('toast_load_error', '⚠️ Failed to load verses'));
     $('verseLoading')?.remove();
     // Якщо вірші взагалі не завантажились — window._onVersesReady()
     // (і, відповідно, hideSplash() з i18n.js) ніколи не викличеться.
@@ -772,7 +772,7 @@ function playTrack(i) {
     })
     .catch(err => {
       console.warn('Audio error:', err);
-      showToast(tr('toast_track_failed', '⚠️ Failed to load the track'));
+      showToast(tr('toast_track_error', '⚠️ Failed to load the track'));
     });
 }
 
@@ -1649,7 +1649,7 @@ $('shareImgClose').addEventListener('click', () => {
 function shareVerseAsTextFallback(v) {
   const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
   if (navigator.share) navigator.share({ text: txt }).catch(() => {});
-  else { navigator.clipboard?.writeText(txt); showToast(tr('toast_verse_copied', '📋 Verse copied')); }
+  else { navigator.clipboard?.writeText(txt); showToast(tr('toast_copied', '📋 Verse copied')); }
 }
 
 // Копіювання без діалогу "Поділитися" — просто одразу в буфер обміну
@@ -1657,7 +1657,7 @@ function copyVerseText(v) {
   const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(txt)
-      .then(() => showToast(tr('toast_verse_copied', '📋 Verse copied')))
+      .then(() => showToast(tr('toast_copied', '📋 Verse copied')))
       .catch(() => copyViaFallback(txt));
   } else {
     copyViaFallback(txt);
@@ -1675,7 +1675,7 @@ function copyViaFallback(txt) {
     ta.focus(); ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    showToast(tr('toast_verse_copied', '📋 Verse copied'));
+    showToast(tr('toast_copied', '📋 Verse copied'));
   } catch {
     showToast(tr('toast_copy_failed', '⚠️ Could not copy'));
   }
