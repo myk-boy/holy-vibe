@@ -36,19 +36,16 @@ const VERSES = [];
 const TRACKS = [
   {
     name: "Soaking Prayer — Jesse Quinn",
-    key:  "track1_name",
     src:  "audio/track1.mp3",
     license: "Jesse Quinn Media — used with permission"
   },
   {
     name: "Calm Worship Piano — Jesse Quinn",
-    key:  "track2_name",
     src:  "audio/track2.mp3",
     license: "Jesse Quinn Media — used with permission"
   },
   {
     name: "Peaceful Soaking Loop — Jesse Quinn",
-    key:  "track3_name",
     src:  "audio/track3.mp3",
     license: "Jesse Quinn Media — used with permission"
   },
@@ -57,7 +54,7 @@ const TRACKS = [
 
 
 // BACKGROUNDS завантажуються з backgrounds.json (div. fetchBackgrounds)
-const BACKGROUNDS = [{ name: "No background", url: "" }];
+const BACKGROUNDS = [{ name: "Без фону", url: "" }];
 
 const FONTS = {
   cormorant: "'Cormorant Garamond', serif",
@@ -81,6 +78,7 @@ async function fetchVerses() {
     window._CATEGORIES_UK = categories; // для i18n.js — повернення на українську
     buildCatOrder(categories);
     buildCatPills(categories);
+    applyStyle(); // пілюлі створені щойно — застосовуємо збережений розмір
     // ───────────────────────────────────────────────────────────────────
 
     // Відновлюємо збережену позицію
@@ -105,7 +103,7 @@ async function fetchVerses() {
     if (typeof window._onVersesReady === 'function') window._onVersesReady();
   } catch (err) {
     console.error('verses.json не завантажився:', err);
-    showToast(tr('toast_load_error', '⚠️ Failed to load verses'));
+    showToast('⚠️ Не вдалося завантажити вірші');
     $('verseLoading')?.remove();
     // Якщо вірші взагалі не завантажились — window._onVersesReady()
     // (і, відповідно, hideSplash() з i18n.js) ніколи не викличеться.
@@ -187,15 +185,6 @@ const audioEl     = $('audioEl');
 /* ─────────────────────────────────────
    4. УТИЛІТИ
 ───────────────────────────────────── */
-// Безпечний переклад: бере рядок з активного мовного файлу, а якщо ключа
-// немає — повертає англійський запасний текст (щоб не світилась українська).
-function tr(key, fb) {
-  try {
-    if (typeof t === 'function') { const v = t(key); if (v && v !== key) return v; }
-  } catch (e) { /* ігноруємо */ }
-  return fb;
-}
-
 let toastTimer;
 function showToast(msg) {
   toast.textContent = msg;
@@ -233,21 +222,7 @@ function recordCatProgress(catKey, idx) {
 }
 function loadPos()   { try { return JSON.parse(localStorage.getItem('hv_pos') || 'null'); } catch { return null; } }
 
-// Стан налаштувань → властивості користувача Firebase (відправляються лише при зміні)
-function syncUserProps() {
-  if (typeof trackUserProps !== 'function') return;
-  trackUserProps({
-    font:        S.font,
-    font_color:  S.color,
-    shuffle:     S.shuffle ? 'on' : 'off',
-    repeat_mode: S.playMode === 'sequence' ? 'playlist_repeat' : 'track_repeat',
-    glass_style: S.glass   ? 'on' : 'off',
-    auto_bg:     S.autoBg  ? 'on' : 'off',
-  });
-}
-
 function saveSettings() {
-  syncUserProps();
   const bgEl = $('bg');
   localStorage.setItem('hv_settings', JSON.stringify({
     font:     S.font,
@@ -336,10 +311,28 @@ function applyStyle() {
     p.style.background  = isActive ? 'rgba(201,168,76,.25)' : pillBg;
     p.style.borderColor = isActive ? 'var(--clr-gold)' : pillBor;
     p.style.color       = isActive ? 'var(--clr-gold-lt)' : pillClr;
-    p.style.fontSize    = (10 + (S.iconSize / 100) * 4) + 'px';
-    p.style.padding     = `${5 + (S.iconSize/100)*3}px ${12 + (S.iconSize/100)*4}px`;
+    // Розмір категорій прив'язаний до повзунка «Розмір іконок і навігації» (10–18px)
+    p.style.fontSize    = (10 + (S.iconSize / 100) * 8) + 'px';
+    p.style.padding     = `${5 + (S.iconSize/100)*5}px ${12 + (S.iconSize/100)*8}px`;
     p.style.textShadow  = isPhoto ? '0 1px 4px rgba(0,0,0,.8)' : 'none';
   });
+
+  // Кнопка-перемикач категорій («Усі ▾») і кнопка пошуку — теж ростуть разом з повзунком
+  const catBtn = $('catToggleBtn');
+  if (catBtn) {
+    catBtn.style.fontSize = (11 + (S.iconSize / 100) * 7) + 'px';
+    const catSvgPx = 15 + (S.iconSize / 100) * 6;
+    catBtn.querySelectorAll('svg:not(.cat-toggle-arrow)').forEach(svg => {
+      svg.style.width = catSvgPx + 'px'; svg.style.height = catSvgPx + 'px';
+    });
+  }
+  const searchBtn = $('searchToggleBtn');
+  if (searchBtn) {
+    const sPx = 15 + (S.iconSize / 100) * 6;
+    searchBtn.querySelectorAll('svg').forEach(svg => {
+      svg.style.width = sPx + 'px'; svg.style.height = sPx + 'px';
+    });
+  }
 
   // Розмір іконок навігації
   const iconPx = 20 + (S.iconSize / 100) * 16;
@@ -425,7 +418,7 @@ function buildCatPills(categories) {
   const bar = $('catBar');
   if (!bar) return;
   const pills = [
-    `<div class="pill active" data-cat="all" data-i18n="cat_all">${tr('cat_all', 'All')}</div>`,
+    `<div class="pill active" data-cat="all">Усі</div>`,
     ...Object.entries(categories).map(
       ([key, label]) => `<div class="pill" data-cat="${key}">${label}</div>`
     )
@@ -458,7 +451,7 @@ function switchCat(catKey, resumeProgress = true) {
       S.idx = seen + 1;
     } else {
       S.idx = 0;
-      if (typeof seen === 'number') showToast(tr('toast_cat_restart', '📖 You have seen all verses in this category — starting over'));
+      if (typeof seen === 'number') showToast('📖 Ви переглянули всі вірші цієї категорії — починаємо спочатку');
     }
   } else {
     S.idx = Math.max(0, S.pool.length - 1);
@@ -481,7 +474,6 @@ function next() {
       S.idx++;
     } else {
       switchCat(nextCat());
-      trackCategorySelect(S.cat, 'swipe');
       showCatBanner($('catToggleLabel').textContent || S.cat);
     }
   }
@@ -499,7 +491,6 @@ function prev() {
       // Гортаємо назад у попередню категорію — потрапляємо на її останній вірш,
       // а не знову на перший (так природніше при русі "назад")
       switchCat(prevCat(), false);
-      trackCategorySelect(S.cat, 'swipe');
       showCatBanner($('catToggleLabel').textContent || S.cat);
     }
   }
@@ -539,7 +530,6 @@ $('catBar').addEventListener('click', e => {
   // ПРОГРЕС КАТЕГОРІЙ: switchCat() сам ставить S.idx на наступний
   // непереглянутий вірш (або на 0, якщо категорію переглянуто повністю)
   switchCat(p.dataset.cat);
-  trackCategorySelect(p.dataset.cat, 'pill');
 
   // Закриваємо панель після вибору
   catBarVisible = false;
@@ -596,7 +586,7 @@ window.addEventListener('mouseup',   e => {
 
 function triggerHeart() {
   const v=cv(); if (!v) return;
-  if (!isFav(v.id)) { S.favs.push(v); saveFavs(); showToast(t('toast_added_fav_alt')); trackFavoriteAdded(v.cat, v.id); }
+  if (!isFav(v.id)) { S.favs.push(v); saveFavs(); showToast(t('toast_added_fav_alt')); }
   else showToast(t('toast_already_fav'));
   heartBurst.classList.remove('pop'); void heartBurst.offsetWidth; heartBurst.classList.add('pop');
   setTimeout(() => heartBurst.classList.remove('pop'), 900);
@@ -622,7 +612,6 @@ $('btnAI').addEventListener('click', () => {
   const v=cv(); if (!v) return;
   aiAnswer.textContent = v.ai;
   aiPanel.classList.add('visible');
-  trackAiExplanation(v.id);
 });
 
 // Обробник кнопки btnShare — див. розділ "16. ПОДІЛИТИСЯ КАРТИНКОЮ" в кінці файлу
@@ -654,8 +643,6 @@ function renderFavList() {
   favList.querySelectorAll('.fav-item-del').forEach(b =>
     b.addEventListener('click', e => {
       e.stopPropagation();
-      const removed = S.favs.find(v => v.id === +b.dataset.del);
-      if (removed) trackFavoriteRemoved(removed.cat, removed.id);
       S.favs = S.favs.filter(v => v.id !== +b.dataset.del);
       saveFavs(); renderFavList(); showToast(t('toast_deleted'));
     })
@@ -681,9 +668,9 @@ function renderFavList() {
 function updateMediaSession(track) {
   if (!('mediaSession' in navigator)) return;
   navigator.mediaSession.metadata = new MediaMetadata({
-    title:  track ? tr(track.key, track.name) : 'Holy Vibe',
+    title:  track ? track.name : 'Holy Vibe',
     artist: 'Holy Vibe App',
-    album:  tr('media_album', 'Prayer music'),
+    album:  'Молитовна музика',
     artwork: [
       { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
       { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
@@ -724,14 +711,14 @@ function buildTrackList() {
     <div class="music-track" id="track${i}">
       <div class="track-play-btn" id="ico${i}">▶</div>
       <div class="track-info">
-        <div class="track-name" id="tname${i}" data-i18n="${t.key}">${tr(t.key, t.name)}</div>
-        <div class="track-license" data-i18n="track_license">${tr('track_license', t.license)}</div>
+        <div class="track-name" id="tname${i}">${t.name}</div>
+        <div class="track-license">${t.license}</div>
       </div>
     </div>`).join('');
 
   TRACKS.forEach((t,i) => {
     $(`track${i}`).addEventListener('click', () => {
-      if (S.playing === i) { trackStopTrack(TRACKS[i].name); stopTrack(); }
+      if (S.playing === i) stopTrack();
       else playTrack(i);
     });
   });
@@ -767,15 +754,14 @@ function playTrack(i) {
       $(`track${i}`)?.classList.add('playing');
       $(`tname${i}`)?.classList.add('playing');
       const ico = $(`ico${i}`); if (ico) ico.textContent = '⏸';
-      showToast('🎵 ' + tr(t.key, t.name));
-      trackPlayTrack(t.name);
+      showToast('🎵 ' + t.name);
       updateMediaSession(t);
       if ('mediaSession' in navigator)
         navigator.mediaSession.playbackState = 'playing';
     })
     .catch(err => {
       console.warn('Audio error:', err);
-      showToast(tr('toast_track_error', '⚠️ Failed to load the track'));
+      showToast('⚠️ Не вдалося завантажити трек');
     });
 }
 
@@ -823,7 +809,6 @@ $('btnRepeatMode')?.addEventListener('click', () => {
   if (S.playing >= 0) audioEl.loop = (S.playMode === 'single' && !S.shuffle);
   syncPlayerControlsUI();
   saveSettings();
-  trackRepeatMode(S.playMode === 'sequence' ? 'playlist_repeat' : 'track_repeat');
   showToast(S.playMode === 'sequence' ? t('toast_play_sequence') : t('toast_play_repeat'));
 });
 
@@ -832,7 +817,6 @@ $('btnShuffle')?.addEventListener('click', () => {
   if (S.playing >= 0) audioEl.loop = (S.playMode === 'single' && !S.shuffle);
   syncPlayerControlsUI();
   saveSettings();
-  trackShuffleToggle(S.shuffle);
   showToast(S.shuffle ? t('toast_shuffle_on') : t('toast_shuffle_off'));
 });
 
@@ -880,10 +864,8 @@ function buildBgGrid() {
         bgEl.dataset.photo = '0';
       }
       applyStyle();
-      showToast(url ? tr('toast_bg_changed', '🖼️ Background changed') : tr('toast_bg_removed', '🖼️ Background removed'));
+      showToast(url ? '🖼️ Фон змінено' : '🖼️ Фон прибрано');
       saveSettings();
-      const bgIdx = [...container.querySelectorAll('.bg-thumb')].indexOf(thumb);
-      trackBackgroundSelect(BACKGROUNDS[bgIdx]?.name || 'unknown', bgIdx === 0);
     });
   });
 
@@ -910,15 +892,13 @@ $('bg').dataset.photo = '0';
 document.querySelectorAll('.font-opt').forEach(o =>
   o.addEventListener('click', () => {
     document.querySelectorAll('.font-opt').forEach(x=>x.classList.remove('active'));
-    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast(tr('toast_font_changed', 'Font changed'));
-    trackFontSelect(o.dataset.font, o.dataset.font === 'cormorant');
+    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast('Шрифт змінено');
   })
 );
 document.querySelectorAll('.color-dot').forEach(d =>
   d.addEventListener('click', () => {
     document.querySelectorAll('.color-dot').forEach(x=>x.classList.remove('active'));
     d.classList.add('active'); S.color=d.dataset.color; applyStyle(); saveSettings();
-    trackFontColorChange(d.dataset.color);
   })
 );
 
@@ -943,8 +923,7 @@ $('tglGlass').addEventListener('click', function() {
   this.classList.toggle('on', S.glass);
   applyGlass();
   saveSettings();
-  trackGlassStyleToggle(S.glass);
-  showToast(S.glass ? tr('toast_glass_on', '✦ Glass style on') : tr('toast_glass_off', '✦ Glass style off'));
+  showToast(S.glass ? '✦ Скляний стиль увімкнено' : '✦ Скляний стиль вимкнено');
 });
 
 $('tglAutoBg').addEventListener('click', function() {
@@ -955,8 +934,7 @@ $('tglAutoBg').addEventListener('click', function() {
     applyAutoBg();
     applyStyle();
     saveSettings();
-    trackBackgroundAutoChange();
-    showToast(tr('toast_autobg_on', '🖼️ Auto background on'));
+    showToast('🖼️ Авто-фон увімкнено');
   } else {
     // Вимикаємо — прибираємо фото-фон
     const bgEl = $('bg');
@@ -967,7 +945,7 @@ $('tglAutoBg').addEventListener('click', function() {
       t.classList.toggle('active', i === 0));
     applyStyle();
     saveSettings();
-    showToast(tr('toast_autobg_off', '🖼️ Auto background off'));
+    showToast('🖼️ Авто-фон вимкнено');
   }
 });
 
@@ -1162,7 +1140,6 @@ $('btnAlarmSave').addEventListener('click', () => {
       notif_body: bodyText, // <-- Додали сюди для нового сповіщення
       active: true 
     });
-    trackAlarmCreated(isOnce ? 'once' : isEveryDay ? 'daily' : 'custom_days');
   }
 
   saveAlarms();
@@ -1176,7 +1153,6 @@ $('btnAlarmSave').addEventListener('click', () => {
    14. INIT
 ───────────────────────────────────── */
 loadSettings();
-syncUserProps(); // фіксуємо поточний стан і для тих, хто нічого не міняв
 
 // Відновлюємо UI налаштувань під збережений стан
 document.querySelectorAll('.font-opt').forEach(o =>
@@ -1245,7 +1221,7 @@ function runSearch(query) {
   ).slice(0, 50);
 
   if (!matches.length) {
-    box.innerHTML = `<div class="search-empty">${tr('search_empty', 'Nothing found')}</div>`;
+    box.innerHTML = `<div class="search-empty">Нічого не знайдено</div>`;
     return;
   }
 
@@ -1257,7 +1233,6 @@ function runSearch(query) {
 }
 
 function openSearch() {
-  trackSearchOpen();
   $('searchOverlay').classList.add('open');
   $('searchInput').value = '';
   $('searchResults').innerHTML = '';
@@ -1285,7 +1260,6 @@ $('searchResults').addEventListener('click', e => {
   const id = +item.dataset.id;
   const globalIdx = VERSES.findIndex(v => v.id === id);
   if (globalIdx === -1) return;
-  trackSearchResultOpen(id);
 
   S.cat  = 'all';
   S.pool = [...VERSES];
@@ -1628,7 +1602,7 @@ function callAndroidShareImage(dataUrl, fileName, caption) {
       resolve({ success: false, errorMsg: String(err) });
     }
   });
-  return withTimeout(p, 60000, { success: false, errorMsg: 'timeout: нативний код не відповів за 6с' })
+  return withTimeout(p, 6000, { success: false, errorMsg: 'timeout: нативний код не відповів за 6с' })
     .then(result => {
       // Якщо спрацював саме таймаут (а не сам проміс) — _shareImageResolve
       // досі "висить" і вказує на цей виклик. Обов'язково скидаємо його,
@@ -1652,7 +1626,7 @@ $('shareImgClose').addEventListener('click', () => {
 function shareVerseAsTextFallback(v) {
   const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
   if (navigator.share) navigator.share({ text: txt }).catch(() => {});
-  else { navigator.clipboard?.writeText(txt); showToast(tr('toast_copied', '📋 Verse copied')); }
+  else { navigator.clipboard?.writeText(txt); showToast('📋 Вірш скопійовано'); }
 }
 
 // Копіювання без діалогу "Поділитися" — просто одразу в буфер обміну
@@ -1660,7 +1634,7 @@ function copyVerseText(v) {
   const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(txt)
-      .then(() => showToast(tr('toast_copied', '📋 Verse copied')))
+      .then(() => showToast('📋 Вірш скопійовано'))
       .catch(() => copyViaFallback(txt));
   } else {
     copyViaFallback(txt);
@@ -1678,9 +1652,9 @@ function copyViaFallback(txt) {
     ta.focus(); ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    showToast(tr('toast_copied', '📋 Verse copied'));
+    showToast('📋 Вірш скопійовано');
   } catch {
-    showToast(tr('toast_copy_failed', '⚠️ Could not copy'));
+    showToast('⚠️ Не вдалося скопіювати');
   }
 }
 
@@ -1688,7 +1662,6 @@ $('btnCopyText').addEventListener('click', () => {
   const v = cv(); if (!v) return;
   closeSheet();
   copyVerseText(v);
-  trackVerseCopied(v.id);
 });
 
 let _shareInProgress = false;
@@ -1696,8 +1669,7 @@ $('btnShare').addEventListener('click', async () => {
   if (_shareInProgress) return; // ігноруємо повторний тап, поки вже йде генерація
   const v = cv(); if (!v) return;
   closeSheet();
-  trackVerseShared(v.cat, v.id);
-  showToast(tr('toast_preparing_image', '🖼️ Preparing image…'));
+  showToast('🖼️ Готуємо картинку…');
   _shareInProgress = true;
 
   try {
