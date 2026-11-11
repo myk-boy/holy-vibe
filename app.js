@@ -344,6 +344,9 @@ function applyStyle() {
   document.querySelectorAll('.nav-label').forEach(l => {
     l.style.fontSize = labelPx + 'px';
   });
+
+  // Розмір шрифту/шрифт могли змінитись — перевіряємо, чи вірш досі вміщується
+  updateVerseScroll();
 }
 
 
@@ -373,6 +376,54 @@ function applyAutoBg() {
 // попереднього таймера (гонка станів / race condition).
 let _renderSeq = 0;
 
+/* ── Довгі вірші: прокрутка всередині картки ─────────────────────────
+   Якщо вірш не вміщується на екран при обраному розмірі шрифту, картка
+   стає прокручуваною (шрифт не чіпаємо). Вірш завжди починається зверху.
+   Перегортання на наступний/попередній вірш спрацьовує лише тоді, коли
+   жест ПОЧАВСЯ вже на краю тексту (див. startGesture / endGesture).
+──────────────────────────────────────────────────────────────────── */
+function updateVerseScroll() {
+  const card = verseCard, wrap = $('verseWrap');
+  if (!card || !wrap) return;
+
+  // скидаємо, щоб виміряти природну висоту вірша
+  card.style.maxHeight = ''; card.style.overflowY = ''; card.style.padding = '';
+  card.style.boxSizing = ''; card.style.touchAction = '';
+  delete card.dataset.scroll;
+
+  const cs    = getComputedStyle(wrap);
+  const avail = wrap.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) - 16;
+  const needs = avail > 80 && (card.scrollHeight > avail + 1 || card.scrollHeight > card.clientHeight + 1);
+
+  if (needs) {
+    card.dataset.scroll = '1';
+    card.style.boxSizing = 'border-box';
+    card.style.maxHeight = avail + 'px';
+    card.style.overflowY = 'auto';
+    card.style.touchAction = 'pan-y';
+    card.style.padding = '20px 0'; // місце для тіні тексту, щоб її не обрізало
+    card.style.overscrollBehavior = 'contain';
+    card.style.scrollbarWidth = 'none'; // ховаємо смугу, показуємо м'яке затемнення на краях
+  }
+  card.scrollTop = 0;
+  updateVerseFade();
+}
+
+function updateVerseFade() {
+  const card = verseCard;
+  const on = card.dataset.scroll === '1';
+  const top = on && card.scrollTop > 2;
+  const bottom = on && card.scrollTop + card.clientHeight < card.scrollHeight - 2;
+  const mask = on
+    ? `linear-gradient(to bottom, ${top ? 'transparent 0, #000 32px' : '#000 0'}, ${bottom ? '#000 calc(100% - 32px), transparent 100%' : '#000 100%'})`
+    : '';
+  card.style.webkitMaskImage = mask;
+  card.style.maskImage = mask;
+}
+verseCard.addEventListener('scroll', updateVerseFade, {passive:true});
+window.addEventListener('resize', () => updateVerseScroll());
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => updateVerseScroll());
+
 function renderVerse(dir = 'up') {
   S.idx = Math.min(S.idx, Math.max(0, S.pool.length - 1));
   const v = cv(); if (!v) return;
@@ -390,6 +441,7 @@ function renderVerse(dir = 'up') {
     verseTextEl.innerHTML   = formatText(v.text);
     verseRefEl.textContent  = v.ref;
     if (S.autoBg) applyAutoBg();
+    updateVerseScroll();
   };
   if (!S.anim) { write(); return; }
   verseCard.classList.add(dir === 'up' ? 'out-up' : 'out-down');
@@ -547,8 +599,13 @@ $('catBar').addEventListener('click', e => {
 let startY=0, startX=0, moved=false, dragging=false;
 let longTimer=null, lastTap=0;
 
+let startAtTop=true, startAtBottom=true;
 function startGesture(y,x) {
   startY=y; startX=x; moved=false; dragging=true;
+  // Чи вірш прокручується і де ми були в момент початку жесту
+  const sc = verseCard.dataset.scroll === '1';
+  startAtTop    = !sc || verseCard.scrollTop <= 2;
+  startAtBottom = !sc || verseCard.scrollTop + verseCard.clientHeight >= verseCard.scrollHeight - 2;
   if (!S.sheet) longTimer = setTimeout(openSheet, 520);
 }
 function moveGesture(y,x) {
@@ -563,7 +620,13 @@ function endGesture(y) {
   if (longTimer) { clearTimeout(longTimer); longTimer=null; }
   if (S.sheet) return;
   const dy = startY-y;
-  if (Math.abs(dy)>35) { dy>0 ? next() : prev(); }
+  if (Math.abs(dy)>35) {
+    // Довгий вірш: гортаємо далі тільки якщо жест почався вже на краю тексту.
+    // Інакше це був звичайний скрол всередині вірша.
+    if (dy>0 && !startAtBottom) return;
+    if (dy<0 && !startAtTop)    return;
+    dy>0 ? next() : prev();
+  }
 }
 
 const vw = $('verseWrap');
