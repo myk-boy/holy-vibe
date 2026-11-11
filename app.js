@@ -346,7 +346,8 @@ function applyStyle() {
   });
 
   // Розмір шрифту/шрифт могли змінитись — перевіряємо, чи вірш досі вміщується
-  updateVerseScroll();
+  // (повторно перемірюється ще й після анімації font-size, див. transitionend)
+  updateVerseScroll(true);
 }
 
 
@@ -376,53 +377,56 @@ function applyAutoBg() {
 // попереднього таймера (гонка станів / race condition).
 let _renderSeq = 0;
 
-/* ── Довгі вірші: прокрутка всередині картки ─────────────────────────
-   Якщо вірш не вміщується на екран при обраному розмірі шрифту, картка
-   стає прокручуваною (шрифт не чіпаємо). Вірш завжди починається зверху.
-   Перегортання на наступний/попередній вірш спрацьовує лише тоді, коли
-   жест ПОЧАВСЯ вже на краю тексту (див. startGesture / endGesture).
+/* ── Довгі вірші: прокрутка тексту всередині картки ─────────────────
+   Якщо вірш не вміщується на екран при обраному розмірі шрифту, текст
+   (#verseText) стає прокручуваним, а картка, посилання і скляний скін
+   лишаються на місці. Шрифт не чіпаємо. Вірш завжди починається зверху.
+   Перегортання на інший вірш спрацьовує лише тоді, коли жест ПОЧАВСЯ
+   вже на краю тексту (див. startGesture / endGesture).
+   Статичні стилі — клас .verse-text.scrollable у styles.css.
 ──────────────────────────────────────────────────────────────────── */
-function updateVerseScroll() {
-  const card = verseCard, wrap = $('verseWrap');
-  if (!card || !wrap) return;
+function updateVerseScroll(keepScroll = false) {
+  const card = verseCard, txt = verseTextEl, wrap = $('verseWrap');
+  if (!card || !txt || !wrap) return;
 
-  // скидаємо, щоб виміряти природну висоту вірша
-  card.style.maxHeight = ''; card.style.overflowY = ''; card.style.padding = '';
-  card.style.boxSizing = ''; card.style.touchAction = '';
-  delete card.dataset.scroll;
+  const prevTop = txt.scrollTop;
+  txt.classList.remove('scrollable');
+  txt.style.maxHeight = '';
 
-  const cs    = getComputedStyle(wrap);
-  const avail = wrap.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) - 16;
-  const needs = avail > 80 && (card.scrollHeight > avail + 1 || card.scrollHeight > card.clientHeight + 1);
+  const avail    = wrap.clientHeight - 24;          // 0, якщо екран зараз прихований
+  const overflow = card.offsetHeight - avail;       // на скільки вірш вищий за екран
 
-  if (needs) {
-    card.dataset.scroll = '1';
-    card.style.boxSizing = 'border-box';
-    card.style.maxHeight = avail + 'px';
-    card.style.overflowY = 'auto';
-    card.style.touchAction = 'pan-y';
-    card.style.padding = '20px 0'; // місце для тіні тексту, щоб її не обрізало
-    card.style.overscrollBehavior = 'contain';
-    card.style.scrollbarWidth = 'none'; // ховаємо смугу, показуємо м'яке затемнення на краях
+  if (avail >= 120 && overflow > 1) {
+    // .scrollable додає padding 24px + margin -24px (місце для тіні, розкладка не змінюється),
+    // тож до висоти border-box додаємо ці 2×24px
+    const textH = txt.offsetHeight;
+    txt.classList.add('scrollable');
+    txt.style.maxHeight = (Math.max(80, textH - overflow) + 48) + 'px';
+    txt.scrollTop = keepScroll ? prevTop : 0;
+  } else {
+    txt.scrollTop = 0;
   }
-  card.scrollTop = 0;
   updateVerseFade();
 }
 
 function updateVerseFade() {
-  const card = verseCard;
-  const on = card.dataset.scroll === '1';
-  const top = on && card.scrollTop > 2;
-  const bottom = on && card.scrollTop + card.clientHeight < card.scrollHeight - 2;
+  const t = verseTextEl;
+  const on     = t.classList.contains('scrollable');
+  const top    = on && t.scrollTop > 2;
+  const bottom = on && t.scrollTop + t.clientHeight < t.scrollHeight - 2;
   const mask = on
-    ? `linear-gradient(to bottom, ${top ? 'transparent 0, #000 32px' : '#000 0'}, ${bottom ? '#000 calc(100% - 32px), transparent 100%' : '#000 100%'})`
+    ? `linear-gradient(to bottom, ${top ? 'transparent 20px, #000 56px' : '#000 0'}, ${bottom ? '#000 calc(100% - 56px), transparent calc(100% - 20px)' : '#000 100%'})`
     : '';
-  card.style.webkitMaskImage = mask;
-  card.style.maskImage = mask;
+  t.style.webkitMaskImage = mask;
+  t.style.maskImage = mask;
 }
-verseCard.addEventListener('scroll', updateVerseFade, {passive:true});
-window.addEventListener('resize', () => updateVerseScroll());
-if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => updateVerseScroll());
+verseTextEl.addEventListener('scroll', updateVerseFade, {passive:true});
+// Розмір контейнера міг змінитись (поворот екрана, панель категорій, повернення на головний екран)
+if (window.ResizeObserver) new ResizeObserver(() => updateVerseScroll(true)).observe($('verseWrap'));
+else window.addEventListener('resize', () => updateVerseScroll(true));
+// font-size у .verse-text анімується 0.3с — перемірюємо, коли анімація закінчилась
+verseTextEl.addEventListener('transitionend', e => { if (e.propertyName === 'font-size') updateVerseScroll(true); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => updateVerseScroll(true));
 
 function renderVerse(dir = 'up') {
   S.idx = Math.min(S.idx, Math.max(0, S.pool.length - 1));
@@ -603,9 +607,9 @@ let startAtTop=true, startAtBottom=true;
 function startGesture(y,x) {
   startY=y; startX=x; moved=false; dragging=true;
   // Чи вірш прокручується і де ми були в момент початку жесту
-  const sc = verseCard.dataset.scroll === '1';
-  startAtTop    = !sc || verseCard.scrollTop <= 2;
-  startAtBottom = !sc || verseCard.scrollTop + verseCard.clientHeight >= verseCard.scrollHeight - 2;
+  const sc = verseTextEl.classList.contains('scrollable');
+  startAtTop    = !sc || verseTextEl.scrollTop <= 2;
+  startAtBottom = !sc || verseTextEl.scrollTop + verseTextEl.clientHeight >= verseTextEl.scrollHeight - 2;
   if (!S.sheet) longTimer = setTimeout(openSheet, 520);
 }
 function moveGesture(y,x) {
@@ -979,6 +983,7 @@ mkToggle('tglAnim','anim');
 
 function applyGlass() {
   document.body.classList.toggle('skin-glass', S.glass);
+  updateVerseScroll(true); // відступи картки змінились
 }
 
 $('tglGlass').addEventListener('click', function() {

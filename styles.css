@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
- styles.css  —  СЛОВО App
+   styles.css  —  СЛОВО App
    Секції:
    1.  Токени (змінні)
    2.  Reset / Base
@@ -477,6 +477,21 @@ body.skin-glass .verse-card {
 }
 .verse-text em { font-style: italic; color: var(--clr-gold-lt); }
 
+/* Довгий вірш: текст прокручується всередині картки (клас ставить updateVerseScroll() в app.js).
+   padding 24px + margin -24px — запас, щоб overflow не обрізав тінь тексту; розкладка не змінюється. */
+.verse-text.scrollable {
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 24px;
+  margin: -24px;
+  width: calc(100% + 48px);
+  touch-action: pan-y;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.verse-text.scrollable::-webkit-scrollbar { display: none; }
+
 /* Референс */
 .verse-ref {
   font-size: clamp(11px, 2.5vw, 13px);
@@ -903,14 +918,4 @@ body.skin-glass .verse-card {
 .notif-soon-text span {
   font-size: 12px; color: var(--text-secondary);
   display: block; margin-top: 4px; line-height: 1.5;
-}
-
-/* =====================================
-   ВИПРАВЛЕННЯ СИНЬОГО ЕКРАНУ НА iOS (TestFlight)
-   ===================================== */
-.verse-card, .verse-text, .verse-ref {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
 }
