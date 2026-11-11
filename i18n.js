@@ -143,7 +143,7 @@ async function loadLanguage(code) {
 
     // Категорії
     const cats = data._categories || data.categories || {};
-    refreshCatBar(cats, data.ui?.cat_all);
+    refreshCatBar(cats, window._currentUI.cat_all); // НЕ data.ui?.cat_all: у uk.json немає блоку ui → підпис "All" не повертався в "Усі"
 
     // DOM
     applyI18n(window._currentUI);
@@ -217,6 +217,7 @@ function applyI18n(ui) {
 ───────────────────────────────────────────────────────── */
 function refreshCatBar(categories, allLabel) {
   const allPill = document.querySelector('.pill[data-cat="all"]');
+  allLabel = allLabel || (window._currentUI && window._currentUI.cat_all);
   if (allPill && allLabel) allPill.textContent = allLabel;
 
   if (categories) {
