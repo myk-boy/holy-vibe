@@ -36,16 +36,19 @@ const VERSES = [];
 const TRACKS = [
   {
     name: "Soaking Prayer — Jesse Quinn",
+    key:  "track1_name",
     src:  "audio/track1.mp3",
     license: "Jesse Quinn Media — used with permission"
   },
   {
     name: "Calm Worship Piano — Jesse Quinn",
+    key:  "track2_name",
     src:  "audio/track2.mp3",
     license: "Jesse Quinn Media — used with permission"
   },
   {
     name: "Peaceful Soaking Loop — Jesse Quinn",
+    key:  "track3_name",
     src:  "audio/track3.mp3",
     license: "Jesse Quinn Media — used with permission"
   },
@@ -678,7 +681,7 @@ function renderFavList() {
 function updateMediaSession(track) {
   if (!('mediaSession' in navigator)) return;
   navigator.mediaSession.metadata = new MediaMetadata({
-    title:  track ? track.name : 'Holy Vibe',
+    title:  track ? tr(track.key, track.name) : 'Holy Vibe',
     artist: 'Holy Vibe App',
     album:  tr('media_album', 'Prayer music'),
     artwork: [
@@ -721,8 +724,8 @@ function buildTrackList() {
     <div class="music-track" id="track${i}">
       <div class="track-play-btn" id="ico${i}">▶</div>
       <div class="track-info">
-        <div class="track-name" id="tname${i}">${t.name}</div>
-        <div class="track-license">${t.license}</div>
+        <div class="track-name" id="tname${i}" data-i18n="${t.key}">${tr(t.key, t.name)}</div>
+        <div class="track-license" data-i18n="track_license">${tr('track_license', t.license)}</div>
       </div>
     </div>`).join('');
 
@@ -764,7 +767,7 @@ function playTrack(i) {
       $(`track${i}`)?.classList.add('playing');
       $(`tname${i}`)?.classList.add('playing');
       const ico = $(`ico${i}`); if (ico) ico.textContent = '⏸';
-      showToast('🎵 ' + t.name);
+      showToast('🎵 ' + tr(t.key, t.name));
       trackPlayTrack(t.name);
       updateMediaSession(t);
       if ('mediaSession' in navigator)

@@ -88,6 +88,10 @@ const UK_DEFAULT = {
   toast_cat_restart: "📖 Ви переглянули всі вірші цієї категорії — починаємо спочатку",
   toast_copy_failed: "⚠️ Не вдалося скопіювати", toast_preparing_image: "🖼️ Готуємо картинку…",
   media_album: "Молитовна музика", search_empty: "Нічого не знайдено",
+  track1_name: "Молитва просочення — Jesse Quinn",
+  track2_name: "Спокійне піаніно для поклоніння — Jesse Quinn",
+  track3_name: "Мирне просочення (цикл) — Jesse Quinn",
+  track_license: "Jesse Quinn Media — використовується з дозволу",
 };
 
 // _currentUI одразу містить українські рядки — t() працює з першої секунди
