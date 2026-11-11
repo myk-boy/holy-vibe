@@ -40,7 +40,7 @@ const UK_DEFAULT = {
   about_title: "Про переклади",
   music_title: "🎵 Молитовна музика (CC)",
   donate_title: "Підтримати проєкт ❤️",
-  donate_privat: "Картка ПриватБанк", donate_copy: "Скопіювати картку 🟢",
+  donate_privat: "Картка Ощадбанк", donate_copy: "Скопіювати картку 🟢",
   donate_copy_alert: "Номер картки скопійовано! 👍",
   settings_title: "Оформлення", settings_font: "Шрифт",
   settings_font_classic: "Класика", settings_font_tradition: "Традиція", settings_font_modern: "Сучасний",
@@ -76,6 +76,18 @@ const UK_DEFAULT = {
   title_categories: "Категорії", title_prev: "Попередній трек",
   title_repeat: "Режим повтору", title_shuffle: "Перемішати", title_next: "Наступний трек",
   notif_body: "Зупинись на хвилину, прочитай вірш і помолися від серця. 🙏",
+
+  // ── Додано: ключі, яких бракувало (раніше світилась англійська/українська) ──
+  toggle_glass: "✦ Скляний стиль", btn_copy_text: "Скопіювати текст",
+  title_search: "Пошук", search_placeholder: "Пошук за словом чи посиланням…",
+  share_img_hint: "Затримайте картинку пальцем, щоб зберегти або переслати",
+  about_bsb_desc: "Публічне надбання (Public Domain), офіційний текстовий модуль. Використовується без обмежень.",
+  about_uk_name: "🇺🇦 Українська — переклад І. Огієнка",
+  about_uk_desc: "Використовується з дозволу правовласника.",
+  toast_glass_on: "✦ Скляний стиль увімкнено", toast_glass_off: "✦ Скляний стиль вимкнено",
+  toast_cat_restart: "📖 Ви переглянули всі вірші цієї категорії — починаємо спочатку",
+  toast_copy_failed: "⚠️ Не вдалося скопіювати", toast_preparing_image: "🖼️ Готуємо картинку…",
+  media_album: "Молитовна музика", search_empty: "Нічого не знайдено",
 };
 
 // _currentUI одразу містить українські рядки — t() працює з першої секунди
