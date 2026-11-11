@@ -103,7 +103,7 @@ async function fetchVerses() {
     if (typeof window._onVersesReady === 'function') window._onVersesReady();
   } catch (err) {
     console.error('verses.json не завантажився:', err);
-    showToast('⚠️ Не вдалося завантажити вірші');
+    showToast(t('toast_load_error'));
     $('verseLoading')?.remove();
     // Якщо вірші взагалі не завантажились — window._onVersesReady()
     // (і, відповідно, hideSplash() з i18n.js) ніколи не викличеться.
@@ -474,7 +474,7 @@ function buildCatPills(categories) {
   const bar = $('catBar');
   if (!bar) return;
   const pills = [
-    `<div class="pill active" data-cat="all">Усі</div>`,
+    `<div class="pill active" data-cat="all">${t('cat_all')}</div>`,
     ...Object.entries(categories).map(
       ([key, label]) => `<div class="pill" data-cat="${key}">${label}</div>`
     )
@@ -507,7 +507,7 @@ function switchCat(catKey, resumeProgress = true) {
       S.idx = seen + 1;
     } else {
       S.idx = 0;
-      if (typeof seen === 'number') showToast('📖 Ви переглянули всі вірші цієї категорії — починаємо спочатку');
+      if (typeof seen === 'number') showToast(t('toast_cat_restart'));
     }
   } else {
     S.idx = Math.max(0, S.pool.length - 1);
@@ -737,7 +737,7 @@ function updateMediaSession(track) {
   navigator.mediaSession.metadata = new MediaMetadata({
     title:  track ? track.name : 'Holy Vibe',
     artist: 'Holy Vibe App',
-    album:  'Молитовна музика',
+    album:  t('media_album'),
     artwork: [
       { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
       { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
@@ -828,7 +828,7 @@ function playTrack(i) {
     })
     .catch(err => {
       console.warn('Audio error:', err);
-      showToast('⚠️ Не вдалося завантажити трек');
+      showToast(window.t('toast_track_error'));
     });
 }
 
@@ -931,7 +931,7 @@ function buildBgGrid() {
         bgEl.dataset.photo = '0';
       }
       applyStyle();
-      showToast(url ? '🖼️ Фон змінено' : '🖼️ Фон прибрано');
+      showToast(t(url ? 'toast_bg_changed' : 'toast_bg_removed'));
       saveSettings();
     });
   });
@@ -959,7 +959,7 @@ $('bg').dataset.photo = '0';
 document.querySelectorAll('.font-opt').forEach(o =>
   o.addEventListener('click', () => {
     document.querySelectorAll('.font-opt').forEach(x=>x.classList.remove('active'));
-    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast('Шрифт змінено');
+    o.classList.add('active'); S.font=o.dataset.font; applyStyle(); saveSettings(); showToast(t('toast_font_changed'));
   })
 );
 document.querySelectorAll('.color-dot').forEach(d =>
@@ -991,7 +991,7 @@ $('tglGlass').addEventListener('click', function() {
   this.classList.toggle('on', S.glass);
   applyGlass();
   saveSettings();
-  showToast(S.glass ? '✦ Скляний стиль увімкнено' : '✦ Скляний стиль вимкнено');
+  showToast(t(S.glass ? 'toast_glass_on' : 'toast_glass_off'));
 });
 
 $('tglAutoBg').addEventListener('click', function() {
@@ -1002,7 +1002,7 @@ $('tglAutoBg').addEventListener('click', function() {
     applyAutoBg();
     applyStyle();
     saveSettings();
-    showToast('🖼️ Авто-фон увімкнено');
+    showToast(t('toast_autobg_on'));
   } else {
     // Вимикаємо — прибираємо фото-фон
     const bgEl = $('bg');
@@ -1013,7 +1013,7 @@ $('tglAutoBg').addEventListener('click', function() {
       t.classList.toggle('active', i === 0));
     applyStyle();
     saveSettings();
-    showToast('🖼️ Авто-фон вимкнено');
+    showToast(t('toast_autobg_off'));
   }
 });
 
@@ -1289,7 +1289,7 @@ function runSearch(query) {
   ).slice(0, 50);
 
   if (!matches.length) {
-    box.innerHTML = `<div class="search-empty">Нічого не знайдено</div>`;
+    box.innerHTML = `<div class="search-empty">${t('search_empty')}</div>`;
     return;
   }
 
@@ -1694,7 +1694,7 @@ $('shareImgClose').addEventListener('click', () => {
 function shareVerseAsTextFallback(v) {
   const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
   if (navigator.share) navigator.share({ text: txt }).catch(() => {});
-  else { navigator.clipboard?.writeText(txt); showToast('📋 Вірш скопійовано'); }
+  else { navigator.clipboard?.writeText(txt); showToast(t('toast_copied')); }
 }
 
 // Копіювання без діалогу "Поділитися" — просто одразу в буфер обміну
@@ -1702,7 +1702,7 @@ function copyVerseText(v) {
   const txt = `«${v.text.replace(/\n/g, ' ')}» — ${v.ref}`;
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(txt)
-      .then(() => showToast('📋 Вірш скопійовано'))
+      .then(() => showToast(t('toast_copied')))
       .catch(() => copyViaFallback(txt));
   } else {
     copyViaFallback(txt);
@@ -1720,9 +1720,9 @@ function copyViaFallback(txt) {
     ta.focus(); ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    showToast('📋 Вірш скопійовано');
+    showToast(t('toast_copied'));
   } catch {
-    showToast('⚠️ Не вдалося скопіювати');
+    showToast(t('toast_copy_failed'));
   }
 }
 
@@ -1737,7 +1737,7 @@ $('btnShare').addEventListener('click', async () => {
   if (_shareInProgress) return; // ігноруємо повторний тап, поки вже йде генерація
   const v = cv(); if (!v) return;
   closeSheet();
-  showToast('🖼️ Готуємо картинку…');
+  showToast(t('toast_preparing_image'));
   _shareInProgress = true;
 
   try {
