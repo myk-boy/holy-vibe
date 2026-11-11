@@ -123,7 +123,11 @@
     "toast_copy_failed": "⚠️ Could not copy",
     "toast_preparing_image": "🖼️ Preparing image…",
     "media_album": "Prayer music",
-    "search_empty": "Nothing found"
+    "search_empty": "Nothing found",
+    "track1_name": "Soaking Prayer — Jesse Quinn",
+    "track2_name": "Calm Worship Piano — Jesse Quinn",
+    "track3_name": "Peaceful Soaking Loop — Jesse Quinn",
+    "track_license": "Jesse Quinn Media — used with permission"
   },
   "verses": [
     {
