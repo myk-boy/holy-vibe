@@ -747,10 +747,12 @@ function updateMediaSession(track) {
     try { navigator.mediaSession.setActionHandler(action, fn); } catch { /* не підтримується */ }
   };
   setHandler('play',  () => {
+    if (S.playing >= 0) saveMusicState(S.playing);
     audioEl.play().catch(() => {});
     navigator.mediaSession.playbackState = 'playing';
   });
   setHandler('pause', () => {
+    clearMusicState();
     audioEl.pause();
     navigator.mediaSession.playbackState = 'paused';
     // Не скидаємо S.playing — лише пауза, не зупинка
@@ -771,6 +773,47 @@ function updateMediaSession(track) {
 // document.addEventListener('visibilitychange', () => {
 //   if (document.hidden && S.playing >= 0) audioEl.pause();
 // });
+
+/* ── Запам'ятовуємо, що музика грала при виході, і відновлюємо її при старті ──
+   Зберігаємо лише ЯВНІ дії користувача (старт треку / зупинка / пауза з шторки),
+   а не події audioEl 'pause' — інакше телефонний дзвінок чи згортання
+   скинули б збережений стан.
+──────────────────────────────────────────────────────────────────── */
+const MUSIC_KEY = 'hv_music';
+function saveMusicState(i) {
+  try { localStorage.setItem(MUSIC_KEY, JSON.stringify({ playing: true, track: i })); } catch {}
+}
+function clearMusicState() {
+  try { localStorage.removeItem(MUSIC_KEY); } catch {}
+}
+
+function resumeMusicOnStart() {
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(MUSIC_KEY) || 'null'); } catch {}
+  if (!saved || !saved.playing || !TRACKS.length) return;
+  const idx = Number.isInteger(saved.track) ? saved.track : 0;
+  if (idx < 0 || idx >= TRACKS.length) return;
+
+  // WebView/браузер може заборонити автозапуск без дотику користувача.
+  // Тоді чекаємо на перший дотик і запускаємо музику саме тоді.
+  let done = false;
+  const events = ['touchend', 'click'];
+  const cleanup = () => { done = true; events.forEach(ev => document.removeEventListener(ev, onGesture, true)); };
+  const onGesture = (e) => {
+    if (done) return;
+    // Якщо людина сама торкнулась керування музикою — не втручаємось
+    if (e.target && e.target.closest && e.target.closest('.music-track, #btnPrevTrack, #btnNextTrack')) { cleanup(); return; }
+    cleanup();
+    playTrack(idx, { silent: true, onBlocked: () => {
+      // дотик не зарахувався як «жест» — спробуємо ще раз при наступному
+      done = false; events.forEach(ev => document.addEventListener(ev, onGesture, true));
+    }});
+  };
+
+  playTrack(idx, { silent: true, onBlocked: () => {
+    events.forEach(ev => document.addEventListener(ev, onGesture, true));
+  }});
+}
 
 function buildTrackList() {
   const container = $('trackList'); if (!container) return;
@@ -802,7 +845,7 @@ function clearTrackUI(i) {
 }
 
 // Запускає трек за індексом
-function playTrack(i) {
+function playTrack(i, opts = {}) {
   if (!TRACKS.length) return;
   i = ((i % TRACKS.length) + TRACKS.length) % TRACKS.length; // циклічно
   const t = TRACKS[i];
@@ -821,19 +864,24 @@ function playTrack(i) {
       $(`track${i}`)?.classList.add('playing');
       $(`tname${i}`)?.classList.add('playing');
       const ico = $(`ico${i}`); if (ico) ico.textContent = '⏸';
-      showToast('🎵 ' + t.name);
+      if (!opts.silent) showToast('🎵 ' + t.name);
+      saveMusicState(i);
       updateMediaSession(t);
       if ('mediaSession' in navigator)
         navigator.mediaSession.playbackState = 'playing';
     })
     .catch(err => {
       console.warn('Audio error:', err);
-      showToast(window.t('toast_track_error'));
+      // Автозапуск при старті може бути заблокований системою (потрібен дотик) —
+      // це не помилка треку, тому тост не показуємо, а передаємо далі.
+      if (opts.onBlocked && err && err.name === 'NotAllowedError') { opts.onBlocked(); return; }
+      if (!opts.silent) showToast(window.t('toast_track_error'));
     });
 }
 
 // Повна зупинка глобального плеєра
 function stopTrack() {
+  clearMusicState();
   audioEl.pause();
   clearTrackUI(S.playing);
   S.playing = -1;
@@ -1241,6 +1289,7 @@ setSliderBg(fs, S.size);
 setSliderBg(is, S.iconSize);
 fetchVerses();
 buildTrackList();
+resumeMusicOnStart(); // якщо при виході грала музика — вмикаємо знову
 fetchBackgrounds(); // завантажує backgrounds.json і будує грід фонів
 
 // Прогріваємо шрифти, потрібні для генерації картинки "Поділитися",
