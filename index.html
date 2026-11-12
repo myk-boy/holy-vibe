@@ -170,34 +170,6 @@
 
       <div class="menu-divider"></div>
 
-      <div class="menu-section">
-        <div class="menu-row" onclick="toggleDonateSpoiler()" style="color:rgba(201,168,76,.8); cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 4px 0;">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 17c-4-3.5-7-6.5-7-9.5a5 5 0 0 1 7-4.6A5 5 0 0 1 17 7.5c0 3-3 6-7 9.5z" stroke="#c9a84c" stroke-width="1.3"/>
-            </svg>
-            <span data-i18n="donate_title">Підтримати проєкт ❤️</span>
-          </div>
-          <span id="donateArrow" style="transition: transform 0.3s ease; font-size: 12px; color: rgba(201,168,76,.5);">▼</span>
-        </div>
-
-        <div id="donateSpoiler" style="display: none; margin-top: 15px; transition: all 0.3s ease;">
-          <a href="https://www.paypal.com/donate/?hosted_button_id=PFLMN9VTMCPDY" target="_blank" class="menu-item" style="text-decoration: none; display: block; background: #0070ba; color: #ffffff; text-align: center; font-weight: bold; border-radius: 8px; padding: 12px; margin-bottom: 12px; font-size: 14px;">
-            Support via PayPal (Worldwide) 🌐
-          </a>
-
-          <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 12px; text-align: center;">
-            <div style="font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 5px;" data-i18n="donate_privat">Картка Ощадбанк:</div>
-            <div style="font-size: 17px; font-weight: bold; color: #ffffff; letter-spacing: 1px; margin-bottom: 10px;">
-              4483 8200 4718 1796
-            </div>
-            <button onclick="navigator.clipboard.writeText('4483820047181796'); alert(window._currentUI?.donate_copy_alert || 'Номер картки скопійовано! 👍')" style="background: #70A400; color: white; border: none; width: 100%; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px;">
-              <span data-i18n="donate_copy">Скопіювати картку 🟢</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
       <!-- ═══════════════════════════════════════════════════════════
            ℹ️ ПРО ПЕРЕКЛАДИ / АВТОРСЬКІ ПРАВА
            Тут вручну (прямо в цьому HTML) додаєш/оновлюєш інформацію
@@ -499,18 +471,6 @@
       if (!el) return;
       el.classList.add('hide');
       setTimeout(function () { el.remove(); }, 600);
-    }
-
-    function toggleDonateSpoiler() {
-      var spoiler = document.getElementById('donateSpoiler');
-      var arrow = document.getElementById('donateArrow');
-      if (spoiler.style.display === 'none' || spoiler.style.display === '') {
-        spoiler.style.display = 'block';
-        arrow.style.transform = 'rotate(180deg)';
-      } else {
-        spoiler.style.display = 'none';
-        arrow.style.transform = 'rotate(0deg)';
-      }
     }
 
     function toggleAboutSpoiler() {
