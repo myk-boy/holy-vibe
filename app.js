@@ -735,7 +735,7 @@ function renderFavList() {
 function updateMediaSession(track) {
   if (!('mediaSession' in navigator)) return;
   navigator.mediaSession.metadata = new MediaMetadata({
-    title:  track ? track.name : 'Holy Vibe',
+    title:  track ? trackName(TRACKS.indexOf(track)) : 'Holy Vibe',
     artist: 'Holy Vibe App',
     album:  t('media_album'),
     artwork: [
@@ -815,14 +815,34 @@ function resumeMusicOnStart() {
   }});
 }
 
+/* ── Назви треків і ліцензія беруться з мовного файлу (track1_name … track_license).
+   Якщо ключа немає — показуємо оригінальну назву з масиву TRACKS. ── */
+function trackName(i) {
+  const key = `track${i + 1}_name`;
+  const v = window._currentUI?.[key] ?? (typeof UK_DEFAULT !== 'undefined' ? UK_DEFAULT[key] : undefined);
+  return v ?? TRACKS[i]?.name ?? '';
+}
+function trackLicense(i) {
+  const v = window._currentUI?.track_license;
+  return v ?? TRACKS[i]?.license ?? '';
+}
+// Оновлює тексти вже побудованого списку (викликається з applyI18n при зміні мови)
+function refreshTrackTexts() {
+  TRACKS.forEach((_, i) => {
+    const n = $(`tname${i}`); if (n) n.textContent = trackName(i);
+    const l = document.querySelector(`#track${i} .track-license`); if (l) l.textContent = trackLicense(i);
+  });
+  if (S.playing >= 0 && TRACKS[S.playing]) updateMediaSession(TRACKS[S.playing]);
+}
+
 function buildTrackList() {
   const container = $('trackList'); if (!container) return;
   container.innerHTML = TRACKS.map((t,i) => `
     <div class="music-track" id="track${i}">
       <div class="track-play-btn" id="ico${i}">▶</div>
       <div class="track-info">
-        <div class="track-name" id="tname${i}">${t.name}</div>
-        <div class="track-license">${t.license}</div>
+        <div class="track-name" id="tname${i}">${trackName(i)}</div>
+        <div class="track-license">${trackLicense(i)}</div>
       </div>
     </div>`).join('');
 
@@ -864,7 +884,7 @@ function playTrack(i, opts = {}) {
       $(`track${i}`)?.classList.add('playing');
       $(`tname${i}`)?.classList.add('playing');
       const ico = $(`ico${i}`); if (ico) ico.textContent = '⏸';
-      if (!opts.silent) showToast('🎵 ' + t.name);
+      if (!opts.silent) showToast('🎵 ' + trackName(i));
       saveMusicState(i);
       updateMediaSession(t);
       if ('mediaSession' in navigator)

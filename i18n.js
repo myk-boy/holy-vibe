@@ -192,6 +192,7 @@ function applyI18n(ui) {
   });
   const sel = document.getElementById('langSelect');
   if (sel) sel.value = currentLang;
+  if (typeof refreshTrackTexts === 'function') refreshTrackTexts();
 }
 
 
